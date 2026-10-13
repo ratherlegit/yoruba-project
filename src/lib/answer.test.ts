@@ -36,7 +36,7 @@ describe("feedbackFor", () => {
   });
   it("contains no em dash", () => {
     for (const k of ["correct", "tone", "mark", "wrong"] as const) {
-      expect(feedbackFor(k, "x")).not.toContain("—");
+      expect(feedbackFor(k, "x")).not.toContain("\u2014");
     }
   });
 });
