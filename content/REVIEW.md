@@ -126,7 +126,7 @@ Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chap
 - `jeun`: **jẹun** (eat (a meal))
   - Parts: jẹ + ohun
   - Steps: jẹohun > jẹun
-  - Doubt: Wiktionary gives jẹ + ohun as the origin. It does not describe the sound changes, so the single drop step is a simplification. Confirm the tones of ohun.
+  - Doubt: Wiktionary gives jẹ + ohun as the origin, and this rests on that one dictionary entry. It does not describe the sound changes, so the single drop step is a simplification. Confirm the tones of ohun.
 - `o-n-lo`: **Ó ń lọ** (He (or she) is going)
   - Parts: Ó + ń + lọ
   - Doubt: Built on COERLL's Ó ń ṣeré (he or she is playing) and Mò ń lọ (I am going). Ó ń lọ itself is not written out there. Confirm.
@@ -179,7 +179,7 @@ Sources consulted: Wikipedia, "Yoruba language", Grammar section (citing Bamgbo�
   - Doubt: Taken from Wikipedia, which cites Bamgboṣe and Rowlands. The tones on Àkàndé come from that page only. Confirm.
 - `ile-baba`: **ilé bàbá** (father's house)
   - Parts: ilé + bàbá
-  - Doubt: Wiktionary gives both bàbá and baba for father; COERLL uses bàbá. Confirm which form fits this phrase.
+  - Doubt: Wiktionary gives both bàbá and baba for father; COERLL uses bàbá. Confirm which form fits this phrase. The common mistake links bàbá ilé to baálé (baba + ilé), which rests on Wiktionary alone. Confirm.
 - `ile-baba-mi`: **ilé bàbá mi** (my father's house)
   - Parts: ilé + bàbá + mi
   - Doubt: Not written out in a source. COERLL writes bàbáà mi, with a lengthened vowel, in Orúkọ bàbáà mi. Confirm the spelling learners should use.

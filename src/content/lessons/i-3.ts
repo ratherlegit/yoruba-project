@@ -19,7 +19,7 @@ export const i3: Lesson = {
       { id: "olu-verb", title: "olù- + verb", explanation: "olù- goes before a verb: olù + kọ́ (teach) = olùkọ́, teacher. Only some verbs take it, so learn olù- words one at a time." },
       { id: "oni-noun", title: "oní- + noun", explanation: "oní- goes before a noun: oní + ilé (house) = onílé, landlord, the one who owns the house." },
       { id: "oni-i-merge", title: "oní- before i", explanation: "When the noun starts with i, the two i sounds merge into one high-tone í: oní + ilé = onílé." },
-      { id: "oni-harmony", title: "oní- takes on the noun's vowel", explanation: "When the noun starts with another vowel, the prefix changes to match it and n becomes l: oní + ẹja = ẹlẹ́ja (fish seller), oní + àkàrà = alákàrà (akara seller). The noun's first vowel merges into the prefix." },
+      { id: "oni-harmony", title: "oní- takes on the noun's vowel (several changes at once)", explanation: "When the noun starts with another vowel, the prefix changes to match it and n becomes l: oní + ẹja = ẹlẹ́ja (fish seller), oní + àkàrà = alákàrà (akara seller). The noun's first vowel merges into the prefix. Several sound changes happen together here. The one step shown stands for all of them. Wiktionary gives only the result, not separate stages." },
     ],
     examples: [
       {

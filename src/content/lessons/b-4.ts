@@ -14,7 +14,7 @@ export const b4: Lesson = {
     "Not cross-checked against a print grammar.",
   ],
   primer: {
-    rule: "Put ṣé at the start of a statement to make a yes or no question. Start with kí ni to ask \"what\".",
+    rule: "Put ṣé at the start of a statement to make a yes or no question. Start with kí ni to ask \"what\". A question word is a word that starts a question. An adverb is a word that tells how an action is done, such as dáadáa, well.",
     formula: "ṣé + statement?; kí ni + rest of the question?",
     rules: [
       { id: "se-first", title: "ṣé comes first", explanation: "Take a statement such as O fẹ́ jẹun (you want to eat) and put ṣé in front: Ṣé o fẹ́ jẹun? (do you want to eat?). Nothing else moves. ṣé has a high mark; ṣe with no mark is the verb \"do\"." },
@@ -70,7 +70,7 @@ export const b4: Lesson = {
     commonMistake: {
       wrong: "O fẹ́ jẹun ṣé?",
       right: "Ṣé o fẹ́ jẹun?",
-      why: "ṣé goes before the whole statement, not after it. Wiktionary describes it as placed before a sentence.",
+      why: "Putting ṣé at the end is not the usual form. Wiktionary (\"ṣe\") describes ṣé as placed before a sentence, and COERLL (page 41) puts it first in Ṣé o fẹ́ jẹun?",
     },
   },
   questions: [

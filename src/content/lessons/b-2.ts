@@ -70,7 +70,7 @@ export const b2: Lesson = {
     commonMistake: {
       wrong: "Mo kò lọ",
       right: "N kò lọ",
-      why: "Before kò, the usual form of mo (I) is n. COERLL and Wiktionary both show n in negative sentences. In speech, Mi ò lọ is also common.",
+      why: "Mo kò lọ is not the usual form. COERLL (page 35 and its pronoun table) and Wiktionary (\"n\") show n before kò in negative sentences. In speech, Mi ò lọ is also common.",
     },
   },
   questions: [

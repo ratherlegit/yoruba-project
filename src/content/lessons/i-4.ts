@@ -13,7 +13,7 @@ export const i4: Lesson = {
     "Not cross-checked against a print grammar.",
   ],
   primer: {
-    rule: "A demonstrative is a word like \"this\" or \"that\". In Yoruba it comes after the noun. A plural means more than one; Yoruba shows it with àwọn before the noun, and the noun itself never changes.",
+    rule: "A demonstrative is a word like \"this\" or \"that\". In Yoruba it comes after the noun. A plural means more than one; Yoruba shows it with àwọn before the noun, and the noun itself never changes. A particle is a small word that has a job but no meaning on its own, such as àwọn.",
     formula: "noun + yìí (this) or yẹn (that); àwọn + noun (plural)",
     rules: [
       { id: "after-noun", title: "This and that come after", explanation: "yìí (this) and yẹn (that) follow the noun: ọmọ yìí, this child. ọmọ yẹn, that child." },
@@ -62,7 +62,7 @@ export const i4: Lesson = {
     commonMistake: {
       wrong: "ọmọ àwọn",
       right: "àwọn ọmọ",
-      why: "àwọn marks the plural and goes before the noun. The noun does not change and takes no ending.",
+      why: "ọmọ àwọn is not the usual form for \"children\". COERLL (page 55) and Wiktionary (\"awọn\") put àwọn before the noun. The noun does not change and takes no ending.",
     },
   },
   questions: [

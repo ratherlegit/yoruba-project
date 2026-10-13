@@ -13,7 +13,7 @@ export const i1: Lesson = {
     "Not cross-checked against a print grammar.",
   ],
   primer: {
-    rule: "Small words before the verb tell you when or how often something happens. ti says it is done, máa and yóò say it will happen, and máa ń says it usually happens.",
+    rule: "Small words before the verb tell you when or how often something happens. ti says it is done, máa and yóò say it will happen, and máa ń says it usually happens. In the formula, the subject is who or what the sentence is about.",
     formula: "subject + ti + verb (done); subject + máa + verb (will); long pronoun + yóò + verb (will); subject + máa ń + verb (usually)",
     rules: [
       { id: "ti-done", title: "ti: done", explanation: "ti before the verb says the action has happened and still matters now: Mo ti jẹun, I have eaten (so I am full)." },

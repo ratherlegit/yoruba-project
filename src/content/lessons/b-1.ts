@@ -14,7 +14,7 @@ export const b1: Lesson = {
     "Èyí ni ilé mi is not written out in any consulted source; it follows the pattern of Wiktionary's Èyí ni mo fẹ́ rà (this is what I want to buy). Not cross-checked against a print grammar.",
   ],
   primer: {
-    rule: "Yoruba has two common words for \"to be\". jẹ́ says what someone is, such as a job. ni points out or names someone or something.",
+    rule: "Yoruba has two common words for \"to be\". jẹ́ says what someone is, such as a job. ni points out or names someone or something. In the formula, the subject is who or what the sentence is about.",
     formula: "subject + jẹ́ + noun (what someone is); èyí or a long pronoun + ni + noun (pointing out)",
     rules: [
       { id: "je-what", title: "jẹ́ says what you are", explanation: "Use jẹ́ for a job or a role: Mo jẹ́ olùkọ́, I am a teacher. jẹ́ has a high mark. Without it, jẹ means \"eat\"." },

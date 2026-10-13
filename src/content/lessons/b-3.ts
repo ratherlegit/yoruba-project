@@ -12,7 +12,7 @@ export const b3: Lesson = {
     "COERLL writes the pronoun as mò (low tone) before ń, while Wiktionary writes Mo ń jẹun. This lesson follows Wiktionary and notes the difference. Not cross-checked against a print grammar.",
   ],
   primer: {
-    rule: "ń is an aspect marker: a small word before the verb that tells you how the action unfolds. ń says the action is going on.",
+    rule: "ń is an aspect marker: a small word before the verb that tells you how the action unfolds. ń says the action is going on. In the formula, the subject is who or what the sentence is about.",
     formula: "subject + ń + verb",
     rules: [
       { id: "n-ongoing", title: "ń means going on", explanation: "Put ń between the subject and the verb: Mo ń jẹun, I am eating. It usually means now, but it can also describe something that was going on: I was eating." },
@@ -41,7 +41,7 @@ export const b3: Lesson = {
           { kind: "elide", result: "jẹun", ruleId: "jeun-fusion" },
         ],
         confidence: "needs-review",
-        note: "Wiktionary gives jẹ + ohun as the origin. It does not describe the sound changes, so the single drop step is a simplification. Confirm the tones of ohun.",
+        note: "Wiktionary gives jẹ + ohun as the origin, and this rests on that one dictionary entry. It does not describe the sound changes, so the single drop step is a simplification. Confirm the tones of ohun.",
       },
       {
         id: "o-n-lo", surface: "Ó ń lọ", english: "He (or she) is going",

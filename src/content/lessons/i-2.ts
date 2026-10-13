@@ -46,7 +46,7 @@ export const i2: Lesson = {
           { text: "bàbá", gloss: "father", role: "noun (owner)" },
         ],
         steps: [], confidence: "needs-review",
-        note: "Wiktionary gives both bàbá and baba for father; COERLL uses bàbá. Confirm which form fits this phrase.",
+        note: "Wiktionary gives both bàbá and baba for father; COERLL uses bàbá. Confirm which form fits this phrase. The common mistake links bàbá ilé to baálé (baba + ilé), which rests on Wiktionary alone. Confirm.",
       },
       {
         id: "ile-baba-mi", surface: "ilé bàbá mi", english: "my father's house",
