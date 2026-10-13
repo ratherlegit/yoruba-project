@@ -1,4 +1,5 @@
 import type { Lesson } from "@/content/types";
+import { primerHeading } from "@/lib/construction";
 import { ToneChip } from "./ToneChip";
 import { WordBreakdownCard } from "./WordBreakdownCard";
 
@@ -29,7 +30,7 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
       )}
 
       <section style={{ display: "grid", gap: "0.75rem" }}>
-        <h3>See how words are built</h3>
+        <h3>{primerHeading(primer.examples)}</h3>
         {primer.examples.map((w) => (
           <WordBreakdownCard key={w.id} word={w} rules={primer.rules} />
         ))}

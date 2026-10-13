@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Rule, WordBreakdown } from "@/content/types";
+import { hasConstruction } from "@/lib/construction";
 import { SHOW_REVIEW_MARKERS } from "@/lib/flags";
 import { AudioButton } from "./AudioButton";
 import { PitchLine } from "./PitchLine";
@@ -12,14 +13,31 @@ export function WordBreakdownCard({ word, rules, showReviewMarker = SHOW_REVIEW_
   const finished = shown >= total;
   const ruleTitle = (id?: string) => rules.find((r) => r.id === id)?.title;
 
+  const header = (
+    <header style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
+      <strong>{word.english}</strong>
+      {showReviewMarker && word.confidence === "needs-review" && (
+        <span className="review-marker" title={word.note}>pending review</span>
+      )}
+    </header>
+  );
+
+  if (!hasConstruction(word)) {
+    return (
+      <article className="card" style={{ display: "grid", gap: "0.75rem" }}>
+        {header}
+        <div style={{ display: "grid", gap: "0.5rem" }}>
+          <div className="yo"><strong>{word.surface}</strong></div>
+          <PitchLine word={word.surface} />
+          <AudioButton text={word.surface} />
+        </div>
+      </article>
+    );
+  }
+
   return (
     <article className="card" style={{ display: "grid", gap: "0.75rem" }}>
-      <header style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
-        <strong>{word.english}</strong>
-        {showReviewMarker && word.confidence === "needs-review" && (
-          <span className="review-marker" title={word.note}>pending review</span>
-        )}
-      </header>
+      {header}
 
       <div className="parts" aria-label="Components">
         {word.parts.map((p, i) => (
