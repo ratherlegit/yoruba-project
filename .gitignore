@@ -8,3 +8,7 @@ playwright-report
 .superpowers
 .DS_Store
 .environmental-impact-log.json
+
+tools/audio/.venv
+tools/audio/.cache
+__pycache__
