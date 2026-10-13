@@ -5,7 +5,7 @@ import { useProgress } from "@/hooks/useProgress";
 import { isLevelUnlocked } from "@/lib/progress";
 
 export function Home() {
-  const { progress, update } = useProgress();
+  const { progress, update, loaded } = useProgress();
   return (
     <main className="page" style={{ display: "grid", gap: "1rem" }}>
       <h1 style={{ marginBottom: 0 }}>Learn Yoruba grammar</h1>
@@ -22,7 +22,8 @@ export function Home() {
       </label>
       <div style={{ display: "grid", gap: "0.75rem" }}>
         {LEVELS.map((lv) => {
-          const unlocked = isLevelUnlocked(LEVELS, progress, lv.id);
+          // Until saved progress has loaded, do not present any level as locked.
+          const unlocked = !loaded || isLevelUnlocked(LEVELS, progress, lv.id);
           const done = lv.lessons.filter((l) => progress.completedLessons[l.id]).length;
           return (
             <Link

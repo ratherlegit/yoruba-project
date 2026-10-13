@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Yoruba Project</title>
+    <script>
+      try {
+        var p = JSON.parse(localStorage.getItem("yp:progress:v1") || "null");
+        if (p && (p.theme === "light" || p.theme === "dark")) document.documentElement.setAttribute("data-theme", p.theme);
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

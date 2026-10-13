@@ -11,7 +11,7 @@ import { isLevelUnlocked, recordCompletion } from "@/lib/progress";
 
 type View =
   | { name: "primer" }
-  | { name: "activity"; questions: Question[]; attempt: number }
+  | { name: "activity"; questions: Question[]; attempt: number; full: boolean }
   | { name: "results"; result: ActivityResult };
 
 // Keyed by lesson so moving to the next lesson resets the view state.
@@ -45,7 +45,7 @@ function LessonView({ levelId, lessonId }: { levelId: string; lessonId: string }
       {view.name === "primer" && (
         <Primer
           lesson={lesson}
-          onStart={() => setView({ name: "activity", questions: lesson.questions, attempt: 0 })}
+          onStart={() => setView({ name: "activity", questions: lesson.questions, attempt: 0, full: true })}
         />
       )}
 
@@ -58,7 +58,7 @@ function LessonView({ levelId, lessonId }: { levelId: string; lessonId: string }
           <Activity
             key={view.attempt}
             questions={view.questions}
-            onDone={(r) => finish(r, view.questions.length === lesson.questions.length)}
+            onDone={(r) => finish(r, view.full)}
           />
         </>
       )}
@@ -72,7 +72,7 @@ function LessonView({ levelId, lessonId }: { levelId: string; lessonId: string }
           next={nextLessonPath(level.id, lesson.id)}
           onReviewInstructions={() => setView({ name: "primer" })}
           onRetryMissed={() =>
-            setView({ name: "activity", questions: view.result.missed, attempt: Date.now() })
+            setView({ name: "activity", questions: view.result.missed, attempt: Date.now(), full: false })
           }
         />
       )}
