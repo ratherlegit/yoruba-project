@@ -3,7 +3,7 @@ import { cleanAnswer, nfc, stripMarks, stripTones } from "./normalize";
 
 describe("normalize", () => {
   it("nfc composes decomposed input", () => {
-    expect(nfc("ọ")).toBe("ọ");
+    expect(nfc("o\u0323")).toBe("\u1ecd");
   });
   it("stripTones removes tone marks but keeps under-dots", () => {
     expect(stripTones("ọkọ̀")).toBe("ọkọ");

@@ -1,9 +1,9 @@
 import type { Tone } from "@/content/types";
 
-const ACUTE = "́";
-const GRAVE = "̀";
+const ACUTE = "\u0301";
+const GRAVE = "\u0300";
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
-const isMark = (c: string | undefined): boolean => !!c && /[̀-ͯ]/.test(c);
+const isMark = (c: string | undefined): boolean => !!c && /[\u0300-\u036f]/.test(c);
 
 type Letter = { base: string; text: string; tone: Tone };
 

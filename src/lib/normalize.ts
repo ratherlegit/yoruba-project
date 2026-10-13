@@ -1,5 +1,5 @@
-const TONE_MARKS = /[̀́̄]/g;
-const ALL_MARKS = /[̀-ͯ]/g;
+const TONE_MARKS = /[\u0300\u0301\u0304]/g;
+const ALL_MARKS = /[\u0300-\u036f]/g;
 
 export const nfc = (s: string): string => s.normalize("NFC");
 
