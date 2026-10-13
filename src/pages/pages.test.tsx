@@ -43,7 +43,7 @@ describe("pages", () => {
     expect(await screen.findByText(/finish all of Getting Started/i)).toBeInTheDocument();
   });
 
-  it("a saved Unlock all setting opens a later level directly, with no locked flash", async () => {
+  it("a user with Unlock all saved can open a locked-by-default level directly", async () => {
     saveProgress({ ...emptyProgress, skipAhead: true });
     await renderAt("/level/beginner");
     expect(await screen.findByRole("heading", { name: "Beginner" })).toBeInTheDocument();

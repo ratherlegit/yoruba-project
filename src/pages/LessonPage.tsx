@@ -14,8 +14,13 @@ type View =
   | { name: "activity"; questions: Question[]; attempt: number }
   | { name: "results"; result: ActivityResult };
 
+// Keyed by lesson so moving to the next lesson resets the view state.
 export function LessonPage() {
   const { levelId, lessonId } = useParams({ strict: false }) as { levelId: string; lessonId: string };
+  return <LessonView key={`${levelId}/${lessonId}`} levelId={levelId} lessonId={lessonId} />;
+}
+
+function LessonView({ levelId, lessonId }: { levelId: string; lessonId: string }) {
   const { progress, update, loaded } = useProgress();
   const [view, setView] = useState<View>({ name: "primer" });
   const [showPrimer, setShowPrimer] = useState(false);

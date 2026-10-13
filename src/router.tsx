@@ -2,6 +2,7 @@ import { createRootRoute, createRoute, createRouter } from "@tanstack/react-rout
 import { Layout } from "@/components/Layout";
 import { NotFound } from "@/components/NotFound";
 import { About } from "@/pages/About";
+import { Breakdown } from "@/pages/Breakdown";
 import { Diacritics } from "@/pages/Diacritics";
 import { Home } from "@/pages/Home";
 import { LessonPage } from "@/pages/LessonPage";
@@ -15,7 +16,10 @@ const routes = [
   createRoute({ getParentRoute: () => rootRoute, path: "/lesson/$levelId/$lessonId", component: LessonPage }),
   createRoute({ getParentRoute: () => rootRoute, path: "/about", component: About }),
   ...(import.meta.env.DEV
-    ? [createRoute({ getParentRoute: () => rootRoute, path: "/dev/diacritics", component: Diacritics })]
+    ? [
+        createRoute({ getParentRoute: () => rootRoute, path: "/dev/diacritics", component: Diacritics }),
+        createRoute({ getParentRoute: () => rootRoute, path: "/dev/breakdown", component: Breakdown }),
+      ]
     : []),
 ];
 

@@ -4,7 +4,7 @@ export function ProgressRing({ done, total }: { done: number; total: number }) {
   const frac = total === 0 ? 0 : done / total;
   return (
     <svg width="48" height="48" viewBox="0 0 48 48" role="img" aria-label={`${done} of ${total} lessons complete`}>
-      <circle cx="24" cy="24" r={r} fill="none" stroke="var(--surface-2)" strokeWidth="6" />
+      <circle cx="24" cy="24" r={r} fill="none" stroke="var(--text-muted)" strokeOpacity="0.35" strokeWidth="6" />
       <circle
         cx="24" cy="24" r={r} fill="none" stroke="var(--primary)" strokeWidth="6" strokeLinecap="round"
         strokeDasharray={c} strokeDashoffset={c * (1 - frac)} transform="rotate(-90 24 24)"

@@ -30,7 +30,7 @@ export function Home() {
               to="/level/$levelId"
               params={{ levelId: lv.id }}
               className="card"
-              style={{ display: "flex", gap: "1rem", alignItems: "center", textDecoration: "none", color: "var(--text)", opacity: unlocked ? 1 : 0.7 }}
+              style={{ display: "flex", gap: "1rem", alignItems: "center", textDecoration: "none", color: "var(--text)", borderStyle: unlocked ? "solid" : "dashed" }}
             >
               <ProgressRing done={done} total={lv.lessons.length} />
               <span style={{ display: "grid" }}>

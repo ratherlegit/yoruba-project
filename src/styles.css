@@ -73,7 +73,7 @@ a { color: var(--accent); }
 
 .parts { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: stretch; }
 .part-tile { background: var(--surface-2); border: 1px solid var(--border); border-radius: 0.6rem; padding: 0.4rem 0.7rem; min-width: 4.5rem; }
-.part-tile .yo { display: block; }
+.part-tile > span { display: block; }
 .steps { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.4rem; }
 .steps li { animation: rise 160ms ease-out; }
 .pitch { display: flex; flex-wrap: wrap; gap: 0.25rem; }
