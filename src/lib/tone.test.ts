@@ -1,0 +1,44 @@
+import { describe, expect, it } from "vitest";
+import { syllabify, toneOf } from "./tone";
+
+describe("syllabify", () => {
+  it.each([
+    ["ọmọ", ["ọ", "mọ"]],
+    ["ẹja", ["ẹ", "ja"]],
+    ["káàárọ̀", ["ká", "à", "á", "rọ̀"]],
+    ["olùkọ́", ["o", "lù", "kọ́"]],
+    ["ìgbín", ["ì", "gbín"]],
+    ["ń", ["ń"]],
+    ["gbọ́", ["gbọ́"]],
+    ["ṣọ́ra", ["ṣọ́", "ra"]],
+    ["ọ̀nà", ["ọ̀", "nà"]],
+  ])("splits %s", (word, expected) => {
+    expect(syllabify(word)).toEqual(expected);
+  });
+
+  it("accepts decomposed input and returns NFC", () => {
+    expect(syllabify("ọmọ".normalize("NFD"))).toEqual(["ọ", "mọ"]);
+  });
+
+  it("throws on a consonant with no vowel", () => {
+    expect(() => syllabify("kt")).toThrow();
+  });
+});
+
+describe("toneOf", () => {
+  it.each([
+    ["ká", "high"],
+    ["à", "low"],
+    ["ma", "mid"],
+    ["ń", "high"],
+    ["ǹ", "low"],
+    ["gbọ́", "high"],
+    ["rọ̀", "low"],
+  ] as const)("%s is %s", (syllable, tone) => {
+    expect(toneOf(syllable)).toBe(tone);
+  });
+
+  it("throws when a syllable has conflicting tone marks", () => {
+    expect(() => toneOf("á̀")).toThrow();
+  });
+});
