@@ -23,45 +23,45 @@ Sources consulted: Needs cross-check against a published Yoruba orthography guid
   - Doubt: Confirm the tone on gbọ́.
 
 ### The three tones (`gs-2`)
-Sources consulted: Wiktionary, "ọkọ" (Yoruba section): ọkọ husband, ọkọ̀ vehicle, ọkọ́ hoe, ọ̀kọ̀ spear or lance.; Wiktionary, "oko" (Yoruba section): oko farm, field.; Wiktionary, "mi" (Yoruba section): mi as the determiner "my".; COERLL, Yorùbá Yé Mi (University of Texas at Austin), Appendix, vowel /ọ/ table, page 304: ọkọ́ hoe, ọ̀kọ̀ spear, ọkọ̀ vehicle, ọkọ husband. The PDF uses a legacy font, so the tone marks were decoded by hand.; Wikipedia, "Yoruba language", Phonology section: acute for high, grave for low, mid unmarked.; No source found that writes out the phrases ọkọ mi, ọkọ̀ mi, oko mi in full. They follow the noun + mi pattern. Not cross-checked against a print dictionary.
+Sources consulted: Wiktionary, "ọkọ" (Yoruba section): ọkọ husband, ọkọ̀ vehicle, ọkọ́ hoe, ọ̀kọ̀ spear or lance.; Wiktionary, "oko" (Yoruba section): oko farm, field.; Wiktionary, "mi" (Yoruba section): mi as the determiner "my".; COERLL, Yorùbá Yé Mi (University of Texas at Austin), Appendix, vowel /ọ/ table, page 304: ọkọ́ hoe, ọ̀kọ̀ spear, ọkọ̀ vehicle, ọkọ husband. The PDF uses a legacy font encoding for tone marks.; Wikipedia, "Yoruba language", Phonology section: acute for high, grave for low, mid unmarked.; The phrases ọkọ mi, ọkọ̀ mi, oko mi follow the noun + mi pattern. No consulted source writes them out in full. Not cross-checked against a print dictionary.
 
-- `oko-husband`: **ọkọ** (husband)
+- `word-husband`: **ọkọ** (husband)
   - Parts: ọ + kọ
   - Doubt: Wiktionary and the COERLL appendix give mid-mid for husband. Wiktionary also lists "dear, beloved" as a second sense. Confirm the tones with a speaker.
-- `oko-vehicle`: **ọkọ̀** (vehicle)
+- `word-vehicle`: **ọkọ̀** (vehicle)
   - Parts: ọ + kọ̀
   - Doubt: Wiktionary and the COERLL appendix agree on mid-low. Confirm that "vehicle" covers both car and boat, as Wiktionary suggests.
-- `oko-hoe`: **ọkọ́** (hoe)
+- `word-hoe`: **ọkọ́** (hoe)
   - Parts: ọ + kọ́
-  - Doubt: The lesson brief glossed ọkọ́ as "spear or hoe". Wiktionary and the COERLL appendix give ọkọ́ as hoe only, and spell spear ọ̀kọ̀. Confirm the gloss.
-- `oko-spear`: **ọ̀kọ̀** (spear)
+  - Doubt: Wiktionary and the COERLL appendix give ọkọ́ as hoe only, and spell spear ọ̀kọ̀. Confirm the gloss.
+- `word-spear`: **ọ̀kọ̀** (spear)
   - Parts: ọ̀ + kọ̀
-  - Doubt: Added from research, not in the brief. Wiktionary and the COERLL appendix give low-low for spear. Confirm both low tones.
-- `oko-farm`: **oko** (farm)
+  - Doubt: Wiktionary and the COERLL appendix give low-low for spear. Confirm both low tones.
+- `word-farm`: **oko** (farm)
   - Parts: o + ko
   - Doubt: Wiktionary gives oko as farm or field, mid-mid, no dots. Only one source checked for this word.
 
 ### Syllables and greetings (`gs-3`)
-Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 1 "Ìkíni", page 32: kú + àárọ̀ = káàárọ̀, kú + alẹ́ = káalẹ́, kú + iṣẹ́ = kúuṣẹ́, and ẹ as the pronoun of respect. The PDF uses a legacy font, so the tone marks were decoded by hand.; COERLL, Yorùbá Yé Mi, Appendix, "The syllabic [m] and [n]", page 312: a nasal can stand as its own syllable.; Wiktionary, "káàárọ̀", "káalẹ́", "kúuṣẹ́" (Yoruba sections): etymology kú + noun, and the usage note that ẹ comes first when speaking respectfully.; Wiktionary, "àárọ̀" and "alẹ́" (Yoruba sections): morning, evening.; Wikipedia, "Yoruba language", Phonology section: syllable shape (C)V(N), every syllable has a tone.; The lesson brief's evening form ẹ kalẹ́ was not found in these sources. Both give káalẹ́, so this lesson uses káalẹ́. Not cross-checked against a print grammar.
+Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 1 "Ìkíni", page 32: kú + àárọ̀ = káàárọ̀, kú + alẹ́ = káalẹ́, kú + iṣẹ́ = kúuṣẹ́; ẹ used to greet an older person, and káàárọ̀ o with no ẹ as the reply to a friend or younger sibling. The PDF uses a legacy font encoding for tone marks.; COERLL, Yorùbá Yé Mi, Appendix, "The syllabic [m] and [n]", page 312: a nasal can stand as its own syllable.; Wiktionary, "káàárọ̀", "káalẹ́", "kúuṣẹ́" (Yoruba sections): etymology kú + noun, and the usage note that ẹ comes first when speaking respectfully.; Wiktionary, "àárọ̀" and "alẹ́" (Yoruba sections): morning, evening.; Wikipedia, "Yoruba language", Phonology section: syllable shape (C)V(N), every syllable has a tone.; COERLL and Wiktionary both give the evening greeting as káalẹ́. Not cross-checked against a print grammar.
 
 - `aaro`: **àárọ̀** (morning)
   - Parts: à + á + rọ̀
-  - Doubt: Tones àárọ̀ confirmed in Wiktionary and COERLL. Treating àá as two syllables follows the one-tone-per-syllable rule. Confirm with a speaker.
+  - Doubt: Wiktionary and COERLL agree on the tones àárọ̀. Treating àá as two syllables follows the one-tone-per-syllable rule. Confirm with a speaker.
 - `e-kaaro`: **ẹ káàárọ̀** (good morning (to an elder or a group))
   - Parts: ẹ + kú + àárọ̀
   - Steps: ẹ kúàárọ̀ > ẹ káàárọ̀
-  - Doubt: The brief expected kú to lose its high tone. Sources show it keeps it: káàárọ̀, with the u changed to a. Treating the change as u turning into a is our reading of kú + àárọ̀ = káàárọ̀. The gloss "greeting word" for kú is ours. Sources describe it only as the word used in greetings.
+  - Doubt: Sources show kú + àárọ̀ = káàárọ̀, with the high tone of kú kept. Describing this as the u turning into a is an interpretation. Sources do not gloss kú here; "greeting word" is a placeholder gloss.
 - `e-kaale`: **ẹ káalẹ́** (good evening (to an elder or a group))
   - Parts: ẹ + kú + alẹ́
   - Steps: ẹ kúalẹ́ > ẹ káalẹ́
-  - Doubt: Changed from the brief, which had ẹ kalẹ́ with the u dropped. COERLL and Wiktionary both give káalẹ́, so the u becomes a instead of dropping. Confirm the mid tone on the second a.
+  - Doubt: COERLL and Wiktionary both give káalẹ́. Confirm the mid tone on the second a, and whether a shorter form with the u dropped is also used.
 - `e-kuuse`: **ẹ kúuṣẹ́** (well done (to someone working))
   - Parts: ẹ + kú + iṣẹ́
   - Steps: ẹ kúiṣẹ́ > ẹ kúuṣẹ́
-  - Doubt: Added from research in place of the brief's ẹ kú ọ̀sán. COERLL gives the afternoon greeting as káàsán, which needs a harder change, so it is left for later. Confirm that the i of iṣẹ́ becomes a mid-tone u.
+  - Doubt: COERLL and Wiktionary give kú + iṣẹ́ = kúuṣẹ́. Confirm that the i of iṣẹ́ becomes a mid-tone u.
 
 ### Pronouns (`gs-4`)
-Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 3 "Subject Pronouns", pages 37 to 38: regular forms mo, o, ó, a, ẹ, wọ́n; emphatic forms èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn; Èmi ńkọ́? correct and Mo ńkọ́? incorrect; ẹ and wọ́n as pronouns of respect; Mo lọ = I went. The PDF uses a legacy font, so the tone marks were decoded by hand.; Wiktionary, Yoruba personal pronoun table (shown on the "wọn" entry): the same short and long forms.; Wiktionary, "o", "mo", "ẹ" (Yoruba sections): o is mid tone (you), ó is high tone (he, she, it), ẹ is plural or honorific you.; Wiktionary, "lọ" (Yoruba section): lọ, mid tone, to go.; Changed from the brief: COERLL translates Mo lọ as "I went", not "I go", and lists Èmí lọ as correct, so the brief's mistake (Èmi lọ) was replaced. Not cross-checked against a print grammar.
+Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 3 "Subject Pronouns", pages 37 to 38: regular forms mo, o, ó, a, ẹ, wọ́n; emphatic forms èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn; Àwọn àti ẹ̀yin correct and Wọ́n àti ẹ̀yin incorrect; ẹ and wọ́n as pronouns of respect; Mo lọ = I went. The PDF uses a legacy font encoding for tone marks.; Wiktionary, Yoruba personal pronoun table (shown on the "wọn" entry): the same short and long forms.; Wiktionary, "o", "mo", "ẹ" (Yoruba sections): o is mid tone (you), ó is high tone (he, she, it), ẹ is plural or honorific you.; Wiktionary, "lọ" (Yoruba section): lọ, mid tone, to go.; COERLL translates Mo lọ as "I went" and lists both Mo lọ and Èmí lọ as correct. Not cross-checked against a print grammar.
 
 - `mo`: **mo** (I)
   - Parts: mo
@@ -71,7 +71,7 @@ Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chap
   - Doubt: Wiktionary gives mid tone. Confirm the long form ìwọ and the gloss "informal".
 - `o-he`: **ó** (he, she, or it)
   - Parts: ó
-  - Doubt: High tone confirmed in COERLL and Wiktionary. Confirm the long form òun.
+  - Doubt: COERLL and Wiktionary agree on the high tone. Confirm the long form òun.
 - `a`: **a** (we)
   - Parts: a
   - Doubt: Confirm the mid tone on a and the long form àwa.
@@ -80,4 +80,4 @@ Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chap
   - Doubt: Wiktionary notes a low-tone ẹ̀ in some uses, marked as not standard. Confirm the long form ẹ̀yin.
 - `won`: **wọ́n** (they)
   - Parts: wọ́n
-  - Doubt: High tone confirmed in COERLL and Wiktionary. wọn without a mark is a different form (them). Confirm the long form àwọn.
+  - Doubt: COERLL and Wiktionary agree on the high tone. wọn without a mark is a different form (them). Confirm the long form àwọn, and that Wọ́n àti ẹ̀yin (the common mistake) is wrong for speakers generally, as COERLL states.

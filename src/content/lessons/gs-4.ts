@@ -5,18 +5,18 @@ export const gs4: Lesson = {
   level: "getting-started",
   title: "Pronouns",
   sources: [
-    "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 3 \"Subject Pronouns\", pages 37 to 38: regular forms mo, o, ó, a, ẹ, wọ́n; emphatic forms èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn; Èmi ńkọ́? correct and Mo ńkọ́? incorrect; ẹ and wọ́n as pronouns of respect; Mo lọ = I went. The PDF uses a legacy font, so the tone marks were decoded by hand.",
+    "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 3 \"Subject Pronouns\", pages 37 to 38: regular forms mo, o, ó, a, ẹ, wọ́n; emphatic forms èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn; Àwọn àti ẹ̀yin correct and Wọ́n àti ẹ̀yin incorrect; ẹ and wọ́n as pronouns of respect; Mo lọ = I went. The PDF uses a legacy font encoding for tone marks.",
     "Wiktionary, Yoruba personal pronoun table (shown on the \"wọn\" entry): the same short and long forms.",
     "Wiktionary, \"o\", \"mo\", \"ẹ\" (Yoruba sections): o is mid tone (you), ó is high tone (he, she, it), ẹ is plural or honorific you.",
     "Wiktionary, \"lọ\" (Yoruba section): lọ, mid tone, to go.",
-    "Changed from the brief: COERLL translates Mo lọ as \"I went\", not \"I go\", and lists Èmí lọ as correct, so the brief's mistake (Èmi lọ) was replaced. Not cross-checked against a print grammar.",
+    "COERLL translates Mo lọ as \"I went\" and lists both Mo lọ and Èmí lọ as correct. Not cross-checked against a print grammar.",
   ],
   primer: {
     rule: "A pronoun stands in for a person, and Yoruba uses a short form before verbs.",
     formula: "mo (I), o (you), ó (he/she/it), a (we), ẹ (you plural), wọ́n (they)",
     rules: [
       { id: "short-forms", title: "Short forms", explanation: "The short forms sit right before the verb: Mo lọ, I went. Ó lọ, he went. With a verb like lọ (go), the plain verb tells you something already happened." },
-      { id: "long-forms", title: "Long forms", explanation: "Each pronoun also has a long form: èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn. Use the long form when no verb follows, as in Èmi ńkọ́? (How about me?). It can also stress who did it." },
+      { id: "long-forms", title: "Long forms", explanation: "Each pronoun also has a long form: èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn. Use the long form when no verb follows, as in Àwọn àti ẹ̀yin (they and you). It can also stress who did it." },
       { id: "o-tones", title: "o or ó", explanation: "o with no mark (mid tone) is \"you\". ó with a high mark is \"he\", \"she\", or \"it\". Only the tone tells them apart." },
       { id: "respect", title: "Pronouns of respect", explanation: "ẹ is \"you\" for a group, and also for one older person. wọ́n is \"they\", and is also used for one respected elder, such as your father." },
     ],
@@ -37,7 +37,7 @@ export const gs4: Lesson = {
         id: "o-he", surface: "ó", english: "he, she, or it",
         parts: [{ text: "ó", gloss: "he, she, it (short form, high tone)", role: "pronoun" }],
         steps: [], confidence: "needs-review",
-        note: "High tone confirmed in COERLL and Wiktionary. Confirm the long form òun.",
+        note: "COERLL and Wiktionary agree on the high tone. Confirm the long form òun.",
       },
       {
         id: "a", surface: "a", english: "we",
@@ -55,13 +55,13 @@ export const gs4: Lesson = {
         id: "won", surface: "wọ́n", english: "they",
         parts: [{ text: "wọ́n", gloss: "they (short form, high tone)", role: "pronoun" }],
         steps: [], confidence: "needs-review",
-        note: "High tone confirmed in COERLL and Wiktionary. wọn without a mark is a different form (them). Confirm the long form àwọn.",
+        note: "COERLL and Wiktionary agree on the high tone. wọn without a mark is a different form (them). Confirm the long form àwọn, and that Wọ́n àti ẹ̀yin (the common mistake) is wrong for speakers generally, as COERLL states.",
       },
     ],
     commonMistake: {
-      wrong: "Mo ńkọ́?",
-      right: "Èmi ńkọ́?",
-      why: "A short form needs a verb right after it. In \"How about me?\" no verb follows, so use the long form èmi.",
+      wrong: "Wọ́n àti ẹ̀yin",
+      right: "Àwọn àti ẹ̀yin",
+      why: "They and you. àti means \"and\". A short form like wọ́n only goes right before a verb. Here no verb follows, so use the long form àwọn.",
     },
   },
   questions: [

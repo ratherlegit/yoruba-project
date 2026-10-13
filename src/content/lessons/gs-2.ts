@@ -8,9 +8,9 @@ export const gs2: Lesson = {
     "Wiktionary, \"ọkọ\" (Yoruba section): ọkọ husband, ọkọ̀ vehicle, ọkọ́ hoe, ọ̀kọ̀ spear or lance.",
     "Wiktionary, \"oko\" (Yoruba section): oko farm, field.",
     "Wiktionary, \"mi\" (Yoruba section): mi as the determiner \"my\".",
-    "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Appendix, vowel /ọ/ table, page 304: ọkọ́ hoe, ọ̀kọ̀ spear, ọkọ̀ vehicle, ọkọ husband. The PDF uses a legacy font, so the tone marks were decoded by hand.",
+    "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Appendix, vowel /ọ/ table, page 304: ọkọ́ hoe, ọ̀kọ̀ spear, ọkọ̀ vehicle, ọkọ husband. The PDF uses a legacy font encoding for tone marks.",
     "Wikipedia, \"Yoruba language\", Phonology section: acute for high, grave for low, mid unmarked.",
-    "No source found that writes out the phrases ọkọ mi, ọkọ̀ mi, oko mi in full. They follow the noun + mi pattern. Not cross-checked against a print dictionary.",
+    "The phrases ọkọ mi, ọkọ̀ mi, oko mi follow the noun + mi pattern. No consulted source writes them out in full. Not cross-checked against a print dictionary.",
   ],
   primer: {
     rule: "The pitch of a syllable is part of the word, and Yoruba writes three tones.",
@@ -24,7 +24,7 @@ export const gs2: Lesson = {
     ],
     examples: [
       {
-        id: "oko-husband", surface: "ọkọ", english: "husband",
+        id: "word-husband", surface: "ọkọ", english: "husband",
         parts: [
           { text: "ọ", gloss: "open o, mid tone (no mark)", role: "syllable" },
           { text: "kọ", gloss: "k + open o, mid tone (no mark)", role: "syllable" },
@@ -33,7 +33,7 @@ export const gs2: Lesson = {
         note: "Wiktionary and the COERLL appendix give mid-mid for husband. Wiktionary also lists \"dear, beloved\" as a second sense. Confirm the tones with a speaker.",
       },
       {
-        id: "oko-vehicle", surface: "ọkọ̀", english: "vehicle",
+        id: "word-vehicle", surface: "ọkọ̀", english: "vehicle",
         parts: [
           { text: "ọ", gloss: "open o, mid tone (no mark)", role: "syllable" },
           { text: "kọ̀", gloss: "k + open o, low tone", role: "syllable" },
@@ -42,25 +42,25 @@ export const gs2: Lesson = {
         note: "Wiktionary and the COERLL appendix agree on mid-low. Confirm that \"vehicle\" covers both car and boat, as Wiktionary suggests.",
       },
       {
-        id: "oko-hoe", surface: "ọkọ́", english: "hoe",
+        id: "word-hoe", surface: "ọkọ́", english: "hoe",
         parts: [
           { text: "ọ", gloss: "open o, mid tone (no mark)", role: "syllable" },
           { text: "kọ́", gloss: "k + open o, high tone", role: "syllable" },
         ],
         steps: [], confidence: "needs-review",
-        note: "The lesson brief glossed ọkọ́ as \"spear or hoe\". Wiktionary and the COERLL appendix give ọkọ́ as hoe only, and spell spear ọ̀kọ̀. Confirm the gloss.",
+        note: "Wiktionary and the COERLL appendix give ọkọ́ as hoe only, and spell spear ọ̀kọ̀. Confirm the gloss.",
       },
       {
-        id: "oko-spear", surface: "ọ̀kọ̀", english: "spear",
+        id: "word-spear", surface: "ọ̀kọ̀", english: "spear",
         parts: [
           { text: "ọ̀", gloss: "open o, low tone", role: "syllable" },
           { text: "kọ̀", gloss: "k + open o, low tone", role: "syllable" },
         ],
         steps: [], confidence: "needs-review",
-        note: "Added from research, not in the brief. Wiktionary and the COERLL appendix give low-low for spear. Confirm both low tones.",
+        note: "Wiktionary and the COERLL appendix give low-low for spear. Confirm both low tones.",
       },
       {
-        id: "oko-farm", surface: "oko", english: "farm",
+        id: "word-farm", surface: "oko", english: "farm",
         parts: [
           { text: "o", gloss: "closed o, mid tone (no mark)", role: "syllable" },
           { text: "ko", gloss: "k + closed o, mid tone (no mark)", role: "syllable" },
@@ -76,11 +76,11 @@ export const gs2: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "The word for vehicle is ọ___.", answer: "kọ̀", choices: ["kọ̀", "kọ", "kọ́"], wordId: "oko-vehicle" },
-    { type: "blank", prompt: "The word for hoe is ọ___.", answer: "kọ́", choices: ["kọ́", "kọ̀", "kọ"], wordId: "oko-hoe" },
-    { type: "blank", prompt: "The word for spear is ___kọ̀.", answer: "ọ̀", choices: ["ọ̀", "ọ", "ọ́"], wordId: "oko-spear" },
-    { type: "pick", prompt: "Which word means husband?", choices: ["ọkọ̀", "ọkọ", "ọkọ́"], answer: 1, wordId: "oko-husband" },
-    { type: "pick", prompt: "Which word means farm?", choices: ["ọkọ", "oko", "ọ̀kọ̀"], answer: 1, wordId: "oko-farm" },
+    { type: "blank", prompt: "The word for vehicle is ọ___.", answer: "kọ̀", choices: ["kọ̀", "kọ", "kọ́"], wordId: "word-vehicle" },
+    { type: "blank", prompt: "The word for hoe is ọ___.", answer: "kọ́", choices: ["kọ́", "kọ̀", "kọ"], wordId: "word-hoe" },
+    { type: "blank", prompt: "The word for spear is ___kọ̀.", answer: "ọ̀", choices: ["ọ̀", "ọ", "ọ́"], wordId: "word-spear" },
+    { type: "pick", prompt: "Which word means husband?", choices: ["ọkọ̀", "ọkọ", "ọkọ́"], answer: 1, wordId: "word-husband" },
+    { type: "pick", prompt: "Which word means farm?", choices: ["ọkọ", "oko", "ọ̀kọ̀"], answer: 1, wordId: "word-farm" },
     { type: "order", english: "My vehicle", words: ["mi", "Ọkọ̀"], answer: ["Ọkọ̀", "mi"] },
     { type: "order", english: "My husband", words: ["mi", "Ọkọ"], answer: ["Ọkọ", "mi"] },
     { type: "order", english: "My farm", words: ["mi", "Oko"], answer: ["Oko", "mi"] },
