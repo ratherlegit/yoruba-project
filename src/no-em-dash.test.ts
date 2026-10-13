@@ -12,9 +12,10 @@ function files(dir: string): string[] {
 }
 
 describe("copy rules", () => {
-  it("has no em dashes in src", () => {
-    const offenders = files("src")
-      .filter((f) => /\.(ts|tsx|css)$/.test(f) && !f.endsWith("no-em-dash.test.ts"))
+  it("has no em dashes in src, e2e, or content", () => {
+    const offenders = ["src", "e2e", "content"]
+      .flatMap((d) => files(d))
+      .filter((f) => /\.(ts|tsx|css|md)$/.test(f) && !f.endsWith("no-em-dash.test.ts"))
       .filter((f) => readFileSync(f, "utf8").includes(EM_DASH));
     expect(offenders).toEqual([]);
   });

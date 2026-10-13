@@ -375,3 +375,617 @@ Sources consulted: Afolayan, "Ọmọ Tí A Kò Kọ́: Globalization and Cultur
 - `oba-oke-lo-rola`: **ọba òkè l'ó rọ́la** (only the Most High sees tomorrow)
   - Parts: ọba + òkè + l' + ó + rọ́la
   - Doubt: Second half of the same Wiktionary proverb. ọba òkè is translated "the Most High" there. Reading rọ́la as rí + ọ̀la is our interpretation, and so is reading l'ó as ni ó (the ló doubt from Mastery 2): no source states either. Very high doubt: confirm.
+
+## All learner-facing Yoruba
+
+Every lesson's common mistake and practice questions, so a native speaker can review all Yoruba a learner sees.
+
+### Getting Started
+
+#### Vowels and consonants (`gs-1`)
+
+Common mistake:
+- Wrong: omo
+- Right: ọmọ
+- Why: Without the dots the letters are different sounds. Writing omo for ọmọ is a spelling error, not a style choice.
+
+Questions:
+- Q1 (blank): The word for fish starts with ___ja.
+  - Choices: ẹ | e | i
+  - Answer: ẹ
+- Q2 (blank): The word for child is ọ___ọ.
+  - Choices: m | n | l
+  - Answer: m
+- Q3 (blank): The "sh" sound in ṣọ́ra is written ___.
+  - Choices: ṣ | s | gb
+  - Answer: ṣ
+- Q4 (pick): Which word contains the sound gb?
+  - Choices: gbọ́ | bọ́ | gọ́
+  - Answer: gbọ́
+- Q5 (pick): Which spelling shows the open o, as in "law"?
+  - Choices: ọmọ | omo | ọmo
+  - Answer: ọmọ
+- Q6 (order): Fish and child
+  - Answer: ẹja àti ọmọ
+- Q7 (order): I hear the child
+  - Answer: Mo gbọ́ ọmọ
+- Q8 (order): It is a fish
+  - Answer: Ẹja ni
+
+#### The three tones (`gs-2`)
+
+Common mistake:
+- Wrong: ọkọ
+- Right: ọkọ̀
+- Why: Same letters, different word. ọkọ is husband. With the low mark on the second syllable, ọkọ̀ is vehicle.
+
+Questions:
+- Q1 (blank): The word for vehicle is ọ___.
+  - Choices: kọ̀ | kọ | kọ́
+  - Answer: kọ̀
+- Q2 (blank): The word for hoe is ọ___.
+  - Choices: kọ́ | kọ̀ | kọ
+  - Answer: kọ́
+- Q3 (blank): The word for spear is ___kọ̀.
+  - Choices: ọ̀ | ọ | ọ́
+  - Answer: ọ̀
+- Q4 (pick): Which word means husband?
+  - Choices: ọkọ̀ | ọkọ | ọkọ́
+  - Answer: ọkọ
+- Q5 (pick): Which word means farm?
+  - Choices: ọkọ | oko | ọ̀kọ̀
+  - Answer: oko
+- Q6 (order): My vehicle
+  - Answer: Ọkọ̀ mi
+- Q7 (order): My husband
+  - Answer: Ọkọ mi
+- Q8 (order): My farm
+  - Answer: Oko mi
+
+#### Syllables and greetings (`gs-3`)
+
+Common mistake:
+- Wrong: ẹ kú àárọ̀
+- Right: ẹ káàárọ̀
+- Why: ẹ kú àárọ̀ is the full form, built from its parts. In speech people usually join it into ẹ káàárọ̀, and that joined form is the one textbooks teach as the greeting.
+
+Questions:
+- Q1 (blank): Good morning (to an elder): Ẹ ___.
+  - Choices: káàárọ̀ | kaaro | káàrọ̀
+  - Answer: káàárọ̀
+- Q2 (blank): Good evening (to an elder): Ẹ ___.
+  - Choices: káalẹ́ | káàárọ̀ | kúuṣẹ́
+  - Answer: káalẹ́
+- Q3 (blank): To someone at work: Ẹ kúu___.
+  - Choices: ṣẹ́ | sẹ́ | ṣẹ
+  - Answer: ṣẹ́
+- Q4 (pick): Which is the joined morning greeting?
+  - Choices: ẹ kú àárọ̀ | ẹ káàárọ̀ | ẹ káalẹ́
+  - Answer: ẹ káàárọ̀
+- Q5 (pick): How many syllables does àárọ̀ have?
+  - Choices: 2 | 3 | 4
+  - Answer: 3
+- Q6 (order): Good morning (to an elder)
+  - Answer: Ẹ káàárọ̀
+- Q7 (order): Good evening (to an elder)
+  - Answer: Ẹ káalẹ́
+- Q8 (order): Well done (to an elder at work)
+  - Answer: Ẹ kúuṣẹ́
+
+#### Pronouns (`gs-4`)
+
+Common mistake:
+- Wrong: Wọ́n àti ẹ̀yin
+- Right: Àwọn àti ẹ̀yin
+- Why: They and you. àti means "and". A short form like wọ́n only goes right before a verb. Here no verb follows, so use the long form àwọn.
+
+Questions:
+- Q1 (blank): ___ lọ. (He went.)
+  - Choices: Ó | O | Ọ
+  - Answer: Ó
+- Q2 (blank): ___ lọ. (They went.)
+  - Choices: Wọ́n | Wọn | Wọ̀n
+  - Answer: Wọ́n
+- Q3 (blank): ___ lọ. (I went.)
+  - Choices: Mo | Mọ | Mó
+  - Answer: Mo
+- Q4 (pick): Which short pronoun means "we"?
+  - Choices: ẹ | a | wọ́n
+  - Answer: a
+- Q5 (pick): Which pronoun do you use to speak politely to one older person?
+  - Choices: o | ó | ẹ
+  - Answer: ẹ
+- Q6 (order): I went
+  - Answer: Mo lọ
+- Q7 (order): He went
+  - Answer: Ó lọ
+- Q8 (order): We went
+  - Answer: A lọ
+
+### Beginner
+
+#### "To be": jẹ́ and ni (`b-1`)
+
+Common mistake:
+- Wrong: Ó ni olùkọ́
+- Right: Ó jẹ́ olùkọ́
+- Why: COERLL marks Ó ni olùkọ́ as incorrect, because ni does not follow a short pronoun like ó. To say what someone is, use jẹ́: Ó jẹ́ olùkọ́, he is a teacher.
+
+Questions:
+- Q1 (blank): Mo ___ olùkọ́. (I am a teacher.)
+  - Choices: jẹ́ | jẹ | ni
+  - Answer: jẹ́
+- Q2 (blank): Èyí ___ ilé mi. (This is my house.)
+  - Choices: ni | ní | nì
+  - Answer: ni
+- Q3 (blank): ___ ni ọ̀rẹ́ mi. (He is my friend.)
+  - Choices: Òun | Ó | Oun
+  - Answer: Òun
+- Q4 (pick): Which sentence says what job someone has?
+  - Choices: Èyí ni ilé mi | Mo jẹ́ olùkọ́ | Òun ni ọ̀rẹ́ mi
+  - Answer: Mo jẹ́ olùkọ́
+- Q5 (pick): Which means "We are friends"?
+  - Choices: Àwa jẹ ọ̀rẹ́ | Àwa jẹ́ ọ̀rẹ́ | Àwa jẹ́ ọ̀rẹ
+  - Answer: Àwa jẹ́ ọ̀rẹ́
+- Q6 (order): I am a teacher
+  - Answer: Mo jẹ́ olùkọ́
+- Q7 (order): This is my house
+  - Answer: Èyí ni ilé mi
+- Q8 (order): We are friends
+  - Answer: Àwa jẹ́ ọ̀rẹ́
+
+#### Negation with kò (`b-2`)
+
+Common mistake:
+- Wrong: Mo kò lọ
+- Right: N kò lọ
+- Why: Mo kò lọ is not the usual form. COERLL (page 35 and its pronoun table) and Wiktionary ("n") show n before kò in negative sentences. In speech, Mi ò lọ is also common.
+
+Questions:
+- Q1 (blank): ___ kò lọ. (I did not go.)
+  - Choices: N | Mo | Ó
+  - Answer: N
+- Q2 (blank): A ___ lọ. (We did not go.)
+  - Choices: ò | ó | o
+  - Answer: ò
+- Q3 (blank): ___ lọ. (He did not go.)
+  - Choices: Kò | Ko | Kó
+  - Answer: Kò
+- Q4 (pick): Which is the usual way to say "I did not go"?
+  - Choices: Mo kò lọ | N kò lọ | Mo lọ
+  - Answer: N kò lọ
+- Q5 (pick): In A ò lọ, what does ò stand for?
+  - Choices: ó (he) | kò (not) | o (you)
+  - Answer: kò (not)
+- Q6 (order): He did not go
+  - Answer: Kò lọ
+- Q7 (order): We did not go
+  - Answer: A ò lọ
+- Q8 (order): I did not go
+  - Answer: N kò lọ
+
+#### Ongoing action with ń (`b-3`)
+
+Common mistake:
+- Wrong: Mo jẹun
+- Right: Mo ń jẹun
+- Why: To say "I am eating", you need ń. COERLL notes that without ń, the verb points to the past, so Mo jẹun means "I ate".
+
+Questions:
+- Q1 (blank): Mo ___ jẹun. (I am eating.)
+  - Choices: ń | n | ǹ
+  - Answer: ń
+- Q2 (blank): Ó ń ___. (He is going.)
+  - Choices: lọ | lo | lọ́
+  - Answer: lọ
+- Q3 (blank): Adé ___ mu omi. (Adé is drinking water.)
+  - Choices: ń | ní | kò
+  - Answer: ń
+- Q4 (pick): Which means "I am eating"?
+  - Choices: Mo jẹun | Mo ń jẹun | Mo ń lọ
+  - Answer: Mo ń jẹun
+- Q5 (pick): jẹun is built from jẹ (eat) and which word?
+  - Choices: oúnjẹ (food) | ohun (thing) | omi (water)
+  - Answer: ohun (thing)
+- Q6 (order): I am eating
+  - Answer: Mo ń jẹun
+- Q7 (order): He is going
+  - Answer: Ó ń lọ
+- Q8 (order): Adé is drinking water
+  - Answer: Adé ń mu omi
+
+#### Questions: ṣé and kí ni (`b-4`)
+
+Common mistake:
+- Wrong: O fẹ́ jẹun ṣé?
+- Right: Ṣé o fẹ́ jẹun?
+- Why: Putting ṣé at the end is not the usual form. Wiktionary ("ṣe") describes ṣé as placed before a sentence, and COERLL (page 41) puts it first in Ṣé o fẹ́ jẹun?
+
+Questions:
+- Q1 (blank): ___ o fẹ́ jẹun? (Do you want to eat?)
+  - Choices: Ṣé | Ṣe | Se
+  - Answer: Ṣé
+- Q2 (blank): ___ ni o fẹ́? (What do you want?)
+  - Choices: Kí | Ki | Kì
+  - Answer: Kí
+- Q3 (blank): Kí ni orúkọ ___? (What is your name?)
+  - Choices: rẹ | rẹ̀ | re
+  - Answer: rẹ
+- Q4 (pick): Which words ask "what"?
+  - Choices: ṣé | kí ni | dáadáa
+  - Answer: kí ni
+- Q5 (pick): Which one is a yes or no question?
+  - Choices: Kí ni o fẹ́? | Kí ni orúkọ rẹ? | Ṣé o sùn dáadáa?
+  - Answer: Ṣé o sùn dáadáa?
+- Q6 (order): Do you want to eat?
+  - Answer: Ṣé o fẹ́ jẹun
+- Q7 (order): What is your name?
+  - Answer: Kí ni orúkọ rẹ
+- Q8 (order): What do you want?
+  - Answer: Kí ni o fẹ́
+
+### Intermediate
+
+#### Done, will, and usually: ti, máa, yóò (`i-1`)
+
+Common mistake:
+- Wrong: Mo yóò lọ
+- Right: Èmi yóò lọ
+- Why: yóò needs a long pronoun before it, so use èmi, not mo. With mo, use máa instead: Mo máa lọ.
+
+Questions:
+- Q1 (blank): Mo ___ jẹun. (I have eaten.)
+  - Choices: ti | tí | ń
+  - Answer: ti
+- Q2 (blank): Èmi ___ lọ. (I will go.)
+  - Choices: yóò | ti | ń
+  - Answer: yóò
+- Q3 (blank): Mo ___ ń jẹun. (I usually eat.)
+  - Choices: máa | maa | ti
+  - Answer: máa
+- Q4 (pick): Which word can follow mo to say "will"?
+  - Choices: yóò | máa | ti
+  - Answer: máa
+- Q5 (pick): Which means "I usually eat"?
+  - Choices: Mo ti jẹun | Mo ń jẹun | Mo máa ń jẹun
+  - Answer: Mo máa ń jẹun
+- Q6 (order): I have eaten
+  - Answer: Mo ti jẹun
+- Q7 (order): I will go (I intend to)
+  - Answer: Èmi yóò lọ
+- Q8 (order): I usually eat
+  - Answer: Mo máa ń jẹun
+
+#### Possession: the owner comes second (`i-2`)
+
+Common mistake:
+- Wrong: bàbá ilé
+- Right: ilé bàbá
+- Why: For "father's house", the house comes first and the father second. With the order swapped, the phrase reads as "the father of the house", close to baálé, head of the household.
+
+Questions:
+- Q1 (blank): Ilé ___ (the king's house)
+  - Choices: ọba | oba | ọbá
+  - Answer: ọba
+- Q2 (blank): ___ Àkàndé (Àkàndé's cap)
+  - Choices: fìlà | fila | fílà
+  - Answer: fìlà
+- Q3 (blank): Ilé bàbá ___ (my father's house)
+  - Choices: mi | mí | wa
+  - Answer: mi
+- Q4 (pick): Which means "father's house"?
+  - Choices: bàbá ilé | ilé bàbá | ilé ọba
+  - Answer: ilé bàbá
+- Q5 (pick): In ilé ọba, which word is the owner?
+  - Choices: ilé | ọba
+  - Answer: ọba
+- Q6 (order): The king's house
+  - Answer: Ilé ọba
+- Q7 (order): Àkàndé's cap
+  - Answer: Fìlà Àkàndé
+- Q8 (order): My father's house
+  - Answer: Ilé bàbá mi
+
+#### Words for people: olù- and oní- (`i-3`)
+
+Common mistake:
+- Wrong: oníẹja
+- Right: ẹlẹ́ja
+- Why: oní- changes to match a noun that starts with ẹ. The usual word for a fish seller is ẹlẹ́ja.
+
+Questions:
+- Q1 (blank): Fish seller: ___ja
+  - Choices: ẹlẹ́ | ẹlẹ | elé
+  - Answer: ẹlẹ́
+- Q2 (blank): Landlord: ___lé
+  - Choices: oní | oni | olù
+  - Answer: oní
+- Q3 (blank): Teacher: olù___
+  - Choices: kọ́ | kọ | ko
+  - Answer: kọ́
+- Q4 (pick): Which word means teacher?
+  - Choices: onílé | olùkọ́ | olùfẹ́
+  - Answer: olùkọ́
+- Q5 (pick): Which prefix goes before a verb?
+  - Choices: oní- | olù-
+  - Answer: olù-
+- Q6 (order): My teacher
+  - Answer: Olùkọ́ mi
+- Q7 (order): My landlord
+  - Answer: Onílé mi
+- Q8 (order): The fish seller's house
+  - Answer: Ilé ẹlẹ́ja
+
+#### This, that, and plurals (`i-4`)
+
+Common mistake:
+- Wrong: ọmọ àwọn
+- Right: àwọn ọmọ
+- Why: ọmọ àwọn is not the usual form for "children". COERLL (page 55) and Wiktionary ("awọn") put àwọn before the noun. The noun does not change and takes no ending.
+
+Questions:
+- Q1 (blank): Ọmọ ___ (this child)
+  - Choices: yìí | yíí | yii
+  - Answer: yìí
+- Q2 (blank): Ọmọ ___ (that child)
+  - Choices: yẹn | yen | yìí
+  - Answer: yẹn
+- Q3 (blank): ___ ọmọ (children)
+  - Choices: Àwọn | Àwọ̀n | Awọn
+  - Answer: Àwọn
+- Q4 (pick): Which word makes a noun plural?
+  - Choices: yìí | yẹn | àwọn
+  - Answer: àwọn
+- Q5 (pick): Which means "these children"?
+  - Choices: ọmọ yẹn | àwọn ọmọ wọ̀nyí | ọmọ àwọn
+  - Answer: àwọn ọmọ wọ̀nyí
+- Q6 (order): This child
+  - Answer: Ọmọ yìí
+- Q7 (order): That child
+  - Answer: Ọmọ yẹn
+- Q8 (order): These children
+  - Answer: Àwọn ọmọ wọ̀nyí
+
+### Advanced
+
+#### Vowel elision and contraction (`a-1`)
+
+Common mistake:
+- Wrong: rẹja (for "to see fish")
+- Right: rẹ́ja
+- Why: When rí loses its vowel, its high tone stays. COERLL (page 245) writes rí ẹja as rẹ́ja. Without the high mark, rẹja is the form Wikipedia gives for ra ẹja, to buy fish.
+
+Questions:
+- Q1 (blank): ra ẹran (to buy meat) is said r___ran.
+  - Choices: ẹ | a | e
+  - Answer: ẹ
+- Q2 (blank): rí ẹja (to see fish) is said ___ja.
+  - Choices: rẹ́ | rẹ | ré
+  - Answer: rẹ́
+- Q3 (blank): ta iṣu (to sell yams) is said ta___.
+  - Choices: ṣu | iṣu | su
+  - Answer: ṣu
+- Q4 (pick): Which two words make rẹja (to buy fish)?
+  - Choices: ra ẹja | rí ẹja | ta ẹja
+  - Answer: ra ẹja
+- Q5 (pick): How is kú ilé (welcome into the house) said?
+  - Choices: kúulé | kúlé | kílé
+  - Answer: kúulé
+- Q6 (order): I bought meat
+  - Answer: Mo rẹran
+- Q7 (order): I did not buy meat
+  - Answer: N kò rẹran
+- Q8 (order): He sold yams
+  - Answer: Ó taṣu
+
+#### Verbal nouns: lílọ, jíjẹ, kíkà (`a-2`)
+
+Common mistake:
+- Wrong: kikà
+- Right: kíkà
+- Why: The added i always has a high tone, whatever the verb's own tone. Inkelas and Zoll (citing Kawu) describe it as a high-tone í. kikà is not the usual form.
+
+Questions:
+- Q1 (blank): jẹ (eat) → ___jẹ (eating)
+  - Choices: jí | jì | ji
+  - Answer: jí
+- Q2 (blank): kà (read) → kí___ (reading)
+  - Choices: kà | ka | ká
+  - Answer: kà
+- Q3 (blank): gbé (carry) → ___gbé (carrying)
+  - Choices: gbí | bí | gí
+  - Answer: gbí
+- Q4 (pick): Which word means "going"?
+  - Choices: lílọ | lọ | lílọ̀
+  - Answer: lílọ
+- Q5 (pick): Which verb does kíkà come from?
+  - Choices: kà | kí | kọ́
+  - Answer: kà
+- Q6 (order): Studies (book reading)
+  - Answer: Ìwé kíkà
+- Q7 (order): Going to school
+  - Answer: Ilé-ìwé lílọ
+- Q8 (order): Drinks (things for drinking)
+  - Answer: Nǹkan mímu
+
+#### Serial verbs (`a-3`)
+
+Common mistake:
+- Wrong: Olú mú ìwé kò wá ilé
+- Right: Olú kò mú ìwé wá ilé
+- Why: Olú did not bring a book home. kò goes before the first verb, never between the verbs. Ariyo (2025, page 53) marks the first version as ungrammatical.
+
+Questions:
+- Q1 (blank): Ó mú ìwé ___. (He brought the book.)
+  - Choices: wá | wà | wa
+  - Answer: wá
+- Q2 (blank): Ó gbé ìwé ___. (He took the book away.)
+  - Choices: lọ | lọ̀ | lo
+  - Answer: lọ
+- Q3 (blank): Olú ___ mú ìwé wá ilé. (Olú did not bring a book home.)
+  - Choices: kò | ko | kó
+  - Answer: kò
+- Q4 (pick): Which means "He brought the book"?
+  - Choices: Ó mú ìwé wá | Ó gbé ìwé lọ | Ó mú ìwé
+  - Answer: Ó mú ìwé wá
+- Q5 (pick): Where does kò go in a serial verb sentence?
+  - Choices: Before the first verb | Between the two verbs | At the end
+  - Answer: Before the first verb
+- Q6 (order): He brought the book
+  - Answer: Ó mú ìwé wá
+- Q7 (order): He took the book away
+  - Answer: Ó gbé ìwé lọ
+- Q8 (order): Olú took the knife to cut meat
+  - Answer: Olú mú ọ̀bẹ gé ẹran
+
+#### Relative clauses with tí (`a-4`)
+
+Common mistake:
+- Wrong: ọmọ tí lọ
+- Right: ọmọ tí ó lọ
+- Why: The child is the one who went, so ó stays after tí. Lawal (1987) shows that a clause about the doer keeps this pronoun. ọmọ tí lọ is not the usual form.
+
+Questions:
+- Q1 (blank): ọmọ ___ ó lọ (the child who went)
+  - Choices: tí | ti | tì
+  - Answer: tí
+- Q2 (blank): adìyẹ tí mo ___ (the chicken that I bought)
+  - Choices: rà | ra | rá
+  - Answer: rà
+- Q3 (blank): ọkùnrin tí ___ ra aṣọ (the man who bought the cloth)
+  - Choices: ó | o | ọ
+  - Answer: ó
+- Q4 (pick): Which means "the chicken that I bought"?
+  - Choices: adìyẹ tí mo rà | adìyẹ mo rà | adìyẹ tí ó rà
+  - Answer: adìyẹ tí mo rà
+- Q5 (pick): In ọmọ tí ó lọ, why is ó there?
+  - Choices: The child is the one who went | It means "not" | It makes a question
+  - Answer: The child is the one who went
+- Q6 (order): The child who went
+  - Answer: Ọmọ tí ó lọ
+- Q7 (order): The chicken that I bought
+  - Answer: Adìyẹ tí mo rà
+- Q8 (order): The house that Bọ́lá lives in
+  - Answer: Ilé tí Bọ́lá ń gbé
+
+### Mastery
+
+#### Fused forms (`m-1`)
+
+Common mistake:
+- Wrong: ní ọ̀la
+- Right: lọ́la
+- Why: Tomorrow is written as one word. Wiktionary gives lọ́la, and Wikipedia notes that Yoruba spelling follows speech and does not split contracted words. ní ọ̀la is the unfused form, not the usual way to write it.
+
+Questions:
+- Q1 (blank): Today (one word): ___
+  - Choices: lónìí | lonii | ní òní
+  - Answer: lónìí
+- Q2 (blank): At home (one word): ___
+  - Choices: nílé | nile | ní ilé
+  - Answer: nílé
+- Q3 (blank): Tomorrow (one word): ___
+  - Choices: lọ́la | lọ̀la | lọla
+  - Answer: lọ́la
+- Q4 (pick): Which two words make lọ́la?
+  - Choices: ní + ọ̀la | ní + ọlà | ní + ilé
+  - Answer: ní + ọ̀la
+- Q5 (pick): Which two words make tó?
+  - Choices: tí + ó | ti + o | tì + ó
+  - Answer: tí + ó
+- Q6 (order): I will go today
+  - Answer: Mo máa lọ lónìí
+- Q7 (order): I will go tomorrow
+  - Answer: Mo máa lọ lọ́la
+- Q8 (order): The child who went
+  - Answer: Ọmọ tó lọ
+
+#### Focus with ni (`m-2`)
+
+Common mistake:
+- Wrong: Adé ni ra ìwé
+- Right: Adé ni ó ra ìwé
+- Why: Adé is the one who bought it, so ó follows ni. Jones (2006, page 144) says this ó is obligatory when the subject is focused, in the pattern shown here.
+
+Questions:
+- Q1 (blank): Adé ___ ó ra ìwé. (It was Adé who bought the book.)
+  - Choices: ni | ní | nì
+  - Answer: ni
+- Q2 (blank): Akin ni ___ lọ. (It was Akin who went.)
+  - Choices: ó | o | ọ
+  - Answer: ó
+- Q3 (blank): Ìwé ni Adé ___. (It was a book that Adé bought.)
+  - Choices: rà | ra | rá
+  - Answer: rà
+- Q4 (pick): Which sentence puts the spotlight on Akin?
+  - Choices: Akin ni ó lọ | Akin lọ | Ṣé Akin lọ
+  - Answer: Akin ni ó lọ
+- Q5 (pick): Which means "It was not Olú who carried the stick"?
+  - Choices: Olú kọ́ ni ó gbé igi | Olú ni ó gbé igi | Olú kò gbé igi
+  - Answer: Olú kọ́ ni ó gbé igi
+- Q6 (order): It was Adé who bought the book
+  - Answer: Adé ni ó ra ìwé
+- Q7 (order): It was a book that Adé bought
+  - Answer: Ìwé ni Adé rà
+- Q8 (order): It was Akin who went
+  - Answer: Akin ni ó lọ
+
+#### Complex sentences: if and because (`m-3`)
+
+Common mistake:
+- Wrong: Bí òjò rọ̀
+- Right: Bí òjò bá rọ̀
+- Why: COERLL (page 89) lists tí ... bá for "if", and its song says Bí o bá kàwé rẹ. Wiktionary shows that bí without bá can mean "as soon as". So for "if", bá is the usual form.
+
+Questions:
+- Q1 (blank): ___ òjò bá rọ̀. (If it rains.)
+  - Choices: Bí | Bì | Bi
+  - Answer: Bí
+- Q2 (blank): Bí òjò ___ rọ̀. (If it rains.)
+  - Choices: bá | ba | bà
+  - Answer: bá
+- Q3 (blank): ___ pé òjò rọ̀. (Because it rained.)
+  - Choices: Nítorí | Nitori | Nìtorí
+  - Answer: Nítorí
+- Q4 (pick): Which means "we will not go"?
+  - Choices: A ò níí lọ | A ò lọ | A máa lọ
+  - Answer: A ò níí lọ
+- Q5 (pick): In an if-clause, where does bá go?
+  - Choices: Right before the verb | At the end of the sentence | Before bí
+  - Answer: Right before the verb
+- Q6 (order): If it rains, we will not go
+  - Answer: Bí òjò bá rọ̀ a ò níí lọ
+- Q7 (order): If you read your books
+  - Answer: Bí o bá kàwé rẹ
+- Q8 (order): Because it rained
+  - Answer: Nítorí pé òjò rọ̀
+
+#### Proverbs (òwe) (`m-4`)
+
+Common mistake:
+- Wrong: Ọmọ tí a kò kọ́ yóò ta ilé
+- Right: Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà
+- Why: The first is a paraphrase, not the proverb. It drops ni, gbé and "the house that is built", and with it the play on kọ́ (teach) and kọ́ (build) that Afolayan (2021) describes. Quote proverbs word for word.
+
+Questions:
+- Q1 (blank): Ọmọ tí a kò ___ ni yóò gbé ilé tí a kọ́ tà.
+  - Choices: kọ́ | kọ̀ | kọ
+  - Answer: kọ́
+- Q2 (blank): Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ ___.
+  - Choices: tà | ta | tá
+  - Answer: tà
+- Q3 (blank): Òní l'a ___, ọba òkè l'ó rọ́la.
+  - Choices: rí | ri | rì
+  - Answer: rí
+- Q4 (pick): What does Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà mean?
+  - Choices: The child who is not taught will sell the house that is built | The child who is not taught will build a house | A house that is not built cannot be sold
+  - Answer: The child who is not taught will sell the house that is built
+- Q5 (pick): kọ́ appears twice in the first proverb. Which two meanings does it carry?
+  - Choices: teach and build | sell and buy | go and come
+  - Answer: teach and build
+- Q6 (order): The child who is not taught will sell the house that is built
+  - Answer: Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà
+- Q7 (order): It is only today that we see; only the Most High sees tomorrow
+  - Answer: Òní l'a rí, ọba òkè l'ó rọ́la
+- Q8 (order): The child who is not taught
+  - Answer: Ọmọ tí a kò kọ́

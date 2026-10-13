@@ -63,6 +63,25 @@ test.describe("phone width", () => {
     });
   }
 
+  test("no horizontal scroll on an activity page", async ({ page }) => {
+    await unlockAll(page);
+    await page.goto("/lesson/getting-started/gs-1");
+    await page.getByRole("button", { name: "Start practice" }).click();
+    await expect(page.getByText("Question 1 of 8")).toBeVisible();
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+
+  test("no horizontal scroll on the results view", async ({ page }) => {
+    await unlockAll(page);
+    await page.goto("/lesson/getting-started/gs-1");
+    await page.getByRole("button", { name: "Start practice" }).click();
+    await answerEverything(page);
+    await expect(page.getByRole("heading", { name: "Results" })).toBeVisible();
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+
   test("the app still renders when localStorage is blocked", async ({ page }) => {
     await page.addInitScript(() => {
       Object.defineProperty(window, "localStorage", { get() { throw new Error("blocked"); } });
@@ -70,4 +89,13 @@ test.describe("phone width", () => {
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "Learn Yoruba grammar" })).toBeVisible();
   });
+});
+
+test("the manual theme toggle sets data-theme and persists across reload", async ({ page }) => {
+  await page.goto("/");
+  await page.getByLabel("Theme").selectOption("dark");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(page.getByLabel("Theme")).toHaveValue("dark");
 });

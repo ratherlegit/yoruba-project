@@ -6,3 +6,5 @@ playwright-report
 .env
 .wrangler
 .superpowers
+.DS_Store
+.environmental-impact-log.json

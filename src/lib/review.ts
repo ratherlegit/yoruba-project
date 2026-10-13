@@ -1,4 +1,22 @@
-import type { Level } from "@/content/types";
+import type { Level, Question } from "@/content/types";
+
+function questionLines(q: Question, n: number): string[] {
+  if (q.type === "blank") {
+    return [
+      `- Q${n} (blank): ${q.prompt}`,
+      `  - Choices: ${q.choices.join(" | ")}`,
+      `  - Answer: ${q.answer}`,
+    ];
+  }
+  if (q.type === "pick") {
+    return [
+      `- Q${n} (pick): ${q.prompt}`,
+      `  - Choices: ${q.choices.join(" | ")}`,
+      `  - Answer: ${q.choices[q.answer] ?? "(missing)"}`,
+    ];
+  }
+  return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
+}
 
 export function buildReviewMarkdown(levels: Level[]): string {
   const lines: string[] = [];
@@ -32,5 +50,23 @@ export function buildReviewMarkdown(levels: Level[]): string {
     total === 0 ? "All items are verified." : `${total} item${total === 1 ? "" : "s"} need review.`,
     "",
   ];
-  return [...header, ...lines].join("\n");
+  const all: string[] = [
+    "## All learner-facing Yoruba",
+    "",
+    "Every lesson's common mistake and practice questions, so a native speaker can review all Yoruba a learner sees.",
+    "",
+  ];
+  for (const level of levels) {
+    all.push(`### ${level.title}`, "");
+    for (const lesson of level.lessons) {
+      const m = lesson.primer.commonMistake;
+      all.push(`#### ${lesson.title} (\`${lesson.id}\`)`, "");
+      all.push("Common mistake:", `- Wrong: ${m.wrong}`, `- Right: ${m.right}`, `- Why: ${m.why}`, "");
+      all.push("Questions:");
+      lesson.questions.forEach((q, i) => all.push(...questionLines(q, i + 1)));
+      all.push("");
+    }
+  }
+
+  return [...header, ...lines, ...all].join("\n");
 }
