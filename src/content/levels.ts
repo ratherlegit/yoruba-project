@@ -11,12 +11,16 @@ import { i1 } from "./lessons/i-1";
 import { i2 } from "./lessons/i-2";
 import { i3 } from "./lessons/i-3";
 import { i4 } from "./lessons/i-4";
+import { a1 } from "./lessons/a-1";
+import { a2 } from "./lessons/a-2";
+import { a3 } from "./lessons/a-3";
+import { a4 } from "./lessons/a-4";
 
 export const LEVELS: Level[] = [
   { id: "getting-started", title: "Getting Started", summary: "Sounds, tones, greetings, and pronouns.", lessons: [gs1, gs2, gs3, gs4] },
   { id: "beginner", title: "Beginner", summary: "Simple sentences, negation, and questions.", lessons: [b1, b2, b3, b4] },
   { id: "intermediate", title: "Intermediate", summary: "Tense, possession, and building nouns.", lessons: [i1, i2, i3, i4] },
-  { id: "advanced", title: "Advanced", summary: "Contraction, verbal nouns, and longer clauses.", lessons: [] },
+  { id: "advanced", title: "Advanced", summary: "Contraction, verbal nouns, and longer clauses.", lessons: [a1, a2, a3, a4] },
   { id: "mastery", title: "Mastery", summary: "Fused forms, focus, and proverbs.", lessons: [] },
 ];
 
