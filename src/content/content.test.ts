@@ -30,14 +30,15 @@ describe("content", () => {
     expect(getLevel("nope")).toBeUndefined();
   });
 
+  it("has exactly four lessons in every level", () => {
+    for (const level of LEVELS) expect(level.lessons, level.id).toHaveLength(4);
+  });
+
   it("finds the next lesson, crossing level boundaries, and null at the end", () => {
-    expect(nextLessonPath("getting-started", "gs-1")).toEqual(
-      LEVELS[0]!.lessons.length > 1
-        ? { levelId: "getting-started", lessonId: LEVELS[0]!.lessons[1]!.id }
-        : null,
-    );
-    const lastLevel = LEVELS.filter((l) => l.lessons.length).at(-1)!;
-    const lastLesson = lastLevel.lessons.at(-1)!;
-    expect(nextLessonPath(lastLevel.id, lastLesson.id)).toBeNull();
+    expect(nextLessonPath("getting-started", "gs-1")).toEqual({ levelId: "getting-started", lessonId: "gs-2" });
+    expect(nextLessonPath("getting-started", "gs-4")).toEqual({ levelId: "beginner", lessonId: "b-1" });
+    expect(nextLessonPath("advanced", "a-4")).toEqual({ levelId: "mastery", lessonId: "m-1" });
+    expect(nextLessonPath("mastery", "m-4")).toBeNull();
+    expect(nextLessonPath("mastery", "nope")).toBeNull();
   });
 });

@@ -1,0 +1,107 @@
+import type { Lesson } from "../types";
+
+export const m4: Lesson = {
+  id: "m-4",
+  level: "mastery",
+  title: "Proverbs (òwe)",
+  sources: [
+    "Afolayan, \"Ọmọ Tí A Kò Kọ́: Globalization and Cultural Education among New Generation Nigerian Yorùbá\", Yoruba Studies Review 3(1), 2021, abstract and body: the proverb Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà, translated \"the child that is not taught will eventually sell the house that is built\"; the essay discusses the play on kọ́ (teach) and kọ́ (build).",
+    "Wiktionary, \"oni\" (Yoruba section), quoting Awoyale, Global Yoruba Lexical Database v. 1.0 (Linguistic Data Consortium, 2008): Òní l'a rí, ọba òkè l'ó rọ́la, translated \"It is [only] today that we see, [only] the Most High sees tomorrow\", a proverb on divine supremacy.",
+    "Wiktionary, \"kọ\" (kọ́, to build; kọ́, to teach or learn; kọ̀, to refuse; kọ, to write), \"ta\" (tà, to sell, said ta before a direct object), \"oke\" (òkè, hill, top, high), \"ọla\" (ọ̀la, tomorrow), \"ri\" (rí, to see). ọba (king) is as taught in Intermediate 2.",
+    "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 11 vocabulary, page 262: pa òwe, to say proverbially.",
+    "Each proverb was found in one source only. Neither was checked with a speaker or a print collection of proverbs, so every tone and word is a high doubt.",
+  ],
+  primer: {
+    rule: "A proverb (òwe) is a short traditional saying that teaches a lesson. Speakers quote proverbs word for word, so the exact words and tones matter. Read them in chunks, using the grammar you already know.",
+    formula: "read the proverb chunk by chunk: Ọmọ tí a kò kọ́ | ni yóò gbé | ilé tí a kọ́ tà",
+    rules: [
+      { id: "chunks", title: "Read it in chunks", explanation: "The first proverb uses tí (Advanced 4), kò (Beginner 2), ni for focus (Mastery 2), yóò for \"will\" (Intermediate 1), and gbé ... tà, two verbs in a chain (Advanced 3)." },
+      { id: "wordplay", title: "One sound, two meanings", explanation: "kọ́ means both \"teach\" and \"build\". The proverb uses it twice: the child we did not teach (kọ́) sells the house we built (kọ́). Afolayan (2021) writes about this play on words." },
+      { id: "general-a", title: "a: we, or people in general", explanation: "a usually means \"we\". In proverbs it often stands for people in general, so English uses \"is not taught\" and \"is built\"." },
+      { id: "l-short", title: "l' is ni, shortened", explanation: "In the second proverb, l'a is ni a and l'ó is ni ó, written with an apostrophe where the i drops. rọ́la is rí (see) and ọ̀la (tomorrow) joined, as in Mastery 1." },
+    ],
+    examples: [
+      {
+        id: "omo-ti-a-ko-ko", surface: "Ọmọ tí a kò kọ́", english: "The child who is not taught",
+        parts: [
+          { text: "Ọmọ", gloss: "child", role: "noun" },
+          { text: "tí", gloss: "who, that", role: "relative" },
+          { text: "a", gloss: "we, people", role: "pronoun" },
+          { text: "kò", gloss: "not", role: "negation" },
+          { text: "kọ́", gloss: "teach", role: "verb" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Proverb wording from Afolayan (2021) only. Very high doubt: confirm every tone, and the reading of a as people in general.",
+      },
+      {
+        id: "ile-ti-a-ko", surface: "ilé tí a kọ́", english: "the house that is built",
+        parts: [
+          { text: "ilé", gloss: "house", role: "noun" },
+          { text: "tí", gloss: "that", role: "relative" },
+          { text: "a", gloss: "we, people", role: "pronoun" },
+          { text: "kọ́", gloss: "build", role: "verb" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Part of the Afolayan (2021) proverb. Wiktionary gives kọ́ for both build and teach. Very high doubt: confirm with a speaker.",
+      },
+      {
+        id: "owe-omo", surface: "Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà", english: "The child who is not taught will sell the house that is built",
+        parts: [
+          { text: "Ọmọ", gloss: "child", role: "noun" },
+          { text: "tí", gloss: "who", role: "relative" },
+          { text: "a", gloss: "we, people", role: "pronoun" },
+          { text: "kò", gloss: "not", role: "negation" },
+          { text: "kọ́", gloss: "teach", role: "verb" },
+          { text: "ni", gloss: "it is (focus)", role: "focus marker" },
+          { text: "yóò", gloss: "will", role: "aspect marker" },
+          { text: "gbé", gloss: "take", role: "verb 1" },
+          { text: "ilé", gloss: "house", role: "object" },
+          { text: "tí", gloss: "that", role: "relative" },
+          { text: "a", gloss: "we, people", role: "pronoun" },
+          { text: "kọ́", gloss: "build", role: "verb" },
+          { text: "tà", gloss: "sell (nothing follows)", role: "verb 2" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Word for word from Afolayan (2021). Very high doubt. Mastery 2 says a focused doer needs ó after ni, but this proverb has ni yóò with no separate ó; no consulted source explains this. Confirm.",
+      },
+      {
+        id: "oni-la-ri", surface: "Òní l'a rí", english: "It is only today that we see",
+        parts: [
+          { text: "Òní", gloss: "today", role: "focus" },
+          { text: "l'", gloss: "ni (it is), shortened", role: "focus marker" },
+          { text: "a", gloss: "we", role: "pronoun" },
+          { text: "rí", gloss: "see", role: "verb" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "From the proverb quoted under Wiktionary's \"oni\", citing the Global Yoruba Lexical Database. Very high doubt: confirm the wording and the apostrophe spelling.",
+      },
+      {
+        id: "oba-oke-lo-rola", surface: "ọba òkè l'ó rọ́la", english: "only the Most High sees tomorrow",
+        parts: [
+          { text: "ọba", gloss: "king", role: "noun" },
+          { text: "òkè", gloss: "above, on high", role: "noun" },
+          { text: "l'", gloss: "ni (it is), shortened", role: "focus marker" },
+          { text: "ó", gloss: "he", role: "pronoun" },
+          { text: "rọ́la", gloss: "sees tomorrow (rí + ọ̀la joined)", role: "verb + object" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Second half of the same Wiktionary proverb. ọba òkè is translated \"the Most High\" there. Reading rọ́la as rí + ọ̀la is our interpretation. Very high doubt: confirm.",
+      },
+    ],
+    commonMistake: {
+      wrong: "Ọmọ tí a kò kọ́ yóò ta ilé",
+      right: "Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà",
+      why: "The first is a paraphrase, not the proverb. It drops ni, gbé and \"the house that is built\", and with it the play on kọ́ (teach) and kọ́ (build) that Afolayan (2021) describes. Quote proverbs word for word.",
+    },
+  },
+  questions: [
+    { type: "blank", prompt: "Ọmọ tí a kò ___ ni yóò gbé ilé tí a kọ́ tà.", answer: "kọ́", choices: ["kọ́", "kọ̀", "kọ"], wordId: "omo-ti-a-ko-ko" },
+    { type: "blank", prompt: "Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ ___.", answer: "tà", choices: ["tà", "ta", "tá"], wordId: "owe-omo" },
+    { type: "blank", prompt: "Òní l'a ___, ọba òkè l'ó rọ́la.", answer: "rí", choices: ["rí", "ri", "rì"], wordId: "oni-la-ri" },
+    { type: "pick", prompt: "What does Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà mean?", choices: ["The child who is not taught will sell the house that is built", "The child who is not taught will build a house", "A house that is not built cannot be sold"], answer: 0, wordId: "owe-omo" },
+    { type: "pick", prompt: "kọ́ appears twice in the first proverb. Which two meanings does it carry?", choices: ["teach and build", "sell and buy", "go and come"], answer: 0, wordId: "ile-ti-a-ko" },
+    { type: "order", english: "The child who is not taught will sell the house that is built", words: ["ni yóò gbé", "ilé tí a kọ́ tà", "Ọmọ tí a kò kọ́"], answer: ["Ọmọ tí a kò kọ́", "ni yóò gbé", "ilé tí a kọ́ tà"] },
+    { type: "order", english: "It is only today that we see; only the Most High sees tomorrow", words: ["l'ó rọ́la", "Òní l'a rí,", "ọba òkè"], answer: ["Òní l'a rí,", "ọba òkè", "l'ó rọ́la"] },
+    { type: "order", english: "The child who is not taught", words: ["kọ́", "tí", "Ọmọ", "kò", "a"], answer: ["Ọmọ", "tí", "a", "kò", "kọ́"] },
+  ],
+};
