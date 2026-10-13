@@ -84,6 +84,10 @@ a { color: var(--accent); }
 .choice { width: 100%; text-align: left; }
 .choice[data-state="correct"] { border-color: var(--accent); background: var(--surface-2); }
 .choice[data-state="wrong"] { border-color: var(--danger); }
+/* Answered choices stay disabled but must remain readable (no heavy dimming). */
+.choice:disabled { opacity: 1; color: var(--text-muted); cursor: default; }
+.choice[data-state="correct"]:disabled,
+.choice[data-state="wrong"]:disabled { opacity: 1; color: var(--text); }
 .progressbar { height: 0.5rem; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
 .progressbar > div { height: 100%; background: var(--primary); }
 
