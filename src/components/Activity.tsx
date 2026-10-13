@@ -3,6 +3,7 @@ import type { Question } from "@/content/types";
 import { checkAnswer, feedbackFor, type AnswerKind } from "@/lib/answer";
 import { ChoiceQuestion } from "./ChoiceQuestion";
 import { OrderQuestion } from "./OrderQuestion";
+import { AudioButton } from "./AudioButton";
 
 export type ActivityResult = { correct: number; total: number; missed: Question[] };
 
@@ -65,6 +66,11 @@ export function Activity({ questions, onDone }: { questions: Question[]; onDone:
       {answered && (
         <div className="card" role="status" style={{ borderColor: kind === "correct" ? "var(--accent)" : "var(--danger)" }}>
           <p style={{ margin: 0 }} className="yo">{feedbackFor(kind, expected)}</p>
+          {q.type !== "blank" && (
+            <div style={{ marginTop: "0.5rem" }}>
+              <AudioButton text={expected} />
+            </div>
+          )}
         </div>
       )}
 

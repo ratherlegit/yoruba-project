@@ -99,3 +99,16 @@ test("the manual theme toggle sets data-theme and persists across reload", async
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(page.getByLabel("Theme")).toHaveValue("dark");
 });
+
+test("Listen on a word breakdown fetches its audio clip", async ({ page }) => {
+  await unlockAll(page);
+  await page.goto("/lesson/getting-started/gs-2");
+  const showAll = page.getByRole("button", { name: "Show all" }).first();
+  if (await showAll.count()) await showAll.click();
+  const listen = page.getByRole("button", { name: /^Listen to/ }).first();
+  await expect(listen).toBeVisible();
+  const response = page.waitForResponse((r) => /\/audio\/[0-9a-f]{12}\.(mp3|ogg|wav)$/.test(r.url()));
+  await listen.click();
+  // Chromium's media element asks for the clip with a Range header, so 206 is as good as 200.
+  expect([200, 206]).toContain((await response).status());
+});

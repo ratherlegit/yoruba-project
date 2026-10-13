@@ -19,6 +19,10 @@ export function About() {
         <h2 style={{ marginTop: 0 }}>Content review</h2>
         <p>Lessons are drafted carefully and checked against published sources, but tone marks are easy to get wrong. Items still waiting on review by a Yoruba speaker are tracked in the project's review list.</p>
       </section>
+      <section className="card">
+        <h2 style={{ marginTop: 0 }}>Audio</h2>
+        <p>Audio generated with Meta's MMS-TTS Yoruba model (facebook/mms-tts-yor, CC-BY-NC 4.0).</p>
+      </section>
     </main>
   );
 }

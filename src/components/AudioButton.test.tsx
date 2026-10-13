@@ -1,53 +1,78 @@
 import { render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AudioButton } from "./AudioButton";
 
-afterEach(() => {
-  vi.unstubAllGlobals();
+vi.mock("@/lib/audio", () => ({
+  audioUrlFor: (text: string) => (text === "ọmọ" ? "/audio/abc123def456.mp3" : text === "oko" ? "/audio/zzz.mp3" : null),
+}));
+
+const instances: { url: string; play: ReturnType<typeof vi.fn>; pause: ReturnType<typeof vi.fn> }[] = [];
+
+beforeEach(() => {
+  instances.length = 0;
+  vi.stubGlobal(
+    "Audio",
+    class {
+      play = vi.fn(() => Promise.resolve());
+      pause = vi.fn();
+      constructor(public url: string) {
+        instances.push(this as never);
+      }
+    },
+  );
 });
+afterEach(() => vi.unstubAllGlobals());
 
 describe("AudioButton", () => {
-  it("renders nothing when speechSynthesis is missing", () => {
-    vi.stubGlobal("speechSynthesis", undefined);
-    const { container } = render(<AudioButton text="ọmọ" />);
-    expect(container).toBeEmptyDOMElement();
-  });
-
-  it("renders nothing when no Yoruba voice exists", () => {
-    vi.stubGlobal("speechSynthesis", {
-      getVoices: () => [{ lang: "en-US", name: "English" }],
-      addEventListener: () => {},
-      removeEventListener: () => {},
-    });
-    const { container } = render(<AudioButton text="ọmọ" />);
-    expect(container).toBeEmptyDOMElement();
-  });
-
-  it("renders an approximate-pronunciation button when a Yoruba voice exists", () => {
-    vi.stubGlobal("speechSynthesis", {
-      getVoices: () => [{ lang: "yo-NG", name: "Yoruba" }],
-      addEventListener: () => {},
-      removeEventListener: () => {},
-      speak: () => {},
-      cancel: () => {},
-    });
+  it("renders a Listen button when the manifest has the clip", () => {
     render(<AudioButton text="ọmọ" />);
-    expect(screen.getByRole("button", { name: /listen/i })).toBeInTheDocument();
-    expect(screen.getByText(/approximate/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Listen to ọmọ" })).toBeInTheDocument();
   });
-});
 
-describe("AudioButton play", () => {
-  it("does not throw when the engine throws on speak", async () => {
-    const { default: userEvent } = await import("@testing-library/user-event");
-    vi.stubGlobal("speechSynthesis", {
-      getVoices: () => [{ lang: "yo-NG", name: "Yoruba" }],
-      addEventListener: () => {},
-      removeEventListener: () => {},
-      speak: () => { throw new Error("gone"); },
-      cancel: () => {},
-    });
-    vi.stubGlobal("SpeechSynthesisUtterance", class { voice: unknown; lang = ""; constructor(public text: string) {} });
+  it("renders nothing when there is no clip", () => {
+    const { container } = render(<AudioButton text="no clip here" />);
+    expect(container).toBeEmptyDOMElement();
+  });
+
+  it("plays the right URL on click", async () => {
+    render(<AudioButton text="ọmọ" />);
+    await userEvent.setup().click(screen.getByRole("button", { name: /listen/i }));
+    expect(instances).toHaveLength(1);
+    expect(instances[0]!.url).toBe("/audio/abc123def456.mp3");
+    expect(instances[0]!.play).toHaveBeenCalledOnce();
+  });
+
+  it("stops the previous clip when another starts", async () => {
+    render(<><AudioButton text="ọmọ" /><AudioButton text="oko" /></>);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Listen to ọmọ" }));
+    await user.click(screen.getByRole("button", { name: "Listen to oko" }));
+    expect(instances[0]!.pause).toHaveBeenCalled();
+    expect(instances[1]!.url).toBe("/audio/zzz.mp3");
+  });
+
+  it("does not throw when play() rejects", async () => {
+    vi.stubGlobal(
+      "Audio",
+      class {
+        play = () => Promise.reject(new Error("NotAllowedError"));
+        pause = () => {};
+      },
+    );
+    render(<AudioButton text="ọmọ" />);
+    await userEvent.setup().click(screen.getByRole("button", { name: /listen/i }));
+    expect(screen.getByRole("button", { name: /listen/i })).toBeInTheDocument();
+  });
+
+  it("does not throw when play() throws synchronously", async () => {
+    vi.stubGlobal(
+      "Audio",
+      class {
+        play = () => { throw new Error("boom"); };
+        pause = () => {};
+      },
+    );
     render(<AudioButton text="ọmọ" />);
     await userEvent.setup().click(screen.getByRole("button", { name: /listen/i }));
     expect(screen.getByRole("button", { name: /listen/i })).toBeInTheDocument();

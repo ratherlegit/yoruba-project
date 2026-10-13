@@ -51,6 +51,21 @@ describe("Activity", () => {
     expect(screen.getByText("Correct.")).toBeInTheDocument();
   });
 
+  it("offers Listen for the correct answer of pick and order questions, not blank ones", async () => {
+    const user = userEvent.setup();
+    render(<Activity questions={questions} onDone={() => {}} />);
+    await user.click(screen.getByRole("button", { name: "ẹ" }));
+    expect(screen.queryByRole("button", { name: /^Listen/ })).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Continue" }));
+    expect(screen.queryByRole("button", { name: /^Listen/ })).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "ọmọ" }));
+    expect(screen.getByRole("button", { name: "Listen to ọmọ" })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Continue" }));
+    for (const w of ["ẹja", "àti", "ọmọ"]) await user.click(screen.getByRole("button", { name: w }));
+    await user.click(screen.getByRole("button", { name: "Check" }));
+    expect(screen.getByRole("button", { name: "Listen to ẹja àti ọmọ" })).toBeInTheDocument();
+  });
+
   it("disables answering after an answer is given", async () => {
     const user = userEvent.setup();
     render(<Activity questions={questions} onDone={() => {}} />);

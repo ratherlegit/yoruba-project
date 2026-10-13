@@ -1,26 +1,26 @@
-import { useYorubaVoice } from "@/hooks/useYorubaVoice";
+import { audioUrlFor } from "@/lib/audio";
+
+// One clip at a time: starting a new one stops the previous.
+let current: HTMLAudioElement | null = null;
 
 export function AudioButton({ text }: { text: string }) {
-  const voice = useYorubaVoice();
-  if (!voice) return null;
+  const url = audioUrlFor(text);
+  if (!url) return null;
 
   function play() {
     try {
-      const synth = globalThis.speechSynthesis;
-      synth.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.voice = voice;
-      u.lang = voice!.lang;
-      synth.speak(u);
+      current?.pause();
+      const clip = new Audio(url!);
+      current = clip;
+      const started = clip.play();
+      // Autoplay rules or a missing file reject the promise. Audio is optional, so stay quiet.
+      if (started && typeof started.catch === "function") started.catch(() => {});
     } catch {
-      // Some engines throw when a voice disappears. Audio is optional, so stay quiet.
+      // Some environments throw on construction or play. Stay quiet.
     }
   }
 
   return (
-    <span style={{ display: "inline-flex", gap: "0.5rem", alignItems: "center" }}>
-      <button className="btn" onClick={play} aria-label={`Listen to ${text}`}>Listen</button>
-      <span className="muted" style={{ fontSize: "0.8rem" }}>approximate pronunciation</span>
-    </span>
+    <button className="btn" onClick={play} aria-label={`Listen to ${text}`}>Listen</button>
   );
 }
