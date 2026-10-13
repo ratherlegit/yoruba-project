@@ -1,0 +1,15 @@
+export function ProgressRing({ done, total }: { done: number; total: number }) {
+  const r = 18;
+  const c = 2 * Math.PI * r;
+  const frac = total === 0 ? 0 : done / total;
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" role="img" aria-label={`${done} of ${total} lessons complete`}>
+      <circle cx="24" cy="24" r={r} fill="none" stroke="var(--surface-2)" strokeWidth="6" />
+      <circle
+        cx="24" cy="24" r={r} fill="none" stroke="var(--primary)" strokeWidth="6" strokeLinecap="round"
+        strokeDasharray={c} strokeDashoffset={c * (1 - frac)} transform="rotate(-90 24 24)"
+      />
+      <text x="24" y="28" textAnchor="middle" fontSize="12" fill="var(--text)">{done}/{total}</text>
+    </svg>
+  );
+}

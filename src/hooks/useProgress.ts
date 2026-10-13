@@ -5,11 +5,13 @@ import { applyTheme } from "@/lib/theme";
 // Starts empty and loads in an effect so server and client first renders match.
 export function useProgress() {
   const [progress, setProgress] = useState<Progress>(emptyProgress);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const p = loadProgress();
     setProgress(p);
     applyTheme(p.theme);
+    setLoaded(true);
   }, []);
 
   const update = useCallback((fn: (p: Progress) => Progress) => {
@@ -20,5 +22,5 @@ export function useProgress() {
     setProgress(next);
   }, []);
 
-  return { progress, update };
+  return { progress, update, loaded };
 }
