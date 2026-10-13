@@ -76,8 +76,11 @@ a { color: var(--accent); }
 .part-tile > span { display: block; }
 .steps { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.4rem; }
 .steps li { animation: rise 160ms ease-out; }
-.pitch { display: flex; flex-wrap: wrap; gap: 0.25rem; }
-.pitch-col { display: grid; justify-items: center; }
+.pitch { display: flex; flex-wrap: wrap; gap: 0; }
+.pitch-col { display: grid; justify-items: center; align-content: start; width: 3rem; text-align: center; }
+.pitch-gap { display: block; width: 0.75rem; }
+.pitch-syl { font-size: 1rem; overflow-wrap: anywhere; max-width: 100%; }
+.pitch-tone { font-size: 0.75rem; }
 .tone-chip { display: inline-flex; gap: 0.3rem; align-items: center; border: 1px solid var(--border); border-radius: 999px; padding: 0 0.6rem; font-size: 0.875rem; }
 .review-marker { border: 1px dashed var(--danger); color: var(--danger); border-radius: 0.4rem; padding: 0 0.4rem; font-size: 0.8rem; }
 
