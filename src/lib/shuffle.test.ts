@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { seededShuffle } from "./shuffle";
+import { seededShuffle, seededShuffleAvoiding } from "./shuffle";
 
 describe("seededShuffle", () => {
   const items = ["a", "b", "c", "d", "e"];
@@ -19,5 +19,29 @@ describe("seededShuffle", () => {
     const copy = [...items];
     seededShuffle(items, "z");
     expect(items).toEqual(copy);
+  });
+});
+
+describe("seededShuffleAvoiding", () => {
+  it("never equals the avoid order, for two words", () => {
+    for (let n = 0; n < 40; n++) {
+      expect(seededShuffleAvoiding(["a", "b"], `s${n}`, ["a", "b"])).toEqual(["b", "a"]);
+      expect(seededShuffleAvoiding(["b", "a"], `s${n}`, ["a", "b"])).toEqual(["b", "a"]);
+    }
+  });
+  it("avoids the order even with duplicate words when another arrangement exists", () => {
+    for (let n = 0; n < 40; n++) {
+      const out = seededShuffleAvoiding(["a", "a", "b"], `d${n}`, ["a", "a", "b"]);
+      expect(out).not.toEqual(["a", "a", "b"]);
+      expect([...out].sort()).toEqual(["a", "a", "b"]);
+    }
+  });
+  it("returns the only arrangement when all words are identical", () => {
+    expect(seededShuffleAvoiding(["a", "a"], "x", ["a", "a"])).toEqual(["a", "a"]);
+  });
+  it("is deterministic and does not mutate the input", () => {
+    const items = ["a", "b", "c", "d"];
+    expect(seededShuffleAvoiding(items, "k", ["a", "b", "c", "d"])).toEqual(seededShuffleAvoiding(items, "k", ["a", "b", "c", "d"]));
+    expect(items).toEqual(["a", "b", "c", "d"]);
   });
 });

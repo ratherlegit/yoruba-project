@@ -50,7 +50,7 @@ export function Activity({ questions, onDone }: { questions: Question[]; onDone:
       <p className="muted" style={{ margin: 0 }}>Question {i + 1} of {questions.length}</p>
 
       {q.type === "order" ? (
-        <OrderQuestion key={i} english={q.english} words={q.words} seed={`${i}:${q.answer.join("")}`} disabled={answered} onSubmit={submit} />
+        <OrderQuestion key={i} english={q.english} words={q.words} answer={q.answer} seed={`${i}:${q.answer.join("")}`} disabled={answered} onSubmit={submit} />
       ) : (
         <ChoiceQuestion
           key={i}

@@ -27,3 +27,27 @@ export function seededShuffle<T>(items: readonly T[], seed: string): T[] {
   if (same && out.length > 1) out.push(out.shift()!);
   return out;
 }
+
+// Shuffles like seededShuffle, but the result never matches the `avoid` order
+// (compared through `key`) whenever some other arrangement exists.
+export function seededShuffleAvoiding<T>(
+  items: readonly T[],
+  seed: string,
+  avoid: readonly string[],
+  key: (item: T) => string = (item) => String(item),
+): T[] {
+  const matches = (arr: readonly T[]) => arr.length === avoid.length && arr.every((v, i) => key(v) === avoid[i]);
+  let out = seededShuffle(items, seed);
+  if (!matches(out)) return out;
+  for (let n = 1; n <= 24; n++) {
+    out = seededShuffle(items, `${seed}#${n}`);
+    if (!matches(out)) return out;
+  }
+  // Deterministic fallback: any adjacent swap that changes the key order.
+  for (let i = 0; i < items.length - 1; i++) {
+    const swapped = [...out];
+    [swapped[i], swapped[i + 1]] = [swapped[i + 1]!, swapped[i]!];
+    if (!matches(swapped)) return swapped;
+  }
+  return out;
+}

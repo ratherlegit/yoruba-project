@@ -1,16 +1,20 @@
 import { useMemo, useState } from "react";
-import { seededShuffle } from "@/lib/shuffle";
+import { seededShuffleAvoiding } from "@/lib/shuffle";
 
 type Props = {
   english: string;
   words: string[];
+  answer: string[];
   seed: string;
   disabled: boolean;
   onSubmit: (sentence: string) => void;
 };
 
-export function OrderQuestion({ english, words, seed, disabled, onSubmit }: Props) {
-  const bank = useMemo(() => seededShuffle(words.map((w, i) => ({ w, i })), seed), [words, seed]);
+export function OrderQuestion({ english, words, answer, seed, disabled, onSubmit }: Props) {
+  const bank = useMemo(
+    () => seededShuffleAvoiding(words.map((w, i) => ({ w, i })), seed, answer.map((a) => a.toLowerCase()), (b) => b.w.toLowerCase()),
+    [words, seed, answer],
+  );
   const [placed, setPlaced] = useState<number[]>([]);
 
   const remaining = bank.filter((b) => !placed.includes(b.i));
@@ -24,11 +28,11 @@ export function OrderQuestion({ english, words, seed, disabled, onSubmit }: Prop
           <button
             key={i}
             className="btn yo"
-            aria-label={`Remove ${words[i]}`}
+            aria-label={`Remove ${words[i]!.toLowerCase()}`}
             disabled={disabled}
             onClick={() => setPlaced((p) => p.filter((x) => x !== i))}
           >
-            {words[i]}
+            {words[i]!.toLowerCase()}
           </button>
         ))}
       </div>
@@ -41,7 +45,7 @@ export function OrderQuestion({ english, words, seed, disabled, onSubmit }: Prop
             disabled={disabled}
             onClick={() => setPlaced((p) => [...p, b.i])}
           >
-            {b.w}
+            {b.w.toLowerCase()}
           </button>
         ))}
       </div>

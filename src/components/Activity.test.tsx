@@ -38,6 +38,19 @@ describe("Activity", () => {
     expect(result.missed).toEqual([questions[1]]);
   });
 
+  it("shows capitalised order words in lowercase and still grades them", async () => {
+    const user = userEvent.setup();
+    const onDone = vi.fn();
+    const q: Question = { type: "order", english: "I eat", words: ["jẹun", "Mo"], answer: ["Mo", "jẹun"] };
+    render(<Activity questions={[q]} onDone={onDone} />);
+    const bank = screen.getAllByTestId("bank-word").map((b) => b.textContent);
+    expect(bank).toEqual(["jẹun", "mo"]);
+    await user.click(screen.getByRole("button", { name: "mo" }));
+    await user.click(screen.getByRole("button", { name: "jẹun" }));
+    await user.click(screen.getByRole("button", { name: "Check" }));
+    expect(screen.getByText("Correct.")).toBeInTheDocument();
+  });
+
   it("disables answering after an answer is given", async () => {
     const user = userEvent.setup();
     render(<Activity questions={questions} onDone={() => {}} />);
@@ -65,8 +78,10 @@ describe("Activity", () => {
     const user = userEvent.setup();
     render(<Activity questions={questions} onDone={() => {}} />);
     await user.click(screen.getByRole("button", { name: "e" }));
-    const [first, second] = screen.getAllByTestId("choice");
-    expect(first).toHaveTextContent("✓");
-    expect(second).toHaveTextContent("✗");
+    const choices = screen.getAllByTestId("choice");
+    const right = choices.find((c) => c.getAttribute("data-state") === "correct")!;
+    const wrong = choices.find((c) => c.getAttribute("data-state") === "wrong")!;
+    expect(right).toHaveTextContent("✓");
+    expect(wrong).toHaveTextContent("✗");
   });
 });
