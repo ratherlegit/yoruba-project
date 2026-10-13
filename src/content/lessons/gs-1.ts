@@ -9,7 +9,7 @@ export const gs1: Lesson = {
     rule: "Yoruba spells most sounds with one letter, and three letters carry a dot underneath that changes the sound.",
     formula: "ẹ and ọ are open vowels, ṣ is \"sh\", and gb is one sound made of two letters.",
     rules: [
-      { id: "under-dot-vowel", title: "Dotted vowels", explanation: "A dot under e or o opens the vowel. ẹ sounds like the e in \"bed\" and ọ like the o in \"law\". Without the dot, e and o are the closed sounds." },
+      { id: "under-dot-vowel", title: "Dotted vowels", explanation: "A dot under e or o opens the vowel. ẹ sounds like the e in \"bed\" and ọ like the \"aw\" in \"law\". Without the dot, e and o are the closed sounds." },
       { id: "sh-sound", title: "The letter ṣ", explanation: "ṣ with a dot is the \"sh\" sound. Plain s is the s in \"sun\"." },
       { id: "gb-sound", title: "The pair gb", explanation: "gb is one sound made by closing both lips and the back of the throat at once. Treat it as a single letter." },
     ],
@@ -17,7 +17,7 @@ export const gs1: Lesson = {
       {
         id: "omo", surface: "ọmọ", english: "child",
         parts: [
-          { text: "ọ", gloss: "open o, as in \"law\"", role: "syllable" },
+          { text: "ọ", gloss: "open o, like the \"aw\" in \"law\"", role: "syllable" },
           { text: "mọ", gloss: "m + open o", role: "syllable" },
         ],
         steps: [], confidence: "needs-review",
@@ -59,7 +59,7 @@ export const gs1: Lesson = {
     { type: "blank", prompt: "The word for child is ọ___ọ.", answer: "m", choices: ["m", "n", "l"], wordId: "omo" },
     { type: "blank", prompt: "The \"sh\" sound in ṣọ́ra is written ___.", answer: "ṣ", choices: ["ṣ", "s", "gb"], wordId: "sora" },
     { type: "pick", prompt: "Which word contains the sound gb?", choices: ["gbọ́", "bọ́", "gọ́"], answer: 0, wordId: "gbo" },
-    { type: "pick", prompt: "Which spelling shows the open o, as in \"law\"?", choices: ["ọmọ", "omo", "ọmo"], answer: 0, wordId: "omo" },
+    { type: "pick", prompt: "Which spelling shows the open o, the \"aw\" sound in \"law\"?", choices: ["ọmọ", "omo", "ọmo"], answer: 0, wordId: "omo" },
     { type: "order", english: "Fish and child", words: ["ọmọ", "àti", "ẹja"], answer: ["ẹja", "àti", "ọmọ"] },
     { type: "order", english: "I hear the child", words: ["ọmọ", "gbọ́", "Mo"], answer: ["Mo", "gbọ́", "ọmọ"] },
     { type: "order", english: "It is a fish", words: ["ni", "Ẹja"], answer: ["Ẹja", "ni"] },

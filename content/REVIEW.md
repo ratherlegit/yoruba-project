@@ -402,7 +402,7 @@ Questions:
 - Q4 (pick): Which word contains the sound gb?
   - Choices: gbọ́ | bọ́ | gọ́
   - Answer: gbọ́
-- Q5 (pick): Which spelling shows the open o, as in "law"?
+- Q5 (pick): Which spelling shows the open o, the "aw" sound in "law"?
   - Choices: ọmọ | omo | ọmo
   - Answer: ọmọ
 - Q6 (order): Fish and child
