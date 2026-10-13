@@ -1,9 +1,11 @@
+import { useYorubaVoiceState } from "@/hooks/useYorubaVoice";
 import type { Lesson } from "@/content/types";
 import { ToneChip } from "./ToneChip";
 import { WordBreakdownCard } from "./WordBreakdownCard";
 
 export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => void }) {
   const { primer } = lesson;
+  const { voice, checked } = useYorubaVoiceState();
   return (
     <div style={{ display: "grid", gap: "1.25rem" }}>
       <section className="card">
@@ -30,6 +32,7 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
 
       <section style={{ display: "grid", gap: "0.75rem" }}>
         <h3>See how words are built</h3>
+        {checked && !voice && <p className="muted" style={{ margin: 0 }}>Audio is not available for Yoruba in this browser.</p>}
         {primer.examples.map((w) => (
           <WordBreakdownCard key={w.id} word={w} rules={primer.rules} />
         ))}

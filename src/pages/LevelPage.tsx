@@ -1,4 +1,5 @@
 import { Link, useParams } from "@tanstack/react-router";
+import { LockedLevel } from "@/components/LockedLevel";
 import { NotFound } from "@/components/NotFound";
 import { LEVELS, getLevel } from "@/content/levels";
 import { useProgress } from "@/hooks/useProgress";
@@ -15,15 +16,7 @@ export function LevelPage() {
   const idx = LEVELS.findIndex((l) => l.id === level.id);
   if (!isLevelUnlocked(LEVELS, progress, level.id)) {
     const prev = LEVELS[idx - 1]!;
-    return (
-      <main className="page">
-        <div className="card" style={{ display: "grid", gap: "0.75rem" }}>
-          <h1 style={{ margin: 0 }}>{level.title} is locked</h1>
-          <p style={{ margin: 0 }}>Finish all of {prev.title} to open this level, or turn on "Unlock all levels" on the home page.</p>
-          <Link className="btn btn-primary" to="/">Back to home</Link>
-        </div>
-      </main>
-    );
+    return <LockedLevel levelTitle={level.title} prevTitle={prev.title} />;
   }
 
   return (

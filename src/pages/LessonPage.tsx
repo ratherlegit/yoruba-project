@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "@tanstack/react-router";
 import { Activity, type ActivityResult } from "@/components/Activity";
+import { LockedLevel } from "@/components/LockedLevel";
 import { NotFound } from "@/components/NotFound";
 import { Primer } from "@/components/Primer";
 import { Results } from "@/components/Results";
@@ -30,7 +31,12 @@ function LessonView({ levelId, lessonId }: { levelId: string; lessonId: string }
   if (!level || !lesson) return <NotFound what="lesson" />;
   // Wait for saved progress so a saved "unlock all" never flashes the not-found state.
   if (!loaded) return <main className="page" aria-busy="true" />;
-  if (!isLevelUnlocked(LEVELS, progress, level.id)) return <NotFound what="lesson" />;
+  if (!isLevelUnlocked(LEVELS, progress, level.id)) {
+    const prev = LEVELS[LEVELS.findIndex((l) => l.id === level.id) - 1];
+    return <LockedLevel levelTitle={level.title} prevTitle={prev?.title ?? level.title} />;
+  }
+  const upcoming = nextLessonPath(level.id, lesson.id);
+  const nextOpen = upcoming !== null && isLevelUnlocked(LEVELS, progress, upcoming.levelId);
 
   function finish(result: ActivityResult, wasFullRun: boolean) {
     if (wasFullRun) update((p) => recordCompletion(p, lesson!.id, result.correct / result.total));
@@ -69,7 +75,8 @@ function LessonView({ levelId, lessonId }: { levelId: string; lessonId: string }
           total={view.result.total}
           missedCount={view.result.missed.length}
           levelId={level.id}
-          next={nextLessonPath(level.id, lesson.id)}
+          next={nextOpen ? upcoming : null}
+          nextLockedAfter={upcoming && !nextOpen ? level.title : null}
           onReviewInstructions={() => setView({ name: "primer" })}
           onRetryMissed={() =>
             setView({ name: "activity", questions: view.result.missed, attempt: Date.now(), full: false })

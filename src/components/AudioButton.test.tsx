@@ -36,3 +36,20 @@ describe("AudioButton", () => {
     expect(screen.getByText(/approximate/i)).toBeInTheDocument();
   });
 });
+
+describe("AudioButton play", () => {
+  it("does not throw when the engine throws on speak", async () => {
+    const { default: userEvent } = await import("@testing-library/user-event");
+    vi.stubGlobal("speechSynthesis", {
+      getVoices: () => [{ lang: "yo-NG", name: "Yoruba" }],
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      speak: () => { throw new Error("gone"); },
+      cancel: () => {},
+    });
+    vi.stubGlobal("SpeechSynthesisUtterance", class { voice: unknown; lang = ""; constructor(public text: string) {} });
+    render(<AudioButton text="ọmọ" />);
+    await userEvent.setup().click(screen.getByRole("button", { name: /listen/i }));
+    expect(screen.getByRole("button", { name: /listen/i })).toBeInTheDocument();
+  });
+});

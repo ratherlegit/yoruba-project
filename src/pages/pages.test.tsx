@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { beforeEach, describe, expect, it } from "vitest";
 import { emptyProgress, saveProgress } from "@/lib/progress";
@@ -31,6 +32,31 @@ describe("pages", () => {
   it("an unknown lesson shows a friendly page", async () => {
     await renderAt("/lesson/getting-started/nope");
     expect(await screen.findByText(/couldn't find/i)).toBeInTheDocument();
+  });
+
+  it("a locked lesson URL shows the locked message with a way home, not not-found", async () => {
+    await renderAt("/lesson/beginner/b-1");
+    expect(await screen.findByRole("heading", { name: "Beginner is locked" })).toBeInTheDocument();
+    expect(screen.getByText(/finish all of Getting Started/i)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+    expect(screen.queryByText(/couldn't find/i)).not.toBeInTheDocument();
+  });
+
+  it("finishing the last lesson of a still-locked next level explains instead of linking", async () => {
+    const user = userEvent.setup();
+    await renderAt("/lesson/getting-started/gs-4");
+    await user.click(await screen.findByRole("button", { name: "Start practice" }));
+    for (let n = 0; n < 8; n++) {
+      const choices = screen.queryAllByTestId("choice");
+      if (choices.length) await user.click(choices[0]!);
+      else {
+        while (screen.queryAllByTestId("bank-word").length) await user.click(screen.getAllByTestId("bank-word")[0]!);
+        await user.click(screen.getByRole("button", { name: "Check" }));
+      }
+      await user.click(screen.getByRole("button", { name: n === 7 ? "See results" : "Continue" }));
+    }
+    expect(await screen.findByText(/The next level opens after you finish every lesson in Getting Started\./)).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Next lesson" })).not.toBeInTheDocument();
   });
 
   it("an unknown path shows a friendly page", async () => {

@@ -5,12 +5,16 @@ export function AudioButton({ text }: { text: string }) {
   if (!voice) return null;
 
   function play() {
-    const synth = globalThis.speechSynthesis;
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.voice = voice;
-    u.lang = voice!.lang;
-    synth.speak(u);
+    try {
+      const synth = globalThis.speechSynthesis;
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.voice = voice;
+      u.lang = voice!.lang;
+      synth.speak(u);
+    } catch {
+      // Some engines throw when a voice disappears. Audio is optional, so stay quiet.
+    }
   }
 
   return (

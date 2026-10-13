@@ -8,13 +8,17 @@ type Props = {
   onReviewInstructions: () => void;
   next: { levelId: string; lessonId: string } | null;
   levelId: string;
+  nextLockedAfter?: string | null;
 };
 
-export function Results({ correct, total, missedCount, onRetryMissed, onReviewInstructions, next, levelId }: Props) {
+export function Results({ correct, total, missedCount, onRetryMissed, onReviewInstructions, next, levelId, nextLockedAfter }: Props) {
   return (
     <section className="card" style={{ display: "grid", gap: "0.75rem" }}>
       <h2 style={{ margin: 0 }}>Results</h2>
       <p className="yo" style={{ margin: 0 }}>You got {correct} of {total} right.</p>
+      {nextLockedAfter && (
+        <p className="muted" style={{ margin: 0 }}>The next level opens after you finish every lesson in {nextLockedAfter}.</p>
+      )}
       <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
         {missedCount > 0 && (
           <button className="btn btn-primary" onClick={onRetryMissed}>
