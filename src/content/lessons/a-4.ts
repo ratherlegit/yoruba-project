@@ -9,15 +9,15 @@ export const a4: Lesson = {
     "Wiktionary, \"ti\" (Yoruba section): tí, relative pronoun \"which, who, that\", example Adìyẹ tí mo rà (the chicken that I bought).",
     "Wiktionary, \"gbe\" (Yoruba section): example Ilé tí Bọ́lá ń gbé ò tóbi tó (the house Bọ́lá lives in isn't big enough). Wiktionary, \"ra\" and \"ka\": rà, to buy; kà is said ka before a direct object.",
     "Wiktionary, \"adiyẹ\" (adìyẹ, chicken), \"ọkunrin\" (ọkùnrin, man), \"aṣọ\" (aṣọ, cloth).",
-    "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 5, page 115: oúnjẹ tí ó dára (food that is good); Chapter 10, page 241: aṣọ tí ó mọ́ (clothes that are clean) and ẹni tó ní ìlera (a person who has good health), showing tí ó also written as tó. The PDF uses a legacy font encoding for tone marks.",
+    "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 5, page 115: oúnjẹ tí ó dára (food that is good); Chapter 10, page 241: aṣọ tí ó mọ́ (clothes that are clean) and ẹni tó ní ìlera (a person who has good health), where tí ó and tó both appear; COERLL does not say tó comes from tí ó. The PDF uses a legacy font encoding for tone marks.",
     "ọmọ tí ó lọ follows Lawal's subject pattern and was not found written out. Not cross-checked against a print grammar.",
   ],
   primer: {
     rule: "A relative clause is a group of words that describes a noun, like \"who went\" in \"the child who went\". In Yoruba, tí comes right after the noun and starts the clause.",
     formula: "noun + tí + clause: ọmọ tí ó lọ (the child who went)",
     rules: [
-      { id: "ti-after-noun", title: "tí comes after the noun", explanation: "Put the noun first, then tí, then the clause: adìyẹ tí mo rà, the chicken that I bought. tí has a high tone." },
-      { id: "subject-o", title: "The doer keeps ó", explanation: "When the noun is the one doing the action, ó comes after tí: ọkùnrin tí ó ra aṣọ, the man who bought the cloth. Lawal (1987) describes this pronoun in subject clauses. In writing, tí ó is often joined as tó." },
+      { id: "ti-after-noun", title: "tí comes after the noun", explanation: "Put the noun first, then tí, then the clause: adìyẹ tí mo rà, the chicken that I bought. tí has a high tone (it is not ti, the marker for something already done in Intermediate 1)." },
+      { id: "subject-o", title: "The doer keeps a pronoun", explanation: "When the noun is the one doing the action, a pronoun stays after tí; ó is the he, she or it form: ọkùnrin tí ó ra aṣọ, the man who bought the cloth. Lawal (1987) describes this pronoun in subject clauses. In writing, tó appears to be tí ó joined; this is the author's reading, as COERLL does not state it." },
       { id: "object-gap", title: "The thing acted on leaves a gap", explanation: "When the noun is the thing acted on, nothing fills its place in the clause: adìyẹ tí mo rà. The chicken is not repeated after rà." },
       { id: "low-at-end", title: "rà at the end, ra before an object", explanation: "Some low-tone verbs change to mid tone before an object. Wiktionary gives this for kà and tà. So you see ra aṣọ (buy cloth) but tí mo rà with nothing after it." },
     ],

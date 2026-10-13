@@ -16,9 +16,9 @@ export const a1: Lesson = {
     formula: "verb + noun becomes one word: ra + ẹran = rẹran; kú + ilé = kúulé",
     rules: [
       { id: "drop-first", title: "The first vowel drops", explanation: "Often the verb's vowel drops and the noun's vowel stays: ra ẹran (buy meat) is said rẹran. The two words are then written as one." },
-      { id: "keep-tone", title: "A dropped high tone can stay", explanation: "In rí ẹja (see fish), the í of rí drops, but its high tone stays on ẹ: rẹ́ja. Compare ra ẹja (buy fish), which becomes rẹja with no high mark. Only the tone tells them apart." },
+      { id: "keep-tone", title: "A dropped high tone can stay", explanation: "In rí ẹja (see fish), the í of rí drops, but its high tone stays on ẹ: rẹ́ja. Compare ra ẹja (buy fish), which becomes rẹja with no high mark. Mostly the tone tells them apart." },
       { id: "drop-second", title: "Sometimes the second vowel drops", explanation: "In ta iṣu (sell yams), the i of iṣu drops instead: taṣu. The sources list which vowel drops for each pair, so learn each one as it comes." },
-      { id: "match-vowel", title: "Assimilation: a vowel changes to match", explanation: "In kú ilé (a welcome into the house), no vowel drops. The i of ilé becomes u to match kú: kúulé. You met the same thing in greetings: kú àárọ̀ is said káàárọ̀." },
+      { id: "match-vowel", title: "Assimilation: a vowel changes to match", explanation: "In kú ilé (a welcome into the house), no vowel drops. The i of ilé becomes u to match kú: kúulé. You met something similar in greetings: kú àárọ̀ is said káàárọ̀, though there it is kú's vowel that changes." },
     ],
     examples: [
       {

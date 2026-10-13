@@ -9,7 +9,7 @@ export const m1: Lesson = {
     "Wiktionary, \"lọla\" (lọ́la, tomorrow, contraction of ní ọ̀la), \"lonii\" (lónìí, today, contraction of ní òní, pronounced lóní with a downstep on the second syllable; example Kí l'ẹ jẹun lónìí?), \"lanaa\" (lánàá, yesterday, contraction of ní àná), \"ọla\" (ọ̀la, tomorrow; ọlà, wealth), \"oni\" (òní, today).",
     "Wikipedia, \"Yoruba language\", section \"Assimilation and elision\": the spelling follows speech, so contracted words are written without a word break; some writers mark a dropped vowel with an apostrophe, as in n'ílé.",
     "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 10, page 241: the same passage writes aṣọ tí ó mọ́ (clothes that are clean) and ẹni tó ní ìlera (a person who has good health), so tí ó and tó both appear. COERLL does not explain tó. The PDF uses a legacy font encoding for tone marks.",
-    "Wiktionary, \"wa\" (wà, to be somewhere). The practice sentences Mo wà nílé, Mo máa lọ lọ́la and Ọmọ tó lọ were not found written out. Not cross-checked against a print grammar.",
+    "The practice sentences Mo máa lọ lọ́la, Mo máa lọ lónìí and Ọmọ tó lọ were not found written out. Not cross-checked against a print grammar.",
   ],
   primer: {
     rule: "A fused form is two words that are so often said together that they are written as one word. Many start with ní (at, in) joined to a word for a place or a day.",
@@ -17,7 +17,7 @@ export const m1: Lesson = {
     rules: [
       { id: "ni-i-merge", title: "ní before i", explanation: "When the next word starts with i, the two i sounds merge into one high í: ní + ilé = nílé, at home." },
       { id: "ni-to-l", title: "ní before other vowels (several changes at once)", explanation: "Before another vowel, n becomes l, the i of ní drops, and the next vowel takes the high tone: ní + ọ̀la = lọ́la, tomorrow. Several sound changes happen together. The one step shown stands for all of them. Wiktionary gives only the result." },
-      { id: "ti-o", title: "tí + ó becomes tó", explanation: "In writing, tí ó (who, that + he or she) is often joined as tó, with the i dropped. COERLL uses both spellings in the same passage." },
+      { id: "ti-o", title: "tí + ó becomes tó", explanation: "In writing, tó appears to be tí ó (who, that + he or she) joined, with the i dropped. COERLL uses both spellings in the same passage, but no source says one comes from the other, so this is the lesson author's reading." },
       { id: "downstep", title: "A small drop in pitch", explanation: "Wiktionary spells today as lónìí but describes the sound as lóní with a downstep, a slight drop in pitch on the second syllable. Say it as one word." },
     ],
     examples: [
@@ -86,7 +86,7 @@ export const m1: Lesson = {
     { type: "blank", prompt: "Tomorrow (one word): ___", answer: "lọ́la", choices: ["lọ́la", "lọ̀la", "lọla"], wordId: "lola" },
     { type: "pick", prompt: "Which two words make lọ́la?", choices: ["ní + ọ̀la", "ní + ọlà", "ní + ilé"], answer: 0, wordId: "lola" },
     { type: "pick", prompt: "Which two words make tó?", choices: ["tí + ó", "ti + o", "tì + ó"], answer: 0, wordId: "to" },
-    { type: "order", english: "I am at home", words: ["nílé", "Mo", "wà"], answer: ["Mo", "wà", "nílé"] },
+    { type: "order", english: "I will go today", words: ["lónìí", "lọ", "máa", "Mo"], answer: ["Mo", "máa", "lọ", "lónìí"] },
     { type: "order", english: "I will go tomorrow", words: ["lọ́la", "lọ", "máa", "Mo"], answer: ["Mo", "máa", "lọ", "lọ́la"] },
     { type: "order", english: "The child who went", words: ["lọ", "tó", "Ọmọ"], answer: ["Ọmọ", "tó", "lọ"] },
   ],

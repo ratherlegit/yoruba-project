@@ -17,7 +17,7 @@ export const m3: Lesson = {
     formula: "Bí + subject + bá + verb, main clause: Bí òjò bá rọ̀, a ò níí lọ",
     rules: [
       { id: "bi-ba", title: "If: bí at the start, bá before the verb", explanation: "Start the if-clause with bí and put bá right before its verb: Bí òjò bá rọ̀, if it rains. COERLL lists tí ... bá for \"if\" too." },
-      { id: "will-not", title: "Will not: kò níí", explanation: "kò níí before a verb means \"will not\": A kò níí lọ, we will not go. Wiktionary's aspect table and COERLL write níí." },
+      { id: "will-not", title: "Will not: kò níí", explanation: "kò níí before a verb means \"will not\": A kò níí lọ, we will not go. Wiktionary's aspect table and COERLL write níí. Here níí is the spelling the lesson's source uses for the negative future marker; other sources write ní or ní í. It is not the preposition ní from Mastery 1." },
       { id: "ko-shortens", title: "kò shortens to ò", explanation: "After a pronoun, kò is often said as ò, as you saw in Beginner 2: A kò níí lọ becomes A ò níí lọ." },
       { id: "because", title: "Because: nítorí pé", explanation: "nítorí pé (because) comes before the reason: Nítorí pé òjò rọ̀, because it rained." },
     ],
@@ -54,11 +54,11 @@ export const m3: Lesson = {
           { text: "Bí", gloss: "if", role: "conjunction" },
           { text: "o", gloss: "you", role: "pronoun" },
           { text: "bá", gloss: "marks the if-clause", role: "particle" },
-          { text: "kàwé", gloss: "read books (kà + ìwé joined)", role: "verb + object" },
+          { text: "kàwé", gloss: "read books (ka + ìwé joined)", role: "verb + object" },
           { text: "rẹ", gloss: "your", role: "possessive" },
         ],
         steps: [], confidence: "needs-review",
-        note: "From the COERLL song on page 290. COERLL gives no English line for it; \"if you read your books\" is our gloss. kàwé is kà + ìwé contracted, as in Advanced 1. Confirm.",
+        note: "From the COERLL song on page 290. COERLL gives no English line for it; \"if you read your books\" is our gloss. kàwé is read as ka + ìwé contracted, as in Advanced 1, where kà is said ka before an object; the song prints it with a low tone on kà. Confirm.",
       },
       {
         id: "nitori-pe-ojo-ro", surface: "Nítorí pé òjò rọ̀", english: "Because it rained",

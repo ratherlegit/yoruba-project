@@ -15,10 +15,10 @@ export const m4: Lesson = {
     rule: "A proverb (òwe) is a short traditional saying that teaches a lesson. Speakers quote proverbs word for word, so the exact words and tones matter. Read them in chunks, using the grammar you already know.",
     formula: "read the proverb chunk by chunk: Ọmọ tí a kò kọ́ | ni yóò gbé | ilé tí a kọ́ tà",
     rules: [
-      { id: "chunks", title: "Read it in chunks", explanation: "The first proverb uses tí (Advanced 4), kò (Beginner 2), ni for focus (Mastery 2), yóò for \"will\" (Intermediate 1), and gbé ... tà, two verbs in a chain (Advanced 3)." },
+      { id: "chunks", title: "Read it in chunks", explanation: "The first proverb uses tí (Advanced 4), kò (Beginner 2), ni for focus (Mastery 2), yóò for \"will\" (Intermediate 1), and gbé ... tà, two verbs in a chain (Advanced 3). This proverb has ni yóò with no ó after ni, and no source consulted explains this. It also sits outside the pattern in Intermediate 1, where yóò goes with a long pronoun. Both are open doubts, not errors in the proverb." },
       { id: "wordplay", title: "One sound, two meanings", explanation: "kọ́ means both \"teach\" and \"build\". The proverb uses it twice: the child we did not teach (kọ́) sells the house we built (kọ́). Afolayan (2021) writes about this play on words." },
-      { id: "general-a", title: "a: we, or people in general", explanation: "a usually means \"we\". In proverbs it often stands for people in general, so English uses \"is not taught\" and \"is built\"." },
-      { id: "l-short", title: "l' is ni, shortened", explanation: "In the second proverb, l'a is ni a and l'ó is ni ó, written with an apostrophe where the i drops. rọ́la is rí (see) and ọ̀la (tomorrow) joined, as in Mastery 1." },
+      { id: "general-a", title: "a: we, or people in general", explanation: "a usually means \"we\". In proverbs it is often read as standing for people in general, so English uses \"is not taught\" and \"is built\"." },
+      { id: "l-short", title: "l' appears to be ni, shortened", explanation: "In the second proverb, l'a appears to be ni a and l'ó appears to be ni ó, written with an apostrophe where the i drops, like ló in Mastery 2. rọ́la appears to be rí (see) and ọ̀la (tomorrow) joined, a pattern like rí ẹja to rẹ́ja in Advanced 1. These readings are the lesson author's, not stated by a source." },
     ],
     examples: [
       {
@@ -62,7 +62,7 @@ export const m4: Lesson = {
           { text: "tà", gloss: "sell (nothing follows)", role: "verb 2" },
         ],
         steps: [], confidence: "needs-review",
-        note: "Word for word from Afolayan (2021). Very high doubt. Mastery 2 says a focused doer needs ó after ni, but this proverb has ni yóò with no separate ó; no consulted source explains this. Confirm.",
+        note: "Word for word from Afolayan (2021). Very high doubt. Mastery 2 shows ó after ni with a plain verb, but this proverb has ni yóò with no ó after ni; no consulted source explains this. It also sits outside the Intermediate 1 pattern of yóò with a long pronoun. Both are open doubts. Confirm.",
       },
       {
         id: "oni-la-ri", surface: "Òní l'a rí", english: "It is only today that we see",
@@ -73,7 +73,7 @@ export const m4: Lesson = {
           { text: "rí", gloss: "see", role: "verb" },
         ],
         steps: [], confidence: "needs-review",
-        note: "From the proverb quoted under Wiktionary's \"oni\", citing the Global Yoruba Lexical Database. Very high doubt: confirm the wording and the apostrophe spelling.",
+        note: "From the proverb quoted under Wiktionary's \"oni\", citing the Global Yoruba Lexical Database. Very high doubt: confirm the wording and the apostrophe spelling. Reading l' as ni is the author's inference; no source states it.",
       },
       {
         id: "oba-oke-lo-rola", surface: "ọba òkè l'ó rọ́la", english: "only the Most High sees tomorrow",
@@ -85,7 +85,7 @@ export const m4: Lesson = {
           { text: "rọ́la", gloss: "sees tomorrow (rí + ọ̀la joined)", role: "verb + object" },
         ],
         steps: [], confidence: "needs-review",
-        note: "Second half of the same Wiktionary proverb. ọba òkè is translated \"the Most High\" there. Reading rọ́la as rí + ọ̀la is our interpretation. Very high doubt: confirm.",
+        note: "Second half of the same Wiktionary proverb. ọba òkè is translated \"the Most High\" there. Reading rọ́la as rí + ọ̀la is our interpretation, and so is reading l'ó as ni ó (the ló doubt from Mastery 2): no source states either. Very high doubt: confirm.",
       },
     ],
     commonMistake: {
