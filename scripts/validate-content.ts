@@ -24,7 +24,7 @@ for (const level of VOCAB_LEVELS) {
     }
   }
 }
-for (const e of validateVocabCatalog(VOCAB_LEVELS)) {
+for (const e of validateVocabCatalog(VOCAB_LEVELS, { complete: true })) {
   console.error(e);
   failed++;
 }

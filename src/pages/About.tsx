@@ -20,6 +20,10 @@ export function About() {
         <p>Lessons are drafted carefully and checked against published sources, but tone marks are easy to get wrong. Items still waiting on review by a Yoruba speaker are tracked in the project's review list.</p>
       </section>
       <section className="card">
+        <h2 style={{ marginTop: 0 }}>Vocab</h2>
+        <p>The Vocab section groups common words by topic, at the same five levels as the grammar lessons. All vocabulary and example sentences are still waiting on a native speaker to confirm, the same review status as the grammar lessons. Audio clips are being added in batches, so some Listen buttons may be missing for now.</p>
+      </section>
+      <section className="card">
         <h2 style={{ marginTop: 0 }}>Audio</h2>
         {/* Owner: check ElevenLabs's current terms for your plan (for example attribution requirements) and adjust this sentence. */}
         <p>Audio pronunciation clips were generated with ElevenLabs text-to-speech.</p>

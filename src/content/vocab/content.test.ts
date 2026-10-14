@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { VOCAB_LEVELS, getVocabLevel, getVocabTopic, nextVocabTopicPath } from "./index";
+import { VOCAB_LEVELS, allVocabWords, getVocabLevel, getVocabTopic, nextVocabTopicPath } from "./index";
 import { validateTopic, validateVocabCatalog } from "./validate";
 
 describe("vocab content", () => {
@@ -8,6 +8,10 @@ describe("vocab content", () => {
   });
   it("has a valid catalog", () => {
     expect(validateVocabCatalog(VOCAB_LEVELS)).toEqual([]);
+  });
+  it("has 5 topics of 10 words in every level (250 words)", () => {
+    expect(validateVocabCatalog(VOCAB_LEVELS, { complete: true })).toEqual([]);
+    expect(allVocabWords()).toHaveLength(250);
   });
   for (const level of VOCAB_LEVELS) {
     for (const topic of level.topics) {
