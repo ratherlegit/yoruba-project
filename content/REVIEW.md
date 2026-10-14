@@ -737,8 +737,8 @@ Sources consulted: Wiktionary, "ilu" (Yoruba section): ìlú, a town or city (al
   - Sentence: Ọjọ́ mẹ́rin mẹ́rin ni a máa ń ná ọjà abúlé wa. / We go to our village market every four days.
   - Doubt: From the model's own knowledge; ọjà also means goods. Sentence drafted by the model: ná ọjà (go to market) pairs only with ọjà; confirm the distributive ọjọ́ mẹ́rin mẹ́rin (every four days, the traditional Yoruba market week) and whether the native speaker prefers another phrasing.
 - `i-town-ona`: **ọ̀nà** (road, way, noun)
-  - Sentence: Mo sọnù, mo sì béèrè ọ̀nà lọ́wọ́ ọlọ́pàá. / I was lost, so I asked a police officer the way.
-  - Doubt: From the model's own knowledge; ọ̀nà means both road and way. Sentence drafted by the model: confirm sọnù (get lost) and béèrè ... lọ́wọ́ (ask someone for).
+  - Sentence: Ọ̀nà tí ó lọ sí abúlé wa gùn, ó sì kún fún ihò. / The road to our village is long and full of potholes.
+  - Doubt: From the model's own knowledge; ọ̀nà means both road and way. Sentence drafted by the model (rewritten after review): ihò is a hole, and the native speaker may prefer kòtò for a pothole; confirm gùn (be long) and kún fún (be full of).
 - `i-town-afara`: **afárá** (bridge, noun)
   - Sentence: Lẹ́yìn tí wọ́n kọ́ afárá sórí odò, a kò wọ ọkọ̀ ojú omi mọ́. / Since they built a bridge over the river, we no longer take a boat.
   - Doubt: Tones from Wiktionary (afàrà with low tones is a tree). Sentence drafted by the model: confirm kọ́ ... sórí odò (build over the river) and ọkọ̀ ojú omi (boat).
@@ -805,8 +805,8 @@ Sources consulted: The model's own knowledge for all ten words and all ten examp
   - Sentence: Ìbínú mú kí ó pariwo mọ́ ọmọ tí ó fọ́ ìkòkò rẹ̀. / Anger made her shout at the child who broke her pot.
   - Doubt: From the model's own knowledge; related to bínú (be angry) in ẹ má bínú. Sentence drafted by the model: confirm pariwo mọ́ (shout at) and fọ́ (break, smash).
 - `i-feelings-eru`: **ẹ̀rù** (fear, noun)
-  - Sentence: Ẹ̀rù ejò ń ba ọmọ náà, kò fẹ́ wọ inú igbó. / The child has a fear of snakes, so he does not want to go into the bush.
-  - Doubt: From the model's own knowledge; ẹrù with a mid first tone is a load. Sentence drafted by the model: confirm ẹ̀rù ... ń ba (fear grips someone) with the feared thing placed after ẹ̀rù.
+  - Sentence: Ẹ̀rù ejò ń bà ọmọ náà, kò fẹ́ wọ inú igbó. / The child has a fear of snakes, so he does not want to go into the bush.
+  - Doubt: From the model's own knowledge; ẹrù with a mid first tone is a load. Sentence drafted by the model: the tone of the verb in this idiom (ẹ̀rù ń bà, low tone, as in ẹ̀rù bà mí, or ba, mid tone) needs a native speaker; the model chose bà. Also confirm placing the feared thing (ejò) right after ẹ̀rù.
 - `i-feelings-aare`: **àárẹ̀** (tiredness, noun)
   - Sentence: Àárẹ̀ mú un lẹ́yìn tí ó ṣiṣẹ́ láti àárọ̀ di alẹ́, ó sì sùn lọ. / Tiredness overcame him after he worked from morning to night, and he fell asleep.
   - Doubt: From the model's own knowledge; àárẹ̀ can also mean weakness or illness, and everyday speech often says ó rẹ̀ mí (I am tired) instead. Sentence drafted by the model: confirm àárẹ̀ mú un and sùn lọ (fall asleep).
@@ -817,8 +817,8 @@ Sources consulted: The model's own knowledge for all ten words and all ten examp
   - Sentence: Òùngbẹ ń gbẹ mí, ẹ jọ̀ọ́ ẹ fún mi ní omi. / I am thirsty, please give me some water.
   - Doubt: From the model's own knowledge; confirm the tones and the variant òrùngbẹ. Sentence drafted by the model: òùngbẹ ń gbẹ mí is literally thirst is drying me, the usual way to say I am thirsty.
 - `i-feelings-iyalenu`: **ìyàlẹ́nu** (surprise, noun)
-  - Sentence: Ó jẹ́ ìyàlẹ́nu fún wa pé Túndé, tí kì í tètè dé, ni ó kọ́kọ́ dé lónìí. / It was a surprise to us that Túndé, who is never early, was the first to arrive today.
-  - Doubt: From the model's own knowledge; confirm the tones. Sentence drafted by the model: the unexpected event is what singles out surprise; confirm kì í tètè dé (never arrives early) and kọ́kọ́ dé (arrive first).
+  - Sentence: Ó jẹ́ ìyàlẹ́nu fún wa, nítorí a kò retí pé Túndé tí kì í tètè dé yóò kọ́kọ́ dé. / It was a surprise to us, because we did not expect that Túndé, who is never early, would arrive first.
+  - Doubt: From the model's own knowledge; confirm the tones. Sentence drafted by the model (rewritten after review): a kò retí (we did not expect) is what singles out surprise; confirm kì í tètè dé (never arrives early) and yóò kọ́kọ́ dé (would arrive first).
 - `i-feelings-itiju`: **ìtìjú** (embarrassment, noun)
   - Sentence: Ó fi ọwọ́ bo ojú rẹ̀ nítorí ìtìjú nígbà tí ṣòkòtò rẹ̀ ya níwájú gbogbo èèyàn. / He covered his face with his hands in embarrassment when his trousers tore in front of everyone.
   - Doubt: From the model's own knowledge; ìtìjú covers shame and shyness as well. Sentence drafted by the model: confirm bo ojú (cover the face) and ya (tear) for trousers.
@@ -833,8 +833,8 @@ Sources consulted: Wiktionary, "oorun" (Yoruba section): oòrùn, the sun; òór
   - Sentence: Òjò rọ̀ gan-an lánàá, omi sì kún ọ̀nà. / It rained heavily yesterday, and water flooded the road.
   - Doubt: Same spelling as the grammar lessons. Sentence drafted by the model: rọ̀ (fall, of rain) pairs only with rain; confirm kún ọ̀nà (fill the road) for flooding.
 - `i-nature-oorun`: **oòrùn** (sun, noun)
-  - Sentence: Oòrùn ń yọ ní àárọ̀, ó sì ń wọ̀ ní ìrọ̀lẹ́. / The sun rises in the morning and sets in the evening.
-  - Doubt: Tones from Wiktionary (oorun with mid tones is sleep, òórùn is a smell). Sentence drafted by the model: confirm yọ (rise) and wọ̀ (set).
+  - Sentence: Oòrùn ń yọ ní àárọ̀, ó sì ń mú ilẹ̀ gbóná ní ọ̀sán. / The sun rises in the morning and heats the ground by midday.
+  - Doubt: Tones from Wiktionary (oorun with mid tones is sleep, òórùn is a smell). Sentence drafted by the model (rewritten after review): heating the ground rules out the moon; confirm yọ (rise) and mú ... gbóná (make hot).
 - `i-nature-afefe`: **afẹ́fẹ́** (wind, noun)
   - Sentence: Afẹ́fẹ́ líle fẹ́ fìlà mi lọ. / A strong wind blew my cap away.
   - Doubt: From the model's own knowledge; afẹ́fẹ́ also means air. Sentence drafted by the model: confirm fẹ́ ... lọ (blow away) and líle (strong).
@@ -861,7 +861,7 @@ Sources consulted: Wiktionary, "oorun" (Yoruba section): oòrùn, the sun; òór
   - Doubt: From the model's own knowledge, not found on Wiktionary; confirm the tones. Sentence drafted by the model: confirm tàn (shine) and òru (night).
 
 #### Common verbs (`i-verbs`)
-Sources consulted: src/content/lessons (citing Wiktionary "ra" and "ta"): rà, to buy, and tà, to sell, both said with a mid tone (ra, ta) before a direct object; sùn (sleep), mu (drink, as in Adé ń mu omi), rí and mú appear there with the same spellings. Not rechecked against an outside source for this topic.; The model's own knowledge for lọ, wá, jẹ and fún, and for all ten example sentences. No dictionary entry was checked for them.
+Sources consulted: src/content/lessons (citing Wiktionary "ra" and "ta"): rà, to buy, and tà, to sell, both said with a mid tone (ra, ta) before a direct object; sùn (sleep), mu (drink, as in Adé ń mu omi) and rí appear there with the same spellings; a-1.ts teaches ta iṣu = taṣu. Not rechecked against an outside source for this topic.; The model's own knowledge for lọ, wá, jẹ, fún and dúró, and for all ten example sentences. No dictionary entry was checked for them.
 
 - `i-verbs-lo`: **lọ** (go, verb)
   - Sentence: Ó dágbére fún wa, ó sì lọ sí Èkó. / He said goodbye to us and went to Lagos.
@@ -872,27 +872,27 @@ Sources consulted: src/content/lessons (citing Wiktionary "ra" and "ta"): rà, t
 - `i-verbs-je`: **jẹ** (eat, verb)
   - Sentence: Mo ti jẹ ìrẹsì, mo sì yó. / I have eaten rice, and I am full.
   - Doubt: From the model's own knowledge; jẹ with a mid tone is eat, jẹ́ with a high tone is be. Sentence drafted by the model: being full rules out buying or seeing the rice; confirm yó (be full).
-- `i-verbs-mu-drink`: **mu** (drink, verb)
+- `i-verbs-mu`: **mu** (drink, verb)
   - Sentence: Ó mu gbogbo omi inú ife náà tán. / She drank all the water in the cup.
-  - Doubt: Same spelling as the grammar lessons (Adé ń mu omi); mú with a high tone is take. Sentence drafted by the model: confirm ife (cup) and mu ... tán (drink up).
+  - Doubt: Same spelling as the grammar lessons (Adé ń mu omi); mú with a high tone is take, which is not in this topic. Sentence drafted by the model: confirm ife (cup) and mu ... tán (drink up).
 - `i-verbs-ra`: **rà** (buy, verb)
   - Sentence: Mo fi owó oṣù mi ra bàtà tuntun. / I used my salary to buy new shoes.
   - Doubt: rà becomes ra before a direct object, as the grammar lessons teach, so the gap blanks ra. Sentence drafted by the model: paying with a salary rules out tà (sell); confirm fi ... ra (buy with).
 - `i-verbs-ta`: **tà** (sell, verb)
   - Sentence: Àgbẹ̀ náà ta iṣu rẹ̀, ó sì gba owó púpọ̀. / The farmer sold his yams and got a lot of money.
-  - Doubt: tà becomes ta before a direct object, as the grammar lessons teach, so the gap blanks ta. Sentence drafted by the model: receiving money rules out rà (buy); the lessons note the contracted form taṣu, so the native speaker may prefer it here.
+  - Doubt: tà becomes ta before a direct object, as the grammar lessons teach, so the gap blanks ta. Sentence drafted by the model: receiving money rules out rà (buy); src/content/lessons/a-1.ts teaches the contraction ta iṣu = taṣu (citing COERLL page 245), so the native speaker may prefer taṣu here.
 - `i-verbs-ri`: **rí** (see, verb)
   - Sentence: Mo rí erin ní ọgbà ẹranko. / I saw an elephant at the zoo.
   - Doubt: Same spelling as the grammar lessons. Sentence drafted by the model: confirm ọgbà ẹranko (zoo).
 - `i-verbs-fun`: **fún** (give, verb)
   - Sentence: Ó fún ọ̀rẹ́ rẹ̀ ní ẹ̀bùn ọjọ́ ìbí. / He gave his friend a birthday present.
   - Doubt: From the model's own knowledge; fún also means for and to. Sentence drafted by the model: the fún ... ní frame (give someone something) fits only this verb; confirm ẹ̀bùn ọjọ́ ìbí (birthday present).
-- `i-verbs-mu-take`: **mú** (take, verb)
-  - Sentence: Mú agbòòrùn rẹ dání, òjò ń bọ̀. / Take your umbrella, rain is coming.
-  - Doubt: Same spelling as the grammar lessons; mu with a mid tone is drink. Sentence drafted by the model: confirm mú ... dání (take along in hand) and agbòòrùn (umbrella).
+- `i-verbs-duro`: **dúró** (wait, verb)
+  - Sentence: Dúró de mí, mo ń bọ̀ ní ìṣẹ́jú kan. / Wait for me, I am coming in a minute.
+  - Doubt: From the model's own knowledge; dúró also means stand and stop. Replaces mú (take), which had a tone twin (mu, drink) in this topic. Sentence drafted by the model: dúró de (wait for) is a fixed pairing no other verb here takes; confirm ìṣẹ́jú kan (one minute).
 - `i-verbs-sun`: **sùn** (sleep, verb)
-  - Sentence: Ó rẹ̀ mí, mo fẹ́ lọ sùn. / I am tired, I want to go to sleep.
-  - Doubt: Same spelling as the grammar lessons (Ṣé o sùn dáadáa?). Sentence drafted by the model: being tired and having no object rule out the other verbs; confirm lọ sùn (go to sleep).
+  - Sentence: Ilẹ̀ ti ṣú, ó sì rẹ̀ mí, mo fẹ́ lọ sùn. / It is dark now and I am tired, I want to go to sleep.
+  - Doubt: Same spelling as the grammar lessons (Ṣé o sùn dáadáa?). Sentence drafted by the model (rewritten after review): nightfall and tiredness, with no object after the verb, rule out jẹ and mu; confirm ilẹ̀ ti ṣú (it has become dark) and lọ sùn (go to sleep). The reviewer's lórí ibùsùn mi was left out because ibùsùn contains sùn, which would make the gap ambiguous.
 
 ## All learner-facing Yoruba
 

@@ -1255,8 +1255,8 @@
     "group": "vocab-word"
   },
   {
-    "key": "mú",
-    "text": "mú",
+    "key": "dúró",
+    "text": "dúró",
     "group": "vocab-word"
   },
   {
@@ -1780,8 +1780,8 @@
     "group": "vocab-sentence"
   },
   {
-    "key": "mo sọnù mo sì béèrè ọ̀nà lọ́wọ́ ọlọ́pàá",
-    "text": "Mo sọnù, mo sì béèrè ọ̀nà lọ́wọ́ ọlọ́pàá.",
+    "key": "ọ̀nà tí ó lọ sí abúlé wa gùn ó sì kún fún ihò",
+    "text": "Ọ̀nà tí ó lọ sí abúlé wa gùn, ó sì kún fún ihò.",
     "group": "vocab-sentence"
   },
   {
@@ -1880,8 +1880,8 @@
     "group": "vocab-sentence"
   },
   {
-    "key": "ẹ̀rù ejò ń ba ọmọ náà kò fẹ́ wọ inú igbó",
-    "text": "Ẹ̀rù ejò ń ba ọmọ náà, kò fẹ́ wọ inú igbó.",
+    "key": "ẹ̀rù ejò ń bà ọmọ náà kò fẹ́ wọ inú igbó",
+    "text": "Ẹ̀rù ejò ń bà ọmọ náà, kò fẹ́ wọ inú igbó.",
     "group": "vocab-sentence"
   },
   {
@@ -1900,8 +1900,8 @@
     "group": "vocab-sentence"
   },
   {
-    "key": "ó jẹ́ ìyàlẹ́nu fún wa pé túndé tí kì í tètè dé ni ó kọ́kọ́ dé lónìí",
-    "text": "Ó jẹ́ ìyàlẹ́nu fún wa pé Túndé, tí kì í tètè dé, ni ó kọ́kọ́ dé lónìí.",
+    "key": "ó jẹ́ ìyàlẹ́nu fún wa nítorí a kò retí pé túndé tí kì í tètè dé yóò kọ́kọ́ dé",
+    "text": "Ó jẹ́ ìyàlẹ́nu fún wa, nítorí a kò retí pé Túndé tí kì í tètè dé yóò kọ́kọ́ dé.",
     "group": "vocab-sentence"
   },
   {
@@ -1920,8 +1920,8 @@
     "group": "vocab-sentence"
   },
   {
-    "key": "oòrùn ń yọ ní àárọ̀ ó sì ń wọ̀ ní ìrọ̀lẹ́",
-    "text": "Oòrùn ń yọ ní àárọ̀, ó sì ń wọ̀ ní ìrọ̀lẹ́.",
+    "key": "oòrùn ń yọ ní àárọ̀ ó sì ń mú ilẹ̀ gbóná ní ọ̀sán",
+    "text": "Oòrùn ń yọ ní àárọ̀, ó sì ń mú ilẹ̀ gbóná ní ọ̀sán.",
     "group": "vocab-sentence"
   },
   {
@@ -2005,13 +2005,13 @@
     "group": "vocab-sentence"
   },
   {
-    "key": "mú agbòòrùn rẹ dání òjò ń bọ̀",
-    "text": "Mú agbòòrùn rẹ dání, òjò ń bọ̀.",
+    "key": "dúró de mí mo ń bọ̀ ní ìṣẹ́jú kan",
+    "text": "Dúró de mí, mo ń bọ̀ ní ìṣẹ́jú kan.",
     "group": "vocab-sentence"
   },
   {
-    "key": "ó rẹ̀ mí mo fẹ́ lọ sùn",
-    "text": "Ó rẹ̀ mí, mo fẹ́ lọ sùn.",
+    "key": "ilẹ̀ ti ṣú ó sì rẹ̀ mí mo fẹ́ lọ sùn",
+    "text": "Ilẹ̀ ti ṣú, ó sì rẹ̀ mí, mo fẹ́ lọ sùn.",
     "group": "vocab-sentence"
   }
 ]
