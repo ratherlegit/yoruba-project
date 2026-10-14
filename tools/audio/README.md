@@ -37,7 +37,7 @@ Other options: `--limit N`, `--sleep SECONDS` (default 0.3). Keys are NFC lowerc
 
 Use this when the API is not available on your plan. You paste prepared text into the ElevenLabs website, download the audio, and a script cuts it into one clip per word or phrase. About 15 minutes of work.
 
-Before you start: open the ElevenLabs site and check your remaining credits. The free plan's monthly allowance covers about 3,300 characters of text, and the web tool counts every generation against it, including retries. The exact size of the files is printed in step 2 (tag characters may count too). Keep a spare for retries, and do the short test first.
+Before you start: open the ElevenLabs site and check your remaining credits. The whole set is about 1,000 characters of text, or about 3,700 if the web tool also counts the pause tags, and every generation counts against your balance (including retries), so make sure your remaining credits cover that with some spare. The test file is only 138 characters; run it first.
 
 1. `npm run audio:list`
 2. `python tools/audio/prepare_paste.py` (use `tools/audio/.venv/bin/python` if plain `python` is missing). This writes `tools/audio/paste/` (test.txt, part-1.txt, part-2.txt, ..., order.json) and prints the character counts. That folder is git-ignored, so run this command again any time to regenerate it.
