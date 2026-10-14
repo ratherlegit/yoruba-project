@@ -63,7 +63,12 @@ function TopicView({ levelId, topicId }: { levelId: string; topicId: string }) {
       <p className="muted" style={{ margin: 0 }}>{topic.blurb}</p>
       <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
         {MODES.map((m) => (
-          <button key={m.id} className="btn" aria-pressed={mode === m.id} onClick={() => chooseMode(m.id)}>
+          <button
+            key={m.id}
+            className={mode === m.id ? "btn btn-primary" : "btn"}
+            aria-pressed={mode === m.id}
+            onClick={() => chooseMode(m.id)}
+          >
             {m.label}
           </button>
         ))}
@@ -80,7 +85,6 @@ function TopicView({ levelId, topicId }: { levelId: string; topicId: string }) {
           correct={result.correct}
           total={result.total}
           missedCount={result.missed.length}
-          levelId={level.id}
           next={nextVocabTopicPath(level.id, topic.id)}
           onRetryMissed={() => {
             setRetry(result.missed);

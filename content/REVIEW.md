@@ -390,11 +390,11 @@ Sources consulted: src/content/lessons/gs-3.ts, this app's greetings lesson (its
   - Sentence: Ẹ káàsán, ọ̀sán yìí gbóná. / Good afternoon, it is hot this afternoon.
   - Doubt: Wiktionary gives káàsán, used from noon to about 4 pm. Sentence drafted by the model: confirm gbóná (hot) for the weather, rather than a phrase with oòrùn (sun).
 - `gs-greetings-kaale`: **ẹ káalẹ́** (good evening, phrase)
-  - Sentence: Ẹ káalẹ́, oòrùn ti wọ̀. / Good evening, the sun has set.
-  - Doubt: Same form as lesson gs-3. Confirm the mid tone on the second a. Sentence drafted by the model: confirm that oòrùn ti wọ̀ (the sun has set) sounds natural.
+  - Sentence: Ẹ káalẹ́, alẹ́ yìí tutù. / Good evening, it is cool this evening.
+  - Doubt: Same form as lesson gs-3. Confirm the mid tone on the second a. Sentence drafted by the model: confirm tutù (cool, cold) for the evening air.
 - `gs-greetings-kuuse`: **ẹ kúuṣẹ́** (well done (to someone working), phrase)
-  - Sentence: Ẹ kúuṣẹ́, iṣẹ́ yín dára. / Well done, your work is good.
-  - Doubt: Same joined form as lesson gs-3; some write it as ẹ kú iṣẹ́. Sentence drafted by the model.
+  - Sentence: Ẹ kúuṣẹ́, ẹ ṣì ń kọ́lé. / Well done, you are still building.
+  - Doubt: Same joined form as lesson gs-3; some write it as ẹ kú iṣẹ́. Sentence drafted by the model: confirm ṣì ń kọ́lé (still building a house) is natural.
 - `gs-greetings-kaabo`: **ẹ káàbọ̀** (welcome, phrase)
   - Sentence: Ẹ káàbọ̀ sí ilé wa. / Welcome to our home.
   - Doubt: Tone marks from the model's own knowledge (kú + àbọ̀, joined like káàárọ̀). The one source checked writes E kaabo without tone marks. Sentence drafted by the model.
@@ -408,8 +408,8 @@ Sources consulted: src/content/lessons/gs-3.ts, this app's greetings lesson (its
   - Sentence: Ẹ má bínú, mo pẹ́. / Sorry, I am late.
   - Doubt: From the model's own knowledge; no source checked. Literally "do not be angry". Sentence drafted by the model: confirm mo pẹ́ (I am late) is the natural phrasing.
 - `gs-greetings-dabo`: **ó dàbọ̀** (goodbye, phrase)
-  - Sentence: Ó dàbọ̀, mo ń lọ. / Goodbye, I am leaving.
-  - Doubt: From the model's own knowledge; no source checked. Confirm the tones and whether it is written as two words or as one (ódàbọ̀). Sentence drafted by the model.
+  - Sentence: Ó dàbọ̀, a ó tún rí ara wa. / Goodbye, we will see each other again.
+  - Doubt: From the model's own knowledge; no source checked. Confirm the tones and whether it is written as two words or as one (ódàbọ̀). Sentence drafted by the model: confirm a ó (we will) versus a óò.
 - `gs-greetings-bawo`: **báwo ni** (how are you?, phrase)
   - Sentence: Báwo ni ara rẹ? / How are you?
   - Doubt: Wiktionary gives báwo (how) and báwo ni?. Casual, for friends; to an elder a greeting with ẹ is more polite. Sentence drafted by the model; báwo ni ara rẹ is literally "how is your body".

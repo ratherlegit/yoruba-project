@@ -146,6 +146,14 @@ class PreparePasteTests(unittest.TestCase):
             order = json.loads((m.PASTE / "order.json").read_text(encoding="utf-8"))
             self.assertEqual(order, {"part-1": ["ìdí"]})
 
+    def test_period_only_added_when_missing(self):
+        with tempfile.TemporaryDirectory() as td:
+            m = self.load(Path(td))
+            self.assertEqual(m.line_for("ọmọ"), "ọmọ.\n\n")
+            self.assertEqual(m.line_for("Ẹ káàárọ̀, oòrùn ti yọ."), "Ẹ káàárọ̀, oòrùn ti yọ.\n\n")
+            self.assertEqual(m.line_for("Báwo ni ara rẹ?"), "Báwo ni ara rẹ?\n\n")
+            self.assertEqual(m.line_for("Ẹ wá!"), "Ẹ wá!\n\n")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -73,7 +73,10 @@ describe("vocab pages", () => {
       expect(screen.getByText(t)).toBeInTheDocument();
     }
     expect(screen.getByLabelText("0 of 2 topics complete")).toBeInTheDocument();
-    expect(screen.getAllByLabelText("0 of 0 topics complete")).toHaveLength(4);
+    expect(screen.queryByLabelText("0 of 0 topics complete")).not.toBeInTheDocument();
+    expect(screen.getAllByText("Coming soon")).toHaveLength(4);
+    expect(screen.getByText("Beginner").closest("a")).toBeNull();
+    expect(screen.getByText("Getting Started").closest("a")).toHaveAttribute("href", "/vocab/getting-started");
   });
 
   it("the grammar home still labels rings in lessons", async () => {
@@ -110,10 +113,19 @@ describe("vocab pages", () => {
     const user = userEvent.setup();
     await renderAt("/vocab/getting-started/fx-food");
     expect(await screen.findByText("Card 1 of 10")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Flashcards" })).toHaveAttribute("aria-pressed", "true");
-    await user.click(screen.getByRole("button", { name: "Quiz" }));
+    const mode = (name: string) => screen.getByRole("button", { name });
+    expect(mode("Flashcards")).toHaveAttribute("aria-pressed", "true");
+    expect(mode("Flashcards")).toHaveClass("btn-primary");
+    for (const other of ["Quiz", "Gap fill"]) {
+      expect(mode(other)).toHaveAttribute("aria-pressed", "false");
+      expect(mode(other)).not.toHaveClass("btn-primary");
+    }
+    await user.click(mode("Quiz"));
     expect(await screen.findByText("Question 1 of 10")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Quiz" })).toHaveAttribute("aria-pressed", "true");
+    expect(mode("Quiz")).toHaveAttribute("aria-pressed", "true");
+    expect(mode("Quiz")).toHaveClass("btn-primary");
+    expect(mode("Flashcards")).toHaveAttribute("aria-pressed", "false");
+    expect(mode("Flashcards")).not.toHaveClass("btn-primary");
   });
 
   it("finishing a full quiz records quiz progress and shows results", async () => {
@@ -199,7 +211,7 @@ describe("vocab pages", () => {
     expect(await screen.findByText("Card 1 of 10")).toBeInTheDocument();
   });
 
-  it("Next topic links on and resets the page state; the last topic offers Back to level", async () => {
+  it("Next topic links on and resets the page state", async () => {
     const user = userEvent.setup();
     await renderAt("/vocab/getting-started/fx-food");
     await user.click(await screen.findByRole("button", { name: "Quiz" }));
@@ -211,7 +223,7 @@ describe("vocab pages", () => {
     expect(screen.getByRole("button", { name: "Flashcards" })).toHaveAttribute("aria-pressed", "true");
   });
 
-  it("the last topic's results link back to the level", async () => {
+  it("the last topic's results offer no Next topic and the page has one Back to level link", async () => {
     const user = userEvent.setup();
     await renderAt("/vocab/getting-started/fx-home");
     await user.click(await screen.findByRole("button", { name: "Quiz" }));
@@ -220,8 +232,10 @@ describe("vocab pages", () => {
       await user.click(screen.getByRole("button", { name: n === 9 ? "See results" : "Continue" }));
     }
     const results = (await screen.findByRole("heading", { name: "Results" })).closest("section")!;
-    expect(within(results).getByRole("link", { name: "Back to level" })).toHaveAttribute("href", "/vocab/getting-started");
     expect(within(results).queryByRole("link", { name: "Next topic" })).not.toBeInTheDocument();
+    const back = screen.getAllByRole("link", { name: "Back to level" });
+    expect(back).toHaveLength(1);
+    expect(back[0]).toHaveAttribute("href", "/vocab/getting-started");
   });
 
   it("a vocab run leaves the grammar progress key untouched", async () => {

@@ -1,7 +1,8 @@
 """Prepare paste-ready text files for the ElevenLabs free web tool.
 
 Reads tools/audio/strings.json and writes tools/audio/paste/test.txt, part-N.txt
-and order.json. One paragraph per item: the text plus a period, then a blank line.
+and order.json. One paragraph per item: the text plus a period (unless it already ends in
+punctuation), then a blank line.
 
 Only strings whose key is not yet in src/content/audio-manifest.json are pasted, so
 re-runs after a partial batch only include what is still missing. Use --group
@@ -25,8 +26,13 @@ def nfc(s: str) -> str:
     return unicodedata.normalize("NFC", s)
 
 
+END_PUNCT = (".", "!", "?", "\u2026", ";", ":")
+
+
 def line_for(text: str) -> str:
-    return f"{text}.\n\n"
+    """One paragraph: the text, a period only if it does not already end in punctuation, then a blank line."""
+    t = text.rstrip()
+    return f"{t}\n\n" if t.endswith(END_PUNCT) else f"{t}.\n\n"
 
 
 def clear_paste() -> None:
@@ -98,7 +104,7 @@ def main(argv=None) -> int:
         sizes.append((name, len(group), len(body)))
     (PASTE / "order.json").write_text(json.dumps(order, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    # Credits are characters, so also report totals per group (text plus period plus blank line).
+    # Credits are characters, so also report totals per group (text, any added period, blank line).
     chars = {g: sum(len(line_for(t)) for k, t in items if group_of[k] == g) for g in GROUPS}
     counts = {g: sum(1 for k, _ in items if group_of[k] == g) for g in GROUPS}
     total = sum(c for _, _, c in sizes)
@@ -109,7 +115,7 @@ def main(argv=None) -> int:
     for g in GROUPS:
         if g in wanted_groups:
             print(f"  {g}: {counts[g]} items, {chars[g]} characters")
-    print(f"total characters across all files (including periods): {total}")
+    print(f"total characters across all files (including added periods): {total}")
     print(f"characters of text only, no periods: {sum(len(t) for _, t in items)}")
     return 0
 

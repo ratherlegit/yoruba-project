@@ -66,6 +66,7 @@ describe("buildReviewMarkdown", () => {
   });
   it("contains no em dash", () => {
     expect(buildReviewMarkdown(levels)).not.toContain("\u2014");
+    expect(buildReviewMarkdown(LEVELS, VOCAB_LEVELS)).not.toContain("\u2014");
   });
 });
 

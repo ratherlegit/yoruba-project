@@ -13,22 +13,33 @@ export function VocabHome() {
         Common words grouped by topic. Study the flashcards, then test yourself with a quiz or gap fill.
       </p>
       <div style={{ display: "grid", gap: "0.75rem" }}>
-        {VOCAB_LEVELS.map((lv) => (
-          <Link
-            key={lv.id}
-            to="/vocab/$levelId"
-            params={{ levelId: lv.id }}
-            className="card"
-            style={{ display: "flex", gap: "1rem", alignItems: "center", textDecoration: "none", color: "var(--text)" }}
-          >
-            <ProgressRing
-              done={topicsDone(progress, lv.topics.map((t) => t.id))}
-              total={lv.topics.length}
-              unit="topics"
-            />
-            <strong>{lv.title}</strong>
-          </Link>
-        ))}
+        {VOCAB_LEVELS.map((lv) =>
+          lv.topics.length === 0 ? (
+            <div
+              key={lv.id}
+              className="card"
+              style={{ display: "flex", gap: "1rem", alignItems: "center", justifyContent: "space-between" }}
+            >
+              <strong>{lv.title}</strong>
+              <span className="muted">Coming soon</span>
+            </div>
+          ) : (
+            <Link
+              key={lv.id}
+              to="/vocab/$levelId"
+              params={{ levelId: lv.id }}
+              className="card"
+              style={{ display: "flex", gap: "1rem", alignItems: "center", textDecoration: "none", color: "var(--text)" }}
+            >
+              <ProgressRing
+                done={topicsDone(progress, lv.topics.map((t) => t.id))}
+                total={lv.topics.length}
+                unit="topics"
+              />
+              <strong>{lv.title}</strong>
+            </Link>
+          ),
+        )}
       </div>
     </main>
   );
