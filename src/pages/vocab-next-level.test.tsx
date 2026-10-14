@@ -32,6 +32,8 @@ vi.mock("@/content/vocab/getting-started", () => ({
 vi.mock("@/content/vocab/beginner", () => ({
   beginnerTopics: [topic("fx-b-first", "beginner", "Fixture first beginner")],
 }));
+// Keep Intermediate empty so the fixture Beginner topic stays the last topic overall.
+vi.mock("@/content/vocab/intermediate", () => ({ intermediateTopics: [] }));
 
 beforeEach(() => {
   localStorage.clear();
