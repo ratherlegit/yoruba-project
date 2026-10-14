@@ -29,6 +29,14 @@ def line_for(text: str) -> str:
     return f"{text}.\n\n"
 
 
+def clear_paste() -> None:
+    """Remove generated files so a stale order.json or part-N.txt can never be read by split_clips.py."""
+    PASTE.mkdir(parents=True, exist_ok=True)
+    for old in list(PASTE.glob("*.txt")) + [PASTE / "order.json"]:
+        if old.exists():
+            old.unlink()
+
+
 def pending_items(entries: list, manifest: dict, groups: list) -> list:
     """(key, text, group) for entries in the wanted groups that have no manifest entry yet."""
     done = {nfc(k) for k in manifest}
@@ -56,6 +64,7 @@ def main(argv=None) -> int:
     full = pending_items(json.loads(STRINGS.read_text(encoding="utf-8")), manifest, wanted_groups)
     items = [(k, t) for k, t, _ in full]
     group_of = {k: g for k, _, g in full}
+    clear_paste()
     if not items:
         print(f"Nothing to paste: every string in group(s) {', '.join(wanted_groups)} already has a clip.")
         return 0
@@ -79,9 +88,6 @@ def main(argv=None) -> int:
     if cur:
         parts.append(cur)
 
-    PASTE.mkdir(parents=True, exist_ok=True)
-    for old in PASTE.glob("*.txt"):
-        old.unlink()
     order, sizes = {}, []
     files = ([("test", [(k, by_key[k]) for k in test])] if test else []) + [(f"part-{i}", p) for i, p in enumerate(parts, 1)]
     for name, group in files:

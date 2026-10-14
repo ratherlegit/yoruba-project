@@ -40,7 +40,7 @@ Use this when the API is not available on your plan. You paste prepared text int
 Before you start: open the ElevenLabs site and check your remaining credits. The whole set is about 1,150 characters including periods (the file sizes printed in step 2 are a little larger because they count line breaks), and every generation counts against the free monthly allowance, retries included. Keep a spare, and do the short test first.
 
 1. `npm run audio:list`
-2. `python tools/audio/prepare_paste.py` (use `tools/audio/.venv/bin/python` if plain `python` is missing). This writes `tools/audio/paste/` (test.txt, part-1.txt, part-2.txt, ..., order.json) and prints the character counts. Each item is its own paragraph: the text, a period, a blank line. That folder is git-ignored, so run this command again any time to regenerate it.
+2. `python tools/audio/prepare_paste.py` (use `tools/audio/.venv/bin/python` if plain `python` is missing). This writes `tools/audio/paste/` (test.txt, part-1.txt, part-2.txt, ..., order.json) and prints the character counts. By default it lists only strings that are still missing from `src/content/audio-manifest.json` (all groups), and `test.txt` then draws its 5 strings from those pending ones. Options: `--group grammar|vocab-word|vocab-sentence` (repeatable) and `--no-test` (see the vocab section at the end). If nothing is missing it clears the paste folder and says so. Each item is its own paragraph: the text, a period, a blank line. That folder is git-ignored, so run this command again any time to regenerate it.
 3. Open the ElevenLabs text-to-speech web tool. Choose the voice "Olufunmilola - Classy, Poised and Clear" and the model Multilingual v2. Paste all of `tools/audio/paste/test.txt`, generate, and listen. Check the voice sounds right and there is a clear, short pause between items. Download it as `test.mp3` into a folder such as `~/Downloads/yo-audio/`.
 4. Split the test file: `python tools/audio/split_clips.py --parts-dir ~/Downloads/yo-audio`. The test clips go to `tools/audio/paste/test-clips/` (never into the app). Listen to them.
 5. If they sound good, repeat step 3 for each `part-N.txt` (same voice and model), saving as `part-1.mp3`, `part-2.mp3`, ... in the same folder.
@@ -48,6 +48,8 @@ Before you start: open the ElevenLabs site and check your remaining credits. The
 7. `npm run validate`, `npx vitest run`, then rebuild (`npm run build`).
 
 How the splitting works: the script knows how many items each file holds (from order.json), finds every silence, and treats the longest ones (one fewer than the number of items) as the gaps between items. It prints a separation margin: the shortest chosen gap divided by the longest gap it did not choose. If the margin is below 1.5, the pauses between items are not clearly longer than pauses inside items; it prints a warning and the list of segments, and writes nothing for that file. Listen to the download, then either regenerate it, try `--noise -40dB` or `-30dB`, or pass `--accept-low-margin` to write the clips anyway (check them by ear). If there are too few pauses, it lists what it found and writes nothing. An optional `--min-gap SECONDS` switches to a fixed pause length instead. Offline self-test: `npm run audio:test`.
+
+Note: `generate_elevenlabs.py` (and `npm run audio:generate`) is the paid API path. It reads all of `strings.json`, including vocab, and is not group-aware, so on the free plan do not use it.
 
 ### Vocab clips: words first, then sentences
 

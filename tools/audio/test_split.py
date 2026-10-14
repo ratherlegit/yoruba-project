@@ -112,5 +112,40 @@ class SplitTests(unittest.TestCase):
             self.assertEqual(len(list((td / "out3").glob("*.mp3"))), 3)
 
 
+class PreparePasteTests(unittest.TestCase):
+    """prepare_paste.py against a temp fixture: no real paste dir, no network."""
+
+    def load(self, td: Path):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("prepare_paste", ROOT / "tools/audio/prepare_paste.py")
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        m.PASTE, m.STRINGS, m.MANIFEST = td / "paste", td / "strings.json", td / "manifest.json"
+        return m
+
+    def test_nothing_to_paste_leaves_no_stale_files(self):
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            m = self.load(td)
+            m.STRINGS.write_text(json.dumps([{"key": "ìdí", "text": "ìdí", "group": "vocab-word"}], ensure_ascii=False), encoding="utf-8")
+            m.MANIFEST.write_text("{}", encoding="utf-8")
+            self.assertEqual(m.main(["--no-test"]), 0)
+            self.assertTrue((m.PASTE / "part-1.txt").exists() and (m.PASTE / "order.json").exists())
+            m.MANIFEST.write_text(json.dumps({"ìdí": "a.mp3"}, ensure_ascii=False), encoding="utf-8")
+            self.assertEqual(m.main(["--no-test"]), 0)
+            self.assertEqual(list(m.PASTE.iterdir()), [])
+
+    def test_group_filter_and_manifest_filter(self):
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            m = self.load(td)
+            rows = [("ọmọ", "grammar"), ("ìdí", "vocab-word"), ("ilé", "vocab-word"), ("mo lọ", "vocab-sentence")]
+            m.STRINGS.write_text(json.dumps([{"key": k, "text": k, "group": g} for k, g in rows], ensure_ascii=False), encoding="utf-8")
+            m.MANIFEST.write_text(json.dumps({"ilé": "a.mp3"}, ensure_ascii=False), encoding="utf-8")
+            self.assertEqual(m.main(["--group", "vocab-word", "--no-test"]), 0)
+            order = json.loads((m.PASTE / "order.json").read_text(encoding="utf-8"))
+            self.assertEqual(order, {"part-1": ["ìdí"]})
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
