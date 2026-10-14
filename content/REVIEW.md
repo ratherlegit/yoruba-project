@@ -568,8 +568,8 @@ Sources consulted: src/content/lessons and src/content/audio-manifest.json: adì
   - Sentence: A fi irun àgùntàn ṣe aṣọ òtútù. / We make warm clothes from sheep's wool.
   - Doubt: From the model's own knowledge; àgbò is a ram. Sentence drafted by the model: confirm aṣọ òtútù (clothes for the cold) and irun for wool.
 - `b-animals-maluu`: **màlúù** (cow, noun)
-  - Sentence: Màlúù tóbi ju ewúrẹ́ lọ, ó sì ní ìwo. / A cow is bigger than a goat, and it has horns.
-  - Doubt: From the model's own knowledge; màlúù covers cattle in general. Sentence drafted by the model: confirm the comparative tóbi ju ... lọ and ìwo (horn).
+  - Sentence: Ọ̀pọ̀ wàrà tí a ń mu jẹ́ wàrà màlúù. / Most of the milk we drink is cow's milk.
+  - Doubt: From the model's own knowledge; màlúù covers cattle in general. Sentence drafted by the model: goats also give milk, so the sentence rests on ọ̀pọ̀ (most); confirm ọ̀pọ̀ ... jẹ́ reads naturally.
 - `b-animals-adiye`: **adìyẹ** (chicken, noun)
   - Sentence: Adìyẹ ń ṣa àgbàdo jẹ. / The chicken is pecking at corn.
   - Doubt: Same spelling as the grammar lessons. Àkùkọ is a rooster. Sentence drafted by the model: confirm ṣa ... jẹ (pick up and eat) for pecking, and the tones of àgbàdo (corn).
@@ -633,8 +633,8 @@ Sources consulted: src/content/lessons and src/content/audio-manifest.json: ilé
   - Sentence: Kan ilẹ̀kùn kí o tó wọlé. / Knock on the door before you come in.
   - Doubt: From the model's own knowledge. Sentence drafted by the model: confirm kan ilẹ̀kùn (knock on the door) and kí o tó (before you).
 - `b-home-ferese`: **fèrèsé** (window, noun)
-  - Sentence: Mo wo òde láti ojú fèrèsé. / I looked outside through the window.
-  - Doubt: From the model's own knowledge; confirm the tones. Sentence drafted by the model: confirm ojú fèrèsé (the window opening).
+  - Sentence: Mo ṣí fèrèsé kí atẹ́gùn lè wọlé, ṣùgbọ́n mo ti ilẹ̀kùn. / I opened the window to let air in, but I shut the door.
+  - Doubt: From the model's own knowledge; confirm the tones. Sentence drafted by the model: the shut door rules out ilẹ̀kùn; confirm ti (shut) and atẹ́gùn (air, breeze).
 - `b-home-orule`: **orùlé** (roof, noun)
   - Sentence: Orùlé ni apá tó wà lókè ilé. / The roof is the part on top of the house.
   - Doubt: From the model's own knowledge; òrùlé is another spelling. Sentence drafted by the model: confirm lókè (on top of, from ní òkè).
@@ -682,8 +682,8 @@ Sources consulted: src/content/lessons and src/content/audio-manifest.json: aṣ
   - Sentence: Agbádá máa ń bo ẹ̀wù àti ṣòkòtò. / An agbada robe covers the shirt and the trousers.
   - Doubt: From the model's own knowledge; the wide, flowing robe men wear over a shirt and trousers. Sentence drafted by the model: confirm máa ń bo (covers, as a habit).
 - `b-clothing-ibose`: **ìbọ̀sẹ̀** (socks, noun)
-  - Sentence: Mo wọ ìbọ̀sẹ̀ kí n tó wọ bàtà. / I put on socks before I put on shoes.
-  - Doubt: From the model's own knowledge (literally "foot covering"); confirm the tones. Sentence drafted by the model.
+  - Sentence: Ìbọ̀sẹ̀ máa ń wà láàrin ẹsẹ̀ àti bàtà. / Socks go between the foot and the shoe.
+  - Doubt: From the model's own knowledge (literally "foot covering"); confirm the tones. Sentence drafted by the model: ẹsẹ̀ here is the foot; confirm láàrin ... àti (between ... and) and máa ń wà.
 - `b-clothing-ibowo`: **ìbọ̀wọ́** (gloves, noun)
   - Sentence: Mo wọ ìbọ̀wọ́ sí ọwọ́ mi nítorí òtútù. / I put gloves on my hands because of the cold.
   - Doubt: From the model's own knowledge (literally "hand covering"); confirm the tones. Sentence drafted by the model.
