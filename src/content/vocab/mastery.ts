@@ -39,11 +39,11 @@ export const masteryTopics: VocabTopic[] = [
         english: "wisdom",
         pos: "noun",
         sentence: {
-          yoruba: "Ìmọ̀ ni mímọ nǹkan, ṣùgbọ́n ọgbọ́n ni mímọ bí a ṣe ń lò ó dáadáa.",
+          yoruba: "Ìmọ̀ ni mímọ̀ nǹkan, ṣùgbọ́n ọgbọ́n ni mímọ̀ bí a ṣe ń lò ó dáadáa.",
           english: "Knowledge is knowing things, but wisdom is knowing how to use them well.",
         },
         confidence: "needs-review",
-        note: "From the model's own knowledge; confirm the tones, since ọgbọ̀n (thirty) differs only in tone. Sentence drafted by the model: the contrast with ìmọ̀ (named in the sentence) singles out wisdom; confirm mímọ (knowing) and lò ó (use it).",
+        note: "From the model's own knowledge; confirm the tones, since ọgbọ̀n (thirty) differs only in tone. Sentence drafted by the model: the contrast with ìmọ̀ (named in the sentence) singles out wisdom; the verbal noun mímọ̀ (knowing, from mọ̀) is the reviewer's correction of the model's untoned mímọ; confirm its tones (mímọ́ means pure) and lò ó (use it).",
       },
       {
         id: "m-abstract-idajo-ododo",
@@ -75,11 +75,11 @@ export const masteryTopics: VocabTopic[] = [
         english: "knowledge",
         pos: "noun",
         sentence: {
-          yoruba: "Ó ti ka ìwé púpọ̀ nípa ìtàn Yorùbá, nítorí náà ó ní ìmọ̀ púpọ̀ nípa rẹ̀.",
-          english: "She has read many books about Yoruba history, so she has a lot of knowledge about it.",
+          yoruba: "Ó ti ka ìwé púpọ̀, ó sì mọ ìtàn Yorùbá dáadáa, ṣùgbọ́n ìmọ̀ nìkan kọ́ ni ọgbọ́n.",
+          english: "She has read many books and knows Yoruba history well, but knowledge alone is not wisdom.",
         },
         confidence: "needs-review",
-        note: "From the model's own knowledge; confirm the tones. Sentence drafted by the model: reading books leads to knowledge (wisdom is about using it, see ọgbọ́n); confirm ka ìwé (read books).",
+        note: "From the model's own knowledge; confirm the tones. Sentence drafted by the model: reading and knowing history is knowledge, and the contrast with ọgbọ́n (named in the sentence) rules wisdom out; confirm mọ (know, said mọ before an object) and nìkan kọ́ ni (alone is not).",
       },
       {
         id: "m-abstract-ireti",
@@ -87,11 +87,11 @@ export const masteryTopics: VocabTopic[] = [
         english: "hope",
         pos: "noun",
         sentence: {
-          yoruba: "Bí ó tilẹ̀ jẹ́ pé ó ti kùnà ìdánwò náà lẹ́ẹ̀mejì, ó ṣì ní ìrètí pé òun yóò yege lọ́dún tó ń bọ̀.",
-          english: "Although she has failed the exam twice, she still has hope that she will pass next year.",
+          yoruba: "Ó ti kùnà lẹ́ẹ̀mejì, ṣùgbọ́n ó ṣì ń retí pé òun yóò yege; èyí ni ìrètí rẹ̀.",
+          english: "She has failed twice, but she still expects to pass; that is her hope.",
         },
         confidence: "needs-review",
-        note: "Tones from Wiktionary. Sentence drafted by the model: expecting a better future after failure singles out hope; faith (ìgbàgbọ́) is kept for religious belief in this topic. Confirm kùnà (fail), yege (pass) and lọ́dún tó ń bọ̀ (next year).",
+        note: "Tones from Wiktionary. Sentence drafted by the model: still expecting (retí) to pass after failing names hope, which comes from retí; faith (ìgbàgbọ́) is about belief, not expectation. Confirm kùnà (fail), yege (pass) and èyí ni (this is).",
       },
       {
         id: "m-abstract-igbagbo",
@@ -284,11 +284,11 @@ export const masteryTopics: VocabTopic[] = [
         english: "custom, tradition",
         pos: "noun",
         sentence: {
-          yoruba: "Àṣà Yorùbá ni pé kí ọmọdé kí àgbà ní àárọ̀.",
-          english: "It is Yoruba custom that a young person greets elders in the morning.",
+          yoruba: "Kò sí òfin tó pa á láṣẹ, ṣùgbọ́n àṣà Yorùbá ni pé kí ọmọdé kí àgbà ní àárọ̀.",
+          english: "No law commands it, but it is Yoruba custom that a young person greets elders in the morning.",
         },
         confidence: "needs-review",
-        note: "From the model's own knowledge, not found on Wiktionary; confirm the tones. Sentence drafted by the model: a greeting habit is a custom, not a law or a taboo (a taboo forbids something).",
+        note: "From the model's own knowledge, not found on Wiktionary; confirm the tones. Sentence drafted by the model: òfin is ruled out in the sentence itself, and a greeting habit is not a taboo (a taboo forbids something); confirm pa ... láṣẹ (command).",
       },
       {
         id: "m-custom-adajo",
@@ -408,7 +408,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "My father got very angry when I broke his window, and he shouted at me.",
         },
         confidence: "needs-review",
-        note: "Real meaning: someone becomes angry (the angry person follows: inú bí i, he got angry). Literal: the inside gave birth (or the inside was provoked). The model is confident this is current, everyday Yoruba; ìbínú (anger) comes from it. Sentence drafted by the model: shouting after a broken window singles out anger.",
+        note: "Real meaning: someone becomes angry (the angry person follows: inú bí i, he got angry). Literal: the inside gave birth (or the inside was provoked). From the model's own knowledge, not confirmed in a dictionary; ìbínú (anger) appears to come from it. Sentence drafted by the model: shouting after a broken window singles out anger.",
       },
       {
         id: "m-idioms-oju-ti",
@@ -420,7 +420,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "He felt very ashamed when they caught him lying; he could not look anyone in the face.",
         },
         confidence: "needs-review",
-        note: "Real meaning: someone feels ashamed (ojú tì mí, I am ashamed). Literal: the eye (face) closed. The model is confident this is current, everyday Yoruba; ìtìjú (shame) is related. Sentence drafted by the model: not being able to look at people singles out shame, not anger; confirm mú un pé (caught him that).",
+        note: "Real meaning: someone feels ashamed (ojú tì mí, I am ashamed). Literal: the eye (face) closed. From the model's own knowledge, not confirmed in a dictionary; ìtìjú (shame) appears related. Sentence drafted by the model: not being able to look at people singles out shame, not anger; confirm mú un pé (caught him that).",
       },
       {
         id: "m-idioms-fese-fe",
@@ -432,7 +432,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "When the thief saw the police, he took to his heels so that they would not catch him.",
         },
         confidence: "needs-review",
-        note: "Real meaning: to run away. Literal: to fan (or widen) with the legs (fi ẹsẹ̀ fẹ). The model is fairly confident this is current; confirm the tones and the literal reading. Sentence drafted by the model: a thief escaping the police singles out fleeing.",
+        note: "Real meaning: to run away. Literal: to fan (or widen) with the legs (fi ẹsẹ̀ fẹ). From the model's own knowledge, not confirmed in a dictionary; confirm the tones and the literal reading. Sentence drafted by the model: a thief escaping the police singles out fleeing.",
       },
       {
         id: "m-idioms-foju-di",
@@ -444,7 +444,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "Do not underestimate that child; although he is small, he can beat you at ayò.",
         },
         confidence: "needs-review",
-        note: "Real meaning: to belittle or underrate someone. Literal: to block (someone) with the eye (fi ojú di); the model is unsure of the best literal reading. The model is confident the idiom is current. Sentence drafted by the model: small but able to win singles out underestimating; ayò is the Yoruba board game.",
+        note: "Real meaning: to belittle or underrate someone. Literal: to block (someone) with the eye (fi ojú di); the model is unsure of the literal reading. From the model's own knowledge, not confirmed in a dictionary; the exact form is doubtful (fojú di, fi ojú di, or with an object between), so confirm it. Sentence drafted by the model: small but able to win singles out underestimating; ayò is the Yoruba board game.",
       },
       {
         id: "m-idioms-feti-sile",
@@ -456,7 +456,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "Listen carefully to what the teacher is saying, so that you can answer his questions.",
         },
         confidence: "needs-review",
-        note: "Real meaning: to listen, pay attention. Literal: to put the ear down (fi etí sílẹ̀). The model is confident this is current. Sentence drafted by the model: attending to a speaker in order to answer singles out listening.",
+        note: "Real meaning: to listen, pay attention. Literal: to put the ear down (fi etí sílẹ̀). From the model's own knowledge, not confirmed in a dictionary. Sentence drafted by the model: attending to a speaker in order to answer singles out listening.",
       },
       {
         id: "m-idioms-gbenu-so",
@@ -468,7 +468,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "Because the villagers could not go to the meeting, their chief spoke on their behalf.",
         },
         confidence: "needs-review",
-        note: "Real meaning: to be someone's spokesperson (agbẹnusọ, spokesperson, is from it). Literal: to take up the mouth and speak (gbé ẹnu sọ). The model is fairly confident; confirm whether it is written gbẹnusọ as one word. Sentence drafted by the model: speaking for people who are absent singles out this idiom.",
+        note: "Real meaning: to be someone's spokesperson (agbẹnusọ, spokesperson, is from it). Literal: to take up the mouth and speak (gbé ẹnu sọ). From the model's own knowledge, not confirmed in a dictionary; confirm whether it is written gbẹnusọ as one word. Sentence drafted by the model: speaking for people who are absent singles out this idiom.",
       },
       {
         id: "m-idioms-oju-n-pon",
@@ -480,7 +480,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "Since he lost his job he has been suffering hardship; he cannot find money to buy food.",
         },
         confidence: "needs-review",
-        note: "Real meaning: someone is going through hardship (ojú ń pọ́n mi, I am suffering). Literal: the eye is turning red. The model is confident this is current; ìpọ́njú (hardship) is related. Sentence drafted by the model: losing a job and having no money for food singles out hardship.",
+        note: "Real meaning: someone is going through hardship (ojú ń pọ́n mi, I am suffering). Literal: the eye is turning red. From the model's own knowledge, not confirmed in a dictionary; ìpọ́njú (hardship) appears related. Sentence drafted by the model: losing a job and having no money for food singles out hardship.",
       },
       {
         id: "m-idioms-fokan-bale",
@@ -489,7 +489,7 @@ export const masteryTopics: VocabTopic[] = [
         pos: "phrase",
         sentence: { yoruba: "Fọkàn balẹ̀, ọmọ rẹ ti dé láìléwu.", english: "Rest assured, your child has arrived safely." },
         confidence: "needs-review",
-        note: "Real meaning: stop worrying, be calm. Literal: let the heart land (fi ọkàn balẹ̀). The model is confident this is current. Sentence drafted by the model: news that a child arrived safely singles out reassurance; confirm láìléwu (safely).",
+        note: "Real meaning: stop worrying, be calm. Literal: let the heart land (fi ọkàn balẹ̀). From the model's own knowledge, not confirmed in a dictionary. Sentence drafted by the model: news that a child arrived safely singles out reassurance; confirm láìléwu (safely).",
       },
       {
         id: "m-idioms-erin-wo",
@@ -501,7 +501,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "When the king of our town died, the townspeople were saying that a great person had died.",
         },
         confidence: "needs-review",
-        note: "Real meaning: a king or great person has died. Literal: the elephant has fallen. The model is confident this is a real, current idiom, used out of respect instead of saying kú (die) of a great person. Sentence drafted by the model: the death of a king singles out this idiom.",
+        note: "Real meaning: a king or great person has died. Literal: the elephant has fallen. From the model's own knowledge, not confirmed in a dictionary; it is said to be used out of respect instead of saying kú (die) of a great person. Sentence drafted by the model: the death of a king singles out this idiom.",
       },
       {
         id: "m-idioms-foro-lo",
@@ -513,7 +513,7 @@ export const masteryTopics: VocabTopic[] = [
           english: "Before he bought the house, he consulted his father to hear his opinion.",
         },
         confidence: "needs-review",
-        note: "Real meaning: to ask someone's advice. Literal: to grind a matter with someone (fi ọ̀rọ̀ lọ̀). The model is fairly but not fully sure this is a common, current idiom; a web search found no source. Confirm, or replace it. Sentence drafted by the model: asking a father's opinion before buying singles out consulting.",
+        note: "Real meaning: to ask someone's advice. Literal: to grind a matter with someone (fi ọ̀rọ̀ lọ̀). From the model's own knowledge, not confirmed in a dictionary; a web search found no source. The exact form is doubtful (fọ̀rọ̀ lọ̀ or the unjoined fi ọ̀rọ̀ lọ̀), and so is whether it is common. Confirm, or replace it. Sentence drafted by the model: asking a father's opinion before buying singles out consulting.",
       },
     ],
   },

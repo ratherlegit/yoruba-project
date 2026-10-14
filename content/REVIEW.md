@@ -1078,8 +1078,8 @@ Sources consulted: Wiktionary, "ominira" (Yoruba section): òmìnira, freedom, i
   - Sentence: Òdìkejì oko ẹrú ni òmìnira. / The opposite of slavery is freedom.
   - Doubt: Tones from Wiktionary, which also gives independence (of a nation). Sentence drafted by the model: the opposite of slavery singles out freedom, not power or peace; confirm oko ẹrú for slavery.
 - `m-abstract-ogbon`: **ọgbọ́n** (wisdom, noun)
-  - Sentence: Ìmọ̀ ni mímọ nǹkan, ṣùgbọ́n ọgbọ́n ni mímọ bí a ṣe ń lò ó dáadáa. / Knowledge is knowing things, but wisdom is knowing how to use them well.
-  - Doubt: From the model's own knowledge; confirm the tones, since ọgbọ̀n (thirty) differs only in tone. Sentence drafted by the model: the contrast with ìmọ̀ (named in the sentence) singles out wisdom; confirm mímọ (knowing) and lò ó (use it).
+  - Sentence: Ìmọ̀ ni mímọ̀ nǹkan, ṣùgbọ́n ọgbọ́n ni mímọ̀ bí a ṣe ń lò ó dáadáa. / Knowledge is knowing things, but wisdom is knowing how to use them well.
+  - Doubt: From the model's own knowledge; confirm the tones, since ọgbọ̀n (thirty) differs only in tone. Sentence drafted by the model: the contrast with ìmọ̀ (named in the sentence) singles out wisdom; the verbal noun mímọ̀ (knowing, from mọ̀) is the reviewer's correction of the model's untoned mímọ; confirm its tones (mímọ́ means pure) and lò ó (use it).
 - `m-abstract-idajo-ododo`: **ìdájọ́ òdodo** (justice, noun)
   - Sentence: Ìdájọ́ òdodo ni kí adájọ́ dá ẹjọ́ láìṣe ojúsàájú, kí ó má sì gba àbẹ̀tẹ́lẹ̀. / Justice is when a judge decides a case without favoritism and takes no bribe.
   - Doubt: From the model's own knowledge (literally righteous judgment); speakers may also say òdodo or ìdájọ́ alone. Confirm the form and tones. Sentence drafted by the model: a definition about judging fairly; confirm ojúsàájú (partiality) and àbẹ̀tẹ́lẹ̀ (bribe).
@@ -1087,11 +1087,11 @@ Sources consulted: Wiktionary, "ominira" (Yoruba section): òmìnira, freedom, i
   - Sentence: Ẹni tí ó ní sùúrù lè dúró de bọ́ọ̀sì fún wákàtí méjì láìbínú. / Someone with patience can wait two hours for the bus without getting angry.
   - Doubt: Tones from Wiktionary. Sentence drafted by the model: waiting calmly singles out patience; confirm dúró de (wait for) and láìbínú (without anger).
 - `m-abstract-imo`: **ìmọ̀** (knowledge, noun)
-  - Sentence: Ó ti ka ìwé púpọ̀ nípa ìtàn Yorùbá, nítorí náà ó ní ìmọ̀ púpọ̀ nípa rẹ̀. / She has read many books about Yoruba history, so she has a lot of knowledge about it.
-  - Doubt: From the model's own knowledge; confirm the tones. Sentence drafted by the model: reading books leads to knowledge (wisdom is about using it, see ọgbọ́n); confirm ka ìwé (read books).
+  - Sentence: Ó ti ka ìwé púpọ̀, ó sì mọ ìtàn Yorùbá dáadáa, ṣùgbọ́n ìmọ̀ nìkan kọ́ ni ọgbọ́n. / She has read many books and knows Yoruba history well, but knowledge alone is not wisdom.
+  - Doubt: From the model's own knowledge; confirm the tones. Sentence drafted by the model: reading and knowing history is knowledge, and the contrast with ọgbọ́n (named in the sentence) rules wisdom out; confirm mọ (know, said mọ before an object) and nìkan kọ́ ni (alone is not).
 - `m-abstract-ireti`: **ìrètí** (hope, noun)
-  - Sentence: Bí ó tilẹ̀ jẹ́ pé ó ti kùnà ìdánwò náà lẹ́ẹ̀mejì, ó ṣì ní ìrètí pé òun yóò yege lọ́dún tó ń bọ̀. / Although she has failed the exam twice, she still has hope that she will pass next year.
-  - Doubt: Tones from Wiktionary. Sentence drafted by the model: expecting a better future after failure singles out hope; faith (ìgbàgbọ́) is kept for religious belief in this topic. Confirm kùnà (fail), yege (pass) and lọ́dún tó ń bọ̀ (next year).
+  - Sentence: Ó ti kùnà lẹ́ẹ̀mejì, ṣùgbọ́n ó ṣì ń retí pé òun yóò yege; èyí ni ìrètí rẹ̀. / She has failed twice, but she still expects to pass; that is her hope.
+  - Doubt: Tones from Wiktionary. Sentence drafted by the model: still expecting (retí) to pass after failing names hope, which comes from retí; faith (ìgbàgbọ́) is about belief, not expectation. Confirm kùnà (fail), yege (pass) and èyí ni (this is).
 - `m-abstract-igbagbo`: **ìgbàgbọ́** (faith, noun)
   - Sentence: Bí wọn kò tilẹ̀ rí Ọlọ́run rí, àwọn olùjọsìn ní ìgbàgbọ́ pé ó wà. / Although they have never seen God, worshippers have faith that he exists.
   - Doubt: From the model's own knowledge (from gbàgbọ́, believe), not found on Wiktionary; confirm the tones. Sentence drafted by the model: believing without seeing singles out faith; confirm olùjọsìn (worshipper) and rí ... rí (have ever seen).
@@ -1143,8 +1143,8 @@ Sources consulted: Wiktionary, "ofin" (Yoruba section): òfin, law, rule, legisl
   - Sentence: Ìjọba ti ṣe òfin tuntun pé kí ẹnikẹ́ni má mu sìgá ní gbangba. / The government has made a new law that no one may smoke in public.
   - Doubt: Tones from Wiktionary, which also gives rule. Sentence drafted by the model: a government makes laws, not customs or taboos; confirm mu sìgá (smoke) and ní gbangba (in public).
 - `m-custom-asa`: **àṣà** (custom, tradition, noun)
-  - Sentence: Àṣà Yorùbá ni pé kí ọmọdé kí àgbà ní àárọ̀. / It is Yoruba custom that a young person greets elders in the morning.
-  - Doubt: From the model's own knowledge, not found on Wiktionary; confirm the tones. Sentence drafted by the model: a greeting habit is a custom, not a law or a taboo (a taboo forbids something).
+  - Sentence: Kò sí òfin tó pa á láṣẹ, ṣùgbọ́n àṣà Yorùbá ni pé kí ọmọdé kí àgbà ní àárọ̀. / No law commands it, but it is Yoruba custom that a young person greets elders in the morning.
+  - Doubt: From the model's own knowledge, not found on Wiktionary; confirm the tones. Sentence drafted by the model: òfin is ruled out in the sentence itself, and a greeting habit is not a taboo (a taboo forbids something); confirm pa ... láṣẹ (command).
 - `m-custom-adajo`: **adájọ́** (judge, noun)
   - Sentence: Adájọ́ náà gbọ́ ẹ̀rí àwọn méjèèjì kí ó tó dá ẹjọ́ náà. / The judge heard the evidence of both sides before deciding the case.
   - Doubt: From the model's own knowledge (one who decides cases); confirm the tones. Sentence drafted by the model: the only person word in the topic, and hearing evidence then deciding is what a judge does; confirm ẹ̀rí (evidence) and dá ẹjọ́ (decide a case).
@@ -1175,34 +1175,34 @@ Sources consulted: Web search for fàáké kọ́rí and fọ̀rọ̀ lọ̀ fou
 
 - `m-idioms-inu-bi`: **inú bí** (to get angry, phrase)
   - Sentence: Inú bí bàbá mi gidigidi nígbà tí mo fọ́ fèrèsé rẹ̀, ó sì pariwo mọ́ mi. / My father got very angry when I broke his window, and he shouted at me.
-  - Doubt: Real meaning: someone becomes angry (the angry person follows: inú bí i, he got angry). Literal: the inside gave birth (or the inside was provoked). The model is confident this is current, everyday Yoruba; ìbínú (anger) comes from it. Sentence drafted by the model: shouting after a broken window singles out anger.
+  - Doubt: Real meaning: someone becomes angry (the angry person follows: inú bí i, he got angry). Literal: the inside gave birth (or the inside was provoked). From the model's own knowledge, not confirmed in a dictionary; ìbínú (anger) appears to come from it. Sentence drafted by the model: shouting after a broken window singles out anger.
 - `m-idioms-oju-ti`: **ojú tì** (to feel ashamed, phrase)
   - Sentence: Ojú tì í gan-an nígbà tí wọ́n mú un pé ó ń purọ́, kò lè wo ẹnikẹ́ni lójú. / He felt very ashamed when they caught him lying; he could not look anyone in the face.
-  - Doubt: Real meaning: someone feels ashamed (ojú tì mí, I am ashamed). Literal: the eye (face) closed. The model is confident this is current, everyday Yoruba; ìtìjú (shame) is related. Sentence drafted by the model: not being able to look at people singles out shame, not anger; confirm mú un pé (caught him that).
+  - Doubt: Real meaning: someone feels ashamed (ojú tì mí, I am ashamed). Literal: the eye (face) closed. From the model's own knowledge, not confirmed in a dictionary; ìtìjú (shame) appears related. Sentence drafted by the model: not being able to look at people singles out shame, not anger; confirm mú un pé (caught him that).
 - `m-idioms-fese-fe`: **fẹsẹ̀ fẹ** (to flee, take to one's heels, phrase)
   - Sentence: Nígbà tí olè náà rí ọlọ́pàá, ó fẹsẹ̀ fẹ kí wọ́n má bàa mú un. / When the thief saw the police, he took to his heels so that they would not catch him.
-  - Doubt: Real meaning: to run away. Literal: to fan (or widen) with the legs (fi ẹsẹ̀ fẹ). The model is fairly confident this is current; confirm the tones and the literal reading. Sentence drafted by the model: a thief escaping the police singles out fleeing.
+  - Doubt: Real meaning: to run away. Literal: to fan (or widen) with the legs (fi ẹsẹ̀ fẹ). From the model's own knowledge, not confirmed in a dictionary; confirm the tones and the literal reading. Sentence drafted by the model: a thief escaping the police singles out fleeing.
 - `m-idioms-foju-di`: **fojú di** (to underestimate, look down on, phrase)
   - Sentence: Má fojú di ọmọdé náà; bí ó tilẹ̀ kéré, ó lè ṣẹ́gun rẹ nínú ayò. / Do not underestimate that child; although he is small, he can beat you at ayò.
-  - Doubt: Real meaning: to belittle or underrate someone. Literal: to block (someone) with the eye (fi ojú di); the model is unsure of the best literal reading. The model is confident the idiom is current. Sentence drafted by the model: small but able to win singles out underestimating; ayò is the Yoruba board game.
+  - Doubt: Real meaning: to belittle or underrate someone. Literal: to block (someone) with the eye (fi ojú di); the model is unsure of the literal reading. From the model's own knowledge, not confirmed in a dictionary; the exact form is doubtful (fojú di, fi ojú di, or with an object between), so confirm it. Sentence drafted by the model: small but able to win singles out underestimating; ayò is the Yoruba board game.
 - `m-idioms-feti-sile`: **fetí sílẹ̀** (to listen carefully, phrase)
   - Sentence: Ẹ fetí sílẹ̀ dáadáa sí ohun tí olùkọ́ ń sọ, kí ẹ lè dáhùn ìbéèrè rẹ̀. / Listen carefully to what the teacher is saying, so that you can answer his questions.
-  - Doubt: Real meaning: to listen, pay attention. Literal: to put the ear down (fi etí sílẹ̀). The model is confident this is current. Sentence drafted by the model: attending to a speaker in order to answer singles out listening.
+  - Doubt: Real meaning: to listen, pay attention. Literal: to put the ear down (fi etí sílẹ̀). From the model's own knowledge, not confirmed in a dictionary. Sentence drafted by the model: attending to a speaker in order to answer singles out listening.
 - `m-idioms-gbenu-so`: **gbẹnu sọ** (to speak on behalf of, phrase)
   - Sentence: Nítorí pé àwọn ará abúlé kò lè lọ sí ìpàdé náà, olóyè wọn ló gbẹnu sọ fún wọn. / Because the villagers could not go to the meeting, their chief spoke on their behalf.
-  - Doubt: Real meaning: to be someone's spokesperson (agbẹnusọ, spokesperson, is from it). Literal: to take up the mouth and speak (gbé ẹnu sọ). The model is fairly confident; confirm whether it is written gbẹnusọ as one word. Sentence drafted by the model: speaking for people who are absent singles out this idiom.
+  - Doubt: Real meaning: to be someone's spokesperson (agbẹnusọ, spokesperson, is from it). Literal: to take up the mouth and speak (gbé ẹnu sọ). From the model's own knowledge, not confirmed in a dictionary; confirm whether it is written gbẹnusọ as one word. Sentence drafted by the model: speaking for people who are absent singles out this idiom.
 - `m-idioms-oju-n-pon`: **ojú ń pọ́n** (to be suffering hardship, phrase)
   - Sentence: Láti ìgbà tí ó ti pàdánù iṣẹ́ rẹ̀, ojú ń pọ́n ọn; kò rí owó ra oúnjẹ. / Since he lost his job he has been suffering hardship; he cannot find money to buy food.
-  - Doubt: Real meaning: someone is going through hardship (ojú ń pọ́n mi, I am suffering). Literal: the eye is turning red. The model is confident this is current; ìpọ́njú (hardship) is related. Sentence drafted by the model: losing a job and having no money for food singles out hardship.
+  - Doubt: Real meaning: someone is going through hardship (ojú ń pọ́n mi, I am suffering). Literal: the eye is turning red. From the model's own knowledge, not confirmed in a dictionary; ìpọ́njú (hardship) appears related. Sentence drafted by the model: losing a job and having no money for food singles out hardship.
 - `m-idioms-fokan-bale`: **fọkàn balẹ̀** (to rest assured, be at ease, phrase)
   - Sentence: Fọkàn balẹ̀, ọmọ rẹ ti dé láìléwu. / Rest assured, your child has arrived safely.
-  - Doubt: Real meaning: stop worrying, be calm. Literal: let the heart land (fi ọkàn balẹ̀). The model is confident this is current. Sentence drafted by the model: news that a child arrived safely singles out reassurance; confirm láìléwu (safely).
+  - Doubt: Real meaning: stop worrying, be calm. Literal: let the heart land (fi ọkàn balẹ̀). From the model's own knowledge, not confirmed in a dictionary. Sentence drafted by the model: news that a child arrived safely singles out reassurance; confirm láìléwu (safely).
 - `m-idioms-erin-wo`: **erin wó** (a great person has died, phrase)
   - Sentence: Nígbà tí ọba ìlú wa kú, àwọn ará ìlú ń sọ pé erin wó. / When the king of our town died, the townspeople were saying that a great person had died.
-  - Doubt: Real meaning: a king or great person has died. Literal: the elephant has fallen. The model is confident this is a real, current idiom, used out of respect instead of saying kú (die) of a great person. Sentence drafted by the model: the death of a king singles out this idiom.
+  - Doubt: Real meaning: a king or great person has died. Literal: the elephant has fallen. From the model's own knowledge, not confirmed in a dictionary; it is said to be used out of respect instead of saying kú (die) of a great person. Sentence drafted by the model: the death of a king singles out this idiom.
 - `m-idioms-foro-lo`: **fọ̀rọ̀ lọ̀** (to consult, phrase)
   - Sentence: Kí ó tó ra ilé náà, ó fọ̀rọ̀ lọ̀ bàbá rẹ̀ láti gbọ́ èrò rẹ̀. / Before he bought the house, he consulted his father to hear his opinion.
-  - Doubt: Real meaning: to ask someone's advice. Literal: to grind a matter with someone (fi ọ̀rọ̀ lọ̀). The model is fairly but not fully sure this is a common, current idiom; a web search found no source. Confirm, or replace it. Sentence drafted by the model: asking a father's opinion before buying singles out consulting.
+  - Doubt: Real meaning: to ask someone's advice. Literal: to grind a matter with someone (fi ọ̀rọ̀ lọ̀). From the model's own knowledge, not confirmed in a dictionary; a web search found no source. The exact form is doubtful (fọ̀rọ̀ lọ̀ or the unjoined fi ọ̀rọ̀ lọ̀), and so is whether it is common. Confirm, or replace it. Sentence drafted by the model: asking a father's opinion before buying singles out consulting.
 
 #### Words from the proverbs (`m-proverbs`)
 Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà (Afolayan 2021) and Òní l'a rí, ọba òkè l'ó rọ́la (Wiktionary "oni", citing the Global Yoruba Lexical Database); kọ́ (teach, build), gbé, ọba, ọba òkè (the Most High), and pa òwe (COERLL p. 262). Same spellings. Not rechecked for this topic.; src/content/lessons/m-2.ts: the saying Ìmọ́tótó ló lè ṣẹ́gun àrùn gbogbo (COERLL), source of ìmọ́tótó, ṣẹ́gun and àrùn. Same spellings. Not rechecked for this topic.; The model's own knowledge for òwe alone, kọ́lé, and all ten example sentences (new sentences, not the proverbs).
