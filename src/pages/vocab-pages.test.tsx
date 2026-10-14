@@ -39,6 +39,10 @@ vi.mock("@/content/vocab/getting-started", () => {
   };
 });
 
+// Keep the later levels empty so these tests stay fixture-only as real topics land:
+// fx-home stays the last topic overall, and Beginner stays a "Coming soon" level.
+vi.mock("@/content/vocab/beginner", () => ({ beginnerTopics: [] }));
+
 async function renderAt(path: string) {
   const router = createRouter({ routeTree, history: createMemoryHistory({ initialEntries: [path] }) });
   render(<RouterProvider router={router} />);
