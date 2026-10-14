@@ -445,11 +445,11 @@ Sources consulted: Wikipedia, "Yoruba numerals": the counting roots ọ̀kan, è
   - Sentence: Mẹ́rin àti márùn-ún jẹ́ mẹ́sàn-án. / Four and five make nine.
   - Doubt: Form after a noun, from the model's own knowledge (root ẹ̀sán). Confirm the hyphenated spelling; some write mẹ́sàán. Sentence drafted by the model, same sum pattern as three.
 - `gs-numbers-mewaa`: **mẹ́wàá** (ten, number)
-  - Sentence: Mo ní ìka ọwọ́ mẹ́wàá. / I have ten fingers.
-  - Doubt: Form after a noun, from the model's own knowledge (root ẹ̀wá, confirmed on Wikipedia and Wiktionary). Sentence drafted by the model: ìka ọwọ́ is literally "fingers of the hand".
+  - Sentence: Ọwọ́ méjì ní ìka mẹ́wàá. / Two hands have ten fingers.
+  - Doubt: Form after a noun, from the model's own knowledge (root ẹ̀wá, confirmed on Wikipedia and Wiktionary). Sentence drafted by the model, the two-hand partner of the five sentence.
 
 #### Family (`gs-family`)
-Sources consulted: Wiktionary, "aburo" (Yoruba section): àbúrò, younger sibling, with regional forms àbúò and àbú; coordinate term ẹ̀gbọ́n.; Wiktionary, "ẹgbọn" (Yoruba section): ẹ̀gbọ́n, older sibling, extended to an older relative of the same generation.; src/content/audio-manifest.json and this app's grammar lessons: ọmọ, ọkọ mi, ilé bàbá mi and òun ni ọ̀rẹ́ mi appear there with the same spellings. Not rechecked against an outside source.; The model's own knowledge for ìyá, ìyá àgbà, bàbá àgbà, ìyàwó and for all ten example sentences.
+Sources consulted: Wiktionary, "aburo" (Yoruba section): àbúrò, younger sibling, with regional forms àbúò and àbú; coordinate term ẹ̀gbọ́n.; Wiktionary, "ẹgbọn" (Yoruba section): ẹ̀gbọ́n, older sibling, extended to an older relative of the same generation.; src/content/audio-manifest.json and this app's grammar lessons: ọmọ and ọkọ are there as words of their own; bàbá and ọ̀rẹ́ appear only inside phrases (ilé bàbá mi, òun ni ọ̀rẹ́ mi). Same spellings. Not rechecked against an outside source.; The model's own knowledge for ìyá, ìyá àgbà, bàbá àgbà, ìyàwó and for all ten example sentences.
 
 - `gs-family-iya`: **ìyá** (mother, noun)
   - Sentence: Ìyá mi fún mi lọ́mú. / My mother breastfed me.
@@ -486,8 +486,8 @@ Sources consulted: Wiktionary, "aburo" (Yoruba section): àbúrò, younger sibli
 Sources consulted: Wiktionary, "ikun" (Yoruba section): ikùn, abdomen or belly (distinct from ìkùn, a murmur, and ikún, a ground squirrel).; The model's own knowledge for the other nine words and for all ten example sentences. No dictionary entry was checked for them.
 
 - `gs-body-ori`: **orí** (head, noun)
-  - Sentence: Mo dé fìlà sí orí mi. / I put a cap on my head.
-  - Doubt: From the model's own knowledge. Orí also means destiny. Sentence drafted by the model: sórí (onto the head) is the usual contracted form; confirm dé fìlà (put on a cap).
+  - Sentence: Orí ń fọ́ mi. / I have a headache.
+  - Doubt: From the model's own knowledge. Orí also means destiny. Sentence drafted by the model: orí ń fọ́ mi (literally "head is splitting me") is the usual way to say I have a headache.
 - `gs-body-oju`: **ojú** (eye, noun)
   - Sentence: Mo fi ojú mi rí ọ. / I see you with my eyes.
   - Doubt: From the model's own knowledge. Ojú also means face. Sentence drafted by the model.
@@ -495,17 +495,17 @@ Sources consulted: Wiktionary, "ikun" (Yoruba section): ikùn, abdomen or belly 
   - Sentence: Mo fi etí mi gbọ́ orin. / I hear music with my ear.
   - Doubt: From the model's own knowledge. Etí also means edge or bank (of a river). Sentence drafted by the model.
 - `gs-body-enu`: **ẹnu** (mouth, noun)
-  - Sentence: Mo fi ẹnu mi sọ̀rọ̀. / I speak with my mouth.
-  - Doubt: From the model's own knowledge. Eating was avoided in the sentence because Yoruba people also eat with the hand. Sentence drafted by the model.
+  - Sentence: Eyín wà nínú ẹnu mi. / My teeth are in my mouth.
+  - Doubt: From the model's own knowledge. Eating was avoided in the sentence because Yoruba people also eat with the hand. Sentence drafted by the model: confirm the tones of eyín (tooth, teeth).
 - `gs-body-owo`: **ọwọ́** (hand, noun)
   - Sentence: Mo fi ọwọ́ mi kọ ìwé. / I write a letter with my hand.
   - Doubt: From the model's own knowledge. Ọwọ́ covers hand and arm. Mind owó (money), not in this topic. Sentence drafted by the model.
 - `gs-body-ese`: **ẹsẹ̀** (leg, noun)
-  - Sentence: Mo fi ẹsẹ̀ gbá bọ́ọ̀lù. / I kick the ball with my foot.
-  - Doubt: From the model's own knowledge. Ẹsẹ̀ covers leg and foot. Sentence drafted by the model: confirm the spelling bọ́ọ̀lù (ball) and gbá (kick).
+  - Sentence: Mo fi ẹsẹ̀ mi rìn. / I walk on my legs.
+  - Doubt: From the model's own knowledge. Ẹsẹ̀ covers leg and foot. Sentence drafted by the model, same fi ... (use ... to) pattern as the eye, ear, mouth and hand sentences.
 - `gs-body-ikun`: **ikùn** (stomach, noun)
-  - Sentence: Mo ti yó, ikùn mi kún. / I am full, my stomach is full.
-  - Doubt: Wiktionary gives ikùn (belly). In everyday speech inú (inside, belly) is often used instead, as in inú mi ń run (I have a stomach ache). Sentence drafted by the model.
+  - Sentence: Mo jẹun púpọ̀, ikùn mi wú. / I ate a lot, and my stomach swelled.
+  - Doubt: Wiktionary gives ikùn (belly). In everyday speech inú (inside, belly) is often used instead, as in inú mi ń run (I have a stomach ache). Sentence drafted by the model: confirm wú (swell) for a full belly.
 - `gs-body-eyin`: **ẹ̀yìn** (back, noun)
   - Sentence: Ìyá pọn ọmọ sí ẹ̀yìn. / The mother ties the baby on her back.
   - Doubt: From the model's own knowledge. Ẹ̀yìn also means behind or after. Mind ẹyin (egg) and ẹ̀yin (you, plural), not in this topic. Sentence drafted by the model: pọn already implies the back, so sí ẹ̀yìn may sound redundant.
@@ -517,7 +517,7 @@ Sources consulted: Wiktionary, "ikun" (Yoruba section): ikùn, abdomen or belly 
   - Doubt: From the model's own knowledge. Irun covers body hair too; irun orí is head hair. Sentence drafted by the model.
 
 #### Food and drink (`gs-food`)
-Sources consulted: Wiktionary, "ẹwa" (Yoruba section): ẹ̀wà, beans (distinct from ẹwà, beauty, and ẹ̀wá, ten).; Wiktionary, "iyọ" (Yoruba section): iyọ̀, salt.; src/content/audio-manifest.json and this app's grammar lessons: omi, ẹja, ẹran (rẹran, olú mú ọ̀bẹ gé ẹran) and adìyẹ appear there with the same spellings. Not rechecked against an outside source.; The model's own knowledge for ìrẹsì, iṣu, búrẹ́dì, ẹyin, èso and for all ten example sentences.
+Sources consulted: Wiktionary, "ẹwa" (Yoruba section): ẹ̀wà, beans (distinct from ẹwà, beauty, and ẹ̀wá, ten).; Wiktionary, "iyọ" (Yoruba section): iyọ̀, salt.; src/content/audio-manifest.json and this app's grammar lessons: ẹja is there as a word of its own; omi, ẹran and adìyẹ appear only inside phrases (adé ń mu omi, olú mú ọ̀bẹ gé ẹran, adìyẹ tí mo rà). Same spellings. Not rechecked against an outside source.; The model's own knowledge for ìrẹsì, iṣu, búrẹ́dì, ẹyin, èso and for all ten example sentences.
 
 - `gs-food-omi`: **omi** (water, noun)
   - Sentence: Mo mu omi tútù. / I drink cold water.
@@ -538,13 +538,13 @@ Sources consulted: Wiktionary, "ẹwa" (Yoruba section): ẹ̀wà, beans (distin
   - Sentence: Adìyẹ yé ẹyin. / The hen laid an egg.
   - Doubt: From the model's own knowledge. Mind ẹ̀yin (you, plural) and ẹ̀yìn (back), not in this topic. Sentence drafted by the model: yé is the verb for laying an egg.
 - `gs-food-eja`: **ẹja** (fish, noun)
-  - Sentence: Ẹja ń wẹ̀ nínú omi. / The fish is swimming in the water.
-  - Doubt: Same spelling as the grammar lessons (ra ẹja, ẹlẹ́ja). Sentence drafted by the model: confirm wẹ̀ (swim, bathe) for a fish.
+  - Sentence: Mo fi àwọ̀n mú ẹja nínú odò. / I caught fish in the river with a net.
+  - Doubt: Same spelling as the grammar lessons (ra ẹja, ẹlẹ́ja). Sentence drafted by the model: confirm the tones of àwọ̀n (net) and mú (catch).
 - `gs-food-eran`: **ẹran** (meat, noun)
   - Sentence: Mo ra ẹran màlúù. / I bought beef.
   - Doubt: Same spelling as the grammar lessons. Ẹran also means animal. Sentence drafted by the model: ẹran màlúù is literally cow meat.
 - `gs-food-iyo`: **iyọ̀** (salt, noun)
-  - Sentence: Omi òkun ní iyọ̀. / Seawater has salt in it.
+  - Sentence: Omi òkun ní iyọ̀ púpọ̀. / Seawater has a lot of salt.
   - Doubt: Wiktionary gives iyọ̀ and calls it a newer word for salt; an older term may exist. Sentence drafted by the model.
 - `gs-food-eso`: **èso** (fruit, noun)
   - Sentence: Ọsàn jẹ́ èso. / An orange is a fruit.

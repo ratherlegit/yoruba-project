@@ -11,7 +11,20 @@ describe("audioCost", () => {
   it("adds no period after a question mark", () => {
     expect(audioCost("Báwo ni ara rẹ?")).toBe(15 + 2);
   });
+  it.each(["!", "\u2026", ";", ":"])("adds no period after %s", (p) => {
+    expect(audioCost(`omi${p}`)).toBe(4 + 2);
+  });
+  it("ignores trailing space, like rstrip in prepare_paste.py", () => {
+    expect(audioCost("omi.  ")).toBe(audioCost("omi."));
+    expect(audioCost("omi ")).toBe(3 + 1 + 2);
+  });
+  it("costs a period and a blank line for an empty string", () => {
+    expect(audioCost("")).toBe(0 + 1 + 2);
+  });
   it("counts NFC code points, not decomposed marks", () => {
-    expect(audioCost("ọ̀".normalize("NFD"))).toBe(audioCost("ọ̀".normalize("NFC")));
+    // o + dot below + grave, decomposed: NFC folds it to U+1ECD + U+0300 (2 code points).
+    const decomposed = "o\u0323\u0300";
+    expect([...decomposed].length).toBe(3);
+    expect(audioCost(decomposed)).toBe(2 + 1 + 2);
   });
 });
