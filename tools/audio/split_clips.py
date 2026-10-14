@@ -1,7 +1,7 @@
 """Split downloaded ElevenLabs web-tool audio (test.*, part-N.*) into one clip per string.
 
-Uses ffmpeg silencedetect to find the long pauses, checks the segment count against
-order.json, then writes public/audio/<sha1(key)[:12]>.mp3 and merges the manifest.
+Uses ffmpeg silencedetect to list every internal silence, picks the N-1 longest as the
+separators (N = items in order.json), checks the separation margin, then writes public/audio/<sha1(key)[:12]>.mp3 and merges the manifest.
 """
 import argparse, hashlib, json, re, statistics, subprocess, sys, tempfile
 from pathlib import Path
@@ -11,6 +11,8 @@ PASTE = ROOT / "tools/audio/paste"
 MANIFEST = ROOT / "src/content/audio-manifest.json"
 PUBLIC_AUDIO = ROOT / "public/audio"
 PAD = 0.05
+MIN_SILENCE = 0.12
+MIN_MARGIN = 1.5
 SHORT = 0.15
 AUDIO_EXT = {".mp3", ".wav", ".m4a", ".aac", ".ogg", ".flac", ".opus", ".webm", ".mp4"}
 
@@ -25,28 +27,53 @@ def duration_of(path: Path) -> float:
     return float(r.stdout.strip())
 
 
-def find_segments(path: Path, noise: str, min_gap: float):
+def detect_silences(path: Path, noise: str, min_dur: float):
     total = duration_of(path)
     r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(path), "-af",
-                        f"silencedetect=noise={noise}:d={min_gap}", "-f", "null", "-"],
+                        f"silencedetect=noise={noise}:d={min_dur}", "-f", "null", "-"],
                        capture_output=True, text=True)
     starts = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", r.stderr)]
     ends = [float(x) for x in re.findall(r"silence_end: (-?[\d.]+)", r.stderr)]
-    sil = []
-    for i, s in enumerate(starts):
-        sil.append((max(s, 0.0), ends[i] if i < len(ends) else total))
-    segs, pos = [], 0.0
-    for s, e in sil:
-        if s - pos > 0.01:
-            segs.append((pos, s))
+    sil = [(max(s, 0.0), ends[i] if i < len(ends) else total) for i, s in enumerate(starts)]
+    return sil, total
+
+
+def segments_from(sil, total, seps):
+    """Speech segments given the chosen separator silences (sorted by time)."""
+    lead = sil[0][1] if sil and sil[0][0] < 0.01 else 0.0
+    tail = sil[-1][0] if sil and sil[-1][1] > total - 0.01 and sil[-1][0] > 0.01 else total
+    segs, pos = [], lead
+    for s, e in seps:
+        segs.append((pos, s))
         pos = e
-    if total - pos > 0.01:
-        segs.append((pos, total))
-    return segs, total
+    segs.append((pos, tail))
+    return segs
 
 
-def diagnose(name, segs, expected, noise, min_gap):
-    print(f"\nERROR {name}: found {len(segs)} segments but order.json lists {expected} items. Nothing was written for this file.")
+def find_segments(path: Path, noise: str, n_items: int, min_gap=None):
+    """Returns (segments, margin, internal_silences, total). margin is None in fixed --min-gap mode."""
+    if min_gap is not None:
+        sil, total = detect_silences(path, noise, min_gap)
+        internal = [x for x in sil if x[0] > 0.01 and x[1] < total - 0.01]
+        return segments_from(sil, total, internal), None, internal, total
+    sil, total = detect_silences(path, noise, MIN_SILENCE)
+    internal = [x for x in sil if x[0] > 0.01 and x[1] < total - 0.01]
+    need = n_items - 1
+    if len(internal) < need:
+        return segments_from(sil, total, internal), None, internal, total
+    ranked = sorted(internal, key=lambda x: x[0] - x[1])  # longest first
+    chosen = sorted(ranked[:need])
+    rest = ranked[need:]
+    shortest = min((e - s for s, e in chosen), default=None)
+    longest_rest = max((e - s for s, e in rest), default=0.0)
+    if shortest is None or longest_rest <= 0:
+        margin = float("inf")
+    else:
+        margin = shortest / longest_rest
+    return segments_from(sil, total, chosen), margin, internal, total
+
+
+def list_segments(segs):
     durs = [e - s for s, e in segs]
     med = statistics.median(durs) if durs else 0
     for i, (s, e) in enumerate(segs, 1):
@@ -56,10 +83,25 @@ def diagnose(name, segs, expected, noise, min_gap):
         elif med and e - s > 3 * med:
             flag = "  <-- suspiciously long (maybe two items merged)"
         print(f"  {i:3d}. start {s:8.2f}  end {e:8.2f}  duration {e - s:6.2f}{flag}")
-    if len(segs) > expected:
-        print(f"  Too many segments: pauses inside items may be splitting them. Try a larger --min-gap (now {min_gap}) or a lower --noise (now {noise}, e.g. -40dB).")
+
+
+def diagnose(name, segs, expected, noise, min_gap):
+    print(f"\nERROR {name}: found {len(segs)} segments but order.json lists {expected} items. Nothing was written for this file.")
+    list_segments(segs)
+    if min_gap is not None and len(segs) > expected:
+        print(f"  Too many segments: try a larger --min-gap (now {min_gap}) or a lower --noise (now {noise}, e.g. -40dB).")
     else:
-        print(f"  Too few segments: some pauses were not detected. Try a smaller --min-gap (now {min_gap}) or a higher --noise (now {noise}, e.g. -30dB).")
+        print(f"  Too few pauses detected: try a higher --noise (now {noise}, e.g. -30dB) or a smaller --min-gap. "
+              "Check that the downloaded audio really contains every item.")
+
+
+def warn_low_margin(name, margin, segs, internal, chosen_count):
+    print(f"\n!!! WARNING {name}: separation margin {margin:.2f} is below {MIN_MARGIN}. The pauses between items are not clearly longer than pauses inside items.")
+    list_segments(segs)
+    gaps = sorted(internal, key=lambda x: x[0] - x[1])
+    print("  Closest-call gaps (rank, at, length):")
+    for i, (s, e) in enumerate(gaps[max(chosen_count - 3, 0):chosen_count + 3], max(chosen_count - 3, 0) + 1):
+        print(f"    #{i}: {s:.2f}-{e:.2f}  {e - s:.2f}s  {'(used as separator)' if i <= chosen_count else '(not used)'}")
 
 
 def cut(src: Path, start: float, end: float, dest: Path) -> None:
@@ -80,7 +122,8 @@ def main() -> int:
     ap.add_argument("--out-dir", help="write clips here; manifest untouched")
     ap.add_argument("--order", help="order.json path (default: PARTS_DIR/order.json, else tools/audio/paste/order.json)")
     ap.add_argument("--noise", default="-35dB")
-    ap.add_argument("--min-gap", type=float, default=1.2)
+    ap.add_argument("--min-gap", type=float, default=None, help="optional fixed mode: split at every silence at least this long (default: use the N-1 longest gaps)")
+    ap.add_argument("--accept-low-margin", action="store_true", help="write clips even if the separation margin is below 1.5")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
@@ -109,11 +152,19 @@ def main() -> int:
     failed, manifest_new = 0, {}
     for name in sorted(files, key=sort_key):
         keys = order[name]
-        segs, total = find_segments(files[name], a.noise, a.min_gap)
+        segs, margin, internal, total = find_segments(files[name], a.noise, len(keys), a.min_gap)
         if len(segs) != len(keys):
             diagnose(files[name].name, segs, len(keys), a.noise, a.min_gap)
             failed += 1
             continue
+        if margin is not None:
+            print(f"{files[name].name}: separation margin {margin:.2f}")
+            if margin < MIN_MARGIN:
+                warn_low_margin(files[name].name, margin, segs, internal, len(keys) - 1)
+                if not a.accept_low_margin:
+                    print("  Nothing was written for this file. Re-record it, adjust --noise, or pass --accept-low-margin.")
+                    failed += 1
+                    continue
         is_test = name == "test"
         if a.out_dir:
             dest_dir, touch_manifest = Path(a.out_dir).expanduser(), False

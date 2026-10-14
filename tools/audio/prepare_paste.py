@@ -1,7 +1,7 @@
 """Prepare paste-ready text files for the ElevenLabs free web tool.
 
 Reads tools/audio/strings.json and writes tools/audio/paste/test.txt, part-N.txt
-and order.json. One item per line, each followed by a 2 second pause tag.
+and order.json. One paragraph per item: the text plus a period, then a blank line.
 """
 import json, sys, unicodedata
 from pathlib import Path
@@ -9,7 +9,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 STRINGS = ROOT / "tools/audio/strings.json"
 PASTE = ROOT / "tools/audio/paste"
-BREAK = '<break time="2.0s" />'
 MAX_ITEMS = 30
 MAX_CHARS = 3500
 TEST_KEYS = ["ọmọ", "ọkọ", "ọkọ̀", "ọkọ́", "ẹ káàárọ̀"]
@@ -20,7 +19,7 @@ def nfc(s: str) -> str:
 
 
 def line_for(text: str) -> str:
-    return f"{text} {BREAK}\n"
+    return f"{text}.\n\n"
 
 
 def main() -> int:
@@ -63,8 +62,8 @@ def main() -> int:
     print(f"{len(parts)} parts plus a test file, written to {PASTE}")
     for name, n, c in sizes:
         print(f"  {name}: {n} items, {c} characters")
-    print(f"total characters across all files (counting break tags): {total}")
-    print(f"characters of text only, no tags: {sum(len(t) for _, t in items)}")
+    print(f"total characters across all files (including periods): {total}")
+    print(f"characters of text only, no periods: {sum(len(t) for _, t in items)}")
     return 0
 
 
