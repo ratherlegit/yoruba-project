@@ -77,4 +77,10 @@ describe("AudioButton", () => {
     await userEvent.setup().click(screen.getByRole("button", { name: /listen/i }));
     expect(screen.getByRole("button", { name: /listen/i })).toBeInTheDocument();
   });
+  it("does not throw when Audio is undefined", async () => {
+    vi.stubGlobal("Audio", undefined);
+    render(<AudioButton text="ọmọ" />);
+    await userEvent.setup().click(screen.getByRole("button", { name: /listen/i }));
+    expect(screen.getByRole("button", { name: /listen/i })).toBeInTheDocument();
+  });
 });

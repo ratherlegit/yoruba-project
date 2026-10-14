@@ -110,5 +110,7 @@ test("Listen on a word breakdown fetches its audio clip", async ({ page }) => {
   const response = page.waitForResponse((r) => /\/audio\/[0-9a-f]{12}\.(mp3|ogg|wav)$/.test(r.url()));
   await listen.click();
   // Chromium's media element asks for the clip with a Range header, so 206 is as good as 200.
-  expect([200, 206]).toContain((await response).status());
+  const res = await response;
+  expect([200, 206]).toContain(res.status());
+  expect(res.headers()["content-type"] ?? "").toMatch(/^audio\//);
 });

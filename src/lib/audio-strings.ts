@@ -18,7 +18,8 @@ export function collectAudioStrings(levels: Level[]): { key: string; text: strin
   const seen = new Map<string, string>();
   const add = (text: string) => {
     const key = audioKey(text);
-    if (key && isSpokenYoruba(text) && !seen.has(key)) seen.set(key, text);
+    // One-letter strings (a, ẹ, o, ó) are not worth a clip: they are syllables, not words.
+    if ([...key].length > 1 && isSpokenYoruba(text) && !seen.has(key)) seen.set(key, text);
   };
   for (const level of levels) {
     for (const lesson of level.lessons) {

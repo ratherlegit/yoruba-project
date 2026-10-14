@@ -12,3 +12,4 @@ playwright-report
 tools/audio/.venv
 tools/audio/.cache
 __pycache__
+tools/audio/.env

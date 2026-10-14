@@ -10,7 +10,7 @@
     "validate": "tsx scripts/validate-content.ts",
     "review": "tsx scripts/generate-review.ts",
     "audio:list": "tsx scripts/list-audio-strings.ts",
-    "audio:generate": "npm run audio:list && tools/audio/.venv/bin/python tools/audio/generate.py",
+    "audio:generate": "npm run audio:list && tools/audio/.venv/bin/python tools/audio/generate_elevenlabs.py",
     "e2e": "playwright test",
     "deploy": "npm run build && wrangler deploy --name yoruba-project"
   },

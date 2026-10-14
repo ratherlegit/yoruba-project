@@ -21,7 +21,8 @@ export function About() {
       </section>
       <section className="card">
         <h2 style={{ marginTop: 0 }}>Audio</h2>
-        <p>Audio generated with Meta's MMS-TTS Yoruba model (facebook/mms-tts-yor, CC-BY-NC 4.0).</p>
+        {/* Owner: check ElevenLabs's current terms for your plan (for example attribution requirements) and adjust this sentence. */}
+        <p>Audio pronunciation clips were generated with ElevenLabs text-to-speech.</p>
       </section>
     </main>
   );
