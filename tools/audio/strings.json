@@ -558,5 +558,90 @@
     "key": "òní l'a rí ọba òkè l'ó rọ́la",
     "text": "Òní l'a rí, ọba òkè l'ó rọ́la",
     "group": "grammar"
+  },
+  {
+    "key": "ẹ káàsán",
+    "text": "ẹ káàsán",
+    "group": "vocab-word"
+  },
+  {
+    "key": "ẹ káàbọ̀",
+    "text": "ẹ káàbọ̀",
+    "group": "vocab-word"
+  },
+  {
+    "key": "ẹ ṣeun",
+    "text": "ẹ ṣeun",
+    "group": "vocab-word"
+  },
+  {
+    "key": "ẹ jọ̀ọ́",
+    "text": "ẹ jọ̀ọ́",
+    "group": "vocab-word"
+  },
+  {
+    "key": "ẹ má bínú",
+    "text": "ẹ má bínú",
+    "group": "vocab-word"
+  },
+  {
+    "key": "ó dàbọ̀",
+    "text": "ó dàbọ̀",
+    "group": "vocab-word"
+  },
+  {
+    "key": "báwo ni",
+    "text": "báwo ni",
+    "group": "vocab-word"
+  },
+  {
+    "key": "ẹ káàárọ̀ oòrùn ti yọ",
+    "text": "Ẹ káàárọ̀, oòrùn ti yọ.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ẹ káàsán ọ̀sán yìí gbóná",
+    "text": "Ẹ káàsán, ọ̀sán yìí gbóná.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ẹ káalẹ́ oòrùn ti wọ̀",
+    "text": "Ẹ káalẹ́, oòrùn ti wọ̀.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ẹ kúuṣẹ́ iṣẹ́ yín dára",
+    "text": "Ẹ kúuṣẹ́, iṣẹ́ yín dára.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ẹ káàbọ̀ sí ilé wa",
+    "text": "Ẹ káàbọ̀ sí ilé wa.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ẹ ṣeun fún ẹ̀bùn yìí",
+    "text": "Ẹ ṣeun fún ẹ̀bùn yìí.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ẹ jọ̀ọ́ ẹ ràn mí lọ́wọ́",
+    "text": "Ẹ jọ̀ọ́, ẹ ràn mí lọ́wọ́.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ẹ má bínú mo pẹ́",
+    "text": "Ẹ má bínú, mo pẹ́.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "ó dàbọ̀ mo ń lọ",
+    "text": "Ó dàbọ̀, mo ń lọ.",
+    "group": "vocab-sentence"
+  },
+  {
+    "key": "báwo ni ara rẹ",
+    "text": "Báwo ni ara rẹ?",
+    "group": "vocab-sentence"
   }
 ]

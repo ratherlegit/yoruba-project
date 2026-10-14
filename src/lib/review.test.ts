@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { LEVELS } from "@/content/levels";
+import { VOCAB_LEVELS } from "@/content/vocab";
 import { describe, expect, it } from "vitest";
 import type { Level, WordBreakdown } from "@/content/types";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
@@ -56,7 +57,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
