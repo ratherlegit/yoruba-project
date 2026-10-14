@@ -4,7 +4,7 @@ export const QUESTIONS_PER_LESSON = 8;
 const EM_DASH = "\u2014";
 const ws = (s: string): string => s.replace(/\s+/g, "");
 
-function* strings(v: unknown): Generator<string> {
+export function* strings(v: unknown): Generator<string> {
   if (typeof v === "string") yield v;
   else if (Array.isArray(v)) for (const x of v) yield* strings(x);
   else if (v && typeof v === "object") for (const x of Object.values(v)) yield* strings(x);
