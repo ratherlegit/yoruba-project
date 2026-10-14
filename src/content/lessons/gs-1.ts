@@ -59,7 +59,7 @@ export const gs1: Lesson = {
     { type: "blank", prompt: "Writing omo instead of ọmọ changes ___ vowel sounds.", answer: "2", choices: ["2", "1", "0"], wordId: "omo" },
     { type: "blank", prompt: "ṣọ́ra has ___ letters with a dot underneath.", answer: "2", choices: ["2", "1", "3"], wordId: "sora" },
     { type: "pick", prompt: "Which word has a sound written with two letters?", choices: ["gbọ́", "ṣọ́ra", "ẹja"], answer: 0, wordId: "gbo" },
-    { type: "pick", prompt: "Which word has one open vowel and no dot under a consonant?", choices: ["ọmọ", "ṣọ́ra", "ẹja"], answer: 2, wordId: "eja" },
+    { type: "pick", prompt: "Which word has exactly one dotted vowel (ẹ or ọ) and no dotted consonant?", choices: ["ọmọ", "ṣọ́ra", "ẹja"], answer: 2, wordId: "eja" },
     { type: "order", english: "Fish and child", words: ["ọmọ", "àti", "ẹja"], answer: ["ẹja", "àti", "ọmọ"] },
     { type: "order", english: "I hear the child", words: ["ọmọ", "gbọ́", "Mo"], answer: ["Mo", "gbọ́", "ọmọ"] },
     { type: "order", english: "It is a fish", words: ["ni", "Ẹja"], answer: ["Ẹja", "ni"] },

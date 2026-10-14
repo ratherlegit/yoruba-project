@@ -402,7 +402,7 @@ Questions:
 - Q4 (pick): Which word has a sound written with two letters?
   - Choices: gbọ́ | ṣọ́ra | ẹja
   - Answer: gbọ́
-- Q5 (pick): Which word has one open vowel and no dot under a consonant?
+- Q5 (pick): Which word has exactly one dotted vowel (ẹ or ọ) and no dotted consonant?
   - Choices: ọmọ | ṣọ́ra | ẹja
   - Answer: ẹja
 - Q6 (order): Fish and child
@@ -490,7 +490,7 @@ Questions:
   - Choices: Mo | Mọ | Mó
   - Answer: Mo
 - Q4 (pick): Which one uses a short pronoun correctly?
-  - Choices: Wọ́n àti ẹ̀yin | A lọ | Mo àti ẹ̀yin
+  - Choices: Wọ́n àti ẹ̀yin lọ | A lọ | Mo àti ẹ̀yin lọ
   - Answer: A lọ
 - Q5 (pick): Which pronoun do you use to speak politely to one older person?
   - Choices: o | ó | ẹ
@@ -584,9 +584,9 @@ Questions:
 - Q4 (pick): Which means "I am eating"?
   - Choices: Mo jẹun | Mo ń jẹun | Mo ń lọ
   - Answer: Mo ń jẹun
-- Q5 (pick): jẹun is built from jẹ (eat) and which word?
-  - Choices: oúnjẹ (food) | ohun (thing) | omi (water)
-  - Answer: ohun (thing)
+- Q5 (pick): In Adé ń mu omi, what does ń tell you?
+  - Choices: The action is going on | The action is already done | It means "not"
+  - Answer: The action is going on
 - Q6 (order): I am eating
   - Answer: Mo ń jẹun
 - Q7 (order): He is going
@@ -611,9 +611,9 @@ Questions:
 - Q3 (blank): Kí ni orúkọ ___? (What is your name?)
   - Choices: rẹ | rẹ̀ | re
   - Answer: rẹ
-- Q4 (pick): Which words ask "what"?
-  - Choices: ṣé | kí ni | dáadáa
-  - Answer: kí ni
+- Q4 (pick): Which is the usual way to ask "Do you want to eat?"
+  - Choices: O fẹ́ jẹun ṣé? | Ṣé o fẹ́ jẹun?
+  - Answer: Ṣé o fẹ́ jẹun?
 - Q5 (pick): Which one is a yes or no question?
   - Choices: Kí ni o fẹ́? | Kí ni orúkọ rẹ? | Ṣé o sùn dáadáa?
   - Answer: Ṣé o sùn dáadáa?

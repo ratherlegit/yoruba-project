@@ -77,7 +77,7 @@ export const b4: Lesson = {
     { type: "blank", prompt: "___ o fẹ́ jẹun? (Do you want to eat?)", answer: "Ṣé", choices: ["Ṣé", "Ṣe", "Se"], wordId: "se-o-fe-jeun" },
     { type: "blank", prompt: "___ ni o fẹ́? (What do you want?)", answer: "Kí", choices: ["Kí", "Ki", "Kì"], wordId: "ki-ni-o-fe" },
     { type: "blank", prompt: "Kí ni orúkọ ___? (What is your name?)", answer: "rẹ", choices: ["rẹ", "rẹ̀", "re"], wordId: "ki-ni-oruko-re" },
-    { type: "pick", prompt: "Which words ask \"what\"?", choices: ["ṣé", "kí ni", "dáadáa"], answer: 1, wordId: "ki-ni-o-fe" },
+    { type: "pick", prompt: "Which is the usual way to ask \"Do you want to eat?\"", choices: ["O fẹ́ jẹun ṣé?", "Ṣé o fẹ́ jẹun?"], answer: 1, wordId: "se-o-fe-jeun" },
     { type: "pick", prompt: "Which one is a yes or no question?", choices: ["Kí ni o fẹ́?", "Kí ni orúkọ rẹ?", "Ṣé o sùn dáadáa?"], answer: 2, wordId: "se-o-sun-daadaa" },
     { type: "order", english: "Do you want to eat?", words: ["fẹ́", "jẹun", "Ṣé", "o"], answer: ["Ṣé", "o", "fẹ́", "jẹun"] },
     { type: "order", english: "What is your name?", words: ["orúkọ", "Kí", "rẹ", "ni"], answer: ["Kí", "ni", "orúkọ", "rẹ"] },
