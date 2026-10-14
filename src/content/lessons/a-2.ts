@@ -85,7 +85,7 @@ export const a2: Lesson = {
     { type: "blank", prompt: "jẹ (eat) → ___jẹ (eating)", answer: "jí", choices: ["jí", "jì", "ji"], wordId: "jije" },
     { type: "blank", prompt: "kà (read) → kí___ (reading)", answer: "kà", choices: ["kà", "ka", "ká"], wordId: "kika" },
     { type: "blank", prompt: "gbé (carry) → ___gbé (carrying)", answer: "gbí", choices: ["gbí", "bí", "gí"], wordId: "gbigbe" },
-    { type: "pick", prompt: "Which word means \"going\"?", choices: ["lílọ", "lọ", "lílọ̀"], answer: 0, wordId: "lilo" },
+    { type: "pick", prompt: "lọ (go) becomes which verbal noun?", choices: ["lílọ", "lilọ", "lílọ̀"], answer: 0, wordId: "lilo" },
     { type: "pick", prompt: "Which verb does kíkà come from?", choices: ["kà", "kí", "kọ́"], answer: 0, wordId: "kika" },
     { type: "order", english: "Studies (book reading)", words: ["kíkà", "Ìwé"], answer: ["Ìwé", "kíkà"] },
     { type: "order", english: "Going to school", words: ["lílọ", "Ilé-ìwé"], answer: ["Ilé-ìwé", "lílọ"] },

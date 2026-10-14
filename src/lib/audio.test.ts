@@ -43,7 +43,10 @@ describe("audio matches lesson content", () => {
   it("lists strings", () => {
     expect(strings.length).toBeGreaterThan(50);
   });
-  it.each(strings.map((s) => [s.key]))("has a manifest entry and file for %s (run npm run audio:generate if this fails)", (key) => {
+  // Strings added since the last clip batch. Each key here still needs a clip
+  // (see tools/audio/README.md). Shrink this list as clips are generated.
+  const PENDING_AUDIO = new Set<string>([]);
+  it.each(strings.filter((s) => !PENDING_AUDIO.has(s.key)).map((s) => [s.key]))("has a manifest entry and file for %s (run npm run audio:generate if this fails)", (key) => {
     const file = (manifest as Record<string, string>)[key];
     expect(file, `no manifest entry for "${key}"`).toBeTruthy();
     expect(existsSync(join("public", "audio", file!)), `missing public/audio/${file}`).toBe(true);

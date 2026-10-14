@@ -83,7 +83,7 @@ export const gs3: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "Good morning (to an elder): Ẹ ___.", answer: "káàárọ̀", choices: ["káàárọ̀", "kaaro", "káàrọ̀"], wordId: "e-kaaro" },
-    { type: "blank", prompt: "Good evening (to an elder): Ẹ ___.", answer: "káalẹ́", choices: ["káalẹ́", "káàárọ̀", "kúuṣẹ́"], wordId: "e-kaale" },
+    { type: "blank", prompt: "kú + alẹ́ (evening) join in speech. Good evening (to an elder): Ẹ ___.", answer: "káalẹ́", choices: ["káalẹ́", "kúalẹ́", "kaalẹ́"], wordId: "e-kaale" },
     { type: "blank", prompt: "To someone at work: Ẹ kúu___.", answer: "ṣẹ́", choices: ["ṣẹ́", "sẹ́", "ṣẹ"], wordId: "e-kuuse" },
     { type: "pick", prompt: "Which is the joined morning greeting?", choices: ["ẹ kú àárọ̀", "ẹ káàárọ̀", "ẹ káalẹ́"], answer: 1, wordId: "e-kaaro" },
     { type: "pick", prompt: "How many syllables does àárọ̀ have?", choices: ["2", "3", "4"], answer: 1, wordId: "aaro" },

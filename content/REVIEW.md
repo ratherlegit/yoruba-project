@@ -390,21 +390,21 @@ Common mistake:
 - Why: Without the dots the letters are different sounds. Writing omo for ọmọ is a spelling error, not a style choice.
 
 Questions:
-- Q1 (blank): The word for fish starts with ___ja.
-  - Choices: ẹ | e | i
-  - Answer: ẹ
-- Q2 (blank): The word for child is ọ___ọ.
-  - Choices: m | n | l
-  - Answer: m
-- Q3 (blank): The "sh" sound in ṣọ́ra is written ___.
-  - Choices: ṣ | s | gb
-  - Answer: ṣ
-- Q4 (pick): Which word contains the sound gb?
-  - Choices: gbọ́ | bọ́ | gọ́
+- Q1 (blank): gbọ́ is made of ___ sounds.
+  - Choices: 2 | 3 | 1
+  - Answer: 2
+- Q2 (blank): Writing omo instead of ọmọ changes ___ vowel sounds.
+  - Choices: 2 | 1 | 0
+  - Answer: 2
+- Q3 (blank): ṣọ́ra has ___ letters with a dot underneath.
+  - Choices: 2 | 1 | 3
+  - Answer: 2
+- Q4 (pick): Which word has a sound written with two letters?
+  - Choices: gbọ́ | ṣọ́ra | ẹja
   - Answer: gbọ́
-- Q5 (pick): Which spelling shows the open o, the "aw" sound in "law"?
-  - Choices: ọmọ | omo | ọmo
-  - Answer: ọmọ
+- Q5 (pick): Which word has one open vowel and no dot under a consonant?
+  - Choices: ọmọ | ṣọ́ra | ẹja
+  - Answer: ẹja
 - Q6 (order): Fish and child
   - Answer: ẹja àti ọmọ
 - Q7 (order): I hear the child
@@ -420,19 +420,19 @@ Common mistake:
 - Why: Same letters, different word. ọkọ is husband. With the low mark on the second syllable, ọkọ̀ is vehicle.
 
 Questions:
-- Q1 (blank): The word for vehicle is ọ___.
+- Q1 (blank): Vehicle is mid tone, then low: ọ___.
   - Choices: kọ̀ | kọ | kọ́
   - Answer: kọ̀
-- Q2 (blank): The word for hoe is ọ___.
+- Q2 (blank): Hoe is mid tone, then high: ọ___.
   - Choices: kọ́ | kọ̀ | kọ
   - Answer: kọ́
-- Q3 (blank): The word for spear is ___kọ̀.
+- Q3 (blank): Spear is low tone on both syllables: ___kọ̀.
   - Choices: ọ̀ | ọ | ọ́
   - Answer: ọ̀
-- Q4 (pick): Which word means husband?
+- Q4 (pick): Which word has open vowels and mid tone on both syllables?
   - Choices: ọkọ̀ | ọkọ | ọkọ́
   - Answer: ọkọ
-- Q5 (pick): Which word means farm?
+- Q5 (pick): Which word has mid tone on both syllables and closed vowels (no dots)?
   - Choices: ọkọ | oko | ọ̀kọ̀
   - Answer: oko
 - Q6 (order): My vehicle
@@ -453,8 +453,8 @@ Questions:
 - Q1 (blank): Good morning (to an elder): Ẹ ___.
   - Choices: káàárọ̀ | kaaro | káàrọ̀
   - Answer: káàárọ̀
-- Q2 (blank): Good evening (to an elder): Ẹ ___.
-  - Choices: káalẹ́ | káàárọ̀ | kúuṣẹ́
+- Q2 (blank): kú + alẹ́ (evening) join in speech. Good evening (to an elder): Ẹ ___.
+  - Choices: káalẹ́ | kúalẹ́ | kaalẹ́
   - Answer: káalẹ́
 - Q3 (blank): To someone at work: Ẹ kúu___.
   - Choices: ṣẹ́ | sẹ́ | ṣẹ
@@ -489,9 +489,9 @@ Questions:
 - Q3 (blank): ___ lọ. (I went.)
   - Choices: Mo | Mọ | Mó
   - Answer: Mo
-- Q4 (pick): Which short pronoun means "we"?
-  - Choices: ẹ | a | wọ́n
-  - Answer: a
+- Q4 (pick): Which one uses a short pronoun correctly?
+  - Choices: Wọ́n àti ẹ̀yin | A lọ | Mo àti ẹ̀yin
+  - Answer: A lọ
 - Q5 (pick): Which pronoun do you use to speak politely to one older person?
   - Choices: o | ó | ẹ
   - Answer: ẹ
@@ -703,9 +703,9 @@ Questions:
 - Q3 (blank): Teacher: olù___
   - Choices: kọ́ | kọ | ko
   - Answer: kọ́
-- Q4 (pick): Which word means teacher?
-  - Choices: onílé | olùkọ́ | olùfẹ́
-  - Answer: olùkọ́
+- Q4 (pick): Which word is built from a noun, not a verb?
+  - Choices: olùkọ́ | olùfẹ́ | onílé
+  - Answer: onílé
 - Q5 (pick): Which prefix goes before a verb?
   - Choices: oní- | olù-
   - Answer: olù-
@@ -795,8 +795,8 @@ Questions:
 - Q3 (blank): gbé (carry) → ___gbé (carrying)
   - Choices: gbí | bí | gí
   - Answer: gbí
-- Q4 (pick): Which word means "going"?
-  - Choices: lílọ | lọ | lílọ̀
+- Q4 (pick): lọ (go) becomes which verbal noun?
+  - Choices: lílọ | lilọ | lílọ̀
   - Answer: lílọ
 - Q5 (pick): Which verb does kíkà come from?
   - Choices: kà | kí | kọ́

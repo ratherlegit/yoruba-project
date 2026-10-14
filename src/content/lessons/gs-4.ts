@@ -68,7 +68,7 @@ export const gs4: Lesson = {
     { type: "blank", prompt: "___ lọ. (He went.)", answer: "Ó", choices: ["Ó", "O", "Ọ"], wordId: "o-he" },
     { type: "blank", prompt: "___ lọ. (They went.)", answer: "Wọ́n", choices: ["Wọ́n", "Wọn", "Wọ̀n"], wordId: "won" },
     { type: "blank", prompt: "___ lọ. (I went.)", answer: "Mo", choices: ["Mo", "Mọ", "Mó"], wordId: "mo" },
-    { type: "pick", prompt: "Which short pronoun means \"we\"?", choices: ["ẹ", "a", "wọ́n"], answer: 1, wordId: "a" },
+    { type: "pick", prompt: "Which one uses a short pronoun correctly?", choices: ["Wọ́n àti ẹ̀yin", "A lọ", "Mo àti ẹ̀yin"], answer: 1, wordId: "a" },
     { type: "pick", prompt: "Which pronoun do you use to speak politely to one older person?", choices: ["o", "ó", "ẹ"], answer: 2, wordId: "e" },
     { type: "order", english: "I went", words: ["lọ", "Mo"], answer: ["Mo", "lọ"] },
     { type: "order", english: "He went", words: ["lọ", "Ó"], answer: ["Ó", "lọ"] },
