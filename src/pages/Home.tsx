@@ -43,6 +43,10 @@ export function Home() {
           );
         })}
       </div>
+      <Link to="/vocab" className="card" style={{ display: "grid", textDecoration: "none", color: "var(--text)" }}>
+        <strong>Vocab</strong>
+        <span className="muted">Common words by topic, with flashcards and practice.</span>
+      </Link>
     </main>
   );
 }

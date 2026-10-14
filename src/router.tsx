@@ -7,6 +7,9 @@ import { Diacritics } from "@/pages/Diacritics";
 import { Home } from "@/pages/Home";
 import { LessonPage } from "@/pages/LessonPage";
 import { LevelPage } from "@/pages/LevelPage";
+import { VocabHome } from "@/pages/VocabHome";
+import { VocabLevelPage } from "@/pages/VocabLevelPage";
+import { VocabTopicPage } from "@/pages/VocabTopicPage";
 
 const rootRoute = createRootRoute({ component: Layout, notFoundComponent: () => <NotFound /> });
 
@@ -14,6 +17,9 @@ const routes = [
   createRoute({ getParentRoute: () => rootRoute, path: "/", component: Home }),
   createRoute({ getParentRoute: () => rootRoute, path: "/level/$levelId", component: LevelPage }),
   createRoute({ getParentRoute: () => rootRoute, path: "/lesson/$levelId/$lessonId", component: LessonPage }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/vocab", component: VocabHome }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId", component: VocabLevelPage }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId/$topicId", component: VocabTopicPage }),
   createRoute({ getParentRoute: () => rootRoute, path: "/about", component: About }),
   ...(import.meta.env.DEV
     ? [
