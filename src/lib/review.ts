@@ -56,6 +56,7 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
         total += 1;
         vocabLines.push(`- \`${w.id}\`: **${w.yoruba}** (${w.english}, ${w.pos})`);
         vocabLines.push(`  - Sentence: ${w.sentence.yoruba} / ${w.sentence.english}`);
+        if (w.sentence.blank) vocabLines.push(`  - Blank in gap-fill: ${w.sentence.blank}`);
         vocabLines.push(`  - Doubt: ${w.note ?? "(none recorded)"}`);
       }
       vocabLines.push("");

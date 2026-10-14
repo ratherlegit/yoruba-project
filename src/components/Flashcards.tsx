@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { VocabWord } from "@/content/vocab/types";
 import { AudioButton } from "./AudioButton";
 import { PitchLine } from "./PitchLine";
@@ -6,6 +6,10 @@ import { PitchLine } from "./PitchLine";
 export function Flashcards({ words }: { words: VocabWord[] }) {
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const backRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (flipped) backRef.current?.focus();
+  }, [flipped]);
   const w = words[i]!;
   const go = (n: number) => {
     setI(n);
@@ -18,7 +22,7 @@ export function Flashcards({ words }: { words: VocabWord[] }) {
       {!/\s/.test(w.yoruba) && <PitchLine word={w.yoruba} />}
       <div><AudioButton text={w.yoruba} /></div>
       {flipped ? (
-        <div style={{ display: "grid", gap: "0.5rem" }} data-testid="flashcard-back">
+        <div ref={backRef} tabIndex={-1} style={{ display: "grid", gap: "0.5rem", outline: "none" }} data-testid="flashcard-back">
           <p style={{ margin: 0 }}><strong>{w.english}</strong> <span className="muted">({w.pos})</span></p>
           <p className="yo" style={{ margin: 0 }}>{w.sentence.yoruba}</p>
           <p className="muted" style={{ margin: 0 }}>{w.sentence.english}</p>

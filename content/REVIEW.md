@@ -419,6 +419,7 @@ Sources consulted: Wikipedia, "Yoruba numerals": the counting roots ọ̀kan, è
 
 - `gs-numbers-okan`: **ọ̀kan** (one, number)
   - Sentence: Imú kan ṣoṣo ni mo ní. / I have only one nose.
+  - Blank in gap-fill: kan
   - Doubt: Ọ̀kan is the form on its own; after a noun one says kan, so the sentence blanks kan. Sentence drafted by the model: confirm ṣoṣo (only) reads naturally here.
 - `gs-numbers-meji`: **méjì** (two, number)
   - Sentence: Mo ní ojú méjì. / I have two eyes.
@@ -877,9 +878,11 @@ Sources consulted: src/content/lessons (citing Wiktionary "ra" and "ta"): rà, t
   - Doubt: Same spelling as the grammar lessons (Adé ń mu omi); mú with a high tone is take, which is not in this topic. Sentence drafted by the model: confirm ife (cup) and mu ... tán (drink up).
 - `i-verbs-ra`: **rà** (buy, verb)
   - Sentence: Mo fi owó oṣù mi ra bàtà tuntun. / I used my salary to buy new shoes.
+  - Blank in gap-fill: ra
   - Doubt: rà becomes ra before a direct object, as the grammar lessons teach, so the gap blanks ra. Sentence drafted by the model: paying with a salary rules out tà (sell); confirm fi ... ra (buy with).
 - `i-verbs-ta`: **tà** (sell, verb)
   - Sentence: Àgbẹ̀ náà ta iṣu rẹ̀, ó sì gba owó púpọ̀. / The farmer sold his yams and got a lot of money.
+  - Blank in gap-fill: ta
   - Doubt: tà becomes ta before a direct object, as the grammar lessons teach, so the gap blanks ta. Sentence drafted by the model: receiving money rules out rà (buy); src/content/lessons/a-1.ts teaches the contraction ta iṣu = taṣu (citing COERLL page 245), so the native speaker may prefer taṣu here.
 - `i-verbs-ri`: **rí** (see, verb)
   - Sentence: Mo rí erin ní ọgbà ẹranko. / I saw an elephant at the zoo.

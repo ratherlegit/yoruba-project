@@ -23,6 +23,13 @@ describe("Flashcards", () => {
     expect(screen.queryByTestId("flashcard-back")).not.toBeInTheDocument();
   });
 
+  it("Flip moves focus to the back of the card", async () => {
+    const user = userEvent.setup();
+    render(<Flashcards words={words} />);
+    await user.click(screen.getByRole("button", { name: "Flip" }));
+    expect(screen.getByTestId("flashcard-back")).toHaveFocus();
+  });
+
   it("Flip reveals gloss, part of speech, sentence and translation", async () => {
     const user = userEvent.setup();
     render(<Flashcards words={words} />);

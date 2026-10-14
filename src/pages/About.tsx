@@ -21,7 +21,7 @@ export function About() {
       </section>
       <section className="card">
         <h2 style={{ marginTop: 0 }}>Vocab</h2>
-        <p>The Vocab section groups common words by topic, at the same five levels as the grammar lessons. All vocabulary and example sentences are still waiting on a native speaker to confirm, the same review status as the grammar lessons. Audio clips are being added in batches, so some Listen buttons may be missing for now.</p>
+        <p>The Vocab section groups common words by topic, at the same five levels as the grammar lessons. All vocabulary and example sentences are still waiting on a native speaker to confirm, the same review status as the grammar lessons. Audio clips are being added in batches, so most Listen buttons will be missing at first.</p>
       </section>
       <section className="card">
         <h2 style={{ marginTop: 0 }}>Audio</h2>

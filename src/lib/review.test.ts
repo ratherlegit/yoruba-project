@@ -99,6 +99,14 @@ describe("buildReviewMarkdown with vocab", () => {
     expect(md).not.toContain("`w2`");
     expect(md).not.toContain("### Beginner");
   });
+  it("shows the gap-fill blank override only when a word has one", () => {
+    const v = JSON.parse(JSON.stringify(vocabLevels)) as VocabLevel[];
+    v[0]!.topics[0]!.words[0]!.sentence.blank = "rí";
+    const md = buildReviewMarkdown(levels, v);
+    expect(md).toContain("  - Sentence: Mo rí ọ̀rọ̀0. / I see thing 0.\n  - Blank in gap-fill: rí\n  - Doubt: Doubt 0");
+    expect(md.match(/Blank in gap-fill/g)).toHaveLength(1);
+    expect(buildReviewMarkdown(levels, vocabLevels)).not.toContain("Blank in gap-fill");
+  });
   it("counts vocab items in the review total", () => {
     expect(buildReviewMarkdown(levels, vocabLevels)).toMatch(/3 items need review/);
   });

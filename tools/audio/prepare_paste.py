@@ -60,7 +60,7 @@ def main(argv=None) -> int:
     ap.add_argument("--group", action="append", choices=GROUPS,
                     help="only include this group (repeatable). Default: all groups")
     ap.add_argument("--no-test", action="store_true",
-                    help="skip test.txt (its strings are only auditioned, never saved to the app); use once the voice is vetted")
+                    help="skip test.txt (a short sample whose strings are also in the parts); use once the voice is vetted")
     args = ap.parse_args(argv)
     wanted_groups = args.group or GROUPS
     if not STRINGS.exists():
@@ -81,7 +81,7 @@ def main(argv=None) -> int:
         test = test + [k for k, _ in items if k not in test][: 5 - len(test)]
     if args.no_test:
         test = []
-    rest = [(k, t) for k, t in items if k not in set(test)]
+    rest = items  # test strings stay in the parts too, so their clips are saved
 
     parts, cur, cur_chars = [], [], 0
     for k, t in rest:
@@ -107,15 +107,16 @@ def main(argv=None) -> int:
     # Credits are characters, so also report totals per group (text, any added period, blank line).
     chars = {g: sum(len(line_for(t)) for k, t in items if group_of[k] == g) for g in GROUPS}
     counts = {g: sum(1 for k, _ in items if group_of[k] == g) for g in GROUPS}
-    total = sum(c for _, _, c in sizes)
+    total = sum(c for name, _, c in sizes if name != "test")
     print(f"{len(parts)} parts{' plus a test file' if test else ''}, written to {PASTE}")
     for name, n, c in sizes:
-        print(f"  {name}: {n} items, {c} characters")
+        note = " (a sample; these items are also in the parts, so it is not in the total)" if name == "test" else ""
+        print(f"  {name}: {n} items, {c} characters{note}")
     print("per group (still missing from the manifest):")
     for g in GROUPS:
         if g in wanted_groups:
             print(f"  {g}: {counts[g]} items, {chars[g]} characters")
-    print(f"total characters across all files (including added periods): {total}")
+    print(f"total characters across the parts (including added periods; the test file is extra credits): {total}")
     print(f"characters of text only, no periods: {sum(len(t) for _, t in items)}")
     return 0
 

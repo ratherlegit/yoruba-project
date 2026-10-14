@@ -146,6 +146,24 @@ class PreparePasteTests(unittest.TestCase):
             order = json.loads((m.PASTE / "order.json").read_text(encoding="utf-8"))
             self.assertEqual(order, {"part-1": ["ìdí"]})
 
+    def test_test_strings_stay_in_parts_and_totals_do_not_double_count(self):
+        import io, contextlib
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            m = self.load(td)
+            rows = [f"ọ̀rọ̀{i}" for i in range(8)]
+            m.STRINGS.write_text(json.dumps([{"key": k, "text": k, "group": "vocab-word"} for k in rows], ensure_ascii=False), encoding="utf-8")
+            m.MANIFEST.write_text("{}", encoding="utf-8")
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                self.assertEqual(m.main([]), 0)
+            order = json.loads((m.PASTE / "order.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(order["test"]), 5)
+            self.assertEqual(order["part-1"], rows)
+            expected = sum(len(m.line_for(k)) for k in rows)
+            self.assertIn(f"total characters across the parts (including added periods; the test file is extra credits): {expected}", buf.getvalue())
+            self.assertIn(f"vocab-word: 8 items, {expected} characters", buf.getvalue())
+
     def test_period_only_added_when_missing(self):
         with tempfile.TemporaryDirectory() as td:
             m = self.load(Path(td))
