@@ -1,4 +1,5 @@
 import type { Level } from "@/content/types";
+import type { VocabLevel } from "@/content/vocab/types";
 import { audioKey } from "./audio";
 
 // Pick answers that are English sentences or glossed fragments, not Yoruba speech.
@@ -31,4 +32,21 @@ export function collectAudioStrings(levels: Level[]): { key: string; text: strin
     }
   }
   return [...seen].map(([key, text]) => ({ key, text }));
+}
+
+export type VocabAudioGroup = "vocab-word" | "vocab-sentence";
+
+// Vocab words and their example sentences. Unlike grammar strings these are all
+// real Yoruba entries, so the English-word filter is not applied. Words come
+// before sentences; one-letter keys are still skipped.
+export function collectVocabAudioStrings(levels: VocabLevel[]): { key: string; text: string; group: VocabAudioGroup }[] {
+  const seen = new Map<string, { text: string; group: VocabAudioGroup }>();
+  const add = (text: string, group: VocabAudioGroup) => {
+    const key = audioKey(text);
+    if ([...key].length > 1 && !seen.has(key)) seen.set(key, { text, group });
+  };
+  const words = levels.flatMap((l) => l.topics.flatMap((t) => t.words));
+  for (const w of words) add(w.yoruba, "vocab-word");
+  for (const w of words) add(w.sentence.yoruba, "vocab-sentence");
+  return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group }));
 }

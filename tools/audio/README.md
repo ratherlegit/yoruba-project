@@ -48,3 +48,13 @@ Before you start: open the ElevenLabs site and check your remaining credits. The
 7. `npm run validate`, `npx vitest run`, then rebuild (`npm run build`).
 
 How the splitting works: the script knows how many items each file holds (from order.json), finds every silence, and treats the longest ones (one fewer than the number of items) as the gaps between items. It prints a separation margin: the shortest chosen gap divided by the longest gap it did not choose. If the margin is below 1.5, the pauses between items are not clearly longer than pauses inside items; it prints a warning and the list of segments, and writes nothing for that file. Listen to the download, then either regenerate it, try `--noise -40dB` or `-30dB`, or pass `--accept-low-margin` to write the clips anyway (check them by ear). If there are too few pauses, it lists what it found and writes nothing. An optional `--min-gap SECONDS` switches to a fixed pause length instead. Offline self-test: `npm run audio:test`.
+
+### Vocab clips: words first, then sentences
+
+`npm run audio:list` now writes a `group` for every string: `grammar`, `vocab-word` or `vocab-sentence`. `prepare_paste.py` only pastes strings that are not yet in `src/content/audio-manifest.json`, so after a partial batch just re-run it and it offers what is still missing. Use `--group` (repeatable) to choose what to generate, so the cheap, high-value words go first and sentences second, within the free-plan limit (10,000 credits per month, one credit per character):
+
+    python tools/audio/prepare_paste.py --group vocab-word --no-test
+    # generate, split (steps 3 to 7 above), then:
+    python tools/audio/prepare_paste.py --group vocab-sentence --no-test
+
+The printed output lists characters per part and per group (each item counts its text, a period and a blank line), so you can check the total against your remaining credits before generating anything. `--no-test` skips `test.txt`; the test strings are only auditioned and never saved into the app, so use it once the voice is vetted. Re-run `npm run audio:list` first whenever vocab content changes.

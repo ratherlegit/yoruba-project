@@ -3,8 +3,9 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import manifest from "@/content/audio-manifest.json";
 import { LEVELS } from "@/content/levels";
+import { VOCAB_LEVELS } from "@/content/vocab";
 import { audioKey, audioUrlFor } from "./audio";
-import { collectAudioStrings } from "./audio-strings";
+import { collectAudioStrings, collectVocabAudioStrings } from "./audio-strings";
 
 describe("audioKey", () => {
   it("lowercases and trims", () => {
@@ -52,7 +53,21 @@ describe("audio matches lesson content", () => {
     expect(existsSync(join("public", "audio", file!)), `missing public/audio/${file}`).toBe(true);
   });
   it("has no manifest entries without a lesson string", () => {
-    const keys = new Set(strings.map((s) => s.key));
+    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS)].map((s) => s.key));
     expect(Object.keys(manifest).filter((k) => !keys.has(k))).toEqual([]);
+  });
+});
+
+describe("audio matches vocab content", () => {
+  const vocab = collectVocabAudioStrings(VOCAB_LEVELS);
+  const files = manifest as Record<string, string>;
+  it("has a file on disk for every vocab string that has a manifest entry", () => {
+    const missing = vocab.filter((s) => files[s.key] && !existsSync(join("public", "audio", files[s.key]!))).map((s) => s.key);
+    expect(missing).toEqual([]);
+  });
+  it("reports how many vocab strings still have no clip (never fails)", () => {
+    const pending = vocab.filter((s) => !files[s.key]).length;
+    console.info(`vocab audio: ${pending} of ${vocab.length} strings still without a clip`);
+    expect(pending).toBeGreaterThanOrEqual(0);
   });
 });

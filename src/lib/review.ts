@@ -1,4 +1,5 @@
 import type { Level, Question } from "@/content/types";
+import type { VocabLevel } from "@/content/vocab/types";
 
 function questionLines(q: Question, n: number): string[] {
   if (q.type === "blank") {
@@ -18,7 +19,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[]): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -41,6 +42,26 @@ export function buildReviewMarkdown(levels: Level[]): string {
     }
     if (lessonBlocks.length) lines.push(`## ${level.title}`, "", ...lessonBlocks);
   }
+
+  // Vocab section: only levels that have topics. Omitted entirely when there are none.
+  const vocabLines: string[] = [];
+  for (const level of vocabLevels) {
+    if (level.topics.length === 0) continue;
+    vocabLines.push(`### ${level.title}`, "");
+    for (const topic of level.topics) {
+      vocabLines.push(`#### ${topic.title} (\`${topic.id}\`)`);
+      vocabLines.push(`Sources consulted: ${topic.sources.join("; ")}`);
+      vocabLines.push("");
+      for (const w of topic.words.filter((x) => x.confidence === "needs-review")) {
+        total += 1;
+        vocabLines.push(`- \`${w.id}\`: **${w.yoruba}** (${w.english}, ${w.pos})`);
+        vocabLines.push(`  - Sentence: ${w.sentence.yoruba} / ${w.sentence.english}`);
+        vocabLines.push(`  - Doubt: ${w.note ?? "(none recorded)"}`);
+      }
+      vocabLines.push("");
+    }
+  }
+  const vocabSection = vocabLines.length ? ["## Vocab", "", ...vocabLines] : [];
 
   const header = [
     "# Content review list",
@@ -68,5 +89,5 @@ export function buildReviewMarkdown(levels: Level[]): string {
     }
   }
 
-  return [...header, ...lines, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...all].join("\n");
 }
