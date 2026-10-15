@@ -2,6 +2,12 @@
 
 Uses ffmpeg silencedetect to list every internal silence, picks the N-1 longest as the
 separators (N = items in order.json), checks the separation margin, then writes public/audio/<sha1(key)[:12]>.mp3 and merges the manifest.
+
+Sentences with commas contain pauses that are nearly as long as the gaps between items. For those use
+--by-punctuation --min-gap 0.2: the number of pauses a sentence should contain is known from its text
+(one per comma, semicolon or colon), so the separators are found by counting instead of by length.
+It refuses to write anything unless the detected pause count and the speaking pace of every item
+match what the texts predict.
 """
 import argparse, hashlib, json, re, statistics, subprocess, sys, tempfile
 from pathlib import Path
@@ -73,6 +79,34 @@ def find_segments(path: Path, noise: str, n_items: int, min_gap=None):
     return segments_from(sil, total, chosen), margin, internal, total
 
 
+PUNCT_PAUSE = re.compile(r"[,;:]")
+PACE_TOLERANCE = 2.0
+
+
+def find_segments_by_punctuation(path: Path, noise: str, texts: list, min_gap: float):
+    """Separators found by counting: each item holds one pause per comma/semicolon/colon in its text,
+    then one separator. Returns (segments or None, internal_silences, total, expected_count)."""
+    sil, total = detect_silences(path, noise, min_gap)
+    internal = [x for x in sil if x[0] > 0.01 and x[1] < total - 0.01]
+    counts = [len(PUNCT_PAUSE.findall(t)) for t in texts]
+    expected = len(texts) - 1 + sum(counts)
+    if len(internal) != expected:
+        return None, internal, total, expected
+    seps, idx = [], 0
+    for c in counts[:-1]:
+        idx += c
+        seps.append(internal[idx])
+        idx += 1
+    return segments_from(sil, total, seps), internal, total, expected
+
+
+def pace_problems(segs, texts):
+    """Items whose seconds-per-character is far from the median: a sign the cuts are misaligned."""
+    rates = [(e - s) / max(len(t), 1) for (s, e), t in zip(segs, texts)]
+    med = statistics.median(rates)
+    return [(i, r / med) for i, r in enumerate(rates) if r > med * PACE_TOLERANCE or r < med / PACE_TOLERANCE]
+
+
 def list_segments(segs):
     durs = [e - s for s, e in segs]
     med = statistics.median(durs) if durs else 0
@@ -123,6 +157,9 @@ def main() -> int:
     ap.add_argument("--order", help="order.json path (default: PARTS_DIR/order.json, else tools/audio/paste/order.json)")
     ap.add_argument("--noise", default="-35dB")
     ap.add_argument("--min-gap", type=float, default=None, help="optional fixed mode: split at every silence at least this long (default: use the N-1 longest gaps)")
+    ap.add_argument("--by-punctuation", action="store_true",
+                    help="find separators by counting the commas in each item's text (needs --min-gap, about 0.2)")
+    ap.add_argument("--strings", default=str(ROOT / "tools/audio/strings.json"), help="strings.json with the item texts (for --by-punctuation)")
     ap.add_argument("--accept-low-margin", action="store_true", help="write clips even if the separation margin is below 1.5")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
@@ -147,12 +184,49 @@ def main() -> int:
         print(f"no audio files named test.* or part-N.* found in {parts_dir}", file=sys.stderr)
         return 1
 
+    texts_by_key = {}
+    if a.by_punctuation:
+        if a.min_gap is None:
+            print("--by-punctuation needs --min-gap (try 0.2)", file=sys.stderr)
+            return 1
+        sp = Path(a.strings).expanduser()
+        if not sp.exists():
+            print(f"strings file not found: {sp}", file=sys.stderr)
+            return 1
+        texts_by_key = {x["key"]: x["text"] for x in json.loads(sp.read_text(encoding="utf-8"))}
+
     def sort_key(n):
         return (0, 0) if n == "test" else (1, int(n.split("-")[1]))
     failed, manifest_new = 0, {}
     for name in sorted(files, key=sort_key):
         keys = order[name]
-        segs, margin, internal, total = find_segments(files[name], a.noise, len(keys), a.min_gap)
+        if a.by_punctuation:
+            missing = [k for k in keys if k not in texts_by_key]
+            if missing:
+                print(f"\nERROR {files[name].name}: no text in {a.strings} for {missing[:3]}. Nothing was written.")
+                failed += 1
+                continue
+            texts = [texts_by_key[k] for k in keys]
+            segs, internal, total, expected = find_segments_by_punctuation(files[name], a.noise, texts, a.min_gap)
+            if segs is None:
+                print(f"\nERROR {files[name].name}: found {len(internal)} pauses of at least {a.min_gap}s but the texts predict {expected} "
+                      f"({len(keys) - 1} separators plus {expected - len(keys) + 1} commas). Nothing was written for this file.")
+                print("  Try --min-gap 0.15 or 0.25, a different --noise, or check that the download holds every item.")
+                failed += 1
+                continue
+            odd = pace_problems(segs, texts)
+            if odd:
+                print(f"\n!!! WARNING {files[name].name}: some items are much faster or slower than the rest, so the cuts may be misaligned:")
+                for i, ratio in odd:
+                    print(f"    item {i + 1} {texts[i]!r}: {ratio:.1f}x the median pace")
+                if not a.accept_low_margin:
+                    print("  Nothing was written for this file. Listen to the download, or pass --accept-low-margin to write anyway.")
+                    failed += 1
+                    continue
+            margin = None
+            print(f"{files[name].name}: {expected} pauses found, as the texts predict")
+        else:
+            segs, margin, internal, total = find_segments(files[name], a.noise, len(keys), a.min_gap)
         if len(segs) != len(keys):
             diagnose(files[name].name, segs, len(keys), a.noise, a.min_gap)
             failed += 1

@@ -85,6 +85,33 @@ class SplitTests(unittest.TestCase):
             self.assertFalse((td / "out2").exists() and any((td / "out2").iterdir()))
         self.assertEqual(MANIFEST.read_bytes(), before, "manifest changed")
 
+    def test_by_punctuation_finds_separators_when_commas_pause_longer(self):
+        clips = source_clips(12)
+        inner = {2: 0.7, 7: 0.7}   # a comma pause inside an item, LONGER than the 0.45 s item gaps
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            build(clips, td / "part-1.mp3", inner=inner, sep=0.45)
+            keys = [k for k, _ in clips]
+            (td / "order.json").write_text(json.dumps({"part-1": keys}, ensure_ascii=False), encoding="utf-8")
+            texts = [{"key": k, "text": (k + ", x") if i in inner else k} for i, k in enumerate(keys)]
+            (td / "strings.json").write_text(json.dumps(texts, ensure_ascii=False), encoding="utf-8")
+            r = run(td, td / "plain")   # the plain longest-gap mode is fooled: it cuts at the comma pauses
+            self.assertFalse(r.returncode == 0 and len(list((td / "plain").glob("*.mp3"))) == 12 and "WARNING" not in r.stdout)
+            r = run(td, td / "out", "--by-punctuation", "--min-gap", "0.2", "--strings", str(td / "strings.json"))
+            self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+            self.assertEqual(len(list((td / "out").glob("*.mp3"))), 12)
+            for i, (k, src) in enumerate(clips):
+                out = td / "out" / (hashlib.sha1(k.encode()).hexdigest()[:12] + ".mp3")
+                want = dur(src) + (0.7 if i in inner else 0)
+                self.assertLess(abs(dur(out) - want), 0.3, f"{k}: {dur(out)} vs {want}")
+            # a wrong comma count is refused and nothing is written
+            texts[0]["text"] = texts[0]["key"] + ", x, y"
+            (td / "strings.json").write_text(json.dumps(texts, ensure_ascii=False), encoding="utf-8")
+            r = run(td, td / "out2", "--by-punctuation", "--min-gap", "0.2", "--strings", str(td / "strings.json"))
+            self.assertNotEqual(r.returncode, 0)
+            self.assertIn("texts predict", r.stdout)
+            self.assertFalse((td / "out2").exists() and any((td / "out2").iterdir()))
+
     def test_too_few_pauses_diagnosed(self):
         clips = source_clips(3)
         with tempfile.TemporaryDirectory() as td:
