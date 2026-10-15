@@ -55,4 +55,15 @@ describe("collectVocabAudioStrings", () => {
     expect(keys).toContain("ìdí");
     expect(keys).toContain("is");
   });
+  it("records the first level that uses each string", () => {
+    expect(out.every((s) => s.level === "getting-started")).toBe(true);
+    const two: VocabLevel[] = [
+      { ...fixture[0]! },
+      { id: "beginner", title: "B", topics: [{ ...fixture[0]!.topics[0]!, id: "u", level: "beginner",
+        words: [vw("z", "ìdí", "Ìdí tuntun."), vw("y", "ọgbà", "Mo wà nínú ọgbà.")] }] },
+    ];
+    const byKey = Object.fromEntries(collectVocabAudioStrings(two).map((s) => [s.key, s.level]));
+    expect(byKey["ìdí"]).toBe("getting-started");
+    expect(byKey["ọgbà"]).toBe("beginner");
+  });
 });

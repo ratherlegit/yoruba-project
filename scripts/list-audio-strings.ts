@@ -3,7 +3,7 @@ import { LEVELS } from "../src/content/levels";
 import { VOCAB_LEVELS } from "../src/content/vocab";
 import { collectAudioStrings, collectVocabAudioStrings } from "../src/lib/audio-strings";
 
-type Item = { key: string; text: string; group: "grammar" | "vocab-word" | "vocab-sentence" };
+type Item = { key: string; text: string; group: "grammar" | "vocab-word" | "vocab-sentence"; level?: string };
 
 const grammar: Item[] = collectAudioStrings(LEVELS).map((s) => ({ ...s, group: "grammar" as const }));
 const seen = new Set(grammar.map((s) => s.key));

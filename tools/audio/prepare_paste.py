@@ -7,7 +7,10 @@ punctuation), then a blank line.
 Only strings whose key is not yet in src/content/audio-manifest.json are pasted, so
 re-runs after a partial batch only include what is still missing. Use --group
 (repeatable: grammar, vocab-word, vocab-sentence) to restrict the batch, for example
-vocab words first and sentences second.
+vocab words first and sentences second. Add --level (repeatable) to limit vocab strings to
+chosen levels, for example --level getting-started --level beginner. Strings are tagged with
+the first level that uses them; grammar strings have no level, so they are left out when
+--level is given.
 """
 import argparse, json, sys, unicodedata
 from pathlib import Path
@@ -15,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 STRINGS = ROOT / "tools/audio/strings.json"
 MANIFEST = ROOT / "src/content/audio-manifest.json"
+LEVELS = ["getting-started", "beginner", "intermediate", "advanced", "mastery"]
 GROUPS = ["grammar", "vocab-word", "vocab-sentence"]
 PASTE = ROOT / "tools/audio/paste"
 MAX_ITEMS = 30
@@ -43,13 +47,17 @@ def clear_paste() -> None:
             old.unlink()
 
 
-def pending_items(entries: list, manifest: dict, groups: list) -> list:
-    """(key, text, group) for entries in the wanted groups that have no manifest entry yet."""
+def pending_items(entries: list, manifest: dict, groups: list, levels: list = None) -> list:
+    """(key, text, group) for entries in the wanted groups (and levels, when given) that have no manifest entry yet.
+
+    Entries without a level (grammar strings) are left out when levels are given."""
     done = {nfc(k) for k in manifest}
     out = []
     for s in entries:
         group = s.get("group", "grammar")
         key = nfc(s["key"])
+        if levels and s.get("level") not in levels:
+            continue
         if group in groups and key not in done:
             out.append((key, nfc(s["text"]), group))
     return out
@@ -59,6 +67,8 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--group", action="append", choices=GROUPS,
                     help="only include this group (repeatable). Default: all groups")
+    ap.add_argument("--level", action="append", choices=LEVELS,
+                    help="only include vocab strings first used in this level (repeatable). Default: all levels")
     ap.add_argument("--no-test", action="store_true",
                     help="skip test.txt (a short sample whose strings are also in the parts); use once the voice is vetted")
     args = ap.parse_args(argv)
@@ -67,7 +77,7 @@ def main(argv=None) -> int:
         print("tools/audio/strings.json not found. Run: npm run audio:list", file=sys.stderr)
         return 1
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {}
-    full = pending_items(json.loads(STRINGS.read_text(encoding="utf-8")), manifest, wanted_groups)
+    full = pending_items(json.loads(STRINGS.read_text(encoding="utf-8")), manifest, wanted_groups, args.level)
     items = [(k, t) for k, t, _ in full]
     group_of = {k: g for k, _, g in full}
     clear_paste()

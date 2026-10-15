@@ -164,6 +164,18 @@ class PreparePasteTests(unittest.TestCase):
             self.assertIn(f"total characters across the parts (including added periods; the test file is extra credits): {expected}", buf.getvalue())
             self.assertIn(f"vocab-word: 8 items, {expected} characters", buf.getvalue())
 
+    def test_level_filter_limits_vocab_strings(self):
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            m = self.load(td)
+            rows = [("ọmọ", "grammar", None), ("ìdí", "vocab-sentence", "getting-started"),
+                    ("ilé", "vocab-sentence", "beginner"), ("owó", "vocab-sentence", "advanced")]
+            m.STRINGS.write_text(json.dumps([{"key": k, "text": k, "group": g, **({"level": lv} if lv else {})} for k, g, lv in rows], ensure_ascii=False), encoding="utf-8")
+            m.MANIFEST.write_text("{}", encoding="utf-8")
+            self.assertEqual(m.main(["--group", "vocab-sentence", "--level", "getting-started", "--level", "beginner", "--no-test"]), 0)
+            order = json.loads((m.PASTE / "order.json").read_text(encoding="utf-8"))
+            self.assertEqual(order, {"part-1": ["ìdí", "ilé"]})
+
     def test_period_only_added_when_missing(self):
         with tempfile.TemporaryDirectory() as td:
             m = self.load(Path(td))

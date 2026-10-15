@@ -1,4 +1,4 @@
-import type { Level } from "@/content/types";
+import type { Level, LevelId } from "@/content/types";
 import type { VocabLevel } from "@/content/vocab/types";
 import { audioKey } from "./audio";
 
@@ -39,14 +39,17 @@ export type VocabAudioGroup = "vocab-word" | "vocab-sentence";
 // Vocab words and their example sentences. Unlike grammar strings these are all
 // real Yoruba entries, so the English-word filter is not applied. Words come
 // before sentences; one-letter keys are still skipped.
-export function collectVocabAudioStrings(levels: VocabLevel[]): { key: string; text: string; group: VocabAudioGroup }[] {
-  const seen = new Map<string, { text: string; group: VocabAudioGroup }>();
-  const add = (text: string, group: VocabAudioGroup) => {
+export function collectVocabAudioStrings(
+  levels: VocabLevel[],
+): { key: string; text: string; group: VocabAudioGroup; level: LevelId }[] {
+  const seen = new Map<string, { text: string; group: VocabAudioGroup; level: LevelId }>();
+  const add = (text: string, group: VocabAudioGroup, level: LevelId) => {
     const key = audioKey(text);
-    if ([...key].length > 1 && !seen.has(key)) seen.set(key, { text, group });
+    if ([...key].length > 1 && !seen.has(key)) seen.set(key, { text, group, level });
   };
-  const words = levels.flatMap((l) => l.topics.flatMap((t) => t.words));
-  for (const w of words) add(w.yoruba, "vocab-word");
-  for (const w of words) add(w.sentence.yoruba, "vocab-sentence");
-  return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group }));
+  // Each item records the first level that uses it, so a batch can be limited to chosen levels.
+  const words = levels.flatMap((l) => l.topics.flatMap((t) => t.words.map((w) => ({ w, level: l.id }))));
+  for (const { w, level } of words) add(w.yoruba, "vocab-word", level);
+  for (const { w, level } of words) add(w.sentence.yoruba, "vocab-sentence", level);
+  return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group, level: v.level }));
 }
