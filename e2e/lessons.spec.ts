@@ -37,7 +37,7 @@ for (const scheme of ["light", "dark"] as const) {
         await answerEverything(page);
         await expect(page.getByRole("heading", { name: "Results" })).toBeVisible();
         await page.goto(`/level/${levelId}`);
-        await expect(page.getByText(/best \d+%/)).toBeVisible();
+        await expect(page.getByText(/Best \d+%/)).toBeVisible();
       });
     }
   });
@@ -87,17 +87,17 @@ test.describe("phone width", () => {
       Object.defineProperty(window, "localStorage", { get() { throw new Error("blocked"); } });
     });
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "Learn Yoruba grammar" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Learn Yoruba, tone by tone" })).toBeVisible();
   });
 });
 
 test("the manual theme toggle sets data-theme and persists across reload", async ({ page }) => {
   await page.goto("/");
-  await page.getByLabel("Theme").selectOption("dark");
+  await page.getByRole("button", { name: "Switch to dark mode" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  await expect(page.getByLabel("Theme")).toHaveValue("dark");
+  await expect(page.getByRole("button", { name: "Switch to light mode" })).toBeVisible();
 });
 
 test("Listen on a word breakdown fetches its audio clip", async ({ page }) => {

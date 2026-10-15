@@ -3,18 +3,25 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export function Layout() {
   return (
-    <>
-      <header style={{ borderBottom: "1px solid var(--border)", background: "var(--surface)" }}>
-        <div className="page" style={{ padding: "0.75rem 1rem", display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "center", justifyContent: "space-between" }}>
-          <Link to="/" style={{ fontWeight: 700, textDecoration: "none", color: "var(--text)" }}>Yoruba Project</Link>
-          <nav style={{ display: "flex", gap: "1rem", alignItems: "center", flexWrap: "wrap" }}>
+    <div className="shell">
+      <header className="site-header">
+        <div className="header-bar">
+          <Link to="/" className="brand">Yoruba Project</Link>
+          <nav className="header-nav">
             <Link to="/vocab">Vocab</Link>
+            <Link to="/sounds">Sound Bank</Link>
             <Link to="/about">About</Link>
             <ThemeToggle />
           </nav>
         </div>
       </header>
-      <Outlet />
-    </>
+      <div className="shell-main"><Outlet /></div>
+      <footer className="site-footer">
+        <div className="page">
+          <strong>Yoruba Project</strong>
+          <p className="muted" style={{ margin: "0.25rem 0 0" }}>Learn Yoruba grammar and vocabulary from scratch.</p>
+        </div>
+      </footer>
+    </div>
   );
 }

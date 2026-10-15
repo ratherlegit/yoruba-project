@@ -75,7 +75,7 @@ beforeEach(() => {
 describe("vocab pages", () => {
   it("/vocab lists five level cards with rings labelled in topics", async () => {
     await renderAt("/vocab");
-    expect(await screen.findByRole("heading", { name: "Learn Yoruba words" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "Learn Yoruba words, topic by topic" })).toBeInTheDocument();
     for (const t of ["Getting Started", "Beginner", "Intermediate", "Advanced", "Mastery"]) {
       expect(screen.getByText(t)).toBeInTheDocument();
     }

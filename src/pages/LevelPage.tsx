@@ -1,3 +1,4 @@
+import { LevelIcon } from "@/components/LevelIcon";
 import { Link, useParams } from "@tanstack/react-router";
 import { LockedLevel } from "@/components/LockedLevel";
 import { NotFound } from "@/components/NotFound";
@@ -22,10 +23,10 @@ export function LevelPage() {
   return (
     <main className="page" style={{ display: "grid", gap: "1rem" }}>
       <Link to="/">All levels</Link>
-      <h1 style={{ margin: 0 }}>{level.title}</h1>
+      <div className="level-head"><LevelIcon level={level.id} size="lg" /><h1 style={{ margin: 0 }}>{level.title}</h1></div>
       <p className="muted" style={{ margin: 0 }}>{level.summary}</p>
       {level.lessons.length === 0 && <p className="muted">Lessons for this level are on the way.</p>}
-      <div style={{ display: "grid", gap: "0.75rem" }}>
+      <div className="rise-in" style={{ display: "grid", gap: "0.75rem" }}>
         {level.lessons.map((ls, n) => {
           const done = progress.completedLessons[ls.id];
           return (
@@ -33,11 +34,15 @@ export function LevelPage() {
               key={ls.id}
               to="/lesson/$levelId/$lessonId"
               params={{ levelId: level.id, lessonId: ls.id }}
-              className="card"
+              className="card row-card"
               style={{ textDecoration: "none", color: "var(--text)" }}
             >
-              <strong>Lesson {n + 1}: {ls.title}</strong>
-              {done && <span className="muted"> · best {Math.round(done.bestScore * 100)}%</span>}
+              <strong className="row-main">Lesson {n + 1}: {ls.title}</strong>
+              <span className="status-cell">
+                {done
+                  ? <span className="status-done">Best {Math.round(done.bestScore * 100)}%</span>
+                  : <span className="status-todo">Incomplete</span>}
+              </span>
             </Link>
           );
         })}

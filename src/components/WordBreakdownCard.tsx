@@ -27,9 +27,11 @@ export function WordBreakdownCard({ word, rules, showReviewMarker = SHOW_REVIEW_
       <article className="card" style={{ display: "grid", gap: "0.75rem" }}>
         {header}
         <div style={{ display: "grid", gap: "0.5rem" }}>
-          <div className="yo"><strong>{word.surface}</strong></div>
+          <div className="with-audio">
+            <div className="yo"><strong>{word.surface}</strong></div>
+            <AudioButton text={word.surface} />
+          </div>
           <PitchLine word={word.surface} />
-          <AudioButton text={word.surface} />
         </div>
       </article>
     );
@@ -74,9 +76,11 @@ export function WordBreakdownCard({ word, rules, showReviewMarker = SHOW_REVIEW_
 
       {finished && (
         <div style={{ display: "grid", gap: "0.5rem" }}>
-          <div className="yo"><strong>{word.surface}</strong></div>
+          <div className="with-audio">
+            <div className="yo"><strong>{word.surface}</strong></div>
+            <AudioButton text={word.surface} />
+          </div>
           <PitchLine word={word.surface} />
-          <AudioButton text={word.surface} />
         </div>
       )}
     </article>

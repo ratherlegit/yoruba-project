@@ -94,7 +94,7 @@ test("Greetings topic: flashcards, quiz and gap fill record the exact scores", a
 
 test("Greetings topic works in dark mode set with the theme toggle", async ({ page }) => {
   await page.goto("/");
-  await page.getByLabel("Theme").selectOption("dark");
+  await page.getByRole("button", { name: "Switch to dark mode" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await runTopic(page);
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");

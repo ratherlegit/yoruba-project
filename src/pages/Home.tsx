@@ -1,4 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import { Hero } from "@/components/Hero";
+import { LevelIcon } from "@/components/LevelIcon";
 import { ProgressRing } from "@/components/ProgressRing";
 import { LEVELS } from "@/content/levels";
 import { useProgress } from "@/hooks/useProgress";
@@ -7,11 +9,9 @@ import { isLevelUnlocked } from "@/lib/progress";
 export function Home() {
   const { progress, update, loaded } = useProgress();
   return (
+    <>
+    <Hero first="Learn Yoruba," second="tone by tone" />
     <main className="page" style={{ display: "grid", gap: "1rem" }}>
-      <h1 style={{ marginBottom: 0 }}>Learn Yoruba grammar</h1>
-      <p className="muted" style={{ marginTop: 0 }}>
-        Five levels. Every lesson starts with a short guide that shows how words are built, then practice.
-      </p>
       <label style={{ display: "inline-flex", gap: "0.5rem", alignItems: "center" }}>
         <input
           type="checkbox"
@@ -20,7 +20,7 @@ export function Home() {
         />
         Unlock all levels
       </label>
-      <div style={{ display: "grid", gap: "0.75rem" }}>
+      <div className="rise-in" style={{ display: "grid", gap: "0.75rem" }}>
         {LEVELS.map((lv) => {
           // Until saved progress has loaded, do not present any level as locked.
           const unlocked = !loaded || isLevelUnlocked(LEVELS, progress, lv.id);
@@ -33,12 +33,13 @@ export function Home() {
               className="card"
               style={{ display: "flex", gap: "1rem", alignItems: "center", textDecoration: "none", color: "var(--text)", borderStyle: unlocked ? "solid" : "dashed" }}
             >
-              <ProgressRing done={done} total={lv.lessons.length} />
-              <span style={{ display: "grid" }}>
+              <LevelIcon level={lv.id} />
+              <span style={{ display: "grid", flex: 1 }}>
                 <strong>{lv.title}</strong>
                 <span className="muted">{lv.summary}</span>
                 {!unlocked && <span className="muted" style={{ fontSize: "0.85rem" }}>Locked</span>}
               </span>
+              <ProgressRing done={done} total={lv.lessons.length} />
             </Link>
           );
         })}
@@ -47,6 +48,11 @@ export function Home() {
         <strong>Vocab</strong>
         <span className="muted">Common words by topic, with flashcards and practice.</span>
       </Link>
+      <Link to="/sounds" className="card" style={{ display: "grid", textDecoration: "none", color: "var(--text)" }}>
+        <strong>Sound Bank</strong>
+        <span className="muted">Every vowel, consonant and tone, with audio and listening practice.</span>
+      </Link>
     </main>
+    </>
   );
 }

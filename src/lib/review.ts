@@ -1,5 +1,6 @@
 import type { Level, Question } from "@/content/types";
 import type { VocabLevel } from "@/content/vocab/types";
+import type { MinimalPair, Sound } from "@/content/sounds";
 
 function questionLines(q: Question, n: number): string[] {
   if (q.type === "blank") {
@@ -19,7 +20,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = []): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[] }): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -64,6 +65,23 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
   }
   const vocabSection = vocabLines.length ? ["## Vocab", "", ...vocabLines] : [];
 
+  const soundLines: string[] = [];
+  if (soundData) {
+    for (const x of soundData.sounds.filter((s) => s.confidence === "needs-review")) {
+      total += 1;
+      soundLines.push(`- \`${x.id}\`: **${x.letter}** (${x.section}): ${x.compare}`);
+      soundLines.push(`  - Examples: ${x.examples.map((e) => `${e.yoruba} (${e.english})`).join(", ")}`);
+      soundLines.push(`  - Doubt: ${x.note ?? "(none recorded)"}`);
+    }
+    for (const p of soundData.pairs.filter((q) => q.confidence === "needs-review")) {
+      total += 1;
+      soundLines.push(`- \`${p.id}\`: minimal pair (${p.contrast}): ${p.explain}`);
+      soundLines.push(`  - Words: ${p.words.map((e) => `${e.yoruba} (${e.english})`).join(", ")}`);
+      soundLines.push(`  - Doubt: ${p.note ?? "(none recorded)"}`);
+    }
+  }
+  const soundSection = soundLines.length ? ["## Sound Bank", "", ...soundLines, ""] : [];
+
   const header = [
     "# Content review list",
     "",
@@ -90,5 +108,5 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     }
   }
 
-  return [...header, ...lines, ...vocabSection, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...soundSection, ...all].join("\n");
 }

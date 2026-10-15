@@ -18,6 +18,13 @@ describe("PitchLine", () => {
     expect(container).toBeEmptyDOMElement();
   });
 
+  it("draws three dotted guide lines per column, one for each pitch level", () => {
+    const { container } = render(<PitchLine word="wá" />);
+    const guides = [...container.querySelectorAll("line.pitch-guide")];
+    expect(guides.map((g) => Number(g.getAttribute("y1")))).toEqual([6, 16, 26]);
+    expect(guides.every((g) => g.getAttribute("stroke-dasharray"))).toBe(true);
+  });
+
   const edges = (c: HTMLElement) => {
     const path = c.querySelector("path")!;
     return {

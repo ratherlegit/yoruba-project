@@ -36,14 +36,24 @@ export function PitchLine({ word }: { word: string }) {
                     viewBox={`0 0 ${W} ${H}`}
                     aria-hidden="true"
                   >
+                    {/* Faint dotted guides for all three pitch levels, so a flat line still shows which level it is on. */}
+                    {(Object.keys(Y) as Tone[]).map((level) => (
+                      <line
+                        key={level}
+                        className="pitch-guide"
+                        x1="0" x2={W} y1={Y[level]} y2={Y[level]}
+                        stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5"
+                        strokeLinecap="round" strokeDasharray="0.1 4"
+                      />
+                    ))}
                     <path
                       d={`M0 ${left} L${W / 2} ${y} L${W} ${right}`}
                       data-y-left={left}
                       data-y-right={right}
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
-                      strokeOpacity="0.6"
+                      strokeWidth="2.5"
+                      strokeOpacity="0.9"
                     />
                     <circle cx={W / 2} cy={y} r="4" fill="currentColor" />
                   </svg>

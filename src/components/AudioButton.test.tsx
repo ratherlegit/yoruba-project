@@ -30,6 +30,12 @@ describe("AudioButton", () => {
     expect(screen.getByRole("button", { name: "Listen to ọmọ" })).toBeInTheDocument();
   });
 
+  it("uses a custom aria-label when label is given", () => {
+    render(<AudioButton text="ọmọ" label="Play the word" />);
+    expect(screen.getByRole("button", { name: "Play the word" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Listen to ọmọ" })).not.toBeInTheDocument();
+  });
+
   it("renders nothing when there is no clip", () => {
     const { container } = render(<AudioButton text="no clip here" />);
     expect(container).toBeEmptyDOMElement();

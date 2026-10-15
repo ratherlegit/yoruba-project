@@ -7,6 +7,7 @@ import { Diacritics } from "@/pages/Diacritics";
 import { Home } from "@/pages/Home";
 import { LessonPage } from "@/pages/LessonPage";
 import { LevelPage } from "@/pages/LevelPage";
+import { SoundBank } from "@/pages/SoundBank";
 import { VocabHome } from "@/pages/VocabHome";
 import { VocabLevelPage } from "@/pages/VocabLevelPage";
 import { VocabTopicPage } from "@/pages/VocabTopicPage";
@@ -20,6 +21,7 @@ const routes = [
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab", component: VocabHome }),
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId", component: VocabLevelPage }),
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId/$topicId", component: VocabTopicPage }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/sounds", component: SoundBank }),
   createRoute({ getParentRoute: () => rootRoute, path: "/about", component: About }),
   ...(import.meta.env.DEV
     ? [

@@ -4,6 +4,8 @@ import { VOCAB_LEVELS } from "@/content/vocab";
 import { describe, expect, it } from "vitest";
 import type { Level, WordBreakdown } from "@/content/types";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
+import type { MinimalPair, Sound } from "@/content/sounds";
+import { SOUNDS, MINIMAL_PAIRS } from "@/content/sounds";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -57,7 +59,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS }));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
@@ -66,7 +68,7 @@ describe("buildReviewMarkdown", () => {
   });
   it("contains no em dash", () => {
     expect(buildReviewMarkdown(levels)).not.toContain("\u2014");
-    expect(buildReviewMarkdown(LEVELS, VOCAB_LEVELS)).not.toContain("\u2014");
+    expect(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS })).not.toContain("\u2014");
   });
 });
 
@@ -125,5 +127,25 @@ describe("buildReviewMarkdown with vocab", () => {
   });
   it("contains no em dash", () => {
     expect(buildReviewMarkdown(levels, vocabLevels)).not.toContain("\u2014");
+  });
+});
+
+describe("buildReviewMarkdown sound bank", () => {
+  const sounds = {
+    sounds: [{ id: "c-sh", section: "consonants", letter: "ṣ", compare: "like 'sh' in 'ship'", confidence: "needs-review", note: "Check.",
+      examples: [{ yoruba: "aṣọ", english: "cloth" }, { yoruba: "ṣòkòtò", english: "trousers" }] }] as Sound[],
+    pairs: [{ id: "p-oko", contrast: "tone", explain: "x", confidence: "needs-review", note: "Tone doubt.",
+      words: [{ yoruba: "ọkọ", english: "husband" }, { yoruba: "ọkọ̀", english: "vehicle" }] }] as MinimalPair[],
+  };
+  it("adds a Sound Bank section and counts its items", () => {
+    const md = buildReviewMarkdown(levels, [], sounds);
+    expect(md).toContain("## Sound Bank");
+    expect(md).toContain("`c-sh`");
+    expect(md).toContain("aṣọ (cloth)");
+    expect(md).toContain("Doubt: Tone doubt.");
+    expect(md).toContain("3 items need review.");
+  });
+  it("omits the section when no sound data is given", () => {
+    expect(buildReviewMarkdown(levels, [])).not.toContain("## Sound Bank");
   });
 });

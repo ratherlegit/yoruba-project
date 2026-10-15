@@ -1,5 +1,6 @@
 import type { Level, LevelId } from "@/content/types";
 import type { VocabLevel } from "@/content/vocab/types";
+import type { MinimalPair, Sound } from "@/content/sounds";
 import { audioKey } from "./audio";
 
 // Pick answers that are English sentences or glossed fragments, not Yoruba speech.
@@ -52,4 +53,19 @@ export function collectVocabAudioStrings(
   for (const { w, level } of words) add(w.yoruba, "vocab-word", level);
   for (const { w, level } of words) add(w.sentence.yoruba, "vocab-sentence", level);
   return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group, level: v.level }));
+}
+
+// Sound Bank example and minimal-pair words. Words already listed by grammar or vocab are filtered by the lister.
+export function collectSoundAudioStrings(
+  sounds: Sound[],
+  pairs: MinimalPair[],
+): { key: string; text: string; group: "sound-word" }[] {
+  const seen = new Map<string, string>();
+  const add = (text: string) => {
+    const key = audioKey(text);
+    if ([...key].length > 1 && !seen.has(key)) seen.set(key, text);
+  };
+  for (const s of sounds) for (const e of s.examples) add(e.yoruba);
+  for (const p of pairs) for (const w of p.words) add(w.yoruba);
+  return [...seen].map(([key, text]) => ({ key, text, group: "sound-word" as const }));
 }

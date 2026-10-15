@@ -1,26 +1,25 @@
+import { useState } from "react";
 import { audioUrlFor } from "@/lib/audio";
+import { playClip } from "@/lib/clip";
 
-// One clip at a time: starting a new one stops the previous.
-let current: HTMLAudioElement | null = null;
-
-export function AudioButton({ text }: { text: string }) {
+export function AudioButton({ text, label }: { text: string; label?: string }) {
   const url = audioUrlFor(text);
+  const [playing, setPlaying] = useState(false);
   if (!url) return null;
 
   function play() {
-    try {
-      current?.pause();
-      const clip = new Audio(url!);
-      current = clip;
-      const started = clip.play();
-      // Autoplay rules or a missing file reject the promise. Audio is optional, so stay quiet.
-      if (started && typeof started.catch === "function") started.catch(() => {});
-    } catch {
-      // Some environments throw on construction or play. Stay quiet.
-    }
+    setPlaying(false);
+    requestAnimationFrame(() => setPlaying(true));
+    playClip(url!);
   }
 
   return (
-    <button className="btn" onClick={play} aria-label={`Listen to ${text}`}>Listen</button>
+    <button className={`btn btn-icon${playing ? " playing" : ""}`} onAnimationEnd={(e) => { if (e.animationName === "wave" && e.target !== e.currentTarget) setPlaying(false); }} onClick={play} aria-label={label ?? `Listen to ${text}`}>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+        <path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor" />
+        <path className="wave wave-1" d="M15.5 8.5a5 5 0 0 1 0 7" />
+        <path className="wave wave-2" d="M18.5 5.5a9 9 0 0 1 0 13" />
+      </svg>
+    </button>
   );
 }

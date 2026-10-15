@@ -65,12 +65,10 @@ export function Activity({ questions, onDone }: { questions: Question[]; onDone:
 
       {answered && (
         <div className="card" role="status" style={{ borderColor: kind === "correct" ? "var(--accent)" : "var(--danger)" }}>
-          <p style={{ margin: 0 }} className="yo">{feedbackFor(kind, expected)}</p>
-          {q.type !== "blank" && (
-            <div style={{ marginTop: "0.5rem" }}>
-              <AudioButton text={expected} />
-            </div>
-          )}
+          <div className="with-audio">
+            <p style={{ margin: 0 }} className="yo">{feedbackFor(kind, expected)}</p>
+            {q.type !== "blank" && <AudioButton text={expected} />}
+          </div>
         </div>
       )}
 

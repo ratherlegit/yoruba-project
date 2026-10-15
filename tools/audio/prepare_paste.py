@@ -6,7 +6,7 @@ punctuation), then a blank line.
 
 Only strings whose key is not yet in src/content/audio-manifest.json are pasted, so
 re-runs after a partial batch only include what is still missing. Use --group
-(repeatable: grammar, vocab-word, vocab-sentence) to restrict the batch, for example
+(repeatable: grammar, vocab-word, vocab-sentence, sound-word) to restrict the batch, for example
 vocab words first and sentences second. Add --level (repeatable) to limit vocab strings to
 chosen levels, for example --level getting-started --level beginner. Strings are tagged with
 the first level that uses them; grammar strings have no level, so they are left out when
@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[2]
 STRINGS = ROOT / "tools/audio/strings.json"
 MANIFEST = ROOT / "src/content/audio-manifest.json"
 LEVELS = ["getting-started", "beginner", "intermediate", "advanced", "mastery"]
-GROUPS = ["grammar", "vocab-word", "vocab-sentence"]
+GROUPS = ["grammar", "vocab-word", "vocab-sentence", "sound-word"]
 PASTE = ROOT / "tools/audio/paste"
 MAX_ITEMS = 30
 MAX_CHARS = 3500

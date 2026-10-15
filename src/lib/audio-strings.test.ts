@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import { LEVELS } from "@/content/levels";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
 import { audioKey } from "./audio";
-import { collectAudioStrings, collectVocabAudioStrings } from "./audio-strings";
+import { collectAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
+import type { MinimalPair, Sound } from "@/content/sounds";
 
 describe("collectAudioStrings", () => {
   const strings = collectAudioStrings(LEVELS);
@@ -65,5 +66,21 @@ describe("collectVocabAudioStrings", () => {
     const byKey = Object.fromEntries(collectVocabAudioStrings(two).map((s) => [s.key, s.level]));
     expect(byKey["ìdí"]).toBe("getting-started");
     expect(byKey["ọgbà"]).toBe("beginner");
+  });
+});
+
+describe("collectSoundAudioStrings", () => {
+  const sounds = [{
+    id: "s", section: "consonants", letter: "b", compare: "c", confidence: "needs-review", note: "n",
+    examples: [{ yoruba: "bàbá", english: "father" }, { yoruba: "Bàtà", english: "shoe" }],
+  }] as Sound[];
+  const pairs = [{
+    id: "p", contrast: "tone", explain: "e", confidence: "needs-review", note: "n",
+    words: [{ yoruba: "ọkọ", english: "a" }, { yoruba: "bàbá", english: "dup" }],
+  }] as MinimalPair[];
+  it("collects example and pair words, deduped by key, group sound-word", () => {
+    const out = collectSoundAudioStrings(sounds, pairs);
+    expect(out.map((x) => x.key)).toEqual(["bàbá", "bàtà", "ọkọ"]);
+    expect(out.every((x) => x.group === "sound-word")).toBe(true);
   });
 });

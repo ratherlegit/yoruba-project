@@ -1,4 +1,5 @@
 import "@fontsource-variable/noto-sans";
+import "@fontsource-variable/fraunces";
 import "./styles.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
