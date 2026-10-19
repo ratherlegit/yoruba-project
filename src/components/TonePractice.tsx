@@ -9,6 +9,7 @@ import { PitchLine } from "./PitchLine";
 const MODES: { id: ToneMode; label: string }[] = [
   { id: "words", label: "Words" },
   { id: "sentences", label: "Sentences" },
+  { id: "sounds", label: "Sounds" },
 ];
 
 export function TonePractice({ sources }: { sources: ToneSources }) {

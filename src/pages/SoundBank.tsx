@@ -3,6 +3,7 @@ import { PairCard } from "@/components/PairCard";
 import { SoundCard } from "@/components/SoundCard";
 import { TonePractice } from "@/components/TonePractice";
 import { MINIMAL_PAIRS, soundsBySection } from "@/content/sounds";
+import { CONSONANT_SETS } from "@/content/sound-focus";
 import { TONE_TWINS } from "@/content/tone-twins";
 import { VOCAB_LEVELS } from "@/content/vocab";
 
@@ -32,7 +33,7 @@ export function SoundBank() {
         </section>
         <section id="practice" style={{ display: "grid", gap: "0.75rem" }}>
           <h2 style={{ margin: 0 }}>Practice</h2>
-          <div className="practice-wrap"><TonePractice sources={{ pairs: MINIMAL_PAIRS, twins: TONE_TWINS, vocab: VOCAB_LEVELS }} /></div>
+          <div className="practice-wrap"><TonePractice sources={{ pairs: MINIMAL_PAIRS, twins: TONE_TWINS, vocab: VOCAB_LEVELS, sets: CONSONANT_SETS }} /></div>
         </section>
       </main>
     </>

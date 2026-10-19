@@ -1,3 +1,4 @@
+import type { ConsonantSet } from "@/content/sound-focus";
 import type { MinimalPair } from "@/content/sounds";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
@@ -7,8 +8,8 @@ import { seededShuffle } from "./shuffle";
 
 export const TONE_ROUND_SIZE = 10;
 
-export type ToneMode = "words" | "sentences";
-export type ToneSources = { twins: ToneTwinEntry[]; vocab: VocabLevel[]; pairs: MinimalPair[] };
+export type ToneMode = "words" | "sentences" | "sounds";
+export type ToneSources = { twins: ToneTwinEntry[]; vocab: VocabLevel[]; pairs: MinimalPair[]; sets: ConsonantSet[] };
 export type ToneQuestion = {
   id: string;
   mode: ToneMode;
@@ -27,6 +28,8 @@ const nfc = (s: string) => s.normalize("NFC");
 // Words mode: vocab words with twins, then words of Sound Bank tone pairs (each needs a clip).
 // Sentences mode: only vocab words whose own sentence has a clip and whose blank is the word itself,
 // because a twin has to be able to replace the blanked text.
+// Sounds mode: the words of the Sound Bank consonant contrast sets, each needing a clip, in a set with at
+// least two clips.
 export function buildToneRound(
   mode: ToneMode,
   sources: ToneSources,
@@ -34,6 +37,8 @@ export function buildToneRound(
   hasAudio: (text: string) => boolean = defaultHasAudio,
   max: number = TONE_ROUND_SIZE,
 ): ToneQuestion[] {
+  if (mode === "sounds") return seededShuffle(soundsQuestions(sources.sets, hasAudio), seed).slice(0, max);
+
   const vocab = new Map<string, VocabWord>();
   for (const l of sources.vocab) for (const t of l.topics) for (const w of t.words) vocab.set(w.id, w);
 
@@ -75,4 +80,19 @@ export function buildToneRound(
   }
 
   return seededShuffle(out, seed).slice(0, max);
+}
+
+function soundsQuestions(sets: ConsonantSet[], hasAudio: (text: string) => boolean): ToneQuestion[] {
+  const out: ToneQuestion[] = [];
+  const taken = new Set<string>();
+  for (const s of sets) {
+    if (s.words.filter((w) => hasAudio(w.yoruba)).length < 2) continue;
+    const choices = s.words.map((w) => nfc(w.yoruba));
+    for (const answer of choices) {
+      if (!hasAudio(answer) || taken.has(key(answer))) continue;
+      taken.add(key(answer));
+      out.push({ id: `sounds:${key(answer)}`, mode: "sounds", audioText: answer, prompt: null, english: null, sentence: null, choices, answer });
+    }
+  }
+  return out;
 }

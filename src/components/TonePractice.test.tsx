@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import type { ConsonantSet } from "@/content/sound-focus";
 import type { MinimalPair } from "@/content/sounds";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { VocabLevel } from "@/content/vocab/types";
@@ -27,7 +28,10 @@ const twins: ToneTwinEntry[] = [
 const pairs: MinimalPair[] = [
   { id: "p-igba", contrast: "tone", explain: "x", confidence: "needs-review", note: "n", words: ["igba", "ìgbà", "igbá"].map((w) => ({ yoruba: n(w), english: "x" })) },
 ];
-const sources: ToneSources = { vocab, twins, pairs };
+const sets: ConsonantSet[] = [
+  { id: "cs-gb", focus: ["gb"], explain: "e", source: "s", confidence: "needs-review", note: "n", words: ["bà", "gà", "gbà"].map((w) => ({ yoruba: n(w), english: "meaning" })) },
+];
+const sources: ToneSources = { vocab, twins, pairs, sets };
 
 function withClips(...texts: string[]) {
   const set = new Set(texts.map(n));
@@ -142,5 +146,29 @@ describe("TonePractice", () => {
     expect(screen.getByText("Question 2 of 3")).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Words" }));
     expect(screen.getByText("Question 2 of 3")).toBeInTheDocument();
+  });
+
+  it("Sounds mode plays a word, shows the set as choices with no English, and scores", async () => {
+    withClips("bà", "gà", "gbà");
+    const user = userEvent.setup();
+    render(<TonePractice sources={sources} />);
+    await user.click(screen.getByRole("button", { name: "Sounds" }));
+    expect(screen.getByRole("button", { name: "Sounds" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText("Question 1 of 3")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Play the word" })).toBeInTheDocument();
+    expect(choiceTexts().sort()).toEqual(["bà", "gà", "gbà"].map(n).sort());
+    expect(screen.queryByText("meaning")).toBeNull();
+    await user.click(screen.getAllByTestId("choice")[0]!);
+    expect(screen.getAllByTestId("choice").some((c) => c.getAttribute("data-state") === "correct")).toBe(true);
+  });
+
+  it("shows the audio message for Sounds when no set has two clips", async () => {
+    withClips("ọkọ̀", "bà");
+    const user = userEvent.setup();
+    render(<TonePractice sources={sources} />);
+    await user.click(screen.getByRole("button", { name: "Sounds" }));
+    expect(screen.getByText(/audio/)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Words" }));
+    expect(screen.getByRole("button", { name: "Play the word" })).toBeInTheDocument();
   });
 });

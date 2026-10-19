@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import type { ConsonantSet } from "@/content/sound-focus";
 import type { MinimalPair } from "@/content/sounds";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
@@ -30,6 +31,7 @@ const sources: ToneSources = {
   vocab: level([vehicle, one, back]),
   twins: [entry("w-vehicle", ["ọkọ", "ọkọ́"]), entry("w-one", ["ọkàn"]), entry("w-back", ["ẹyin"])],
   pairs: [pair("p-igba", "tone", ["igba", "ìgbà", "igbá"]), pair("p-oko", "tone", ["ọkọ", "ọkọ̀"]), pair("p-sound", "sound", ["oko", "ọkọ"])],
+  sets: [],
 };
 const allClips = clips("ọkọ̀", "ọ̀kan", "ẹ̀yìn", "igba", "ìgbà", "igbá", "ọkọ", "ọkọ́", "oko", "Ọkọ̀ mi pupa.", "Imú kan ṣoṣo ni mo ní.", "Ó wà ní ẹ̀yìn ilé.");
 const round = (mode: "words" | "sentences", has = allClips, src = sources) => buildToneRound(mode, src, "seed", has, 100);
@@ -93,6 +95,7 @@ describe("buildToneRound, rounds", () => {
     vocab: level(Array.from({ length: 15 }, (_, i) => word(`w${i}`, `bá${i}`, `Mo rí bá${i} ná.`, "x"))),
     twins: Array.from({ length: 15 }, (_, i) => entry(`w${i}`, [`bà${i}`])),
     pairs: [],
+    sets: [],
   };
   const all = () => true;
   it("is at most the round size, honours max, and has unique ids", () => {
@@ -108,5 +111,40 @@ describe("buildToneRound, rounds", () => {
     const ids = (seed: string) => buildToneRound("words", big, seed, all).map((q) => q.id);
     expect(ids("a")).toEqual(ids("a"));
     expect(ids("a")).not.toEqual(ids("b"));
+  });
+});
+
+describe("buildToneRound, sounds mode", () => {
+  const cset = (id: string, words: string[]): ConsonantSet => ({
+    id, focus: ["gb"], explain: "e", source: "s", confidence: "needs-review", note: "n",
+    words: words.map((w) => ({ yoruba: n(w), english: "meaning" })),
+  });
+  const withSets = (sets: ConsonantSet[]): ToneSources => ({ ...sources, sets });
+  const sounds = (src: ToneSources, has: (t: string) => boolean) => buildToneRound("sounds", src, "seed", has, 100);
+
+  it("asks one question per word with a clip, with the set's words as choices and no English", () => {
+    const qs = sounds(withSets([cset("cs-gb", ["bà", "gà", "gbà"])]), clips("bà", "gà", "gbà"));
+    expect(qs.map((q) => q.answer).sort()).toEqual(["bà", "gà", "gbà"].map(n).sort());
+    const q = byAnswer(qs, "gbà")[0]!;
+    expect(q.mode).toBe("sounds");
+    expect(q.audioText).toBe(n("gbà"));
+    expect([...q.choices].sort()).toEqual(["bà", "gà", "gbà"].map(n).sort());
+    expect(q.prompt).toBeNull();
+    expect(q.english).toBeNull();
+    expect(q.sentence).toBeNull();
+  });
+  it("skips a set with fewer than two clips", () => {
+    expect(sounds(withSets([cset("cs-sh", ["sé", "ṣé"])]), clips("sé"))).toEqual([]);
+  });
+  it("never includes vocab twin or tone pair questions", () => {
+    const qs = sounds(withSets([cset("cs-gb", ["bà", "gà"])]), allClips);
+    expect(qs.map((q) => q.answer).sort()).toEqual([]);
+    const both = sounds(withSets([cset("cs-gb", ["bà", "gà"])]), clips("bà", "gà", "ọkọ̀", "igba", "ìgbà"));
+    expect(both.map((q) => q.answer).sort()).toEqual(["bà", "gà"].map(n).sort());
+  });
+  it("asks a word that is in two sets only once", () => {
+    const qs = sounds(withSets([cset("cs-a", ["gbọ́", "bọ́"]), cset("cs-b", ["gbọ́", "kọ́"])]), clips("gbọ́", "bọ́", "kọ́"));
+    expect(qs.map((q) => q.answer).sort()).toEqual(["bọ́", "gbọ́", "kọ́"].map(n).sort());
+    expect(new Set(qs.map((q) => q.id)).size).toBe(qs.length);
   });
 });
