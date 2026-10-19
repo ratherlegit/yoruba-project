@@ -6,7 +6,7 @@ Feature 1 of 4 on the practice shortlist (tone practice, dictation, sentence tra
 
 ## 1. Intent
 
-Yoruba is tonal, and the app's current listening practice (`SoundPractice`) rests on seven hand-written minimal pairs, four of them about tone. That is a taste, not practice. The goal is a listening activity that trains the ear to hear tone, with enough material that a learner cannot memorize the answer key.
+Yoruba is tonal, and the app's current listening practice (`SoundPractice`, the Practice section at the bottom of the Sound Bank) rests on seven hand-written minimal pairs, four of them about tone. That is a taste, not practice. The goal is a listening activity that trains the ear to hear tone, with enough material that a learner cannot memorize the answer key. It replaces `SoundPractice`: the Sound Bank keeps one practice activity, not two.
 
 The learner hears a word (easier mode) or a whole sentence (harder mode) and picks the correct tone-marked spelling from real Yoruba words that have the same letters and differ only in their tone marks. In the harder mode the sentence is written out with a gap where the target word goes, and its English translation is shown. Hearing the full sentence matters: the learner has to pick the target word out from the words around it, which is how tone is met in real speech.
 
@@ -25,7 +25,8 @@ The practice reuses the vocab section's words, sentences, English and audio. Wha
 ### Non-goals
 - Speech recognition, pronunciation scoring, recording.
 - English meanings or glosses for the answer choices (the sentence's translation is shown; see section 3).
-- Replacing the existing Sound Bank listening practice (it stays).
+- Keeping the old `SoundPractice` activity alongside the new one. There is one practice activity.
+- Changing the Minimal pairs reference cards (`PairCard`), which stay as they are.
 - Accounts, sync, XP, streaks.
 - Spaced repetition scheduling.
 
@@ -98,7 +99,11 @@ Optional later: clips for twin words, which would allow "play the word you chose
 
 ## 7. Where it lives
 
-A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`), next to the existing listening practice, which stays. A separate component `TonePractice.tsx` reusing `AudioButton`, `ChoiceQuestion` and `PitchLine`. (Author's call; easy to move.)
+The new activity takes the place of the existing Practice section at the bottom of the Sound Bank page (`src/pages/SoundBank.tsx`). The section keeps its "Practice" heading and `#practice` anchor, and the page order stays Vowels, Consonants, Tones, Minimal pairs, Practice. The component is `TonePractice.tsx`, reusing `AudioButton`, `ChoiceQuestion` and `PitchLine`.
+
+Removed with the swap: `SoundPractice.tsx` and its test, `src/lib/sound-practice.ts` (`buildPractice`) and its test. `MINIMAL_PAIRS` and `PairCard` stay, since the Minimal pairs section still uses them.
+
+One thing to check when building: the old practice also quizzed words that come only from the Sound Bank pairs (for example igba, ìgbà, igbá). The new practice draws from vocab words that have twins, so a Sound Bank pair is practiced only if its words are in the vocab. Words only in the pairs lose their quiz but keep their reference card. See section 10.
 
 ## 8. Left to the builder
 
@@ -117,6 +122,7 @@ A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`)
 ## 10. Risks
 
 - Content correctness: tone-twin lists are easy to get wrong. The needs-review marker and review file are the mitigation; a native check is required before the feature is described as accurate.
+- Coverage change: some tone pairs that the old practice quizzed may not be vocab words, so they would drop out of the quiz. The builder lists which ones before removing the old practice, and the user decides whether to add those words to the vocab or accept the loss.
 - Coverage: many vocab words may have no real twin. The practice only includes words that do, so the pool could be smaller than the 250 words. That is accepted over inventing twins.
 - The sentence translation can hint at the answer. Accepted: it was the user's choice, and the choices carry no meanings.
 - Whole-sentence audio hides word boundaries from a learner who cannot segment speech yet. Accepted: the user wants this because it trains separating the word from its neighbors.
@@ -124,10 +130,10 @@ A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`)
 ## 11. Calls made by the author of this spec
 
 These are not agreed decisions:
-1. Placement on the Sound Bank page next to the existing practice.
+1. (Decided with the user: the new activity replaces the old Practice section.)
 2. Words mode shows no English at all.
 3. No "play the chosen word" on a wrong answer in v1.
 4. Random order inside each mode for v1.
 5. A first batch target of at least 30 vocab words with sourced twins.
 6. Default mode is Words.
-7. The existing Sound Bank minimal pairs are not folded into this practice.
+7. The Sound Bank minimal pairs stay as reference cards and are not folded into the quiz.
