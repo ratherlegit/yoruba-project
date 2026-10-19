@@ -14,3 +14,4 @@ tools/audio/.cache
 __pycache__
 tools/audio/.env
 tools/audio/paste/
+tools/audio/workspace/
