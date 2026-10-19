@@ -191,11 +191,10 @@ svg[role="img"] { transition: transform 0.25s ease; }
 @media (min-width: 40rem) { .sound-grid { grid-template-columns: repeat(3, 1fr); } }
 .sound-card { display: grid; gap: 0.75rem; align-content: start; }
 /* Cards in the same grid row share row tracks (heading block, then one row per example),
-   so matching words and pitch lines sit at the same height across cards. Tone cards have up to 4 examples. */
+   so matching words and pitch lines sit at the same height across cards. */
 /* Practice is as wide as two sound cards (two columns plus the gap between them) on wide screens. */
 @media (min-width: 40rem) { .practice-wrap { max-width: calc((200% - 0.75rem) / 3); } }
 .sound-grid { --rows: 4; }
-.sound-grid.tones { --rows: 5; }
 .sound-grid .sound-card { grid-template-rows: subgrid; grid-row: span var(--rows); }
 .sound-grid:not(.pairs) .sound-examples { display: contents; }
 .sound-head { display: flex; flex-direction: column; gap: 0.35rem; align-items: flex-start; }
@@ -218,3 +217,6 @@ svg[role="img"] { transition: transform 0.25s ease; }
 @media (min-width: 40rem) { .tone-cells { grid-template-columns: repeat(3, 1fr); } }
 .tone-cell { display: grid; gap: 0.4rem; align-content: start; }
 .key-grid .key-set { display: grid; gap: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--line); }
+.key-grid { display: grid; gap: 0.75rem; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 40rem) { .key-grid { grid-template-columns: repeat(3, 1fr); } }
+.reference > summary { cursor: pointer; font-weight: 600; padding: 0.4rem 0; }

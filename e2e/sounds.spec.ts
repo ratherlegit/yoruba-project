@@ -4,10 +4,11 @@ test("Sound Bank is reachable from the nav and shows every section", async ({ pa
   await page.goto("/");
   await page.getByRole("link", { name: "Sound Bank" }).first().click();
   await expect(page).toHaveURL(/\/sounds$/);
-  for (const name of ["Vowels", "Consonants", "Tones", "Minimal pairs", "Practice"]) {
+  for (const name of ["Tones", "Key consonants", "Minimal pairs", "Letters reference", "Practice"]) {
     await expect(page.getByRole("heading", { level: 2, name })).toBeVisible();
   }
-  await expect(page.getByRole("heading", { name: "ṣ", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "s versus ṣ".normalize("NFC") })).toBeVisible();
+  await expect(page.getByTestId(/^tc-/)).toHaveCount(11);
 });
 
 test("Sound Bank works in dark mode and jump links move to a section", async ({ page }) => {

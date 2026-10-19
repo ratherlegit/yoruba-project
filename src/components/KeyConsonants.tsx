@@ -12,7 +12,7 @@ const CARDS: { key: ConsonantFocus; title: string; soundIds: string[] }[] = [
 
 export function KeyConsonants({ sounds, sets }: { sounds: Sound[]; sets: ConsonantSet[] }) {
   return (
-    <div className="sound-grid key-grid">
+    <div className="key-grid">
       {CARDS.map((card) => (
         <article key={card.key} className="card" data-testid={`key-${card.key}`} style={{ display: "grid", gap: "0.5rem", alignContent: "start" }}>
           <h3 className="yo" style={{ margin: 0 }}>{card.title}</h3>

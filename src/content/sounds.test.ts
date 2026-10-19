@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { MINIMAL_PAIRS, SOUNDS, soundsBySection } from "./sounds";
 import type { MinimalPair, Sound } from "./sounds";
-import { syllabify, toneOf } from "@/lib/tone";
 import { validateSounds } from "./validate-sounds";
 
 const ok: Sound = {
@@ -19,18 +18,13 @@ describe("shipped sound content", () => {
   it("passes the validator", () => {
     expect(validateSounds(SOUNDS, MINIMAL_PAIRS)).toEqual([]);
   });
-  it("covers vowels plus nasals, consonants, and exactly one card per tone", () => {
+  it("covers vowels plus nasals and consonants, with no tone cards left", () => {
     expect(soundsBySection("vowels").length).toBeGreaterThanOrEqual(12);
     expect(soundsBySection("consonants").length).toBeGreaterThanOrEqual(18);
-    expect(soundsBySection("tones").map((s) => s.tone).sort()).toEqual(["high", "low", "mid"]);
+    expect(SOUNDS.some((s) => s.id.startsWith("t-"))).toBe(false);
   });
-  it("every syllable of each tone card's examples has that tone", () => {
-    for (const s of soundsBySection("tones")) {
-      for (const e of s.examples) {
-        const tones = new Set(syllabify(e.yoruba).map(toneOf));
-        expect([...tones], `${s.id}: ${e.yoruba}`).toEqual([s.tone]);
-      }
-    }
+  it("keeps the cards the key consonant section reads", () => {
+    for (const id of ["c-gb", "c-p", "c-s", "c-sh"]) expect(SOUNDS.some((s) => s.id === id), id).toBe(true);
   });
   it("has 6 to 10 minimal pairs", () => {
     expect(MINIMAL_PAIRS.length).toBeGreaterThanOrEqual(6);
@@ -59,13 +53,8 @@ describe("validateSounds", () => {
     expect(errs.join("\n")).toMatch(/duplicate id/);
     expect(errs.join("\n")).toMatch(/2 to 3 examples/);
   });
-  it("requires tone only on the tones section", () => {
-    expect(validateSounds([{ ...ok, tone: "high" }], []).join("\n")).toMatch(/tone is only for the tones section/);
-    expect(validateSounds([{ ...ok, section: "tones" }], []).join("\n")).toMatch(/tones card needs a tone/);
-  });
-  it("allows up to 4 examples on a tones card but only 3 elsewhere", () => {
+  it("allows at most 3 examples on a card", () => {
     const four = [...ok.examples, { yoruba: "bàtà", english: "x" }, { yoruba: "fìlà", english: "y" }];
-    expect(validateSounds([{ ...ok, section: "tones", tone: "low", examples: four }], [])).toEqual([]);
     expect(validateSounds([{ ...ok, examples: four }], []).join("\n")).toMatch(/2 to 3 examples/);
   });
   it("rejects pairs with identical words or the wrong size", () => {

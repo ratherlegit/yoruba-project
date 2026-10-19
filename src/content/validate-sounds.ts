@@ -20,12 +20,9 @@ export function validateSounds(sounds: Sound[], pairs: MinimalPair[]): string[] 
   for (const s of sounds) {
     checkId(s.id);
     checkText(s.id, s);
-    // Tone cards show up to 4 words so each tone is heard clearly; other cards show 2 to 3.
-    const maxExamples = s.section === "tones" ? 4 : 3;
+    const maxExamples = 3;
     if (s.examples.length < 2 || s.examples.length > maxExamples) errors.push(`${s.id}: needs 2 to ${maxExamples} examples, found ${s.examples.length}`);
     if (s.confidence === "needs-review" && !s.note) errors.push(`${s.id}: needs-review needs a note`);
-    if (s.section === "tones" && !s.tone) errors.push(`${s.id}: tones card needs a tone`);
-    if (s.section !== "tones" && s.tone) errors.push(`${s.id}: tone is only for the tones section`);
   }
   for (const p of pairs) {
     checkId(p.id);

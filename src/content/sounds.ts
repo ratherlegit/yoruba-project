@@ -1,11 +1,11 @@
-import type { Confidence, Tone } from "./types";
+import type { Confidence } from "./types";
 
 // Sources consulted: standard Yoruba orthography and phonology references
 // (Bamgbose, "A Grammar of Yoruba"; Rowlands, "Yoruba"; Abraham, "Dictionary of Modern Yoruba").
 // English comparisons are approximations. Every entry is needs-review until a native speaker checks it.
 
 export type SoundExample = { yoruba: string; english: string };
-export type SoundSection = "vowels" | "consonants" | "tones";
+export type SoundSection = "vowels" | "consonants";
 
 export type Sound = {
   id: string;
@@ -13,7 +13,6 @@ export type Sound = {
   letter: string;
   compare: string;
   examples: SoundExample[];
-  tone?: Tone;
   confidence: Confidence;
   note?: string;
 };
@@ -29,8 +28,8 @@ export type MinimalPair = {
 
 const ex = (yoruba: string, english: string): SoundExample => ({ yoruba, english });
 const s = (
-  id: string, section: SoundSection, letter: string, compare: string, examples: SoundExample[], note: string, tone?: Tone,
-): Sound => ({ id, section, letter, compare, examples, ...(tone ? { tone } : {}), confidence: "needs-review", note });
+  id: string, section: SoundSection, letter: string, compare: string, examples: SoundExample[], note: string,
+): Sound => ({ id, section, letter, compare, examples, confidence: "needs-review", note });
 
 export const SOUNDS: Sound[] = [
   // Oral vowels
@@ -66,10 +65,6 @@ export const SOUNDS: Sound[] = [
   s("c-t", "consonants", "t", "like 't' in 'top'", [ex("tábìlì", "table"), ex("etí", "ear"), ex("mẹ́ta", "three")], "Plain consonant."),
   s("c-w", "consonants", "w", "like 'w' in 'water'", [ex("ọwọ́", "hand"), ex("ẹ̀wù", "garment"), ex("wàrà", "milk")], "Plain consonant."),
   s("c-y", "consonants", "y", "like 'y' in 'yes'", [ex("ẹyin", "egg"), ex("yàrá", "room"), ex("ìyá", "mother")], "Plain consonant."),
-  // Tones
-  s("t-high", "tones", "á", "High: a higher pitch, marked with an acute accent", [ex("wá", "come"), ex("dúdú", "black"), ex("sáré", "run"), ex("kọ́kọ́rọ́", "key")], "Every syllable of these words is high, so the tone is easy to hear. Check the examples.", "high"),
-  s("t-mid", "tones", "a", "Mid: the middle pitch, usually left unmarked", [ex("omi", "water"), ex("ọmọ", "child"), ex("igi", "tree"), ex("ẹja", "fish")], "Mid is unmarked. Every syllable of these words is mid. Check the examples.", "mid"),
-  s("t-low", "tones", "à", "Low: a lower pitch, marked with a grave accent", [ex("bàtà", "shoes"), ex("òjò", "rain"), ex("ẹ̀wù", "shirt"), ex("ìkòkò", "cooking pot")], "Every syllable of these words is low, so the tone is easy to hear. Check the examples.", "low"),
 ];
 
 const pair = (

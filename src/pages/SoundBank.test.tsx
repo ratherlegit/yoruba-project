@@ -14,14 +14,36 @@ vi.mock("@/lib/play-sequence", () => ({ playSequence: (words: string[]) => seque
 
 import { SoundBank } from "./SoundBank";
 
+const SECTION_NAMES = ["Tones", "Key consonants", "Minimal pairs", "Letters reference", "Practice"];
+
 describe("SoundBank", () => {
   it("renders the page heading and all section headings with a jump bar", () => {
     render(<SoundBank />);
     expect(screen.getByRole("heading", { level: 1, name: /Sound Bank/ })).toBeInTheDocument();
-    for (const name of ["Vowels", "Consonants", "Tones", "Minimal pairs", "Practice"]) {
+    for (const name of SECTION_NAMES) {
       expect(screen.getByRole("heading", { level: 2, name })).toBeInTheDocument();
       expect(within(screen.getByRole("navigation", { name: "Sections" })).getByRole("link", { name })).toHaveAttribute("href", `#${name.toLowerCase().replace(" ", "-")}`);
     }
+  });
+  it("renders the sections in the right order, with Practice last", () => {
+    render(<SoundBank />);
+    expect(screen.getAllByRole("heading", { level: 2 }).map((h) => h.textContent)).toEqual(SECTION_NAMES);
+    const links = within(screen.getByRole("navigation", { name: "Sections" })).getAllByRole("link").map((a) => a.textContent);
+    expect(links).toEqual(SECTION_NAMES);
+  });
+  it("shows the tone grid with 11 rows and the three key consonant cards", () => {
+    render(<SoundBank />);
+    expect(screen.getAllByTestId(/^tc-/)).toHaveLength(11);
+    for (const name of ["gb", "p", "s versus ṣ".normalize("NFC")]) expect(screen.getByRole("heading", { level: 3, name })).toBeInTheDocument();
+  });
+  it("keeps the old vowel and consonant cards in a collapsed reference without the four key consonants", () => {
+    render(<SoundBank />);
+    const details = screen.getByText(/Show vowels and other consonants/).closest("details")!;
+    expect(details).not.toHaveAttribute("open");
+    expect(within(details).getByTestId("sound-v-a")).toBeInTheDocument();
+    expect(within(details).getByTestId("sound-c-b")).toBeInTheDocument();
+    for (const id of ["c-gb", "c-p", "c-s", "c-sh"]) expect(within(details).queryByTestId(`sound-${id}`)).toBeNull();
+    expect(screen.queryByTestId("sound-t-high")).toBeNull();
   });
   it("shows speaker buttons only for words that have audio", () => {
     render(<SoundBank />);
