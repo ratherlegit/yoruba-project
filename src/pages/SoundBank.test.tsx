@@ -36,6 +36,12 @@ describe("SoundBank", () => {
     await userEvent.click(within(card).getByRole("button", { name: "Play all" }));
     expect(sequence).toHaveBeenCalledWith(["ọkọ", "ọkọ̀", "ọkọ́"]);
   });
+  it("the Practice section offers Words and Sentences modes", () => {
+    render(<SoundBank />);
+    const practice = screen.getByTestId("practice");
+    expect(within(practice).getByRole("button", { name: "Words" })).toBeInTheDocument();
+    expect(within(practice).getByRole("button", { name: "Sentences" })).toBeInTheDocument();
+  });
   it("practice gives feedback and offers Try again", async () => {
     render(<SoundBank />);
     const practice = screen.getByTestId("practice");
