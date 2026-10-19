@@ -36,12 +36,18 @@ This is not vocabulary practice. Meanings stay in the vocab section.
 
 ## 3. How it works (decided with the user)
 
+Two modes, which are also the difficulty levels. Words is the easier mode and Sentences is the harder one.
+
+**Words (easier).** The learner hears one word on its own and picks it from the real words in its set. No sentence, no gap. Choices are the same as below.
+
+**Sentences (harder).** The rest of this section describes this mode.
+
 - Question screen: a play button for the whole sentence, the sentence written out with one gap, and the choices.
-- Audio plays the whole sentence, not the word alone.
+- Audio plays the whole sentence, not the word alone (in Sentences mode).
 - Choices: two to four real words, same letters (including under-dots), different tone marks only. A set with only two real words gives a two-choice question.
 - No English shown during the question.
-- After answering: the gap fills with the correct word, its `PitchLine` shows, the sentence plays again. If the answer was wrong, the chosen word's pitch line is also shown, so the difference is visible. (Builder's call: playing the chosen word's own clip is not possible unless that word has a clip; see section 6.)
-- Material: a curated list of real tone-minimal word sets, roughly 30 to 60 sets, with one short sentence per word.
+- After answering: in Sentences mode the gap fills with the correct word, its `PitchLine` shows, the sentence plays again, and a wrong answer also shows the chosen word's pitch line. In Words mode the correct word's pitch line shows and it plays again; a wrong answer also plays the chosen word. (My call: the Words-mode extras follow from clips existing.)
+- Material: a curated list of real tone-minimal word sets, roughly 30 to 60 sets, with one short sentence per word. Both modes draw from the same sets.
 
 ## 4. Content model
 
@@ -79,27 +85,35 @@ Validation (run by `npm run validate` and a unit test):
 - Seeded shuffle, round length of 10 (same as today), no repeats within a round.
 - The gap sentence is the word's sentence with the word replaced by a blank of fixed width.
 
-Difficulty ordering is deferred (section 8). Round one is random from the available pool.
+Each mode builds its own round. Words mode needs a clip of the word; Sentences mode needs a clip of the sentence. A word with only one of the two clips appears only in the mode it can serve. Ordering within a mode is random for v1; sorting by how many syllables differ is deferred (section 8).
 
 ## 6. Audio
 
-Clips are whole sentences, generated with the existing ElevenLabs pipeline in `tools/audio/`. The sentence strings need to be added to the string lister (`scripts/list-audio-strings.ts` and `src/lib/audio-strings.ts`) as a new group, and the existing audio tests (every collected string has a manifest entry and file; no manifest entry without a source string) must cover them.
+Two kinds of clips, both generated with the existing ElevenLabs pipeline in `tools/audio/`: single words (Words mode) and whole sentences (Sentences mode). The new strings need to be added to the string lister (`scripts/list-audio-strings.ts` and `src/lib/audio-strings.ts`) as a new group, and the existing audio tests (every collected string has a manifest entry and file; no manifest entry without a source string) must cover them.
 
-Budget: one sentence per word. At 30 to 60 sets and about 2.5 words per set that is roughly 75 to 150 sentences, a few thousand characters of generation. The free-plan paste workflow in `tools/audio/README.md` applies.
+What already exists: 18 of the 19 words in the 8 tone groups the app already knows have word clips. Only `ọkan` is missing.
 
-Because only sentence clips are guaranteed, the "play the word you chose" idea is out for v1; wrong answers show the chosen word's pitch line only.
+What is new for a 30 to 60 set list at about 2.5 words per set (roughly 75 to 150 words):
+- Words mode: up to about 75 to 150 word clips, minus the 18 that exist. A word is a few characters, so this is a small credit cost (a few hundred characters).
+- Sentences mode: 75 to 150 sentence clips, none of which exist. At about 25 characters each that is roughly 2,000 to 4,000 credits.
+
+So yes, more audio generation is needed. The word clips are cheap and unlock Words mode quickly; the sentence clips are the real cost. Words mode can ship first, with Sentences mode added as sentence clips are generated, because each mode only serves questions that have their clip. The free-plan paste workflow in `tools/audio/README.md` applies.
+
+Whenever the curated list is final, the exact counts and credit totals will come from the string lister (`npm run audio:list`, then the generator's dry run), not these estimates.
+
+"Play the word you chose" on a wrong answer is possible in Words mode (that word's clip exists) and out for Sentences mode, where only the pitch line is shown.
 
 The existing rule that every clip's text must be spoken Yoruba applies. Sentences must not contain parentheses or English.
 
 ## 7. Where it lives
 
-A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`), next to the existing listening practice, which stays. A separate component `TonePractice.tsx` reusing `AudioButton`, `ChoiceQuestion` and `PitchLine`. (Builder's call; easy to move.)
+A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`), next to the existing listening practice, which stays. It has a Words / Sentences switch, defaulting to Words. A separate component `TonePractice.tsx` reusing `AudioButton`, `ChoiceQuestion` and `PitchLine`. (Builder's call; easy to move.)
 
 ## 8. Left to the builder
 
 - Final copy and layout for the question and feedback screens, within the existing visual style.
 - Whether choices render as plain words or with the word's pitch line hidden until answered (the default is hidden).
-- Difficulty ordering: a first version can be random. A later version can sort sets by how many syllables differ.
+- Ordering inside a mode: a first version can be random. A later version can sort sets by how many syllables differ.
 - Content batch size for the first release (a minimum of 30 sets is the target).
 
 ## 9. Content authoring process
@@ -120,6 +134,7 @@ A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`)
 These are not agreed decisions:
 1. Placement on the Sound Bank page next to the existing practice.
 2. English meanings kept only in the review data, never shown in the app.
-3. No "play the chosen word" on wrong answers.
-4. Random order for v1; difficulty ordering later.
+3. "Play the chosen word" on a wrong answer only in Words mode.
+4. Random order inside each mode for v1; finer difficulty ordering later.
 5. First batch of at least 30 sets.
+6. Default mode is Words.
