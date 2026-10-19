@@ -6,7 +6,8 @@ export function Proverbs({ proverbs = PROVERBS }: { proverbs?: Proverb[] }) {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
 
-  if (proverbs.length === 0) {
+  const proverb = proverbs[index];
+  if (!proverb) {
     return (
       <main className="page" style={{ display: "grid", gap: "1rem" }}>
         <h1 style={{ marginBottom: 0 }}>Proverbs</h1>
@@ -15,7 +16,6 @@ export function Proverbs({ proverbs = PROVERBS }: { proverbs?: Proverb[] }) {
     );
   }
 
-  const proverb = proverbs[index];
   const chosen = answers[proverb.id] ?? null;
   return (
     <main className="page" style={{ display: "grid", gap: "1rem" }}>
