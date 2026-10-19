@@ -40,7 +40,9 @@ The practice reuses the vocab section's words, sentences, English and audio. Wha
 
 Two modes, which are also the difficulty levels. Words is the easier mode and Sentences is the harder one. A switch chooses between them; the default is Words.
 
-**Words (easier).** The learner hears one vocab word on its own and picks it from the word and its real twins. No sentence, no gap, no English.
+**Words (easier).** The learner hears one word on its own and picks it from the word and its real twins. No sentence, no gap, no English. Answers come from two places: vocab words that have twins, and the tone pairs already in the Sound Bank (`MINIMAL_PAIRS`), whose words are real words with clips even when they are not in the vocab (igba, ìgbà, igbá, apá, àpá and so on). For a pair, the answer is any one word in the pair and the choices are all the words in the pair.
+
+Sentences mode uses only vocab words, because it needs a vocab sentence with a clip.
 
 **Sentences (harder).**
 - A play button plays the whole vocab sentence.
@@ -80,7 +82,7 @@ Validation (run by `npm run validate` and a unit test):
 ## 5. Question generation
 
 `src/lib/tone-practice.ts` builds a round, in the style of `buildPractice` in `src/lib/sound-practice.ts`:
-- Words mode: one question per vocab word that has an entry and a word clip.
+- Words mode: one question per vocab word that has an entry and a word clip, plus one question per word in each tone pair in `MINIMAL_PAIRS` that has a word clip (a pair needs at least two words with clips, as the old practice required). If a pair word is also a vocab word with its own twins entry, the question appears once, not twice.
 - Sentences mode: one question per vocab word that has an entry and a sentence clip.
 - The answer is the vocab word; the choices are the word plus its twins.
 - Seeded shuffle, round length of 10 (same as today), no repeats within a round.
@@ -91,7 +93,7 @@ A word appears in a mode only if it has that mode's clip. Ordering within a mode
 ## 6. Audio
 
 No new audio is needed for a first release.
-- All 250 vocab words have word clips today.
+- All 250 vocab words have word clips today, and so do the tone-pair words in the Sound Bank (the old practice already played them).
 - 150 of the 250 vocab sentences have clips today. The other 100 belong to the vocab audio batch that is not generated yet. When those are generated through the normal vocab workflow, their words become available in Sentences mode with no extra work in this feature.
 - Twins are only ever shown as text, so they need no clips.
 
@@ -103,7 +105,7 @@ The new activity takes the place of the existing Practice section at the bottom 
 
 Removed with the swap: `SoundPractice.tsx` and its test, `src/lib/sound-practice.ts` (`buildPractice`) and its test. `MINIMAL_PAIRS` and `PairCard` stay, since the Minimal pairs section still uses them.
 
-One thing to check when building: the old practice also quizzed words that come only from the Sound Bank pairs (for example igba, ìgbà, igbá). The new practice draws from vocab words that have twins, so a Sound Bank pair is practiced only if its words are in the vocab. Words only in the pairs lose their quiz but keep their reference card. See section 10.
+The old practice also quizzed words that come only from the Sound Bank pairs (for example igba, ìgbà, igbá). Those stay in the quiz through Words mode (section 3), so nothing the old practice taught is lost. They do not appear in Sentences mode, since they have no vocab sentence.
 
 ## 8. Left to the builder
 
@@ -122,7 +124,7 @@ One thing to check when building: the old practice also quizzed words that come 
 ## 10. Risks
 
 - Content correctness: tone-twin lists are easy to get wrong. The needs-review marker and review file are the mitigation; a native check is required before the feature is described as accurate.
-- Coverage change: some tone pairs that the old practice quizzed may not be vocab words, so they would drop out of the quiz. The builder lists which ones before removing the old practice, and the user decides whether to add those words to the vocab or accept the loss.
+- Sound Bank pair words that are not vocab words appear only in Words mode. Adding them to the vocab later would also make them available in Sentences mode.
 - Coverage: many vocab words may have no real twin. The practice only includes words that do, so the pool could be smaller than the 250 words. That is accepted over inventing twins.
 - The sentence translation can hint at the answer. Accepted: it was the user's choice, and the choices carry no meanings.
 - Whole-sentence audio hides word boundaries from a learner who cannot segment speech yet. Accepted: the user wants this because it trains separating the word from its neighbors.
@@ -136,4 +138,4 @@ These are not agreed decisions:
 4. Random order inside each mode for v1.
 5. A first batch target of at least 30 vocab words with sourced twins.
 6. Default mode is Words.
-7. The Sound Bank minimal pairs stay as reference cards and are not folded into the quiz.
+7. The Sound Bank minimal pairs stay as reference cards, and their tone pairs also feed Words mode (decided with the user).
