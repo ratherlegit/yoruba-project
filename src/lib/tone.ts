@@ -82,3 +82,14 @@ export function toneOf(syllable: string): Tone {
 export function stripTones(s: string): string {
   return s.normalize("NFD").replace(/[̀́̄]/g, "").normalize("NFC").toLowerCase();
 }
+
+const BASE_VOWELS = new Set(["a", "e", "i", "o", "u"]);
+
+// Splits one syllable into its leading consonant letters (with their marks, so ṣ stays one) and the rest
+// (the vowel, its tone mark and any nasal coda). gb is two consonant letters, so it falls in the onset.
+export function splitOnset(word: string): { onset: string; rest: string } {
+  const chars = Array.from(word.normalize("NFD"));
+  let i = 0;
+  while (i < chars.length && !BASE_VOWELS.has(chars[i]!.toLowerCase())) i++;
+  return { onset: chars.slice(0, i).join("").normalize("NFC"), rest: chars.slice(i).join("").normalize("NFC") };
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { stripTones, syllabify, toneOf } from "./tone";
+import { splitOnset, stripTones, syllabify, toneOf } from "./tone";
 
 describe("syllabify", () => {
   it.each([
@@ -48,5 +48,17 @@ describe("stripTones", () => {
     expect(stripTones("ọkọ̀")).toBe("ọkọ");
     expect(stripTones("ẹ̀yìn")).toBe("ẹyin");
     expect(stripTones("ÌGBÀ")).toBe("igba");
+  });
+});
+
+describe("splitOnset", () => {
+  it.each([
+    ["gbà", "gb", "à"],
+    ["pọ́", "p", "ọ́"],
+    ["ṣé", "ṣ", "é"],
+    ["kàn", "k", "àn"],
+    ["ọn", "", "ọn"],
+  ])("splits %s into onset %s and rest %s", (word, onset, rest) => {
+    expect(splitOnset(word)).toEqual({ onset: onset.normalize("NFC"), rest: rest.normalize("NFC") });
   });
 });
