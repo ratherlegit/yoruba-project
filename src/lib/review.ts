@@ -1,6 +1,7 @@
 import type { Level, Question } from "@/content/types";
 import type { VocabLevel } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
+import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 
 function questionLines(q: Question, n: number): string[] {
@@ -21,7 +22,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[] }, toneTwins: ToneTwinEntry[] = []): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -79,6 +80,20 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
       soundLines.push(`- \`${p.id}\`: minimal pair (${p.contrast}): ${p.explain}`);
       soundLines.push(`  - Words: ${p.words.map((e) => `${e.yoruba} (${e.english})`).join(", ")}`);
       soundLines.push(`  - Doubt: ${p.note ?? "(none recorded)"}`);
+    }
+    for (const r of (soundData.compare ?? []).filter((x) => x.confidence === "needs-review")) {
+      total += 1;
+      soundLines.push(`- \`${r.id}\`: tone comparison for **${r.vowel}**`);
+      soundLines.push(`  - Words (mid, high, low): ${r.words.map((w) => `${w.yoruba} (${w.english})`).join(", ")}`);
+      soundLines.push(`  - Source: ${r.source}`);
+      soundLines.push(`  - Doubt: ${r.note}`);
+    }
+    for (const x of (soundData.sets ?? []).filter((y) => y.confidence === "needs-review")) {
+      total += 1;
+      soundLines.push(`- \`${x.id}\`: consonant contrast (${x.focus.join(", ")}): ${x.explain}`);
+      soundLines.push(`  - Words: ${x.words.map((w) => `${w.yoruba} (${w.english})`).join(", ")}`);
+      soundLines.push(`  - Source: ${x.source}`);
+      soundLines.push(`  - Doubt: ${x.note}`);
     }
   }
   const soundSection = soundLines.length ? ["## Sound Bank", "", ...soundLines, ""] : [];

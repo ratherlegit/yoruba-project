@@ -7,6 +7,8 @@ import type { VocabLevel, VocabWord } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
 import { SOUNDS, MINIMAL_PAIRS } from "@/content/sounds";
 import { TONE_TWINS } from "@/content/tone-twins";
+import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
+import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -60,7 +62,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS }, TONE_TWINS));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
@@ -176,5 +178,34 @@ describe("buildReviewMarkdown tone twins", () => {
   it("adds no section for verified entries or an empty list", () => {
     expect(buildReviewMarkdown(levels, vocab, undefined, [entry("verified")])).not.toContain("## Tone twins");
     expect(buildReviewMarkdown(levels, vocab, undefined, [])).not.toContain("## Tone twins");
+  });
+});
+
+describe("buildReviewMarkdown tone rows and consonant sets", () => {
+  const compare: ToneCompareRow[] = [{
+    id: "tc-a", vowel: "a", source: "Test dictionary", confidence: "needs-review", note: "Check the mid word.",
+    words: [{ yoruba: "wa", english: "our", tone: "mid" }, { yoruba: "wá", english: "come", tone: "high" }, { yoruba: "wà", english: "be", tone: "low" }],
+  }];
+  const sets: ConsonantSet[] = [{
+    id: "cs-gb", focus: ["gb"], explain: "e", source: "Test dictionary two", confidence: "needs-review", note: "Check gb words.",
+    words: [{ yoruba: "bà", english: "perch" }, { yoruba: "gbà", english: "rescue" }],
+  }];
+  const empty = { sounds: [] as Sound[], pairs: [] as MinimalPair[] };
+  const count = (s: string) => Number(/(\d+) items? need review/.exec(s)![1]);
+  it("lists rows and sets with their words, source and doubt, and counts them", () => {
+    const base = buildReviewMarkdown(levels, [], empty);
+    const md = buildReviewMarkdown(levels, [], { ...empty, compare, sets });
+    expect(md).toContain("## Sound Bank");
+    expect(md).toContain("`tc-a`");
+    expect(md).toContain("wá (come)");
+    expect(md).toContain("Test dictionary");
+    expect(md).toContain("Doubt: Check the mid word.");
+    expect(md).toContain("`cs-gb`");
+    expect(md).toContain("gbà (rescue)");
+    expect(md).toContain("Doubt: Check gb words.");
+    expect(count(md)).toBe(count(base) + 2);
+  });
+  it("adds nothing when none are given", () => {
+    expect(buildReviewMarkdown(levels, [], empty)).not.toContain("tc-a");
   });
 });
