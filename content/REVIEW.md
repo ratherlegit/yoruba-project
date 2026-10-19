@@ -1406,7 +1406,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Words: gé (cut), gbé (carry)
   - Source: Wiktionary, Yoruba sections of the pages "ge", "gbe" (en.wiktionary.org/wiki/<page>), read 2026-10-19
   - Doubt: Check both words and the chosen meanings.
-- `cs-gb-p-o-high`: consonant contrast (gb, p): Compare p, k, b and gb at the same vowel and tone. Yoruba p is said like kp, with the lips closed.
+- `cs-p-o-high`: consonant contrast (p): Compare p, k, b and gb at the same vowel and tone. Yoruba p is said like kp, with the lips closed.
   - Words: pọ́ (inflate, pump), kọ́ (build), bọ́ (fall), gbọ́ (hear)
   - Source: Wiktionary, Yoruba sections of the pages "pọ", "kọ", "bọ", "gbọ" (en.wiktionary.org/wiki/<page>), read 2026-10-19
   - Doubt: Strict p minimal pairs are scarce, so this contrasts p with k, b and gb at one vowel and tone. Check the words, tones and chosen meanings.

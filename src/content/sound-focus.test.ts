@@ -24,11 +24,12 @@ describe("shipped tone rows and consonant sets", () => {
     expect(noEntry).toEqual([]);
     expect(noFile).toEqual([]);
   });
-  it("covers gb, p and s-sh, with the ọ-high set on both gb and p", () => {
+  it("covers gb, p and s-sh, with the gbọ́ set only on the p card", () => {
     const foci = new Set(CONSONANT_SETS.flatMap((s) => s.focus));
     expect([...foci].sort()).toEqual(["gb", "p", "s-sh"]);
-    const both = CONSONANT_SETS.find((s) => s.focus.includes("gb") && s.focus.includes("p"));
-    expect(both?.words.map((w) => w.yoruba)).toContain("gbọ́".normalize("NFC"));
+    const gbo = CONSONANT_SETS.find((s) => s.words.some((w) => w.yoruba === "gbọ́".normalize("NFC")));
+    expect(gbo?.focus).toEqual(["p"]);
+    expect(CONSONANT_SETS.filter((s) => s.focus.includes("gb")).flatMap((s) => s.words.map((w) => w.yoruba))).not.toContain("gbọ́".normalize("NFC"));
   });
   it("pairs one s word with one ṣ word in every s-sh set", () => {
     for (const s of CONSONANT_SETS.filter((x) => x.focus.includes("s-sh"))) {

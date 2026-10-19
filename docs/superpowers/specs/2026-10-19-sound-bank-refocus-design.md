@@ -74,13 +74,13 @@ Three cards, each with a one-line description (reused from the existing gb, p, s
 |---|---|---|
 | gb | a, low | bà (perch), gà (tickle), gbà (rescue, take) |
 | gb | e, high | gé (cut), gbé (carry) |
-| gb and p | ọ, high | pọ́ (inflate, pump), kọ́ (build), bọ́ (fall), gbọ́ (hear) |
+| p | ọ, high | pọ́ (inflate, pump), kọ́ (build), bọ́ (fall), gbọ́ (hear) |
 | p | ọ, low | pọ̀ (be plenty), kọ̀ (refuse), bọ̀ (come back), gọ̀ (be foolish) |
 | s versus ṣ | é, high | sé (shut, block), ṣé (question word, as in "Ṣé o fẹ́ jẹun?") |
 | s versus ṣ | ẹ́, high | sẹ́ (sieve), ṣẹ́ (break) |
 | s versus ṣ | ẹ̀, low | sẹ̀ (condense), ṣẹ̀ (sin) |
 
-The gb card shows the first three sets (the ọ-high set shows it next to b and k), the p card shows the two ọ sets, and the s versus ṣ card shows the three s/ṣ sets. A set may appear on more than one card. Strict p minimal pairs are scarce, so the p sets contrast p with k, b, gb and g at the same vowel and tone.
+The gb card shows its two sets, the p card shows the two ọ sets (the ọ-high set includes gbọ́ next to p, k and b, and appears only under p, decided with the user), and the s versus ṣ card shows the three s/ṣ sets. A set may appear on more than one card in principle, but none does now. Strict p minimal pairs are scarce, so the p sets contrast p with k, b, gb and g at the same vowel and tone.
 
 ## 5. Content model and validation
 
