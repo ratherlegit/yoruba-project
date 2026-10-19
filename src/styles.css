@@ -223,3 +223,9 @@ svg[role="img"] { transition: transform 0.25s ease; }
 /* The English meaning sits on its own line under the Yoruba word, so the two read as separate things. */
 .word-gloss { display: block; margin-top: 0.1rem; font-size: 0.9rem; font-style: italic; }
 .tone-desc { margin: 0; font-size: 0.85rem; }
+
+.proverb-card { display: grid; gap: 1rem; }
+.proverb-yoruba { margin: 0; font-size: 1.35rem; line-height: 1.5; }
+.proverb-literal { margin: 0; display: grid; gap: 0.15rem; padding-left: 0.75rem; border-left: 3px solid var(--gold); }
+.proverb-literal .muted { font-size: 0.85rem; }
+.proverb-reveal { display: grid; gap: 0.4rem; padding: 0.75rem 1rem; border-radius: 0.7rem; background: var(--surface-2); border: 1px solid var(--border); }

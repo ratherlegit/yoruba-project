@@ -10,6 +10,7 @@ export function Layout() {
           <nav className="header-nav">
             <Link to="/vocab">Vocab</Link>
             <Link to="/sounds">Sound Bank</Link>
+            <Link to="/proverbs">Proverbs</Link>
             <Link to="/about">About</Link>
             <ThemeToggle />
           </nav>

@@ -10,7 +10,7 @@ export type Proverb = {
   yoruba: string;
   literal: string; // direct, word for word English translation
   meaning: string; // the social meaning
-  usedWhen: string; // when a speaker would say it
+  usedWhen: string; // finishes "You would say this when ..." (lowercase start, ends with a period)
   wrong: [string, string]; // two plausible but wrong meanings
   source: string;
   confidence: Confidence;
