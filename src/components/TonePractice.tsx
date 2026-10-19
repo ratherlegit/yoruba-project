@@ -86,7 +86,10 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
           <PitchLine word={q.answer} />
           {chosen !== q.answer && (
             <div>
-              <p className="muted" style={{ margin: 0 }}>You chose {chosen}</p>
+              <div className="with-audio">
+                <span className="muted">You chose {chosen}</span>
+                <AudioButton text={chosen!} label={`Listen to ${chosen}`} />
+              </div>
               <PitchLine word={chosen!} />
             </div>
           )}

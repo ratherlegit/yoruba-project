@@ -171,4 +171,31 @@ describe("TonePractice", () => {
     await user.click(screen.getByRole("button", { name: "Words" }));
     expect(screen.getByRole("button", { name: "Play the word" })).toBeInTheDocument();
   });
+
+  it("adds a Listen button for the chosen word after a wrong answer, so the two can be compared", async () => {
+    withClips("ọkọ̀", "ọkọ");
+    const user = userEvent.setup();
+    render(<TonePractice sources={sources} />);
+    expect(screen.queryByRole("button", { name: n("Listen to ọkọ") })).toBeNull();
+    await user.click(choice("ọkọ"));
+    expect(screen.getByText(n("You chose ọkọ"))).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: n("Listen to ọkọ") }));
+    expect(playClip).toHaveBeenCalledTimes(2); // once on answering, once for the chosen word
+  });
+
+  it("shows no Listen button for a wrong choice that has no clip", async () => {
+    withClips("ọkọ̀");
+    render(<TonePractice sources={sources} />);
+    await userEvent.setup().click(choice("ọkọ́"));
+    expect(screen.getByText(n("You chose ọkọ́"))).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: n("Listen to ọkọ́") })).toBeNull();
+  });
+
+  it("shows no chosen-word block after a right answer", async () => {
+    withClips("ọkọ̀", "ọkọ");
+    render(<TonePractice sources={sources} />);
+    await userEvent.setup().click(choice("ọkọ̀"));
+    expect(screen.queryByText(/You chose/)).toBeNull();
+    expect(screen.queryByRole("button", { name: n("Listen to ọkọ") })).toBeNull();
+  });
 });
