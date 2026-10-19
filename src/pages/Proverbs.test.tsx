@@ -4,6 +4,7 @@ import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/rea
 import { describe, expect, it } from "vitest";
 import { shuffledChoices } from "@/components/ChoiceQuestion";
 import type { Proverb } from "@/content/proverbs";
+import { proverbChoices } from "@/lib/proverb-choices";
 import { routeTree } from "@/router";
 import { Proverbs } from "./Proverbs";
 
@@ -78,7 +79,7 @@ describe("Proverbs page", () => {
     const positions = new Set<number>();
     for (let n = 1; n <= 20; n++) {
       const p = make(n);
-      positions.add(shuffledChoices("What is this proverb about?", [p.meaning, ...p.wrong], p.meaning).indexOf(p.meaning));
+      positions.add(shuffledChoices("What is this proverb about?", proverbChoices(p), p.meaning).indexOf(p.meaning));
     }
     expect(positions.size).toBeGreaterThan(1);
   });

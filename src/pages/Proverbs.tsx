@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChoiceQuestion } from "@/components/ChoiceQuestion";
+import { proverbChoices } from "@/lib/proverb-choices";
 import { PROVERBS, type Proverb } from "@/content/proverbs";
 
 export function Proverbs({ proverbs = PROVERBS }: { proverbs?: Proverb[] }) {
@@ -31,7 +32,7 @@ export function Proverbs({ proverbs = PROVERBS }: { proverbs?: Proverb[] }) {
         </p>
         <ChoiceQuestion
           prompt="What is this proverb about?"
-          choices={[proverb.meaning, ...proverb.wrong]}
+          choices={proverbChoices(proverb)}
           chosen={chosen}
           correct={proverb.meaning}
           onChoose={(c) => setAnswers((a) => ({ ...a, [proverb.id]: c }))}

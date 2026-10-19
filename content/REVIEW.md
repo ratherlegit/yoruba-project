@@ -1581,7 +1581,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `aisi-nle-ekun`: **Àìsí-ńlé ẹkùn, ajá ń gbó.**
   - Word for word: In the leopard's absence from home, the dog barks.
   - Meaning: When the person in charge is away, others misbehave or grow bold.
-  - Wrong options: Dogs are braver than leopards. / A guard should always stay at home.
+  - Wrong options: Dogs are braver than leopards. / Leopards are afraid of dogs.
   - Source: Wiktionary, "aisi-nle ẹkun, aja n gbo" (Yoruba section), read 2026-10-19
   - Doubt: Wiktionary lists a variant, àìsí-ńlé ológbò, ilé dilé èkúté. Confirm the tones and the hyphen. The "used when" line is the author's reading of Wiktionary's figurative sense.
 - `aja-ki-i-roro`: **Ajá kì í rorò kó ṣọ́ ojúlé méjì.**
@@ -1599,7 +1599,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `agbada-o-ba-gbona`: **Bí agbada ò bá gbóná, àgbàdo ò lè ta.**
   - Word for word: If the pan is not hot, the corn will not pop.
   - Meaning: You cannot get a result without the effort or the cost it takes.
-  - Wrong options: Cook corn in a hot pan only on market days. / Good things come to those who wait.
+  - Wrong options: Cook corn in a hot pan only on market days. / A pan should be cleaned after every meal.
   - Source: Wiktionary, "bi agbada o ba gbona, agbado o le ta" (Yoruba section), read 2026-10-19
   - Doubt: Wiktionary lists two alternative forms (tí agbada ò bá gbóná... and bí agbada kò bá gbóná...). Confirm which wording speakers use. The "used when" line is the author's reading of Wiktionary's figurative sense.
 - `ewe-ba-pe-lara-ose`: **Bí ewé bá pẹ́ lára ọṣẹ, á dọṣẹ.**
@@ -1623,7 +1623,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `ise-enia-nise-eranko`: **Ìṣe ènìyàn nìṣe ẹranko.**
   - Word for word: The actions of humans are the actions of animals.
   - Meaning: People behave much as animals do, so watching animals teaches you about people.
-  - Wrong options: Humans and animals should never be kept together. / Animals copy everything people do.
+  - Wrong options: Humans and animals should never be kept together. / Animals are wiser than people.
   - Source: Wiktionary, "iṣe eniyan niṣe ẹranko" (Yoruba section), read 2026-10-19
   - Doubt: Wiktionary lists several alternative spellings (ìṣe èèyàn nìṣe ẹranko, ìṣe ènìyàn ni ìṣe ẹranko). Confirm the standard form. The "used when" line is the author's reading of Wiktionary's figurative sense.
 - `ka-rin-ka-po`: **Ká rìn ká pọ̀, yíyẹ ní ń yẹni.**
@@ -1639,13 +1639,13 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: Wiktionary, "omi tuntun ti ru, ẹja tuntun ti wọ ọ" (Yoruba section), read 2026-10-19
   - Doubt: Wiktionary lists the alternative forms omi tuntun ti dé, ẹja tuntun ti wọ̀ ọ́ and omi titun dé, ẹja titun wọ̀ ọ́. Confirm the tones. The "used when" line is the author's reading of Wiktionary's figurative sense.
 - `obe-to-dun`: **Ọbẹ̀ tó dùn, owó ló pa á.**
-  - Word for word: A delicious soup, it is money that killed it.
+  - Word for word: A delicious soup, it is money that made it.
   - Meaning: Nothing good comes without money.
-  - Wrong options: Soup tastes best when it is shared. / Money spoils good cooking.
+  - Wrong options: Soup tastes best when it is shared. / Money should never be spent on food.
   - Source: Wiktionary, "ọbẹ to dun, owo lo pa a" (Yoruba section), read 2026-10-19
-  - Doubt: Wiktionary's literal sense reads: delicious soups are procured with money. The word-for-word line here is the author's, so confirm it. The verb pa (kill) is read here in its idiom of buying or procuring. The "used when" line is the author's reading of Wiktionary's figurative sense.
+  - Doubt: Wiktionary's literal sense reads: delicious soups are procured with money. The word-for-word line here is the author's, so confirm it. The verb pa (literally kill, strike) is read here in its idiom of making or procuring, so the word-for-word line says made. The "used when" line is the author's reading of Wiktionary's figurative sense.
 - `ona-kan-o-woja`: **Ọ̀nà kan ò wọjà.**
-  - Word for word: Only one road does not enter the market.
+  - Word for word: One road alone does not enter the market.
   - Meaning: There is more than one way to reach a goal.
   - Wrong options: The market is best reached by the shortest road. / Roads to the market are always crowded.
   - Source: Wiktionary, "ọna kan o wọja" (Yoruba section), read 2026-10-19
@@ -1653,7 +1653,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `sago-n-bugo`: **Ṣágo ń búgò.**
   - Word for word: The demijohn insults the bottle.
   - Meaning: Someone with the same fault is criticising another for it.
-  - Wrong options: Large things should respect small things. / Bottles are worth more than demijohns.
+  - Wrong options: Whoever is bigger should be obeyed. / Bottles are worth more than demijohns.
   - Source: Wiktionary, "ṣago n bugo" (Yoruba section), read 2026-10-19
   - Doubt: Wiktionary glosses this as pot calling the kettle black. Confirm the tones. The "used when" line is the author's reading of Wiktionary's figurative sense.
 - `omo-ti-a-ko-ko-proverb`: **Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà.**
@@ -1663,9 +1663,9 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: Afolayan, "Ọmọ Tí A Kò Kọ́: Globalization and Cultural Education among New Generation Nigerian Yorùbá", Yoruba Studies Review 3(1), 2021, quoted in lesson Mastery 4; translated "the child that is not taught will eventually sell the house that is built"
   - Doubt: Very high doubt: wording found in one source only, so confirm every tone. The social meaning is the author's reading of that translation. The proverb plays on kọ́ (teach) and kọ́ (build). The literal line is the author's.
 - `oni-la-ri`: **Òní l'a rí, ọba òkè l'ó rọ́la.**
-  - Word for word: Today is what we see; the king above is the one who sees tomorrow.
+  - Word for word: Today is what we see; the King above (God) is the one who sees tomorrow.
   - Meaning: Only God knows what tomorrow brings, so no one can be sure of the future.
-  - Wrong options: Wealth should be saved for tomorrow. / Kings can tell what the future holds.
+  - Wrong options: Wealth should be saved for tomorrow. / Rich people can buy a look at tomorrow.
   - Source: Wiktionary, "oni" (Yoruba section), quoting Awoyale, Global Yoruba Lexical Database v. 1.0 (Linguistic Data Consortium, 2008), translated "It is [only] today that we see, [only] the Most High sees tomorrow" and called a proverb on divine supremacy; quoted in lesson Mastery 4
   - Doubt: Very high doubt: one source. Confirm the wording, the apostrophe spelling (l' read as ni) and the tones. The social meaning follows the source's 'divine supremacy' label; the literal line and the used-when line are the author's.
 
