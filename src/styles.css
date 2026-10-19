@@ -209,3 +209,12 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .level-icon-lg { width: 4.5rem; height: 4.5rem; }
 .level-icon-lg svg { width: 3.2rem; height: 3.2rem; }
 .level-head { display: flex; align-items: center; gap: 1rem; }
+
+/* Tone comparison grid and key consonant cards */
+.tone-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; list-style: none; margin: 0; padding: 0; }
+.tone-row { display: grid; gap: 0.75rem; }
+.tone-row-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
+.tone-cells { display: grid; gap: 0.75rem; grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .tone-cells { grid-template-columns: repeat(3, 1fr); } }
+.tone-cell { display: grid; gap: 0.4rem; align-content: start; }
+.key-grid .key-set { display: grid; gap: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--line); }
