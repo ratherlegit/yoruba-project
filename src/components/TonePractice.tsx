@@ -57,7 +57,7 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
       </div>
       {sentences && (
         <div>
-          <p className="yo" style={{ margin: 0 }}>{answered ? q.prompt!.replace("___", q.answer) : q.prompt}</p>
+          <p className="yo" style={{ margin: 0 }}>{answered ? q.sentence : q.prompt}</p>
           <p className="muted" style={{ margin: 0 }}>{q.english}</p>
         </div>
       )}

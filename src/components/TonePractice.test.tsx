@@ -81,6 +81,7 @@ describe("TonePractice", () => {
     await user.click(screen.getByRole("button", { name: "Sentences" }));
     await user.click(choice("ọkọ"));
     expect(screen.getByTestId("practice").textContent).not.toContain("___");
+    expect(screen.getByText(n("Ọkọ̀ mi pupa."))).toBeInTheDocument(); // keeps the sentence-initial capital
   });
 
   it("runs through every question, shows the score, and Try again restarts at question 1", async () => {

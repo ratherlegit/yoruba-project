@@ -15,6 +15,7 @@ export type ToneQuestion = {
   audioText: string; // the word (words mode) or the whole sentence (sentences mode)
   prompt: string | null; // sentences mode: the sentence with exactly one ___ where the word goes
   english: string | null; // sentences mode: the sentence translation
+  sentence: string | null; // sentences mode: the full sentence as written, capitals included
   choices: string[];
   answer: string;
 };
@@ -47,7 +48,7 @@ export function buildToneRound(
     if (mode === "words") {
       if (!hasAudio(answer)) continue;
       taken.add(key(answer));
-      out.push({ id: `words:${key(answer)}`, mode, audioText: answer, prompt: null, english: null, choices, answer });
+      out.push({ id: `words:${key(answer)}`, mode, audioText: answer, prompt: null, english: null, sentence: null, choices, answer });
       continue;
     }
     const sentence = nfc(w.sentence.yoruba);
@@ -55,7 +56,7 @@ export function buildToneRound(
     const loc = locateBlank(sentence, blankOf(w));
     if (loc.start === -1 || loc.count !== 1) continue;
     const prompt = `${sentence.slice(0, loc.start)}___${sentence.slice(loc.end)}`;
-    out.push({ id: `sentences:${key(answer)}`, mode, audioText: sentence, prompt, english: w.sentence.english, choices, answer });
+    out.push({ id: `sentences:${key(answer)}`, mode, audioText: sentence, prompt, english: w.sentence.english, sentence, choices, answer });
   }
 
   if (mode === "words") {
@@ -68,7 +69,7 @@ export function buildToneRound(
         const answer = nfc(x.yoruba);
         if (taken.has(key(answer))) continue;
         taken.add(key(answer));
-        out.push({ id: `words:${key(answer)}`, mode, audioText: answer, prompt: null, english: null, choices, answer });
+        out.push({ id: `words:${key(answer)}`, mode, audioText: answer, prompt: null, english: null, sentence: null, choices, answer });
       }
     }
   }

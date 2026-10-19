@@ -43,6 +43,7 @@ describe("buildToneRound, words mode", () => {
     expect([...q.choices].sort()).toEqual(["ọkọ", "ọkọ̀", "ọkọ́"].map(n).sort());
     expect(q.prompt).toBeNull();
     expect(q.english).toBeNull();
+    expect(q.sentence).toBeNull();
   });
   it("skips a vocab word that has no word clip", () => {
     const qs = round("words", clips("ọkọ̀", "ọ̀kan"));
@@ -75,6 +76,7 @@ describe("buildToneRound, sentences mode", () => {
     const q = byAnswer(round("sentences"), "ọkọ̀")[0]!;
     expect(q.prompt).toBe(n("___ mi pupa."));
     expect(q.answer).toBe(n("ọkọ̀"));
+    expect(q.sentence).toBe(n("Ọkọ̀ mi pupa."));
   });
   it("skips a word whose blank differs from the word, which words mode still includes", () => {
     expect(byAnswer(round("sentences"), "ọ̀kan")).toHaveLength(0);
