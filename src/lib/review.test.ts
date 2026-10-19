@@ -9,7 +9,7 @@ import { SOUNDS, MINIMAL_PAIRS } from "@/content/sounds";
 import { TONE_TWINS } from "@/content/tone-twins";
 import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
-import type { Proverb } from "@/content/proverbs";
+import { PROVERBS, type Proverb } from "@/content/proverbs";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -63,7 +63,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
