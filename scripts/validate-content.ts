@@ -4,6 +4,8 @@ import { VOCAB_LEVELS } from "../src/content/vocab";
 import { validateTopic, validateVocabCatalog } from "../src/content/vocab/validate";
 import { MINIMAL_PAIRS, SOUNDS } from "../src/content/sounds";
 import { validateSounds } from "../src/content/validate-sounds";
+import { TONE_TWINS } from "../src/content/tone-twins";
+import { validateToneTwins } from "../src/content/validate-tone-twins";
 
 let failed = 0;
 let count = 0;
@@ -31,6 +33,10 @@ for (const e of validateVocabCatalog(VOCAB_LEVELS, { complete: true })) {
   failed++;
 }
 for (const e of validateSounds(SOUNDS, MINIMAL_PAIRS)) {
+  console.error(e);
+  failed++;
+}
+for (const e of validateToneTwins(TONE_TWINS, VOCAB_LEVELS)) {
   console.error(e);
   failed++;
 }
