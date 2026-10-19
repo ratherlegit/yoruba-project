@@ -91,7 +91,7 @@ export const i3: Lesson = {
     { type: "blank", prompt: "Landlord: ___lé", answer: "oní", choices: ["oní", "oni", "olù"], wordId: "onile" },
     { type: "blank", prompt: "Teacher: olù___", answer: "kọ́", choices: ["kọ́", "kọ", "ko"], wordId: "oluko" },
     { type: "pick", prompt: "Which word is built from a noun, not a verb?", choices: ["olùkọ́", "olùfẹ́", "onílé"], answer: 2, wordId: "onile" },
-    { type: "pick", prompt: "Which prefix goes before a verb?", choices: ["oní-", "olù-"], answer: 1, wordId: "oluko" },
+    { type: "pick", prompt: "Which prefix goes before a verb?", choices: ["oní-", "olù-", "ẹlẹ́-"], answer: 1, wordId: "oluko" },
     { type: "order", english: "My teacher", words: ["mi", "Olùkọ́"], answer: ["Olùkọ́", "mi"] },
     { type: "order", english: "My landlord", words: ["mi", "Onílé"], answer: ["Onílé", "mi"] },
     { type: "order", english: "The fish seller's house", words: ["ẹlẹ́ja", "Ilé"], answer: ["Ilé", "ẹlẹ́ja"] },

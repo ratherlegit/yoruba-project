@@ -1448,7 +1448,7 @@ Questions:
   - Choices: ṣẹ́ | sẹ́ | ṣẹ
   - Answer: ṣẹ́
 - Q4 (pick): Which is the joined morning greeting?
-  - Choices: ẹ kú àárọ̀ | ẹ káàárọ̀ | ẹ káalẹ́
+  - Choices: ẹ kú àárọ̀ | ẹ káàárọ̀ | ẹ kúàárọ̀
   - Answer: ẹ káàárọ̀
 - Q5 (pick): How many syllables does àárọ̀ have?
   - Choices: 2 | 3 | 4
@@ -1540,11 +1540,11 @@ Questions:
   - Choices: Kò | Ko | Kó
   - Answer: Kò
 - Q4 (pick): Which is the usual way to say "I did not go"?
-  - Choices: Mo kò lọ | N kò lọ | Mo lọ
+  - Choices: Mo kò lọ | N kò lọ | Ń kò lọ
   - Answer: N kò lọ
-- Q5 (pick): In A ò lọ, what does ò stand for?
-  - Choices: ó (he) | kò (not) | o (you)
-  - Answer: kò (not)
+- Q5 (pick): In A ò lọ, which word did ò shorten from?
+  - Choices: ó (high tone, as in Ó lọ) | kò (low tone, as in A kò lọ) | o (mid tone, as in O lọ)
+  - Answer: kò (low tone, as in A kò lọ)
 - Q6 (order): He did not go
   - Answer: Kò lọ
 - Q7 (order): We did not go
@@ -1567,13 +1567,13 @@ Questions:
   - Choices: lọ | lo | lọ́
   - Answer: lọ
 - Q3 (blank): Adé ___ mu omi. (Adé is drinking water.)
-  - Choices: ń | ní | kò
+  - Choices: ń | ní | ni
   - Answer: ń
 - Q4 (pick): Which means "I am eating"?
   - Choices: Mo jẹun | Mo ń jẹun | Mo ń lọ
   - Answer: Mo ń jẹun
 - Q5 (pick): In Adé ń mu omi, what does ń tell you?
-  - Choices: The action is going on | The action is already done | It means "not"
+  - Choices: The action is going on | The action is already done | The action will happen later
   - Answer: The action is going on
 - Q6 (order): I am eating
   - Answer: Mo ń jẹun
@@ -1664,9 +1664,9 @@ Questions:
 - Q4 (pick): Which means "father's house"?
   - Choices: bàbá ilé | ilé bàbá | ilé ọba
   - Answer: ilé bàbá
-- Q5 (pick): In ilé ọba, which word is the owner?
-  - Choices: ilé | ọba
-  - Answer: ọba
+- Q5 (pick): In a phrase like ilé ọba, where does the owner go?
+  - Choices: Right after the thing owned | Before the thing owned | At the end of the sentence
+  - Answer: Right after the thing owned
 - Q6 (order): The king's house
   - Answer: Ilé ọba
 - Q7 (order): Àkàndé's cap
@@ -1695,7 +1695,7 @@ Questions:
   - Choices: olùkọ́ | olùfẹ́ | onílé
   - Answer: onílé
 - Q5 (pick): Which prefix goes before a verb?
-  - Choices: oní- | olù-
+  - Choices: oní- | olù- | ẹlẹ́-
   - Answer: olù-
 - Q6 (order): My teacher
   - Answer: Olùkọ́ mi
@@ -1813,9 +1813,9 @@ Questions:
 - Q3 (blank): Olú ___ mú ìwé wá ilé. (Olú did not bring a book home.)
   - Choices: kò | ko | kó
   - Answer: kò
-- Q4 (pick): Which means "He brought the book"?
-  - Choices: Ó mú ìwé wá | Ó gbé ìwé lọ | Ó mú ìwé
-  - Answer: Ó mú ìwé wá
+- Q4 (pick): Which means "Olú took the knife to cut meat"?
+  - Choices: Olú mú ọ̀bẹ gé ẹran | Olú gé ọ̀bẹ mú ẹran | Olú mú ẹran gé ọ̀bẹ
+  - Answer: Olú mú ọ̀bẹ gé ẹran
 - Q5 (pick): Where does kò go in a serial verb sentence?
   - Choices: Before the first verb | Between the two verbs | At the end
   - Answer: Before the first verb
@@ -1843,9 +1843,9 @@ Questions:
 - Q3 (blank): ọkùnrin tí ___ ra aṣọ (the man who bought the cloth)
   - Choices: ó | o | ọ
   - Answer: ó
-- Q4 (pick): Which means "the chicken that I bought"?
-  - Choices: adìyẹ tí mo rà | adìyẹ mo rà | adìyẹ tí ó rà
-  - Answer: adìyẹ tí mo rà
+- Q4 (pick): Which means "the house that Bọ́lá lives in"?
+  - Choices: ilé tí Bọ́lá ń gbé | ilé Bọ́lá tí ń gbé | ilé tí ń gbé Bọ́lá
+  - Answer: ilé tí Bọ́lá ń gbé
 - Q5 (pick): In ọmọ tí ó lọ, why is ó there?
   - Choices: The child is the one who went | It means "not" | It makes a question
   - Answer: The child is the one who went

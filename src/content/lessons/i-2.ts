@@ -70,7 +70,7 @@ export const i2: Lesson = {
     { type: "blank", prompt: "___ Àkàndé (Àkàndé's cap)", answer: "fìlà", choices: ["fìlà", "fila", "fílà"], wordId: "fila-akande" },
     { type: "blank", prompt: "Ilé bàbá ___ (my father's house)", answer: "mi", choices: ["mi", "mí", "wa"], wordId: "ile-baba-mi" },
     { type: "pick", prompt: "Which means \"father's house\"?", choices: ["bàbá ilé", "ilé bàbá", "ilé ọba"], answer: 1, wordId: "ile-baba" },
-    { type: "pick", prompt: "In ilé ọba, which word is the owner?", choices: ["ilé", "ọba"], answer: 1, wordId: "ile-oba" },
+    { type: "pick", prompt: "In a phrase like ilé ọba, where does the owner go?", choices: ["Right after the thing owned", "Before the thing owned", "At the end of the sentence"], answer: 0, wordId: "ile-oba" },
     { type: "order", english: "The king's house", words: ["ọba", "Ilé"], answer: ["Ilé", "ọba"] },
     { type: "order", english: "Àkàndé's cap", words: ["Àkàndé", "Fìlà"], answer: ["Fìlà", "Àkàndé"] },
     { type: "order", english: "My father's house", words: ["mi", "bàbá", "Ilé"], answer: ["Ilé", "bàbá", "mi"] },

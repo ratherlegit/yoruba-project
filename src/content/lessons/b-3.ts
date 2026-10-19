@@ -74,9 +74,9 @@ export const b3: Lesson = {
   questions: [
     { type: "blank", prompt: "Mo ___ jẹun. (I am eating.)", answer: "ń", choices: ["ń", "n", "ǹ"], wordId: "mo-n-jeun" },
     { type: "blank", prompt: "Ó ń ___. (He is going.)", answer: "lọ", choices: ["lọ", "lo", "lọ́"], wordId: "o-n-lo" },
-    { type: "blank", prompt: "Adé ___ mu omi. (Adé is drinking water.)", answer: "ń", choices: ["ń", "ní", "kò"], wordId: "ade-n-mu-omi" },
+    { type: "blank", prompt: "Adé ___ mu omi. (Adé is drinking water.)", answer: "ń", choices: ["ń", "ní", "ni"], wordId: "ade-n-mu-omi" },
     { type: "pick", prompt: "Which means \"I am eating\"?", choices: ["Mo jẹun", "Mo ń jẹun", "Mo ń lọ"], answer: 1, wordId: "mo-n-jeun" },
-    { type: "pick", prompt: "In Adé ń mu omi, what does ń tell you?", choices: ["The action is going on", "The action is already done", "It means \"not\""], answer: 0, wordId: "ade-n-mu-omi" },
+    { type: "pick", prompt: "In Adé ń mu omi, what does ń tell you?", choices: ["The action is going on", "The action is already done", "The action will happen later"], answer: 0, wordId: "ade-n-mu-omi" },
     { type: "order", english: "I am eating", words: ["jẹun", "ń", "Mo"], answer: ["Mo", "ń", "jẹun"] },
     { type: "order", english: "He is going", words: ["lọ", "Ó", "ń"], answer: ["Ó", "ń", "lọ"] },
     { type: "order", english: "Adé is drinking water", words: ["omi", "ń", "Adé", "mu"], answer: ["Adé", "ń", "mu", "omi"] },
