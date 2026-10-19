@@ -6,6 +6,7 @@ import type { Level, WordBreakdown } from "@/content/types";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
 import { SOUNDS, MINIMAL_PAIRS } from "@/content/sounds";
+import { TONE_TWINS } from "@/content/tone-twins";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -59,7 +60,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS }));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS }, TONE_TWINS));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
@@ -147,5 +148,33 @@ describe("buildReviewMarkdown sound bank", () => {
   });
   it("omits the section when no sound data is given", () => {
     expect(buildReviewMarkdown(levels, [])).not.toContain("## Sound Bank");
+  });
+});
+
+describe("buildReviewMarkdown tone twins", () => {
+  const vocab: VocabLevel[] = [{
+    id: "getting-started", title: "Getting Started",
+    topics: [{ id: "t1", level: "getting-started", title: "T", blurb: "b", sources: ["s"], words: [
+      { id: "word-vehicle", yoruba: "ọkọ̀", english: "vehicle", pos: "noun", confidence: "verified", sentence: { yoruba: "Ọkọ̀ mi pupa.", english: "My car is red." } },
+    ] }],
+  }];
+  const entry = (confidence: "verified" | "needs-review") => ({
+    vocabId: "word-vehicle", twins: [{ yoruba: "ọkọ", english: "husband" }, { yoruba: "ọkọ́", english: "hoe" }],
+    source: "Test dictionary", confidence, note: confidence === "needs-review" ? "Check the hoe tone." : undefined,
+  });
+  it("lists tone twins with their English, source and doubt, and counts them", () => {
+    const base = buildReviewMarkdown(levels, vocab);
+    const md = buildReviewMarkdown(levels, vocab, undefined, [entry("needs-review")]);
+    expect(md).toContain("## Tone twins");
+    expect(md).toContain("ọkọ̀");
+    expect(md).toContain("ọkọ́ (hoe)");
+    expect(md).toContain("Test dictionary");
+    expect(md).toContain("Doubt: Check the hoe tone.");
+    const count = (s: string) => Number(/(\d+) items? need review/.exec(s)![1]);
+    expect(count(md)).toBe(count(base) + 1);
+  });
+  it("adds no section for verified entries or an empty list", () => {
+    expect(buildReviewMarkdown(levels, vocab, undefined, [entry("verified")])).not.toContain("## Tone twins");
+    expect(buildReviewMarkdown(levels, vocab, undefined, [])).not.toContain("## Tone twins");
   });
 });

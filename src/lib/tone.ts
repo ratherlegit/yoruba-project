@@ -77,3 +77,8 @@ export function toneOf(syllable: string): Tone {
   const marked = letters(syllable).find((l) => l.tone !== "mid");
   return marked ? marked.tone : "mid";
 }
+
+// Removes acute, grave and macron tone marks, keeps under-dots, lowercases.
+export function stripTones(s: string): string {
+  return s.normalize("NFD").replace(/[̀́̄]/g, "").normalize("NFC").toLowerCase();
+}

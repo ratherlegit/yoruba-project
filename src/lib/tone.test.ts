@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { syllabify, toneOf } from "./tone";
+import { stripTones, syllabify, toneOf } from "./tone";
 
 describe("syllabify", () => {
   it.each([
@@ -40,5 +40,13 @@ describe("toneOf", () => {
 
   it("throws when a syllable has conflicting tone marks", () => {
     expect(() => toneOf("á̀")).toThrow();
+  });
+});
+
+describe("stripTones", () => {
+  it("removes tone marks but keeps under-dots and lowercases", () => {
+    expect(stripTones("ọkọ̀")).toBe("ọkọ");
+    expect(stripTones("ẹ̀yìn")).toBe("ẹyin");
+    expect(stripTones("ÌGBÀ")).toBe("igba");
   });
 });
