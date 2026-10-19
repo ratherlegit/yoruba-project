@@ -3,6 +3,7 @@ import type { VocabLevel } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { ToneTwinEntry } from "@/content/tone-twins";
+import type { Proverb } from "@/content/proverbs";
 
 function questionLines(q: Question, n: number): string[] {
   if (q.type === "blank") {
@@ -22,7 +23,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = []): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -110,6 +111,18 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
   }
   const twinSection = twinLines.length ? ["## Tone twins", "", ...twinLines, ""] : [];
 
+  const proverbLines: string[] = [];
+  for (const p of proverbs.filter((x) => x.confidence === "needs-review")) {
+    total += 1;
+    proverbLines.push(`- \`${p.id}\`: **${p.yoruba}**`);
+    proverbLines.push(`  - Word for word: ${p.literal}`);
+    proverbLines.push(`  - Meaning: ${p.meaning}`);
+    proverbLines.push(`  - Wrong options: ${p.wrong.join(" / ")}`);
+    proverbLines.push(`  - Source: ${p.source}`);
+    proverbLines.push(`  - Doubt: ${p.note ?? "(none recorded)"}`);
+  }
+  const proverbSection = proverbLines.length ? ["## Proverbs", "", ...proverbLines, ""] : [];
+
   const header = [
     "# Content review list",
     "",
@@ -136,5 +149,5 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     }
   }
 
-  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...all].join("\n");
 }

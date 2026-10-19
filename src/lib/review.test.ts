@@ -9,6 +9,7 @@ import { SOUNDS, MINIMAL_PAIRS } from "@/content/sounds";
 import { TONE_TWINS } from "@/content/tone-twins";
 import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
+import type { Proverb } from "@/content/proverbs";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -207,5 +208,21 @@ describe("buildReviewMarkdown tone rows and consonant sets", () => {
   });
   it("adds nothing when none are given", () => {
     expect(buildReviewMarkdown(levels, [], empty)).not.toContain("tc-a");
+  });
+});
+
+describe("buildReviewMarkdown proverbs", () => {
+  const proverb: Proverb = {
+    id: "p-test", yoruba: "Òwe tó jẹ́ àpẹẹrẹ.", literal: "A proverb that is an example.",
+    meaning: "Examples teach.", usedWhen: "When teaching.", wrong: ["Wrong one.", "Wrong two."],
+    source: "Test source", confidence: "needs-review", note: "Check the tones.",
+  };
+  it("lists each proverb with its source and doubt", () => {
+    const md = buildReviewMarkdown(levels, [], undefined, [], [proverb]);
+    expect(md).toContain("## Proverbs");
+    for (const s of ["p-test", proverb.yoruba, "Test source", "Check the tones.", "Wrong one."]) expect(md).toContain(s);
+  });
+  it("adds no section for an empty list", () => {
+    expect(buildReviewMarkdown(levels, [], undefined, [], [])).not.toContain("## Proverbs");
   });
 });
