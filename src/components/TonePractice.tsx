@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import { audioUrlFor } from "@/lib/audio";
+import { playClip } from "@/lib/clip";
 import { buildToneRound, type ToneMode, type ToneSources } from "@/lib/tone-practice";
 import { AudioButton } from "./AudioButton";
 import { ChoiceQuestion } from "./ChoiceQuestion";
@@ -21,7 +23,7 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
   const switcher = (
     <div role="group" aria-label="Mode" style={{ display: "flex", gap: "0.5rem" }}>
       {MODES.map((m) => (
-        <button key={m.id} className="btn" aria-pressed={mode === m.id} onClick={() => { setMode(m.id); restart(); }}>{m.label}</button>
+        <button key={m.id} className="btn" aria-pressed={mode === m.id} onClick={() => { if (m.id !== mode) { setMode(m.id); restart(); } }}>{m.label}</button>
       ))}
     </div>
   );
@@ -67,7 +69,12 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
         choices={q.choices}
         chosen={chosen}
         correct={q.answer}
-        onChoose={(c) => { setChosen(c); if (c === q.answer) setScore((s) => s + 1); }}
+        onChoose={(c) => {
+          setChosen(c);
+          if (c === q.answer) setScore((s) => s + 1);
+          const url = audioUrlFor(q.audioText);
+          if (url) playClip(url);
+        }}
       />
       {answered && (
         <div style={{ display: "grid", gap: "0.5rem" }}>

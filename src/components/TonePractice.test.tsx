@@ -5,10 +5,12 @@ import type { MinimalPair } from "@/content/sounds";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { VocabLevel } from "@/content/vocab/types";
 import { audioUrlFor } from "@/lib/audio";
+import { playClip } from "@/lib/clip";
 import type { ToneSources } from "@/lib/tone-practice";
 import { TonePractice } from "./TonePractice";
 
 vi.mock("@/lib/audio", () => ({ audioUrlFor: vi.fn() }));
+vi.mock("@/lib/clip", () => ({ playClip: vi.fn() }));
 
 const n = (s: string) => s.normalize("NFC");
 const vocab: VocabLevel[] = [
@@ -38,6 +40,7 @@ const choice = (text: string) => screen.getAllByTestId("choice").find((c) => bar
 
 beforeEach(() => {
   vi.mocked(audioUrlFor).mockReset();
+  vi.mocked(playClip).mockReset();
   vi.stubGlobal("Audio", class { play = () => Promise.resolve(); pause = () => {}; addEventListener() {} });
 });
 
@@ -119,5 +122,25 @@ describe("TonePractice", () => {
     expect(screen.getByText(/audio/)).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Words" }));
     expect(screen.getByRole("button", { name: "Play the word" })).toBeInTheDocument();
+  });
+
+  it("plays the clip again as soon as a question is answered", async () => {
+    withClips("ọkọ̀");
+    render(<TonePractice sources={sources} />);
+    expect(playClip).not.toHaveBeenCalled();
+    await userEvent.setup().click(choice("ọkọ"));
+    expect(playClip).toHaveBeenCalledTimes(1);
+    expect(playClip).toHaveBeenCalledWith(expect.stringContaining("/audio/"));
+  });
+
+  it("keeps the round going when the already active mode is tapped again", async () => {
+    withClips("igba", "ìgbà", "igbá");
+    const user = userEvent.setup();
+    render(<TonePractice sources={sources} />);
+    await user.click(screen.getAllByTestId("choice")[0]!);
+    await user.click(screen.getByRole("button", { name: "Next" }));
+    expect(screen.getByText("Question 2 of 3")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Words" }));
+    expect(screen.getByText("Question 2 of 3")).toBeInTheDocument();
   });
 });
