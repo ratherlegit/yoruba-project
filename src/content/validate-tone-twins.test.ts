@@ -51,7 +51,7 @@ describe("validateToneTwins", () => {
   });
   it("rejects non-NFC text and em dashes", () => {
     expect(errs([entry({ twins: [{ yoruba: "ọkọ".normalize("NFD"), english: "x" }] })])).toContain("NFC");
-    expect(errs([entry({ note: "a — b" })])).toContain("em dash");
+    expect(errs([entry({ note: `a ${String.fromCharCode(0x2014)} b` })])).toContain("em dash");
   });
   it("rejects a twin whose tone pattern cannot be computed", () => {
     expect(errs([entry({ twins: [{ yoruba: "xq", english: "x" }] })])).toContain("tone pattern");

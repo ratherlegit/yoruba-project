@@ -3,7 +3,7 @@ import { strings } from "./validate";
 import type { ToneTwinEntry } from "./tone-twins";
 import type { VocabLevel, VocabWord } from "./vocab/types";
 
-const EM_DASH = "—";
+const EM_DASH = String.fromCharCode(0x2014);
 
 export function validateToneTwins(entries: ToneTwinEntry[], vocab: VocabLevel[]): string[] {
   const errors: string[] = [];
