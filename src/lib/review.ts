@@ -1,6 +1,7 @@
 import type { Level, Question } from "@/content/types";
 import type { VocabLevel } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
+import type { ToneTwinEntry } from "@/content/tone-twins";
 
 function questionLines(q: Question, n: number): string[] {
   if (q.type === "blank") {
@@ -20,7 +21,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[] }): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[] }, toneTwins: ToneTwinEntry[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -82,6 +83,18 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
   }
   const soundSection = soundLines.length ? ["## Sound Bank", "", ...soundLines, ""] : [];
 
+  const vocabById = new Map(vocabLevels.flatMap((l) => l.topics.flatMap((t) => t.words.map((w) => [w.id, w] as const))));
+  const twinLines: string[] = [];
+  for (const e of toneTwins.filter((x) => x.confidence === "needs-review")) {
+    total += 1;
+    const w = vocabById.get(e.vocabId);
+    twinLines.push(`- \`${e.vocabId}\`: **${w?.yoruba ?? "(unknown word)"}** (${w?.english ?? "?"})`);
+    twinLines.push(`  - Twins: ${e.twins.map((t) => `${t.yoruba} (${t.english})`).join(", ")}`);
+    twinLines.push(`  - Source: ${e.source}`);
+    twinLines.push(`  - Doubt: ${e.note ?? "(none recorded)"}`);
+  }
+  const twinSection = twinLines.length ? ["## Tone twins", "", ...twinLines, ""] : [];
+
   const header = [
     "# Content review list",
     "",
@@ -108,5 +121,5 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     }
   }
 
-  return [...header, ...lines, ...vocabSection, ...soundSection, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...all].join("\n");
 }

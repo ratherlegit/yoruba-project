@@ -149,3 +149,31 @@ describe("buildReviewMarkdown sound bank", () => {
     expect(buildReviewMarkdown(levels, [])).not.toContain("## Sound Bank");
   });
 });
+
+describe("buildReviewMarkdown tone twins", () => {
+  const vocab: VocabLevel[] = [{
+    id: "getting-started", title: "Getting Started",
+    topics: [{ id: "t1", level: "getting-started", title: "T", blurb: "b", sources: ["s"], words: [
+      { id: "word-vehicle", yoruba: "ọkọ̀", english: "vehicle", pos: "noun", confidence: "verified", sentence: { yoruba: "Ọkọ̀ mi pupa.", english: "My car is red." } },
+    ] }],
+  }];
+  const entry = (confidence: "verified" | "needs-review") => ({
+    vocabId: "word-vehicle", twins: [{ yoruba: "ọkọ", english: "husband" }, { yoruba: "ọkọ́", english: "hoe" }],
+    source: "Test dictionary", confidence, note: confidence === "needs-review" ? "Check the hoe tone." : undefined,
+  });
+  it("lists tone twins with their English, source and doubt, and counts them", () => {
+    const base = buildReviewMarkdown(levels, vocab);
+    const md = buildReviewMarkdown(levels, vocab, undefined, [entry("needs-review")]);
+    expect(md).toContain("## Tone twins");
+    expect(md).toContain("ọkọ̀");
+    expect(md).toContain("ọkọ́ (hoe)");
+    expect(md).toContain("Test dictionary");
+    expect(md).toContain("Doubt: Check the hoe tone.");
+    const count = (s: string) => Number(/(\d+) items? need review/.exec(s)![1]);
+    expect(count(md)).toBe(count(base) + 1);
+  });
+  it("adds no section for verified entries or an empty list", () => {
+    expect(buildReviewMarkdown(levels, vocab, undefined, [entry("verified")])).not.toContain("## Tone twins");
+    expect(buildReviewMarkdown(levels, vocab, undefined, [])).not.toContain("## Tone twins");
+  });
+});
