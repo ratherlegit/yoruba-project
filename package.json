@@ -1,7 +1,7 @@
 {
   "name": "yoruba-project",
-  "version": "1.0.0",
-  "description": "Yoruba grammar lessons with tone marks and word breakdowns",
+  "version": "0.1.0",
+  "description": "Learn Yoruba from zero: grammar lessons, vocab, a Sound Bank, tone listening practice and proverbs, with full tone marks and audio",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
