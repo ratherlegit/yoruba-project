@@ -41,8 +41,8 @@ Order on `/sounds`, with the jump bar following it:
 1. **Tones** (heading and `#tones` anchor kept): the explanation card, then the grid.
 2. **Key consonants**: three focused cards (gb, p, s versus ṣ).
 3. **Minimal pairs**: unchanged.
-4. **Practice**: the extended activity (section 6).
-5. **Letters reference**: a collapsed `<details>` containing the old Vowels cards and the old Consonants cards other than gb, p, s and ṣ (those four become the focused cards). Collapsed by default. (Author's call: vowels are demoted here rather than deleted, so no cards or audio are lost.)
+4. **Letters reference**: a collapsed `<details>` containing the old Vowels cards and the old Consonants cards other than gb, p, s and ṣ (those four become the focused cards). Collapsed by default. (Author's call: vowels are demoted here rather than deleted, so no cards or audio are lost.)
+5. **Practice**: the extended activity (section 6), last on the page (decided with the user).
 
 ## 3. Tones section
 
@@ -117,11 +117,11 @@ The Practice section's mode switch gains a third mode, **Sounds**, next to Words
 
 ## 7. Audio
 
-All new words are real words and the audio workflow already in `tools/audio/` is used. Clips for the 21 tone words are already generated and split (17 new on 2026-10-19). Still to generate, 25 words and about 121 credits, listed in the paste file `tools/audio/workspace/split-work/sound-focus/part-1.txt` (with its `order.json`):
+All new words are real words and the audio workflow already in `tools/audio/` is used. Clips for the 21 tone words are already generated and split (17 new on 2026-10-19). The other 25 words (about 121 credits) were generated and split on 2026-10-19 from the paste file `tools/audio/workspace/split-work/sound-focus/part-1.txt` (download saved as `raw-downloads/sounds/sound-focus-1.mp3`):
 - Nasal rows (10): kan, kán, kàn, rin, rín, rìn, sun, sún, wọn, wọ̀n.
 - Consonant sets (15): bà, gà, gbà, gé, bọ́, bọ̀, gọ̀, pọ́, pọ̀, sé, ṣé, sẹ́, ṣẹ́, sẹ̀, ṣẹ̀.
 
-Already have clips: wá, ṣí, kọ́, kọ̀, mu, sùn, wọ́n, gbé, gbọ́, and the 17 generated words. `collectSoundAudioStrings` in `src/lib/audio-strings.ts` takes the rows and sets (optional parameters) so `npm run audio:list`, the string lister and the audio tests know about them. Tests fail if any row or set word has no clip. No existing clip is deleted; the manifest-orphan test keeps passing because every old Sound Bank word stays on the page (in the reference list).
+Every row and set word now has a clip (the 9 that existed before: wá, ṣí, kọ́, kọ̀, mu, sùn, wọ́n, gbé, gbọ́). `collectSoundAudioStrings` in `src/lib/audio-strings.ts` takes the rows and sets (optional parameters) so `npm run audio:list`, the string lister and the audio tests know about them. Tests fail if any row or set word has no clip. No existing clip is deleted; the manifest-orphan test keeps passing because every old Sound Bank word stays on the page (in the reference list).
 
 ## 8. Review file
 
@@ -155,7 +155,7 @@ Already have clips: wá, ṣí, kọ́, kọ̀, mu, sùn, wọ́n, gbé, gbọ́
 These are not agreed decisions:
 1. The Vowels cards move into the collapsed reference list, with the other consonants, instead of being deleted.
 2. The old gb, p, s and ṣ cards are replaced by the focused cards.
-3. The page order is Tones, Key consonants, Minimal pairs, Practice, Letters reference.
+3. The page order is Tones, Key consonants, Minimal pairs, Letters reference, then Practice last (Practice last was decided with the user).
 4. Row headers keep the old English comparison for each vowel.
 5. Sounds is a third mode in the existing Practice switch.
 6. English meanings are shown next to words in the grid and sets, but not in Sounds mode.
