@@ -6,6 +6,7 @@ import type { Level, WordBreakdown } from "@/content/types";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
 import { SOUNDS, MINIMAL_PAIRS } from "@/content/sounds";
+import { TONE_TWINS } from "@/content/tone-twins";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -59,7 +60,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS }));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS }, TONE_TWINS));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
