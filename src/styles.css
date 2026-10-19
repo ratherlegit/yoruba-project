@@ -220,3 +220,6 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .key-grid { display: grid; gap: 0.75rem; grid-template-columns: 1fr; align-items: start; }
 @media (min-width: 40rem) { .key-grid { grid-template-columns: repeat(3, 1fr); } }
 .reference > summary { cursor: pointer; font-weight: 600; padding: 0.4rem 0; }
+/* The English meaning sits on its own line under the Yoruba word, so the two read as separate things. */
+.word-gloss { display: block; margin-top: 0.1rem; font-size: 0.9rem; font-style: italic; }
+.tone-desc { margin: 0; font-size: 0.85rem; }

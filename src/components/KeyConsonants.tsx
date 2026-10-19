@@ -27,8 +27,8 @@ export function KeyConsonants({ sounds, sets }: { sounds: Sound[]; sets: Consona
                 {x.words.map((w) => (
                   <li key={w.yoruba} className="sound-row">
                     <span className="sound-word">
-                      <span className="yo"><strong>{w.yoruba}</strong></span>{" "}
-                      <span className="muted">{w.english}</span>
+                      <span className="yo"><strong>{w.yoruba}</strong></span>
+                      <span className="muted word-gloss" data-testid="word-gloss">{w.english}</span>
                     </span>
                     <AudioButton text={w.yoruba} />
                   </li>

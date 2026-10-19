@@ -63,4 +63,10 @@ describe("KeyConsonants", () => {
     expect(gb.getByText("Listen for gb.")).toBeInTheDocument();
     expect(gb.getByText("Hear gé, then gbé.".normalize("NFC"))).toBeInTheDocument();
   });
+
+  it("puts each English meaning on its own line, apart from the Yoruba word", () => {
+    render(<KeyConsonants sounds={sounds} sets={sets} />);
+    const gloss = within(screen.getByTestId("key-s-sh")).getAllByTestId("word-gloss");
+    expect(gloss.map((g) => g.textContent)).toEqual(["meaning cs-sh 0", "meaning cs-sh 1"]);
+  });
 });

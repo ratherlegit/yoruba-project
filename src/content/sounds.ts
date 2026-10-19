@@ -33,13 +33,13 @@ const s = (
 
 export const SOUNDS: Sound[] = [
   // Oral vowels
-  s("v-a", "vowels", "a", "close to 'a' in 'father'", [ex("àga", "chair"), ex("ajá", "dog"), ex("àná", "yesterday")], "English comparison approximate."),
-  s("v-e", "vowels", "e", "close to 'e' in 'they'", [ex("erin", "elephant"), ex("ejò", "snake"), ex("etí", "ear")], "Check the comparison; Yoruba e is a pure vowel."),
-  s("v-ee", "vowels", "ẹ", "close to 'e' in 'bed'", [ex("ẹja", "fish"), ex("ẹran", "meat"), ex("ẹyin", "egg")], "English comparison approximate."),
-  s("v-i", "vowels", "i", "close to 'ee' in 'see', shorter", [ex("ilé", "house"), ex("irun", "hair"), ex("ikùn", "stomach")], "English comparison approximate."),
-  s("v-o", "vowels", "o", "close to 'o' in 'go', without the glide", [ex("omi", "water"), ex("orí", "head"), ex("ojú", "eye")], "Check the comparison; Yoruba o is a pure vowel."),
-  s("v-oo", "vowels", "ọ", "close to 'aw' in 'saw'", [ex("ọmọ", "child"), ex("ọkọ", "husband"), ex("ọwọ́", "hand")], "English comparison approximate (varies by accent)."),
-  s("v-u", "vowels", "u", "close to 'oo' in 'moon', shorter", [ex("iṣu", "yam"), ex("ẹnu", "mouth"), ex("ìlú", "town")], "English comparison approximate."),
+  s("v-a", "vowels", "a", "like 'a' in 'father'", [ex("àga", "chair"), ex("ajá", "dog"), ex("àná", "yesterday")], "English comparison approximate."),
+  s("v-e", "vowels", "e", "like 'e' in 'they'", [ex("erin", "elephant"), ex("ejò", "snake"), ex("etí", "ear")], "Check the comparison; Yoruba e is a pure vowel."),
+  s("v-ee", "vowels", "ẹ", "like 'e' in 'bed'", [ex("ẹja", "fish"), ex("ẹran", "meat"), ex("ẹyin", "egg")], "English comparison approximate."),
+  s("v-i", "vowels", "i", "like 'ee' in 'see', shorter", [ex("ilé", "house"), ex("irun", "hair"), ex("ikùn", "stomach")], "English comparison approximate."),
+  s("v-o", "vowels", "o", "like 'o' in 'go', without the glide", [ex("omi", "water"), ex("orí", "head"), ex("ojú", "eye")], "Check the comparison; Yoruba o is a pure vowel."),
+  s("v-oo", "vowels", "ọ", "like 'aw' in 'saw'", [ex("ọmọ", "child"), ex("ọkọ", "husband"), ex("ọwọ́", "hand")], "English comparison approximate (varies by accent)."),
+  s("v-u", "vowels", "u", "like 'oo' in 'moon', shorter", [ex("iṣu", "yam"), ex("ẹnu", "mouth"), ex("ìlú", "town")], "English comparison approximate."),
   // Nasal vowels
   s("n-an", "vowels", "an", "a nasal 'a', like the vowel in French 'blanc'", [ex("ọkàn", "heart"), ex("ẹran", "meat")], "Nasal vowel; check example words and the French comparison. In Standard Yoruba an is often said like ọn, so the French comparison is approximate."),
   s("n-en", "vowels", "ẹn", "a nasal 'ẹ', like the vowel in French 'vin'", [ex("ìyẹn", "that one"), ex("yẹn", "that, as in ilé yẹn")], "Rare and debated nasal vowel; example words are my least certain, a native speaker must confirm or replace them."),

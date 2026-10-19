@@ -1243,25 +1243,25 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 
 ## Sound Bank
 
-- `v-a`: **a** (vowels): close to 'a' in 'father'
+- `v-a`: **a** (vowels): like 'a' in 'father'
   - Examples: àga (chair), ajá (dog), àná (yesterday)
   - Doubt: English comparison approximate.
-- `v-e`: **e** (vowels): close to 'e' in 'they'
+- `v-e`: **e** (vowels): like 'e' in 'they'
   - Examples: erin (elephant), ejò (snake), etí (ear)
   - Doubt: Check the comparison; Yoruba e is a pure vowel.
-- `v-ee`: **ẹ** (vowels): close to 'e' in 'bed'
+- `v-ee`: **ẹ** (vowels): like 'e' in 'bed'
   - Examples: ẹja (fish), ẹran (meat), ẹyin (egg)
   - Doubt: English comparison approximate.
-- `v-i`: **i** (vowels): close to 'ee' in 'see', shorter
+- `v-i`: **i** (vowels): like 'ee' in 'see', shorter
   - Examples: ilé (house), irun (hair), ikùn (stomach)
   - Doubt: English comparison approximate.
-- `v-o`: **o** (vowels): close to 'o' in 'go', without the glide
+- `v-o`: **o** (vowels): like 'o' in 'go', without the glide
   - Examples: omi (water), orí (head), ojú (eye)
   - Doubt: Check the comparison; Yoruba o is a pure vowel.
-- `v-oo`: **ọ** (vowels): close to 'aw' in 'saw'
+- `v-oo`: **ọ** (vowels): like 'aw' in 'saw'
   - Examples: ọmọ (child), ọkọ (husband), ọwọ́ (hand)
   - Doubt: English comparison approximate (varies by accent).
-- `v-u`: **u** (vowels): close to 'oo' in 'moon', shorter
+- `v-u`: **u** (vowels): like 'oo' in 'moon', shorter
   - Examples: iṣu (yam), ẹnu (mouth), ìlú (town)
   - Doubt: English comparison approximate.
 - `n-an`: **an** (vowels): a nasal 'a', like the vowel in French 'blanc'

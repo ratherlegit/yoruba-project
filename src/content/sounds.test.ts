@@ -23,6 +23,10 @@ describe("shipped sound content", () => {
     expect(soundsBySection("consonants").length).toBeGreaterThanOrEqual(18);
     expect(SOUNDS.some((s) => s.id.startsWith("t-"))).toBe(false);
   });
+  it("words every vowel comparison as like, not close to", () => {
+    for (const s of soundsBySection("vowels")) expect(s.compare, s.id).not.toMatch(/close to/i);
+    expect(SOUNDS.find((s) => s.id === "v-a")?.compare).toBe("like 'a' in 'father'");
+  });
   it("keeps the cards the key consonant section reads", () => {
     for (const id of ["c-gb", "c-p", "c-s", "c-sh"]) expect(SOUNDS.some((s) => s.id === id), id).toBe(true);
   });

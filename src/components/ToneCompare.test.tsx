@@ -18,7 +18,7 @@ const rows: ToneCompareRow[] = [
     words: [{ yoruba: n("bẹ"), english: "peel", tone: "mid" }, { yoruba: n("bẹ́"), english: "hop", tone: "high" }, { yoruba: n("bẹ̀"), english: "beg", tone: "low" }] },
 ];
 const sounds = [
-  { id: "v-a", section: "vowels", letter: "a", compare: "close to 'a' in 'father'", examples: [], confidence: "needs-review", note: "n" },
+  { id: "v-a", section: "vowels", letter: "a", compare: "like 'a' in 'father'", examples: [], confidence: "needs-review", note: "n" },
 ] as unknown as Sound[];
 
 beforeEach(() => sequence.mockClear());
@@ -43,9 +43,29 @@ describe("ToneCompare", () => {
     expect(card.textContent).toContain("nasal");
     for (const label of ["Mid", "High", "Low"]) expect(within(card).getByText(label)).toBeInTheDocument();
   });
-  it("shows the vowel's English comparison from its vowel card, and none when there is no card", () => {
+  it("gives each of the three sounds its own description, pairing the vowel comparison with that pitch", () => {
     render(<ToneCompare rows={rows} sounds={sounds} />);
-    expect(within(screen.getByTestId("tc-a")).getByText("close to 'a' in 'father'")).toBeInTheDocument();
-    expect(within(screen.getByTestId("tc-ee")).queryByText(/close to/)).toBeNull();
+    const desc = within(screen.getByTestId("tc-a")).getAllByTestId("tone-desc").map((d) => d.textContent);
+    expect(desc).toEqual([
+      "Like 'a' in 'father', said at a level, middle pitch (no mark).",
+      "Like 'a' in 'father', said at a higher pitch (acute accent).",
+      "Like 'a' in 'father', said at a lower pitch (grave accent).",
+    ]);
+  });
+  it("describes only the pitch when the vowel has no comparison card", () => {
+    render(<ToneCompare rows={rows} sounds={sounds} />);
+    const desc = within(screen.getByTestId("tc-ee")).getAllByTestId("tone-desc").map((d) => d.textContent);
+    expect(desc[1]).toBe("Said at a higher pitch (acute accent).");
+  });
+  it("no longer puts the base vowel comparison in the row header", () => {
+    render(<ToneCompare rows={rows} sounds={sounds} />);
+    expect(within(screen.getByTestId("tc-a")).queryByText("like 'a' in 'father'")).toBeNull();
+  });
+  it("puts each English meaning on its own line, apart from the Yoruba word", () => {
+    render(<ToneCompare rows={rows} sounds={sounds} />);
+    const cell = within(screen.getByTestId("tc-a")).getAllByTestId("tone-cell")[1]!;
+    const gloss = within(cell).getByTestId("word-gloss");
+    expect(gloss.textContent).toBe("come");
+    expect(cell.querySelector("strong")!.contains(gloss)).toBe(false);
   });
 });
