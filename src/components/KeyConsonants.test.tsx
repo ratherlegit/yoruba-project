@@ -45,4 +45,22 @@ describe("KeyConsonants", () => {
     await userEvent.click(within(card).getByRole("button", { name: "Play all" }));
     expect(sequence).toHaveBeenCalledWith(["sé", "ṣé"].map(n));
   });
+
+  it("shows a set's explanation once per card when sets repeat the same line, and each different line", () => {
+    const same = "Listen for s as in sun, then ṣ as in ship.".normalize("NFC");
+    const twoSame: ConsonantSet[] = [
+      { ...set("cs-s1", ["s-sh"], ["sé", "ṣé"]), explain: same },
+      { ...set("cs-s2", ["s-sh"], ["sẹ́", "ṣẹ́"]), explain: same },
+      { ...set("cs-s3", ["s-sh"], ["sẹ̀", "ṣẹ̀"]), explain: same },
+      { ...set("cs-g1", ["gb"], ["bà", "gà"]), explain: "Listen for gb." },
+      { ...set("cs-g2", ["gb"], ["gé", "gbé"]), explain: "Hear gé, then gbé." },
+    ];
+    render(<KeyConsonants sounds={sounds} sets={twoSame} />);
+    const sh = within(screen.getByTestId("key-s-sh"));
+    expect(sh.getAllByText(same)).toHaveLength(1);
+    expect(sh.getAllByRole("button", { name: "Play all" })).toHaveLength(3);
+    const gb = within(screen.getByTestId("key-gb"));
+    expect(gb.getByText("Listen for gb.")).toBeInTheDocument();
+    expect(gb.getByText("Hear gé, then gbé.".normalize("NFC"))).toBeInTheDocument();
+  });
 });

@@ -19,9 +19,10 @@ export function KeyConsonants({ sounds, sets }: { sounds: Sound[]; sets: Consona
           {card.soundIds.map((id) => sounds.find((s) => s.id === id)).filter((s): s is Sound => !!s).map((s) => (
             <p key={s.id} className="muted" style={{ margin: 0 }}><span className="yo"><strong>{s.letter}</strong></span>: {s.compare}</p>
           ))}
-          {sets.filter((x) => x.focus.includes(card.key)).map((x) => (
+          {sets.filter((x) => x.focus.includes(card.key)).map((x, i, list) => (
             <div key={x.id} className="key-set">
-              <p style={{ margin: 0 }}>{x.explain}</p>
+              {/* A line the previous set on this card already showed is not repeated. */}
+              {x.explain !== list[i - 1]?.explain && <p style={{ margin: 0 }}>{x.explain}</p>}
               <ul className="sound-examples" role="list">
                 {x.words.map((w) => (
                   <li key={w.yoruba} className="sound-row">
