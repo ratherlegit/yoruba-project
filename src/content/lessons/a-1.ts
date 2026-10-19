@@ -94,9 +94,9 @@ export const a1: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "ra ẹran (to buy meat) is said r___ran.", answer: "ẹ", choices: ["ẹ", "a", "e"], wordId: "reran" },
+    { type: "blank", prompt: "ra ẹran (to buy meat) is said ___.", answer: "rẹran", choices: ["rẹran", "raẹran", "rẹ́ran"], wordId: "reran" },
     { type: "blank", prompt: "rí ẹja (to see fish) is said ___ja.", answer: "rẹ́", choices: ["rẹ́", "rẹ", "ré"], wordId: "reja-see" },
-    { type: "blank", prompt: "ta iṣu (to sell yams) is said ta___.", answer: "ṣu", choices: ["ṣu", "iṣu", "su"], wordId: "tasu" },
+    { type: "blank", prompt: "ta iṣu (to sell yams) is said ___.", answer: "taṣu", choices: ["taṣu", "taiṣu", "tasu"], wordId: "tasu" },
     { type: "pick", prompt: "Which two words make rẹja (to buy fish)?", choices: ["ra ẹja", "rí ẹja", "ta ẹja"], answer: 0, wordId: "reja-buy" },
     { type: "pick", prompt: "How is kú ilé (welcome into the house) said?", choices: ["kúulé", "kúlé", "kílé"], answer: 0, wordId: "kuule" },
     { type: "order", english: "I bought meat", words: ["rẹran", "Mo"], answer: ["Mo", "rẹran"] },

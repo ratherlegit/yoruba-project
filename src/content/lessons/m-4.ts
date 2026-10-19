@@ -95,7 +95,7 @@ export const m4: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "Ọmọ tí a kò ___ ni yóò gbé ilé tí a kọ́ tà.", answer: "kọ́", choices: ["kọ́", "kọ̀", "kọ"], wordId: "omo-ti-a-ko-ko" },
+    { type: "blank", prompt: "Ọmọ tí a kò ___ (the untaught child)", answer: "kọ́", choices: ["kọ́", "kọ", "kọ̀"], wordId: "omo-ti-a-ko-ko" },
     { type: "blank", prompt: "Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ ___.", answer: "tà", choices: ["tà", "ta", "tá"], wordId: "owe-omo" },
     { type: "blank", prompt: "Òní l'a ___, ọba òkè l'ó rọ́la.", answer: "rí", choices: ["rí", "ri", "rì"], wordId: "oni-la-ri" },
     { type: "pick", prompt: "What does Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà mean?", choices: ["The child who is not taught will sell the house that is built", "The child who is not taught will build a house", "A house that is not built cannot be sold"], answer: 0, wordId: "owe-omo" },

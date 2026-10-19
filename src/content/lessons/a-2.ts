@@ -83,7 +83,7 @@ export const a2: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "jẹ (eat) → ___jẹ (eating)", answer: "jí", choices: ["jí", "jì", "ji"], wordId: "jije" },
-    { type: "blank", prompt: "kà (read) → kí___ (reading)", answer: "kà", choices: ["kà", "ka", "ká"], wordId: "kika" },
+    { type: "blank", prompt: "kà (read) → ___ (reading)", answer: "kíkà", choices: ["kíkà", "kíka", "kikà"], wordId: "kika" },
     { type: "blank", prompt: "gbé (carry) → ___gbé (carrying)", answer: "gbí", choices: ["gbí", "bí", "gí"], wordId: "gbigbe" },
     { type: "pick", prompt: "lọ (go) becomes which verbal noun?", choices: ["lílọ", "lilọ", "lílọ̀"], answer: 0, wordId: "lilo" },
     { type: "pick", prompt: "Which verb does kíkà come from?", choices: ["kà", "kí", "kọ́"], answer: 0, wordId: "kika" },

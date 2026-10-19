@@ -56,8 +56,8 @@ export const gs1: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "gbọ́ is made of ___ sounds.", answer: "2", choices: ["2", "3", "1"], wordId: "gbo" },
-    { type: "blank", prompt: "Writing omo instead of ọmọ changes ___ vowel sounds.", answer: "2", choices: ["2", "1", "0"], wordId: "omo" },
-    { type: "blank", prompt: "ṣọ́ra has ___ letters with a dot underneath.", answer: "2", choices: ["2", "1", "3"], wordId: "sora" },
+    { type: "pick", prompt: "Which word starts with the vowel sound in \"bed\"?", choices: ["ọmọ", "ẹja", "ṣọ́ra"], answer: 1, wordId: "eja" },
+    { type: "pick", prompt: "Which word starts with the \"sh\" sound?", choices: ["gbọ́", "ṣọ́ra", "ẹja"], answer: 1, wordId: "sora" },
     { type: "pick", prompt: "Which word has a sound written with two letters?", choices: ["gbọ́", "ṣọ́ra", "ẹja"], answer: 0, wordId: "gbo" },
     { type: "pick", prompt: "Which word has exactly one dotted vowel (ẹ or ọ) and no dotted consonant?", choices: ["ọmọ", "ṣọ́ra", "ẹja"], answer: 2, wordId: "eja" },
     { type: "order", english: "Fish and child", words: ["ọmọ", "àti", "ẹja"], answer: ["ẹja", "àti", "ọmọ"] },

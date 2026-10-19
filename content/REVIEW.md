@@ -1381,12 +1381,12 @@ Questions:
 - Q1 (blank): gbọ́ is made of ___ sounds.
   - Choices: 2 | 3 | 1
   - Answer: 2
-- Q2 (blank): Writing omo instead of ọmọ changes ___ vowel sounds.
-  - Choices: 2 | 1 | 0
-  - Answer: 2
-- Q3 (blank): ṣọ́ra has ___ letters with a dot underneath.
-  - Choices: 2 | 1 | 3
-  - Answer: 2
+- Q2 (pick): Which word starts with the vowel sound in "bed"?
+  - Choices: ọmọ | ẹja | ṣọ́ra
+  - Answer: ẹja
+- Q3 (pick): Which word starts with the "sh" sound?
+  - Choices: gbọ́ | ṣọ́ra | ẹja
+  - Answer: ṣọ́ra
 - Q4 (pick): Which word has a sound written with two letters?
   - Choices: gbọ́ | ṣọ́ra | ẹja
   - Answer: gbọ́
@@ -1744,15 +1744,15 @@ Common mistake:
 - Why: When rí loses its vowel, its high tone stays. COERLL (page 245) writes rí ẹja as rẹ́ja. Without the high mark, rẹja is the form Wikipedia gives for ra ẹja, to buy fish.
 
 Questions:
-- Q1 (blank): ra ẹran (to buy meat) is said r___ran.
-  - Choices: ẹ | a | e
-  - Answer: ẹ
+- Q1 (blank): ra ẹran (to buy meat) is said ___.
+  - Choices: rẹran | raẹran | rẹ́ran
+  - Answer: rẹran
 - Q2 (blank): rí ẹja (to see fish) is said ___ja.
   - Choices: rẹ́ | rẹ | ré
   - Answer: rẹ́
-- Q3 (blank): ta iṣu (to sell yams) is said ta___.
-  - Choices: ṣu | iṣu | su
-  - Answer: ṣu
+- Q3 (blank): ta iṣu (to sell yams) is said ___.
+  - Choices: taṣu | taiṣu | tasu
+  - Answer: taṣu
 - Q4 (pick): Which two words make rẹja (to buy fish)?
   - Choices: ra ẹja | rí ẹja | ta ẹja
   - Answer: ra ẹja
@@ -1777,9 +1777,9 @@ Questions:
 - Q1 (blank): jẹ (eat) → ___jẹ (eating)
   - Choices: jí | jì | ji
   - Answer: jí
-- Q2 (blank): kà (read) → kí___ (reading)
-  - Choices: kà | ka | ká
-  - Answer: kà
+- Q2 (blank): kà (read) → ___ (reading)
+  - Choices: kíkà | kíka | kikà
+  - Answer: kíkà
 - Q3 (blank): gbé (carry) → ___gbé (carrying)
   - Choices: gbí | bí | gí
   - Answer: gbí
@@ -1899,9 +1899,9 @@ Questions:
 - Q1 (blank): Adé ___ ó ra ìwé. (It was Adé who bought the book.)
   - Choices: ni | ní | nì
   - Answer: ni
-- Q2 (blank): Akin ni ___ lọ. (It was Akin who went.)
-  - Choices: ó | o | ọ
-  - Answer: ó
+- Q2 (blank): Akin ni ó ___. (It was Akin who went.)
+  - Choices: lọ | lo | lọ̀
+  - Answer: lọ
 - Q3 (blank): Ìwé ni Adé ___. (It was a book that Adé bought.)
   - Choices: rà | ra | rá
   - Answer: rà
@@ -1929,7 +1929,7 @@ Questions:
 - Q1 (blank): ___ òjò bá rọ̀. (If it rains.)
   - Choices: Bí | Bì | Bi
   - Answer: Bí
-- Q2 (blank): Bí òjò ___ rọ̀. (If it rains.)
+- Q2 (blank): Bí o ___ kàwé rẹ. (If you read your books.)
   - Choices: bá | ba | bà
   - Answer: bá
 - Q3 (blank): ___ pé òjò rọ̀. (Because it rained.)
@@ -1956,8 +1956,8 @@ Common mistake:
 - Why: The first is a paraphrase, not the proverb. It drops ni, gbé and "the house that is built", and with it the play on kọ́ (teach) and kọ́ (build) that Afolayan (2021) describes. Quote proverbs word for word.
 
 Questions:
-- Q1 (blank): Ọmọ tí a kò ___ ni yóò gbé ilé tí a kọ́ tà.
-  - Choices: kọ́ | kọ̀ | kọ
+- Q1 (blank): Ọmọ tí a kò ___ (the untaught child)
+  - Choices: kọ́ | kọ | kọ̀
   - Answer: kọ́
 - Q2 (blank): Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ ___.
   - Choices: tà | ta | tá

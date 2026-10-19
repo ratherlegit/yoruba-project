@@ -80,7 +80,7 @@ export const m3: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "___ òjò bá rọ̀. (If it rains.)", answer: "Bí", choices: ["Bí", "Bì", "Bi"], wordId: "bi-ojo-ba-ro" },
-    { type: "blank", prompt: "Bí òjò ___ rọ̀. (If it rains.)", answer: "bá", choices: ["bá", "ba", "bà"], wordId: "bi-ojo-ba-ro" },
+    { type: "blank", prompt: "Bí o ___ kàwé rẹ. (If you read your books.)", answer: "bá", choices: ["bá", "ba", "bà"], wordId: "bi-o-ba-kawe-re" },
     { type: "blank", prompt: "___ pé òjò rọ̀. (Because it rained.)", answer: "Nítorí", choices: ["Nítorí", "Nitori", "Nìtorí"], wordId: "nitori-pe-ojo-ro" },
     { type: "pick", prompt: "Which means \"we will not go\"?", choices: ["A ò níí lọ", "A ò lọ", "A máa lọ"], answer: 0, wordId: "a-o-nii-lo" },
     { type: "pick", prompt: "In an if-clause, where does bá go?", choices: ["Right before the verb", "At the end of the sentence", "Before bí"], answer: 0, wordId: "bi-ojo-ba-ro" },
