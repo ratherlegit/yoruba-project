@@ -6,135 +6,128 @@ Feature 1 of 4 on the practice shortlist (tone practice, dictation, sentence tra
 
 ## 1. Intent
 
-Yoruba is tonal, and the app's current listening practice (`SoundPractice`) rests on seven hand-written minimal pairs, four of them about tone. That is a taste, not practice. The goal is a listening activity that trains the ear to hear tone inside real speech, with enough material that a learner cannot memorize the answer key.
+Yoruba is tonal, and the app's current listening practice (`SoundPractice`) rests on seven hand-written minimal pairs, four of them about tone. That is a taste, not practice. The goal is a listening activity that trains the ear to hear tone, with enough material that a learner cannot memorize the answer key.
 
-The learner hears a whole sentence, sees the same sentence written with a gap where the target word goes, and picks the real word that belongs in the gap from words that differ from each other only in their tone marks. Hearing the full sentence matters: the learner has to pick the target word out from the words around it, which is how tone is met in real speech.
+The learner hears a word (easier mode) or a whole sentence (harder mode) and picks the correct tone-marked spelling from real Yoruba words that have the same letters and differ only in their tone marks. In the harder mode the sentence is written out with a gap where the target word goes, and its English translation is shown. Hearing the full sentence matters: the learner has to pick the target word out from the words around it, which is how tone is met in real speech.
 
-This is not vocabulary practice. Meanings stay in the vocab section.
+The practice reuses the vocab section's words, sentences, English and audio. What is new is a curated list of real tone-twins for those words, as text only.
 
 ## 2. Goals, non-goals, anti-goals
 
 ### Goals
 - A learner can do repeated rounds of tone listening without seeing the same questions soon.
 - Every choice is a real Yoruba word. No made-up distractors.
-- Every item is tagged with the source it was drafted from and marked needs-review, like all other content.
-- Feedback teaches: after answering, the learner sees the correct word in the sentence, its pitch line, and hears it again.
+- Every twin is tagged with the source it was drafted from and marked needs-review, like all other content.
+- Feedback teaches: after answering, the learner sees the correct word, its pitch line, and hears it again.
 - Works in light and dark themes, with the existing diacritic rendering rules (precomposed NFC).
+- No new audio is required to ship, because answers come from vocab words and sentences that already have clips (section 6).
 
 ### Non-goals
 - Speech recognition, pronunciation scoring, recording.
-- English meanings or glosses shown during a question.
+- English meanings or glosses for the answer choices (the sentence's translation is shown; see section 3).
 - Replacing the existing Sound Bank listening practice (it stays).
 - Accounts, sync, XP, streaks.
 - Spaced repetition scheduling.
 
 ### Anti-goals (a failure even if it technically works)
-- Padding a set with invented words to reach three or four choices.
-- A set whose words differ in more than tone marks (a vowel dot or a consonant), since that tests spelling, not tone.
+- Padding a choice list with invented words to reach three or four choices.
+- A twin that differs in more than tone marks (a vowel dot or a consonant), since that tests spelling, not tone.
 - Content that looks verified when it is not.
-- A question whose written gap sentence is ungrammatical or whose answer can be had by meaning alone while the audio goes unused. The audio must be needed.
+- A gap sentence that is ungrammatical, or a question the learner can finish without the audio. The choices carry no meanings, so the learner has to hear or already know the vocab.
 
 ## 3. How it works (decided with the user)
 
-Two modes, which are also the difficulty levels. Words is the easier mode and Sentences is the harder one.
+Two modes, which are also the difficulty levels. Words is the easier mode and Sentences is the harder one. A switch chooses between them; the default is Words.
 
-**Words (easier).** The learner hears one word on its own and picks it from the real words in its set. No sentence, no gap. Choices are the same as below.
+**Words (easier).** The learner hears one vocab word on its own and picks it from the word and its real twins. No sentence, no gap, no English.
 
-**Sentences (harder).** The rest of this section describes this mode.
+**Sentences (harder).**
+- A play button plays the whole vocab sentence.
+- The sentence is written out with one gap where the target word goes (the vocab section's existing `blank` field says which part to blank when the word changes form).
+- The sentence's English translation is shown on screen while the learner answers. (Decided with the user: show English for the sentence, not for the possible answers.)
+- Choices: the target word plus its real twins, two to four in all, same letters (including under-dots), different tone marks only. A word with one real twin gives a two-choice question.
+- No English is shown for the choices, before or after answering.
 
-- Question screen: a play button for the whole sentence, the sentence written out with one gap, and the choices.
-- Audio plays the whole sentence, not the word alone (in Sentences mode).
-- Choices: two to four real words, same letters (including under-dots), different tone marks only. A set with only two real words gives a two-choice question.
-- No English shown during the question.
-- After answering: in Sentences mode the gap fills with the correct word, its `PitchLine` shows, the sentence plays again, and a wrong answer also shows the chosen word's pitch line. In Words mode the correct word's pitch line shows and it plays again; a wrong answer also plays the chosen word. (My call: the Words-mode extras follow from clips existing.)
-- Material: a curated list of real tone-minimal word sets, roughly 30 to 60 sets, with one short sentence per word. Both modes draw from the same sets.
+**After answering (both modes).** The correct word is shown, its `PitchLine` shows, and the audio plays again. In Sentences mode the gap fills with the correct word. A wrong answer also shows the chosen word's pitch line, so the difference is visible. (Author's call: in Words mode a wrong answer could also play the chosen word, but only if that word has a clip; most twins will not, so v1 does not.)
 
 ## 4. Content model
 
-A new file `src/content/tone-sets.ts`:
+A new file `src/content/tone-twins.ts`. It adds only the twins; the word, sentence, English and audio stay in the vocab data.
 
 ```ts
-export type ToneSetWord = {
-  yoruba: string;      // single word, NFC, tone marks included
-  sentence: string;    // full sentence containing the word exactly once
+export type ToneTwin = {
+  yoruba: string;     // single word, NFC, tone marks included
+  english: string;    // for the reviewer only, never rendered in the app
 };
-export type ToneSet = {
-  id: string;
-  words: ToneSetWord[];     // 2 to 4 entries
-  source: string;           // where the set was drafted from
-  confidence: Confidence;   // always "needs-review" until a native speaker checks it
+export type ToneTwinEntry = {
+  vocabId: string;    // id of the vocab word this entry belongs to
+  twins: ToneTwin[];  // 1 to 3 real words
+  source: string;     // where the twins were drafted from
+  confidence: Confidence; // "needs-review" until a native speaker checks it
   note?: string;
 };
 ```
 
-English meanings are not stored in the question data. For the review file only, an `english` field per word is allowed so a native speaker can check the set; it is never rendered in the app. (Builder's call.)
-
 Validation (run by `npm run validate` and a unit test):
-- Each set has 2 to 4 words.
-- All words in a set share the same letters once tone marks (acute, grave, macron) are removed; under-dots and nasal marks are kept and must match.
-- All words in a set are distinct after NFC normalization.
-- Each word's sentence contains that word exactly once as a whole word, and does not contain the other words of its set.
-- Every word has a tone pattern the app can compute (`syllabify`, `toneOf` in `src/lib/tone.ts`).
-- Every set has a source and a confidence value.
+- `vocabId` exists in the vocab data, and the vocab word is a single word.
+- Each entry has 1 to 3 twins.
+- Each twin has the same letters as the vocab word once tone marks (acute, grave, macron) are removed; under-dots and nasal marks are kept and must match.
+- A twin is not equal to the vocab word or to another twin after NFC normalization.
+- Every twin, and the vocab word, has a tone pattern the app can compute (`syllabify`, `toneOf` in `src/lib/tone.ts`).
+- Every entry has a source and a confidence value.
 
 ## 5. Question generation
 
-`src/lib/tone-practice.ts` builds a round from the sets, in the style of `buildPractice`:
-- One question per word whose sentence clip exists, in a set where at least two words have clips.
-- The answer is the word; the choices are every word in the set.
+`src/lib/tone-practice.ts` builds a round, in the style of `buildPractice` in `src/lib/sound-practice.ts`:
+- Words mode: one question per vocab word that has an entry and a word clip.
+- Sentences mode: one question per vocab word that has an entry and a sentence clip.
+- The answer is the vocab word; the choices are the word plus its twins.
 - Seeded shuffle, round length of 10 (same as today), no repeats within a round.
-- The gap sentence is the word's sentence with the word replaced by a blank of fixed width.
+- The gap sentence is the vocab sentence with the target (the `blank` substring, or the word) replaced by a blank of fixed width.
 
-Each mode builds its own round. Words mode needs a clip of the word; Sentences mode needs a clip of the sentence. A word with only one of the two clips appears only in the mode it can serve. Ordering within a mode is random for v1; sorting by how many syllables differ is deferred (section 8).
+A word appears in a mode only if it has that mode's clip. Ordering within a mode is random for v1; sorting by how many syllables differ is deferred.
 
 ## 6. Audio
 
-Two kinds of clips, both generated with the existing ElevenLabs pipeline in `tools/audio/`: single words (Words mode) and whole sentences (Sentences mode). The new strings need to be added to the string lister (`scripts/list-audio-strings.ts` and `src/lib/audio-strings.ts`) as a new group, and the existing audio tests (every collected string has a manifest entry and file; no manifest entry without a source string) must cover them.
+No new audio is needed for a first release.
+- All 250 vocab words have word clips today.
+- 150 of the 250 vocab sentences have clips today. The other 100 belong to the vocab audio batch that is not generated yet. When those are generated through the normal vocab workflow, their words become available in Sentences mode with no extra work in this feature.
+- Twins are only ever shown as text, so they need no clips.
 
-What already exists: 18 of the 19 words in the 8 tone groups the app already knows have word clips. Only `ọkan` is missing.
-
-What is new for a 30 to 60 set list at about 2.5 words per set (roughly 75 to 150 words):
-- Words mode: up to about 75 to 150 word clips, minus the 18 that exist. A word is a few characters, so this is a small credit cost (a few hundred characters).
-- Sentences mode: 75 to 150 sentence clips, none of which exist. At about 25 characters each that is roughly 2,000 to 4,000 credits.
-
-So yes, more audio generation is needed. The word clips are cheap and unlock Words mode quickly; the sentence clips are the real cost. Words mode can ship first, with Sentences mode added as sentence clips are generated, because each mode only serves questions that have their clip. The free-plan paste workflow in `tools/audio/README.md` applies.
-
-Whenever the curated list is final, the exact counts and credit totals will come from the string lister (`npm run audio:list`, then the generator's dry run), not these estimates.
-
-"Play the word you chose" on a wrong answer is possible in Words mode (that word's clip exists) and out for Sentences mode, where only the pitch line is shown.
-
-The existing rule that every clip's text must be spoken Yoruba applies. Sentences must not contain parentheses or English.
+Optional later: clips for twin words, which would allow "play the word you chose" on a wrong answer. That is not part of v1.
 
 ## 7. Where it lives
 
-A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`), next to the existing listening practice, which stays. It has a Words / Sentences switch, defaulting to Words. A separate component `TonePractice.tsx` reusing `AudioButton`, `ChoiceQuestion` and `PitchLine`. (Builder's call; easy to move.)
+A new "Tone practice" section on the Sound Bank page (`src/pages/SoundBank.tsx`), next to the existing listening practice, which stays. A separate component `TonePractice.tsx` reusing `AudioButton`, `ChoiceQuestion` and `PitchLine`. (Author's call; easy to move.)
 
 ## 8. Left to the builder
 
 - Final copy and layout for the question and feedback screens, within the existing visual style.
-- Whether choices render as plain words or with the word's pitch line hidden until answered (the default is hidden).
-- Ordering inside a mode: a first version can be random. A later version can sort sets by how many syllables differ.
-- Content batch size for the first release (a minimum of 30 sets is the target).
+- Where the English translation sits relative to the gap sentence.
+- Ordering inside a mode (random for v1).
+- Content batch size for the first release (the target is at least 30 vocab words with real twins; the real number depends on how many vocab words have twins that can be sourced).
 
 ## 9. Content authoring process
 
-1. Draft the sets from published sources (standard Yoruba dictionaries and grammars). Record the source per set. Where no source confirms a set or sentence, the note says so.
-2. Write one short, natural sentence per word. Sentences use vocabulary and grammar the learner will meet in the app where possible, so the gap is not a vocabulary test.
+1. Go through the vocab words and, for each single-word entry, look for real words with the same letters and different tone marks. Draft from published sources (standard Yoruba dictionaries and grammars). Record the source per entry. If no source confirms a twin, leave it out rather than guess.
+2. Record each twin's English meaning for the reviewer, in the data only.
 3. All entries are `needs-review`. They appear in `content/REVIEW.md` through `scripts/generate-review.ts` so a native speaker can check them.
 4. Nothing is marked verified by the builder.
 
 ## 10. Risks
 
-- Content correctness: tone-minimal sets and sentence tones are exactly the kind of thing that is easy to get wrong. The needs-review marker and review file are the mitigation; a native check is required before the feature is described as accurate.
-- Audio credits: each sentence costs credits; the first batch should be sized to what the plan allows.
-- Whole-sentence audio hides the target word's boundaries from a learner who cannot segment speech yet. Accepted: the user wants this because it trains separating the word from its neighbors.
+- Content correctness: tone-twin lists are easy to get wrong. The needs-review marker and review file are the mitigation; a native check is required before the feature is described as accurate.
+- Coverage: many vocab words may have no real twin. The practice only includes words that do, so the pool could be smaller than the 250 words. That is accepted over inventing twins.
+- The sentence translation can hint at the answer. Accepted: it was the user's choice, and the choices carry no meanings.
+- Whole-sentence audio hides word boundaries from a learner who cannot segment speech yet. Accepted: the user wants this because it trains separating the word from its neighbors.
 
 ## 11. Calls made by the author of this spec
 
 These are not agreed decisions:
 1. Placement on the Sound Bank page next to the existing practice.
-2. English meanings kept only in the review data, never shown in the app.
-3. "Play the chosen word" on a wrong answer only in Words mode.
-4. Random order inside each mode for v1; finer difficulty ordering later.
-5. First batch of at least 30 sets.
+2. Words mode shows no English at all.
+3. No "play the chosen word" on a wrong answer in v1.
+4. Random order inside each mode for v1.
+5. A first batch target of at least 30 vocab words with sourced twins.
 6. Default mode is Words.
+7. The existing Sound Bank minimal pairs are not folded into this practice.
