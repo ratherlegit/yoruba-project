@@ -1,6 +1,7 @@
 import type { Level, LevelId } from "@/content/types";
 import type { VocabLevel } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
+import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import { audioKey } from "./audio";
 
 // Pick answers that are English sentences or glossed fragments, not Yoruba speech.
@@ -55,10 +56,12 @@ export function collectVocabAudioStrings(
   return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group, level: v.level }));
 }
 
-// Sound Bank example and minimal-pair words. Words already listed by grammar or vocab are filtered by the lister.
+// Sound Bank example, minimal-pair, tone comparison and consonant set words. Words already listed by grammar or vocab are filtered by the lister.
 export function collectSoundAudioStrings(
   sounds: Sound[],
   pairs: MinimalPair[],
+  compare: ToneCompareRow[] = [],
+  sets: ConsonantSet[] = [],
 ): { key: string; text: string; group: "sound-word" }[] {
   const seen = new Map<string, string>();
   const add = (text: string) => {
@@ -67,5 +70,7 @@ export function collectSoundAudioStrings(
   };
   for (const s of sounds) for (const e of s.examples) add(e.yoruba);
   for (const p of pairs) for (const w of p.words) add(w.yoruba);
+  for (const r of compare) for (const w of r.words) add(w.yoruba);
+  for (const x of sets) for (const w of x.words) add(w.yoruba);
   return [...seen].map(([key, text]) => ({ key, text, group: "sound-word" as const }));
 }

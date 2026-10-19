@@ -6,6 +6,7 @@ import { LEVELS } from "@/content/levels";
 import { VOCAB_LEVELS } from "@/content/vocab";
 import { audioKey, audioUrlFor } from "./audio";
 import { MINIMAL_PAIRS, SOUNDS } from "@/content/sounds";
+import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
 import { collectAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
 
 describe("audioKey", () => {
@@ -54,7 +55,7 @@ describe("audio matches lesson content", () => {
     expect(existsSync(join("public", "audio", file!)), `missing public/audio/${file}`).toBe(true);
   });
   it("has no manifest entries without a lesson, vocab or sound string", () => {
-    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS)].map((s) => s.key));
+    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS)].map((s) => s.key));
     expect(Object.keys(manifest).filter((k) => !keys.has(k))).toEqual([]);
   });
 });
@@ -74,7 +75,7 @@ describe("audio matches vocab content", () => {
 });
 
 describe("audio matches sound bank content", () => {
-  const sounds = collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS);
+  const sounds = collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS);
   const files = manifest as Record<string, string>;
   it("has a file on disk for every sound word that has a manifest entry", () => {
     const missing = sounds.filter((s) => files[s.key] && !existsSync(join("public", "audio", files[s.key]!))).map((s) => s.key);

@@ -3,6 +3,7 @@ import { LEVELS } from "@/content/levels";
 import type { VocabLevel, VocabWord } from "@/content/vocab/types";
 import { audioKey } from "./audio";
 import { collectAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
+import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { MinimalPair, Sound } from "@/content/sounds";
 
 describe("collectAudioStrings", () => {
@@ -78,6 +79,19 @@ describe("collectSoundAudioStrings", () => {
     id: "p", contrast: "tone", explain: "e", confidence: "needs-review", note: "n",
     words: [{ yoruba: "ọkọ", english: "a" }, { yoruba: "bàbá", english: "dup" }],
   }] as MinimalPair[];
+  it("includes tone row words and consonant set words", () => {
+    const rows = [{
+      id: "tc-a", vowel: "a", source: "s", confidence: "needs-review", note: "n",
+      words: [{ yoruba: "wa", english: "our", tone: "mid" }, { yoruba: "wá", english: "come", tone: "high" }, { yoruba: "wà", english: "be", tone: "low" }],
+    }] as ToneCompareRow[];
+    const sets = [{
+      id: "cs", focus: ["gb"], explain: "e", source: "s", confidence: "needs-review", note: "n",
+      words: [{ yoruba: "bà", english: "a" }, { yoruba: "gà", english: "b" }, { yoruba: "wa", english: "dup" }],
+    }] as ConsonantSet[];
+    const out = collectSoundAudioStrings(sounds, pairs, rows, sets);
+    expect(out.map((x) => x.key)).toEqual(["bàbá", "bàtà", "ọkọ", "wa", "wá", "wà", "bà", "gà"]);
+    expect(out.every((x) => x.group === "sound-word")).toBe(true);
+  });
   it("collects example and pair words, deduped by key, group sound-word", () => {
     const out = collectSoundAudioStrings(sounds, pairs);
     expect(out.map((x) => x.key)).toEqual(["bàbá", "bàtà", "ọkọ"]);

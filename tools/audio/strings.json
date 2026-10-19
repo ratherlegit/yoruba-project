@@ -245,11 +245,6 @@
     "group": "grammar"
   },
   {
-    "key": "ọba",
-    "text": "ọba",
-    "group": "grammar"
-  },
-  {
     "key": "olùkọ́",
     "text": "olùkọ́",
     "group": "grammar"
@@ -1976,6 +1971,12 @@
     "level": "mastery"
   },
   {
+    "key": "ọba",
+    "text": "ọba",
+    "group": "vocab-word",
+    "level": "mastery"
+  },
+  {
     "key": "ọba òkè",
     "text": "ọba òkè",
     "group": "vocab-word",
@@ -3572,6 +3573,216 @@
   {
     "key": "ọṣẹ",
     "text": "ọṣẹ",
+    "group": "sound-word"
+  },
+  {
+    "key": "wa",
+    "text": "wa",
+    "group": "sound-word"
+  },
+  {
+    "key": "wà",
+    "text": "wà",
+    "group": "sound-word"
+  },
+  {
+    "key": "le",
+    "text": "le",
+    "group": "sound-word"
+  },
+  {
+    "key": "lé",
+    "text": "lé",
+    "group": "sound-word"
+  },
+  {
+    "key": "lè",
+    "text": "lè",
+    "group": "sound-word"
+  },
+  {
+    "key": "bẹ",
+    "text": "bẹ",
+    "group": "sound-word"
+  },
+  {
+    "key": "bẹ́",
+    "text": "bẹ́",
+    "group": "sound-word"
+  },
+  {
+    "key": "bẹ̀",
+    "text": "bẹ̀",
+    "group": "sound-word"
+  },
+  {
+    "key": "ṣi",
+    "text": "ṣi",
+    "group": "sound-word"
+  },
+  {
+    "key": "ṣì",
+    "text": "ṣì",
+    "group": "sound-word"
+  },
+  {
+    "key": "ro",
+    "text": "ro",
+    "group": "sound-word"
+  },
+  {
+    "key": "ró",
+    "text": "ró",
+    "group": "sound-word"
+  },
+  {
+    "key": "rò",
+    "text": "rò",
+    "group": "sound-word"
+  },
+  {
+    "key": "kọ",
+    "text": "kọ",
+    "group": "sound-word"
+  },
+  {
+    "key": "kọ̀",
+    "text": "kọ̀",
+    "group": "sound-word"
+  },
+  {
+    "key": "mú",
+    "text": "mú",
+    "group": "sound-word"
+  },
+  {
+    "key": "mù",
+    "text": "mù",
+    "group": "sound-word"
+  },
+  {
+    "key": "kan",
+    "text": "kan",
+    "group": "sound-word"
+  },
+  {
+    "key": "kán",
+    "text": "kán",
+    "group": "sound-word"
+  },
+  {
+    "key": "kàn",
+    "text": "kàn",
+    "group": "sound-word"
+  },
+  {
+    "key": "rin",
+    "text": "rin",
+    "group": "sound-word"
+  },
+  {
+    "key": "rín",
+    "text": "rín",
+    "group": "sound-word"
+  },
+  {
+    "key": "rìn",
+    "text": "rìn",
+    "group": "sound-word"
+  },
+  {
+    "key": "sun",
+    "text": "sun",
+    "group": "sound-word"
+  },
+  {
+    "key": "sún",
+    "text": "sún",
+    "group": "sound-word"
+  },
+  {
+    "key": "wọn",
+    "text": "wọn",
+    "group": "sound-word"
+  },
+  {
+    "key": "wọ̀n",
+    "text": "wọ̀n",
+    "group": "sound-word"
+  },
+  {
+    "key": "bà",
+    "text": "bà",
+    "group": "sound-word"
+  },
+  {
+    "key": "gà",
+    "text": "gà",
+    "group": "sound-word"
+  },
+  {
+    "key": "gbà",
+    "text": "gbà",
+    "group": "sound-word"
+  },
+  {
+    "key": "gé",
+    "text": "gé",
+    "group": "sound-word"
+  },
+  {
+    "key": "pọ́",
+    "text": "pọ́",
+    "group": "sound-word"
+  },
+  {
+    "key": "bọ́",
+    "text": "bọ́",
+    "group": "sound-word"
+  },
+  {
+    "key": "pọ̀",
+    "text": "pọ̀",
+    "group": "sound-word"
+  },
+  {
+    "key": "bọ̀",
+    "text": "bọ̀",
+    "group": "sound-word"
+  },
+  {
+    "key": "gọ̀",
+    "text": "gọ̀",
+    "group": "sound-word"
+  },
+  {
+    "key": "sé",
+    "text": "sé",
+    "group": "sound-word"
+  },
+  {
+    "key": "ṣé",
+    "text": "ṣé",
+    "group": "sound-word"
+  },
+  {
+    "key": "sẹ́",
+    "text": "sẹ́",
+    "group": "sound-word"
+  },
+  {
+    "key": "ṣẹ́",
+    "text": "ṣẹ́",
+    "group": "sound-word"
+  },
+  {
+    "key": "sẹ̀",
+    "text": "sẹ̀",
+    "group": "sound-word"
+  },
+  {
+    "key": "ṣẹ̀",
+    "text": "ṣẹ̀",
     "group": "sound-word"
   }
 ]
