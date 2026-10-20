@@ -1,10 +1,10 @@
 # Yoruba Project
 
-A web app that teaches Yoruba to English speakers starting from zero. Five levels (Getting Started, Beginner, Intermediate, Advanced, Mastery), each with grammar lessons, vocabulary, and a Sound Bank of audio clips. Yoruba is always shown with full tone marks and diacritics.
+A web app for learning Yoruba from zero, with full tone marks and audio throughout. Grammar lessons across five levels (Getting Started, Beginner, Intermediate, Advanced, Mastery), vocabulary by topic, Numbers (counting and naira), a Sound Bank with tone practice, Proverbs, Transform sentence practice, Songs with embedded videos and a few lyric lines, and two-voice Dialogues with comprehension questions. Progress and stats stay in your browser.
 
 ## Stack
 
-TypeScript, React, Vite, TanStack Router, Tailwind, deployed to Cloudflare Workers. Progress is stored in `localStorage`; there are no accounts.
+TypeScript, React, Vite, TanStack Router, Tailwind, deployed to Cloudflare Workers. Progress and stats are stored in `localStorage`; there are no accounts.
 
 ## Development
 
