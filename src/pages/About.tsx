@@ -25,7 +25,7 @@ export function About() {
         <ul data-testid="about-sections" style={{ display: "grid", gap: "0.6rem", paddingLeft: "1.2rem", margin: 0 }}>
           {SECTIONS.map((s) => (
             <li key={s.name}>
-              <strong>{s.name}</strong>: {s.text}
+              <strong className="about-name">{s.name}</strong>: {s.text}
             </li>
           ))}
         </ul>

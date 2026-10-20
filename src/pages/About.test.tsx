@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { render, screen, within } from "@testing-library/react";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
@@ -18,6 +19,15 @@ describe("About page", () => {
     for (const name of ["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform", "Songs", "Dialogues", "Stats"]) {
       expect(within(list).getByText(name, { selector: "strong" }), name).toBeInTheDocument();
     }
+  });
+
+  it("shows each activity name in the gold accent colour", async () => {
+    const main = await renderAbout();
+    const names = within(within(main).getByTestId("about-sections")).getAllByText(/^(Grammar|Vocab|Numbers|Sound Bank|Proverbs|Transform|Songs|Dialogues|Stats)$/, { selector: "strong" });
+    expect(names).toHaveLength(9);
+    for (const n of names) expect(n.className).toContain("about-name");
+    const css = readFileSync("src/styles.css", "utf8");
+    expect(css).toMatch(/\.about-name \{[^}]*color: var\(--gold-text\)/);
   });
 
   it("explains where progress is kept, what the audio and videos are, and how reliable the Yoruba is", async () => {
