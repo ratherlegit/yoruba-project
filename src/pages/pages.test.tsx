@@ -62,7 +62,7 @@ describe("pages", () => {
     await renderAt("/lesson/beginner/b-1");
     expect(await screen.findByRole("heading", { name: "Beginner is locked" })).toBeInTheDocument();
     expect(screen.getByText(/finish all of Getting Started/i)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Back to Grammar" }).getAttribute("href")).toBe("/grammar");
     expect(screen.queryByText(/couldn't find/i)).not.toBeInTheDocument();
   });
 
@@ -91,6 +91,13 @@ describe("pages", () => {
   it("a locked level explains how to unlock it", async () => {
     await renderAt("/level/beginner");
     expect(await screen.findByText(/finish all of Getting Started/i)).toBeInTheDocument();
+  });
+
+  it("a locked level points at the Grammar page, where the Unlock all levels checkbox lives", async () => {
+    await renderAt("/level/beginner");
+    expect(await screen.findByText(/"Unlock all levels" on the Grammar page/)).toBeInTheDocument();
+    expect(screen.queryByText(/on the home page/)).toBeNull();
+    expect(screen.getByRole("link", { name: "Back to Grammar" }).getAttribute("href")).toBe("/grammar");
   });
 
   it("a user with Unlock all saved can open a locked-by-default level directly", async () => {

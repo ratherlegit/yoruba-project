@@ -7,7 +7,7 @@ import { VOCAB_LEVELS } from "@/content/vocab";
 import { useProgress } from "@/hooks/useProgress";
 import { useStats } from "@/hooks/useStats";
 import { useVocabProgress } from "@/hooks/useVocabProgress";
-import { proverbSummary } from "@/lib/stats";
+import { proverbSummary, withExtraDays } from "@/lib/stats";
 import { buildStrip } from "@/lib/stats-summary";
 import { topicsDone } from "@/lib/vocab-progress";
 
@@ -25,8 +25,13 @@ export function Home() {
   const toneAnswers = Object.values(stats.tone).reduce((n, t) => n + t.answered, 0);
   const proverbsGuessed = proverbSummary(stats).guessed;
   const sentences = new Set(Object.keys(stats.transform).map((k) => k.slice(k.indexOf(":") + 1))).size;
+  const completedAt = [
+    ...Object.values(progress.completedLessons).map((l) => l.completedAt),
+    ...Object.values(vocab.topics).flatMap((t) => [t.quiz?.completedAt, t.gap?.completedAt].filter((x): x is string => !!x)),
+  ];
   const figures = buildStrip({
-    lessonsDone, lessonsTotal: lessonIds.length, topicsDone: vocabDone, topicsTotal: topicIds.length, stats,
+    lessonsDone, lessonsTotal: lessonIds.length, topicsDone: vocabDone, topicsTotal: topicIds.length,
+    stats: withExtraDays(stats, completedAt),
   });
 
   return (

@@ -8,7 +8,7 @@ import { VOCAB_LEVELS } from "@/content/vocab";
 import { useProgress } from "@/hooks/useProgress";
 import { useStats } from "@/hooks/useStats";
 import { useVocabProgress } from "@/hooks/useVocabProgress";
-import { accuracy, currentRun, practiceDays, proverbSummary, toneSummary, transformSummary } from "@/lib/stats";
+import { accuracy, currentRun, practiceDays, proverbSummary, toneSummary, transformSummary, withExtraDays } from "@/lib/stats";
 import type { ToneMode } from "@/lib/tone-practice";
 
 const pct = (score: number) => `${Math.round(score * 100)}%`;
@@ -46,8 +46,13 @@ export function Stats() {
   const trans = transformSummary(stats);
   const kinds = (Object.keys(trans.byKind) as TransformKind[]).filter((k) => trans.byKind[k].total > 0);
   const modes = (["easy", "advanced"] as const).filter((m) => trans.byMode[m].total > 0);
-  const days = practiceDays(stats);
-  const run = currentRun(stats);
+  const completedAt = [
+    ...Object.values(progress.completedLessons).map((l) => l.completedAt),
+    ...Object.values(vocab.topics).flatMap((t) => [t.quiz?.completedAt, t.gap?.completedAt].filter((x): x is string => !!x)),
+  ];
+  const allDays = withExtraDays(stats, completedAt);
+  const days = practiceDays(allDays);
+  const run = currentRun(allDays);
 
   return (
     <>

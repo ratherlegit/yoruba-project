@@ -54,6 +54,7 @@ describe("Home", () => {
     const grammar = within(main).getAllByTestId("activity-card")[0]!;
     expect(grammar.textContent).toContain(`2 of ${lessons.length} lessons done`);
     expect(within(main).getByText("Lessons done")).toBeInTheDocument();
+    expect(within(main).getByText("Days practised")).toBeInTheDocument();
     expect(within(main).getByRole("link", { name: "See all stats" }).getAttribute("href")).toBe("/stats");
     expect(within(main).queryByText("Start a lesson to see your stats")).toBeNull();
   });

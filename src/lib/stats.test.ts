@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   accuracy, currentRun, dayKey, emptyStats, loadStats, practiceAnswers, practiceDays, proverbSummary,
   recordProverbAnswer, recordToneAnswer, recordTransformResult, saveStats, toneSummary, transformSummary,
-  type Stats,
+  type Stats, withExtraDays,
 } from "./stats";
 
 const d = (s: string) => new Date(`${s}T12:00:00`);
@@ -126,5 +126,15 @@ describe("summaries", () => {
     expect(currentRun(days(["2026-02-27", "2026-02-28", "2026-03-01"]), d("2026-03-01"))).toBe(3);
     expect(currentRun(days(["2025-12-31", "2026-01-01"]), d("2026-01-01"))).toBe(2);
     expect(currentRun(emptyStats, d("2026-10-03"))).toBe(0);
+  });
+});
+
+describe("withExtraDays", () => {
+  it("adds local days from ISO timestamps, sorted, unique and capped", () => {
+    const base: Stats = { ...emptyStats, days: ["2026-10-03"] };
+    const iso = (y: number, m: number, day: number) => new Date(y, m - 1, day, 12).toISOString();
+    const s = withExtraDays(base, [iso(2026, 10, 1), iso(2026, 10, 3), iso(2026, 10, 2), "not a date"]);
+    expect(s.days).toEqual(["2026-10-01", "2026-10-02", "2026-10-03"]);
+    expect(withExtraDays(emptyStats, [])).toBe(emptyStats);
   });
 });

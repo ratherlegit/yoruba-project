@@ -109,13 +109,35 @@ describe("Stats page, with data", () => {
   });
   it("shows days practised and the current run, and keeps the other sections' data when one is empty", async () => {
     await renderStats();
-    expect(section("days").textContent).toContain("Days practised: 2");
+    // Two stats days plus the day the seeded lesson and topic were completed.
+    expect(section("days").textContent).toContain("Days practised: 3");
     expect(section("days").textContent).toContain("Day run: 2");
   });
   it("hides the day run when the last practice day is old", async () => {
     localStorage.setItem("yp:stats:v1", JSON.stringify({ tone: { words: { answered: 1, correct: 1 } }, days: ["2020-01-01"] }));
     await renderStats();
-    expect(section("days").textContent).toContain("Days practised: 1");
+    // 2020-01-01 plus the day the seeded lesson and topic were completed.
+    expect(section("days").textContent).toContain("Days practised: 2");
     expect(section("days").textContent).not.toContain("Day run");
+  });
+});
+
+describe("Stats page, grammar only", () => {
+  it("counts the day a lesson was completed as a practice day", async () => {
+    localStorage.setItem("yp:progress:v1", JSON.stringify({
+      completedLessons: { [LEVELS[0]!.lessons[0]!.id]: { bestScore: 1, completedAt: new Date(2026, 9, 1, 12).toISOString() } },
+      skipAhead: false, theme: "system",
+    }));
+    await renderStats();
+    expect(within(section("days")).queryByText(EMPTY)).toBeNull();
+    expect(section("days").textContent).toContain("Days practised: 1");
+  });
+  it("counts the day a vocab topic was completed as a practice day", async () => {
+    const topic = VOCAB_LEVELS.flatMap((l) => l.topics)[0]!;
+    localStorage.setItem("yp:vocab-progress:v1", JSON.stringify({
+      topics: { [topic.id]: { gap: { bestScore: 1, completedAt: new Date(2026, 9, 2, 12).toISOString() } } },
+    }));
+    await renderStats();
+    expect(section("days").textContent).toContain("Days practised: 1");
   });
 });

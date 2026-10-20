@@ -163,6 +163,17 @@ export function practiceAnswers(s: Stats): { answered: number; correct: number }
   return { answered, correct };
 }
 
+// Lessons and vocab topics are recorded in their own stores with an ISO completion time.
+// This folds those days in so any activity counts as a practice day, without writing them.
+export function withExtraDays(s: Stats, isoDates: string[]): Stats {
+  const extra = isoDates
+    .map((iso) => new Date(iso))
+    .filter((d) => !Number.isNaN(d.getTime()))
+    .map(dayKey);
+  if (extra.length === 0) return s;
+  return { ...s, days: [...new Set([...s.days, ...extra])].sort().slice(-MAX_DAYS) };
+}
+
 export const practiceDays = (s: Stats): number => s.days.length;
 
 export function currentRun(s: Stats, now: Date = new Date()): number {
