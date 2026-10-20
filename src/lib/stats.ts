@@ -1,4 +1,5 @@
 import type { TransformKind } from "@/content/transforms";
+import type { NumbersKind } from "./numbers-practice";
 import type { ToneMode } from "./tone-practice";
 import type { TransformMode, TransformResult } from "./transform-grade";
 
@@ -9,10 +10,12 @@ export type Stats = {
   tone: Record<ToneMode, { answered: number; correct: number }>;
   proverbs: Record<string, { correct: boolean }>;
   transform: Record<string, { kind: TransformKind; mode: TransformMode; result: TransformResult }>;
+  numbers: { steps: Record<string, { best: number }>; kinds: Record<NumbersKind, { answered: number; correct: number }> };
   days: string[];
 };
 
 const TONE_MODES: ToneMode[] = ["words", "sentences", "sounds"];
+const NUMBERS_KINDS: NumbersKind[] = ["to-yoruba", "to-numeral", "counting", "hear"];
 const KINDS: TransformKind[] = ["negative", "question", "future", "past"];
 const MODES: TransformMode[] = ["easy", "advanced"];
 const RESULTS: TransformResult[] = ["right", "close", "wrong"];
@@ -26,7 +29,17 @@ const emptyTone = (): Stats["tone"] => ({
   sounds: { answered: 0, correct: 0 },
 });
 
-export const emptyStats: Stats = { tone: emptyTone(), proverbs: {}, transform: {}, days: [] };
+const emptyNumbers = (): Stats["numbers"] => ({
+  steps: {},
+  kinds: {
+    "to-yoruba": { answered: 0, correct: 0 },
+    "to-numeral": { answered: 0, correct: 0 },
+    counting: { answered: 0, correct: 0 },
+    hear: { answered: 0, correct: 0 },
+  },
+});
+
+export const emptyStats: Stats = { tone: emptyTone(), proverbs: {}, transform: {}, numbers: emptyNumbers(), days: [] };
 
 function defaultStorage(): Storage | null {
   try {
@@ -71,10 +84,26 @@ export function loadStats(storage: Storage | null = defaultStorage()): Stats {
         }
       }
     }
+    const numbers = emptyNumbers();
+    if (isObject(v.numbers)) {
+      if (isObject(v.numbers.steps)) {
+        for (const [id, st] of Object.entries(v.numbers.steps)) {
+          if (isObject(st) && typeof st.best === "number" && Number.isFinite(st.best) && st.best >= 0 && st.best <= 1) {
+            numbers.steps[id] = { best: st.best };
+          }
+        }
+      }
+      if (isObject(v.numbers.kinds)) {
+        for (const k of NUMBERS_KINDS) {
+          const t = v.numbers.kinds[k];
+          if (isObject(t) && isCount(t.answered) && isCount(t.correct)) numbers.kinds[k] = { answered: t.answered, correct: t.correct };
+        }
+      }
+    }
     const days = Array.isArray(v.days)
       ? [...new Set(v.days.filter((x): x is string => typeof x === "string" && DAY.test(x)))].sort().slice(-MAX_DAYS)
       : [];
-    return { tone, proverbs, transform, days };
+    return { tone, proverbs, transform, numbers, days };
   } catch {
     return emptyStats;
   }
@@ -121,6 +150,26 @@ export function recordTransformResult(
   return withDay({ ...s, transform: { ...s.transform, [key]: { kind, mode, result } } }, now);
 }
 
+export function recordNumbersAnswer(s: Stats, kind: NumbersKind, correct: boolean, now: Date = new Date()): Stats {
+  const prev = s.numbers.kinds[kind];
+  const next: Stats = {
+    ...s,
+    numbers: { ...s.numbers, kinds: { ...s.numbers.kinds, [kind]: { answered: prev.answered + 1, correct: prev.correct + (correct ? 1 : 0) } } },
+  };
+  return withDay(next, now);
+}
+
+export function recordNumbersRound(s: Stats, stepId: string, score: number, now: Date = new Date()): Stats {
+  if (!Number.isFinite(score) || score < 0 || score > 1) return s;
+  const best = Math.max(score, s.numbers.steps[stepId]?.best ?? 0);
+  return withDay({ ...s, numbers: { ...s.numbers, steps: { ...s.numbers.steps, [stepId]: { best } } } }, now);
+}
+
+export function numbersSummary(s: Stats): { stepsDone: number; steps: Record<string, number>; kinds: Stats["numbers"]["kinds"] } {
+  const steps = Object.fromEntries(Object.entries(s.numbers.steps).map(([id, v]) => [id, v.best]));
+  return { stepsDone: Object.keys(steps).length, steps, kinds: s.numbers.kinds };
+}
+
 export function accuracy(correct: number, answered: number): number | null {
   return answered > 0 ? Math.round((correct / answered) * 100) : null;
 }
@@ -150,6 +199,10 @@ export function practiceAnswers(s: Stats): { answered: number; correct: number }
   let answered = 0;
   let correct = 0;
   for (const t of Object.values(s.tone)) {
+    answered += t.answered;
+    correct += t.correct;
+  }
+  for (const t of Object.values(s.numbers.kinds)) {
     answered += t.answered;
     correct += t.correct;
   }

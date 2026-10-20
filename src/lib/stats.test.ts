@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   accuracy, currentRun, dayKey, emptyStats, loadStats, practiceAnswers, practiceDays, proverbSummary,
   recordProverbAnswer, recordToneAnswer, recordTransformResult, saveStats, toneSummary, transformSummary,
-  type Stats, withExtraDays,
+  type Stats, withExtraDays, recordNumbersAnswer, recordNumbersRound, numbersSummary,
 } from "./stats";
 
 const d = (s: string) => new Date(`${s}T12:00:00`);
@@ -136,5 +136,60 @@ describe("withExtraDays", () => {
     const s = withExtraDays(base, [iso(2026, 10, 1), iso(2026, 10, 3), iso(2026, 10, 2), "not a date"]);
     expect(s.days).toEqual(["2026-10-01", "2026-10-02", "2026-10-03"]);
     expect(withExtraDays(emptyStats, [])).toBe(emptyStats);
+  });
+});
+
+describe("numbers stats", () => {
+  it("starts with no steps and zeroed kinds", () => {
+    expect(emptyStats.numbers.steps).toEqual({});
+    expect(emptyStats.numbers.kinds["to-yoruba"]).toEqual({ answered: 0, correct: 0 });
+    expect(numbersSummary(emptyStats).stepsDone).toBe(0);
+  });
+  it("loads a store saved before numbers existed as empty numbers", () => {
+    const raw = JSON.stringify({ tone: { words: { answered: 2, correct: 1 } }, days: ["2026-10-01"] });
+    const s = loadStats(memory({ "yp:stats:v1": raw }));
+    expect(s.numbers).toEqual(emptyStats.numbers);
+    expect(s.tone.words).toEqual({ answered: 2, correct: 1 });
+  });
+  it("drops bad numbers entries but keeps good ones", () => {
+    const raw = JSON.stringify({
+      numbers: {
+        steps: { good: { best: 0.75 }, bad: { best: "x" }, over: { best: 2 }, nan: { best: null } },
+        kinds: { "to-yoruba": { answered: 3, correct: 2 }, nope: { answered: 1, correct: 1 }, hear: { answered: "x" } },
+      },
+    });
+    const s = loadStats(memory({ "yp:stats:v1": raw }));
+    expect(Object.keys(s.numbers.steps)).toEqual(["good"]);
+    expect(s.numbers.kinds["to-yoruba"]).toEqual({ answered: 3, correct: 2 });
+    expect(s.numbers.kinds.hear).toEqual({ answered: 0, correct: 0 });
+  });
+  it("counts every answer by kind and adds the day once", () => {
+    let s = recordNumbersAnswer(emptyStats, "to-yoruba", true, d("2026-10-02"));
+    s = recordNumbersAnswer(s, "to-yoruba", false, d("2026-10-02"));
+    s = recordNumbersAnswer(s, "counting", true, d("2026-10-02"));
+    expect(s.numbers.kinds["to-yoruba"]).toEqual({ answered: 2, correct: 1 });
+    expect(s.numbers.kinds.counting).toEqual({ answered: 1, correct: 1 });
+    expect(s.days).toEqual(["2026-10-02"]);
+  });
+  it("keeps the best round score and ignores impossible scores", () => {
+    let s = recordNumbersRound(emptyStats, "tens", 0.5, d("2026-10-02"));
+    s = recordNumbersRound(s, "tens", 0.25, d("2026-10-02"));
+    expect(s.numbers.steps.tens).toEqual({ best: 0.5 });
+    s = recordNumbersRound(s, "tens", 0.875, d("2026-10-02"));
+    expect(s.numbers.steps.tens).toEqual({ best: 0.875 });
+    for (const bad of [1.5, -1, Number.NaN]) {
+      expect(recordNumbersRound(s, "other", bad, d("2026-10-02")).numbers.steps.other, String(bad)).toBeUndefined();
+    }
+  });
+  it("summarises steps done", () => {
+    let s = recordNumbersRound(emptyStats, "a", 1);
+    s = recordNumbersRound(s, "b", 0.5);
+    expect(numbersSummary(s)).toMatchObject({ stepsDone: 2, steps: { a: 1, b: 0.5 } });
+  });
+  it("counts numbers answers in the combined practice figure", () => {
+    let s = recordToneAnswer(emptyStats, "words", true);
+    s = recordNumbersAnswer(s, "to-numeral", true);
+    s = recordNumbersAnswer(s, "to-numeral", false);
+    expect(practiceAnswers(s)).toEqual({ answered: 3, correct: 2 });
   });
 });
