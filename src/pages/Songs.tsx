@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ActivityIcon } from "@/components/ActivityIcon";
+import { GenreIcon } from "@/components/GenreIcon";
 import { Hero } from "@/components/Hero";
 import { GENRES, SONGS, type Genre } from "@/content/songs";
 
@@ -31,7 +31,7 @@ export function Songs() {
               data-testid="song-card"
               style={{ textDecoration: "none", color: "var(--text)" }}
             >
-              <ActivityIcon activity="songs" />
+              <GenreIcon genre={s.genre} />
               <span className="row-main" style={{ display: "grid", gap: "0.2rem" }}>
                 <strong>{s.title}</strong>
                 <span className="muted">{s.artist}</span>
