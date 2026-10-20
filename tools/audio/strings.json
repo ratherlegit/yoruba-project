@@ -597,66 +597,6 @@
     "level": "getting-started"
   },
   {
-    "key": "ọ̀kan",
-    "text": "ọ̀kan",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "méjì",
-    "text": "méjì",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "mẹ́ta",
-    "text": "mẹ́ta",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "mẹ́rin",
-    "text": "mẹ́rin",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "márùn-ún",
-    "text": "márùn-ún",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "mẹ́fà",
-    "text": "mẹ́fà",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "méje",
-    "text": "méje",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "mẹ́jọ",
-    "text": "mẹ́jọ",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "mẹ́sàn-án",
-    "text": "mẹ́sàn-án",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "mẹ́wàá",
-    "text": "mẹ́wàá",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
     "key": "ìyá",
     "text": "ìyá",
     "group": "vocab-word",
@@ -2061,66 +2001,6 @@
     "level": "getting-started"
   },
   {
-    "key": "imú kan ṣoṣo ni mo ní",
-    "text": "Imú kan ṣoṣo ni mo ní.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "mo ní ojú méjì",
-    "text": "Mo ní ojú méjì.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "méjì àti ọ̀kan jẹ́ mẹ́ta",
-    "text": "Méjì àti ọ̀kan jẹ́ mẹ́ta.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "ajá ní ẹsẹ̀ mẹ́rin",
-    "text": "Ajá ní ẹsẹ̀ mẹ́rin.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "ọwọ́ kan ní ìka márùn-ún",
-    "text": "Ọwọ́ kan ní ìka márùn-ún.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "èèrà ní ẹsẹ̀ mẹ́fà",
-    "text": "Èèrà ní ẹsẹ̀ mẹ́fà.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "ọ̀sẹ̀ kan ní ọjọ́ méje",
-    "text": "Ọ̀sẹ̀ kan ní ọjọ́ méje.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "aláǹtakùn ní ẹsẹ̀ mẹ́jọ",
-    "text": "Aláǹtakùn ní ẹsẹ̀ mẹ́jọ.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "mẹ́rin àti márùn-ún jẹ́ mẹ́sàn-án",
-    "text": "Mẹ́rin àti márùn-ún jẹ́ mẹ́sàn-án.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
-    "key": "ọwọ́ méjì ní ìka mẹ́wàá",
-    "text": "Ọwọ́ méjì ní ìka mẹ́wàá.",
-    "group": "vocab-sentence",
-    "level": "getting-started"
-  },
-  {
     "key": "ìyá mi fún mi lọ́mú",
     "text": "Ìyá mi fún mi lọ́mú.",
     "group": "vocab-sentence",
@@ -3501,6 +3381,296 @@
     "level": "mastery"
   },
   {
+    "key": "ọ̀kan",
+    "text": "ọ̀kan",
+    "group": "number-word"
+  },
+  {
+    "key": "kan",
+    "text": "kan",
+    "group": "number-word"
+  },
+  {
+    "key": "èjì",
+    "text": "èjì",
+    "group": "number-word"
+  },
+  {
+    "key": "méjì",
+    "text": "méjì",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀ta",
+    "text": "ẹ̀ta",
+    "group": "number-word"
+  },
+  {
+    "key": "mẹ́ta",
+    "text": "mẹ́ta",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀rin",
+    "text": "ẹ̀rin",
+    "group": "number-word"
+  },
+  {
+    "key": "mẹ́rin",
+    "text": "mẹ́rin",
+    "group": "number-word"
+  },
+  {
+    "key": "àrún",
+    "text": "àrún",
+    "group": "number-word"
+  },
+  {
+    "key": "márùn-ún",
+    "text": "márùn-ún",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀fà",
+    "text": "ẹ̀fà",
+    "group": "number-word"
+  },
+  {
+    "key": "mẹ́fà",
+    "text": "mẹ́fà",
+    "group": "number-word"
+  },
+  {
+    "key": "èje",
+    "text": "èje",
+    "group": "number-word"
+  },
+  {
+    "key": "méje",
+    "text": "méje",
+    "group": "number-word"
+  },
+  {
+    "key": "mẹ́je",
+    "text": "mẹ́je",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀jọ",
+    "text": "ẹ̀jọ",
+    "group": "number-word"
+  },
+  {
+    "key": "mẹ́jọ",
+    "text": "mẹ́jọ",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀sán",
+    "text": "ẹ̀sán",
+    "group": "number-word"
+  },
+  {
+    "key": "mẹ́sàn-án",
+    "text": "mẹ́sàn-án",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀wá",
+    "text": "ẹ̀wá",
+    "group": "number-word"
+  },
+  {
+    "key": "mẹ́wàá",
+    "text": "mẹ́wàá",
+    "group": "number-word"
+  },
+  {
+    "key": "ọ̀kanlá",
+    "text": "ọ̀kanlá",
+    "group": "number-word"
+  },
+  {
+    "key": "èjìlá",
+    "text": "èjìlá",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀tàlá",
+    "text": "ẹ̀tàlá",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀rìnlá",
+    "text": "ẹ̀rìnlá",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀ẹ́dógún",
+    "text": "ẹ̀ẹ́dógún",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀rìndínlógún",
+    "text": "ẹ̀rìndínlógún",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀tàdínlógún",
+    "text": "ẹ̀tàdínlógún",
+    "group": "number-word"
+  },
+  {
+    "key": "èjìdínlógún",
+    "text": "èjìdínlógún",
+    "group": "number-word"
+  },
+  {
+    "key": "ọ̀kàndínlógún",
+    "text": "ọ̀kàndínlógún",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀ẹ́dọ́gbọ̀n",
+    "text": "ẹ̀ẹ́dọ́gbọ̀n",
+    "group": "number-word"
+  },
+  {
+    "key": "ọgbọ̀n",
+    "text": "ọgbọ̀n",
+    "group": "number-word"
+  },
+  {
+    "key": "aárùn-ún-dínlógójì",
+    "text": "aárùn-ún-dínlógójì",
+    "group": "number-word"
+  },
+  {
+    "key": "ogójì",
+    "text": "ogójì",
+    "group": "number-word"
+  },
+  {
+    "key": "àádọ́ta",
+    "text": "àádọ́ta",
+    "group": "number-word"
+  },
+  {
+    "key": "ọgọ́ta",
+    "text": "ọgọ́ta",
+    "group": "number-word"
+  },
+  {
+    "key": "àádọ́rin",
+    "text": "àádọ́rin",
+    "group": "number-word"
+  },
+  {
+    "key": "ọgọ́rin",
+    "text": "ọgọ́rin",
+    "group": "number-word"
+  },
+  {
+    "key": "àádọ́rùn-ún",
+    "text": "àádọ́rùn-ún",
+    "group": "number-word"
+  },
+  {
+    "key": "ọgọ́rùn-ún",
+    "text": "ọgọ́rùn-ún",
+    "group": "number-word"
+  },
+  {
+    "key": "igba",
+    "text": "igba",
+    "group": "number-word"
+  },
+  {
+    "key": "irinwó",
+    "text": "irinwó",
+    "group": "number-word"
+  },
+  {
+    "key": "ọ̀ọ́dẹ́gbẹ̀ta",
+    "text": "ọ̀ọ́dẹ́gbẹ̀ta",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹgbẹ̀ta",
+    "text": "ẹgbẹ̀ta",
+    "group": "number-word"
+  },
+  {
+    "key": "ọ̀ọ́dẹ́gbẹ̀rin",
+    "text": "ọ̀ọ́dẹ́gbẹ̀rin",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹgbẹ̀rin",
+    "text": "ẹgbẹ̀rin",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹ̀ẹ́dẹ́gbẹ̀rún",
+    "text": "ẹ̀ẹ́dẹ́gbẹ̀rún",
+    "group": "number-word"
+  },
+  {
+    "key": "ẹgbẹ̀rún",
+    "text": "ẹgbẹ̀rún",
+    "group": "number-word"
+  },
+  {
+    "key": "imú kan ṣoṣo ni mo ní",
+    "text": "Imú kan ṣoṣo ni mo ní.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "mo ní ojú méjì",
+    "text": "Mo ní ojú méjì.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "méjì àti ọ̀kan jẹ́ mẹ́ta",
+    "text": "Méjì àti ọ̀kan jẹ́ mẹ́ta.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ajá ní ẹsẹ̀ mẹ́rin",
+    "text": "Ajá ní ẹsẹ̀ mẹ́rin.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ọwọ́ kan ní ìka márùn-ún",
+    "text": "Ọwọ́ kan ní ìka márùn-ún.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "èèrà ní ẹsẹ̀ mẹ́fà",
+    "text": "Èèrà ní ẹsẹ̀ mẹ́fà.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ọ̀sẹ̀ kan ní ọjọ́ méje",
+    "text": "Ọ̀sẹ̀ kan ní ọjọ́ méje.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "aláǹtakùn ní ẹsẹ̀ mẹ́jọ",
+    "text": "Aláǹtakùn ní ẹsẹ̀ mẹ́jọ.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "mẹ́rin àti márùn-ún jẹ́ mẹ́sàn-án",
+    "text": "Mẹ́rin àti márùn-ún jẹ́ mẹ́sàn-án.",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ọwọ́ méjì ní ìka mẹ́wàá",
+    "text": "Ọwọ́ méjì ní ìka mẹ́wàá.",
+    "group": "number-sentence"
+  },
+  {
     "key": "ìyẹn",
     "text": "ìyẹn",
     "group": "sound-word"
@@ -3533,11 +3703,6 @@
   {
     "key": "wàrà",
     "text": "wàrà",
-    "group": "sound-word"
-  },
-  {
-    "key": "igba",
-    "text": "igba",
     "group": "sound-word"
   },
   {
@@ -3658,11 +3823,6 @@
   {
     "key": "mù",
     "text": "mù",
-    "group": "sound-word"
-  },
-  {
-    "key": "kan",
-    "text": "kan",
     "group": "sound-word"
   },
   {

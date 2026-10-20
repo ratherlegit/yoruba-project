@@ -1,4 +1,5 @@
 import type { Level, LevelId } from "@/content/types";
+import type { NumberEntry } from "@/content/numbers";
 import type { VocabLevel } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
@@ -54,6 +55,24 @@ export function collectVocabAudioStrings(
   for (const { w, level } of words) add(w.yoruba, "vocab-word", level);
   for (const { w, level } of words) add(w.sentence.yoruba, "vocab-sentence", level);
   return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group, level: v.level }));
+}
+
+export type NumbersAudioGroup = "number-word" | "number-sentence";
+
+// The Numbers section's words (counting and after-noun forms) and the example sentences of
+// step 1. The ten words used to be a vocab topic, so their existing clips are matched by text.
+export function collectNumbersAudioStrings(entries: NumberEntry[]): { key: string; text: string; group: NumbersAudioGroup }[] {
+  const seen = new Map<string, { text: string; group: NumbersAudioGroup }>();
+  const add = (text: string, group: NumbersAudioGroup) => {
+    const key = audioKey(text);
+    if ([...key].length > 1 && !seen.has(key)) seen.set(key, { text, group });
+  };
+  for (const e of entries) {
+    add(e.yoruba, "number-word");
+    for (const a of e.after) add(a, "number-word");
+  }
+  for (const e of entries) if (e.example) add(e.example.yoruba, "number-sentence");
+  return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group }));
 }
 
 // Sound Bank example, minimal-pair, tone comparison and consonant set words. Words already listed by grammar or vocab are filtered by the lister.

@@ -5,6 +5,8 @@ import { audioKey } from "./audio";
 import { collectAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { MinimalPair, Sound } from "@/content/sounds";
+import { collectNumbersAudioStrings } from "./audio-strings";
+import type { NumberEntry } from "@/content/numbers";
 
 describe("collectAudioStrings", () => {
   const strings = collectAudioStrings(LEVELS);
@@ -96,5 +98,23 @@ describe("collectSoundAudioStrings", () => {
     const out = collectSoundAudioStrings(sounds, pairs);
     expect(out.map((x) => x.key)).toEqual(["bàbá", "bàtà", "ọkọ"]);
     expect(out.every((x) => x.group === "sound-word")).toBe(true);
+  });
+});
+
+describe("collectNumbersAudioStrings", () => {
+  const entry = (over: Partial<NumberEntry>): NumberEntry => ({
+    id: "n", value: 2, yoruba: "èjì", after: ["méjì"], answers: ["èjì"], build: "", step: 1,
+    example: { yoruba: "Mo ní ojú méjì.", english: "I have two eyes." },
+    source: "s", confidence: "needs-review", note: "n", ...over,
+  });
+  it("lists the counting word, the after-noun forms and the example sentence", () => {
+    const out = collectNumbersAudioStrings([entry({})]);
+    expect(out.map((o) => [o.text, o.group])).toEqual([
+      ["èjì", "number-word"], ["méjì", "number-word"], ["Mo ní ojú méjì.", "number-sentence"],
+    ]);
+  });
+  it("skips one-letter strings and duplicates", () => {
+    const out = collectNumbersAudioStrings([entry({ yoruba: "a", after: ["méjì"], example: undefined }), entry({ id: "m", after: ["méjì"], example: undefined })]);
+    expect(out.map((o) => o.text)).toEqual(["méjì", "èjì"]);
   });
 });

@@ -7,7 +7,8 @@ import { VOCAB_LEVELS } from "@/content/vocab";
 import { audioKey, audioUrlFor } from "./audio";
 import { MINIMAL_PAIRS, SOUNDS } from "@/content/sounds";
 import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
-import { collectAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
+import { NUMBERS } from "@/content/numbers";
+import { collectAudioStrings, collectNumbersAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
 
 describe("audioKey", () => {
   it("lowercases and trims", () => {
@@ -55,7 +56,7 @@ describe("audio matches lesson content", () => {
     expect(existsSync(join("public", "audio", file!)), `missing public/audio/${file}`).toBe(true);
   });
   it("has no manifest entries without a lesson, vocab or sound string", () => {
-    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS)].map((s) => s.key));
+    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectNumbersAudioStrings(NUMBERS), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS)].map((s) => s.key));
     expect(Object.keys(manifest).filter((k) => !keys.has(k))).toEqual([]);
   });
 });

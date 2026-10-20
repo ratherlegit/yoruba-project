@@ -38,7 +38,6 @@ export const TONE_TWINS: ToneTwinEntry[] = [
   entry("i-nature-oorun", "oorun", [["òórùn", "smell"], ["oorun", "sleep"]], "The page lists the sun entry with a capital letter (Oòrùn). Check the vocab spelling oòrùn and all three tones."),
   entry("m-custom-ogun", "ogun", [["ogun", "war, battle"]], "ogún has two meanings with one spelling (inheritance, twenty). Check ogun (war) is all mid tone."),
   entry("gs-body-okan", "ọkan", [["ọ̀kan", "one"], ["ọkan", "a tree (Uapaca guineensis)"], ["ọkán", "kinkeliba, a shrub"]], "ọkan and ọkán are plant names; check they are worth keeping as choices."),
-  entry("gs-numbers-okan", "ọkan", [["ọkàn", "heart"], ["ọkan", "a tree (Uapaca guineensis)"], ["ọkán", "kinkeliba, a shrub"]], "ọkan and ọkán are plant names; check they are worth keeping as choices."),
   entry("i-feelings-eru", "ẹru", [["ẹrù", "load, luggage"], ["ẹrú", "slave"], ["ẹ̀rú", "haft or handle of a tool"]], "Check ẹ̀rú (handle) is a word learners should meet."),
   entry("gs-family-iya", "iya", [["ìyà", "punishment, suffering"]], "Check tone of ìyà."),
   entry("i-nature-okun", "okun", [["okùn", "rope, string"], ["okun", "strength, power"]], "The page writes okun (strength) without tone marks. Check it is all mid tone."),

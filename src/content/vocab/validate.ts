@@ -3,6 +3,8 @@ import { VOCAB_POS, type VocabLevel, type VocabTopic, type VocabWord } from "./t
 
 export const WORDS_PER_TOPIC = 10;
 export const TOPICS_PER_LEVEL = 5;
+// Numbers one to ten moved to the Numbers section, so Getting Started has four vocab topics.
+export const EXPECTED_TOPICS: Record<string, number> = { "getting-started": 4 };
 const EM_DASH = "\u2014";
 
 export const blankOf = (w: VocabWord): string => w.sentence.blank ?? w.yoruba;
@@ -50,8 +52,9 @@ export function validateVocabCatalog(levels: VocabLevel[], opts: { complete?: bo
   const ids = new Set<string>();
   const topicIds = new Set<string>();
   for (const level of levels) {
-    if (opts.complete && level.topics.length !== TOPICS_PER_LEVEL) {
-      errors.push(`${level.id}: expected ${TOPICS_PER_LEVEL} topics, found ${level.topics.length}`);
+    const expected = EXPECTED_TOPICS[level.id] ?? TOPICS_PER_LEVEL;
+    if (opts.complete && level.topics.length !== expected) {
+      errors.push(`${level.id}: expected ${expected} topics, found ${level.topics.length}`);
     }
     for (const t of level.topics) {
       if (t.level !== level.id) errors.push(`${t.id}: filed under ${level.id} but declares level ${t.level}`);

@@ -101,9 +101,13 @@ describe("validateVocabCatalog", () => {
     expect(msg).toMatch(/duplicate word id/);
     expect(msg).toMatch(/filed under/);
   });
-  it("checks the 5-topics-per-level count only when complete", () => {
-    const lv = [{ id: "getting-started" as const, title: "GS", topics: [topic()] }];
+  it("checks the topics-per-level count only when complete", () => {
+    const lv = [{ id: "beginner" as const, title: "B", topics: [{ ...topic(), level: "beginner" as const }] }];
     expect(validateVocabCatalog(lv)).toEqual([]);
     expect(validateVocabCatalog(lv, { complete: true }).join("\n")).toMatch(/expected 5 topics/);
+  });
+  it("expects four topics in Getting Started, because numbers moved to the Numbers section", () => {
+    const lv = [{ id: "getting-started" as const, title: "GS", topics: [topic()] }];
+    expect(validateVocabCatalog(lv, { complete: true }).join("\n")).toMatch(/expected 4 topics/);
   });
 });
