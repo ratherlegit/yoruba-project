@@ -2004,12 +2004,16 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `okunkun`: **Okunkun** by Solana & Killertunes (Pop)
   - Ọjọ́ ti fe ṣ'òkùnkùn, ẹmi nìkan péré (The day is about to turn dark, it is only me.)
   - Mi o duro, kia-kia mo múra mo mere (I am not standing still; quickly I get ready and go.)
+  - Ohun búburú ninu òkùnkùn lo ma n da wa (It is bad things in the darkness that will trouble us.)
+  - Ohun k'ohun ti mo sọ emi duro lori rẹ (Whatever I say, I stand on it.)
   - Ẹlẹ́dàá mi gbé mi s'òkè, òkè gidi gan (My Creator lifted me up, really high up.)
+  - Were, were, kia-kia wa je ka ma lo (Quickly, quickly, come, let us go.)
   - Ọjọ́ ti fé ṣ'òkùnkùn baba wa e gbá wa (The day is about to turn dark, our father, hold on to us.)
+  - A fe j'aye lo, a fẹ́ dúró s'ilé (We want to enjoy life, we want to stay at home.)
   - Lyrics page: https://notjustok.com/lyrics/okunkun-lyrics-by-solana-killertunes/
   - Video: https://www.youtube.com/watch?v=e4aLN_GwpQU (Visualizer on Solana's channel)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), and whether gbá means protect or hold in line 4.
+  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, and what "da wa" means in line 3 (trouble, find, or befall).
 - `sade`: **Sade** by Adekunle Gold (Pop)
   - Oti pe ti'n mo ti'n ba e soro (It has been a long time that I have been talking to you.)
   - Omoge dakun gbo temi (Girl, please listen to me.)

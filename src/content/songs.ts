@@ -47,12 +47,16 @@ export const SONGS: Song[] = [
     lines: [
       { yoruba: "Ọjọ́ ti fe ṣ'òkùnkùn, ẹmi nìkan péré", english: "The day is about to turn dark, it is only me." },
       { yoruba: "Mi o duro, kia-kia mo múra mo mere", english: "I am not standing still; quickly I get ready and go." },
+      { yoruba: "Ohun búburú ninu òkùnkùn lo ma n da wa", english: "It is bad things in the darkness that will trouble us." },
+      { yoruba: "Ohun k'ohun ti mo sọ emi duro lori rẹ", english: "Whatever I say, I stand on it." },
       { yoruba: "Ẹlẹ́dàá mi gbé mi s'òkè, òkè gidi gan", english: "My Creator lifted me up, really high up." },
+      { yoruba: "Were, were, kia-kia wa je ka ma lo", english: "Quickly, quickly, come, let us go." },
       { yoruba: "Ọjọ́ ti fé ṣ'òkùnkùn baba wa e gbá wa", english: "The day is about to turn dark, our father, hold on to us." },
+      { yoruba: "A fe j'aye lo, a fẹ́ dúró s'ilé", english: "We want to enjoy life, we want to stay at home." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubts: "mere" in line 2 (to run or to go), and whether gbá means protect or hold in line 4.`,
+    note: `${PUBLISHED} Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, and what "da wa" means in line 3 (trouble, find, or befall).`,
   },
   {
     id: "sade",
