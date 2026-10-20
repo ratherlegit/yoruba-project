@@ -2085,13 +2085,13 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. The English here is written for this site and only checked against the lyricsraag translation, whose translator is not named. Doubt: tones on ola and owo (honour or money). "Abebe" is a hand fan, so the last line is a pun that this English only half carries.
 - `labe-igi-oronbo`: **Lábẹ́ Igi Òroǹbó** by Traditional children's song (Children's)
   - Lábẹ́ igi òroǹbó (Under the orange tree.)
-  - Níbẹ̀ là ń ṣeré wa (That is where we play our games.)
+  - Níbẹ̀ là gbe ṣeré wa (That is where we play our games.)
   - Inú wa dùn, ara wa yá (We are happy, we are lively.)
   - Òroǹbó, òroǹbó (Orange, orange.)
   - Lyrics page: https://www.mamalisa.com/?p=2900&t=es
   - Video: https://www.youtube.com/watch?v=potZ8OT0HV8 (Nursery rhyme video by Yoruba Stars)
   - Source: Mama Lisa's World, contributed and translated by Belinda (Yinka) Adisa of the Yoruba Roots Language School, read 2026-10-20; video checked on YouTube
-  - Doubt: The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.
+  - Doubt: Line 2 is written "Níbẹ̀ là gbe ṣeré wa" in the video, as reported by the author; the Mama Lisa page has "l'agbe nsere wa", so the wording is not settled. The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.
 - `iya-ni-wura`: **Ìyá Ni Wúrà** by Traditional children's song (Children's)
   - Ìyá ni wúrà, ìyebíye ni (Mother is gold, she is precious.)
   - Bí o l'ìyá, o l'àlàáfíà (If you have a mother, you have peace.)
