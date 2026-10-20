@@ -4,6 +4,7 @@ import type { MinimalPair, Sound } from "@/content/sounds";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { Proverb } from "@/content/proverbs";
+import type { Transform } from "@/content/transforms";
 
 function questionLines(q: Question, n: number): string[] {
   if (q.type === "blank") {
@@ -23,7 +24,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = []): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = [], transforms: Transform[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -123,6 +124,17 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
   }
   const proverbSection = proverbLines.length ? ["## Proverbs", "", ...proverbLines, ""] : [];
 
+  const transformLines: string[] = [];
+  for (const t of transforms.filter((x) => x.confidence === "needs-review")) {
+    total += 1;
+    transformLines.push(`- \`${t.id}\` (${t.kind}): **${t.base}** (${t.baseEnglish})`);
+    transformLines.push(`  - Accepted answers: ${t.answers.join(" | ")}`);
+    transformLines.push(`  - Rule: ${t.rule}`);
+    transformLines.push(`  - Source: ${t.source}`);
+    transformLines.push(`  - Doubt: ${t.note ?? "(none recorded)"}`);
+  }
+  const transformSection = transformLines.length ? ["## Transformations", "", ...transformLines, ""] : [];
+
   const header = [
     "# Content review list",
     "",
@@ -149,5 +161,5 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     }
   }
 
-  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...transformSection, ...all].join("\n");
 }

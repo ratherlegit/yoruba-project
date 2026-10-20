@@ -9,6 +9,8 @@ import { validateConsonantSets, validateToneCompare } from "../src/content/valid
 import { TONE_TWINS } from "../src/content/tone-twins";
 import { PROVERBS } from "../src/content/proverbs";
 import { validateProverbs } from "../src/content/validate-proverbs";
+import { TRANSFORMS } from "../src/content/transforms";
+import { validateTransforms } from "../src/content/validate-transforms";
 import { validateToneTwins } from "../src/content/validate-tone-twins";
 
 let failed = 0;
@@ -49,6 +51,10 @@ for (const e of validateToneTwins(TONE_TWINS, VOCAB_LEVELS)) {
   failed++;
 }
 for (const e of validateProverbs(PROVERBS)) {
+  console.error(e);
+  failed++;
+}
+for (const e of validateTransforms(TRANSFORMS)) {
   console.error(e);
   failed++;
 }

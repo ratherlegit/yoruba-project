@@ -10,6 +10,7 @@ import { TONE_TWINS } from "@/content/tone-twins";
 import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import { PROVERBS, type Proverb } from "@/content/proverbs";
+import { TRANSFORMS, type Transform } from "@/content/transforms";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -63,7 +64,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS, TRANSFORMS));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
@@ -224,5 +225,21 @@ describe("buildReviewMarkdown proverbs", () => {
   });
   it("adds no section for an empty list", () => {
     expect(buildReviewMarkdown(levels, [], undefined, [], [])).not.toContain("## Proverbs");
+  });
+});
+
+describe("buildReviewMarkdown transformations", () => {
+  const t: Transform = {
+    id: "t-test", kind: "negative", base: "Mo lọ", baseEnglish: "I went",
+    answers: ["Mi ò lọ", "Èmi kò lọ"], rule: "kò goes before the verb.",
+    source: "Test source", confidence: "needs-review", note: "Check the contraction.",
+  };
+  it("lists each item with its answers, source and doubt", () => {
+    const md = buildReviewMarkdown(levels, [], undefined, [], [], [t]);
+    expect(md).toContain("## Transformations");
+    for (const s of ["t-test", "Mo lọ", "Mi ò lọ", "Èmi kò lọ", "kò goes before the verb.", "Test source", "Check the contraction."]) expect(md).toContain(s);
+  });
+  it("adds no section for an empty list", () => {
+    expect(buildReviewMarkdown(levels, [], undefined, [], [], [])).not.toContain("## Transformations");
   });
 });
