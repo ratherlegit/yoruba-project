@@ -30,4 +30,14 @@ describe("ActivityIcon", () => {
     const { container } = render(<ActivityIcon activity="vocab" size="lg" />);
     expect(container.querySelector(".level-icon-lg")).not.toBeNull();
   });
+  it("draws the sounds icon as a flute, not the old agogo bells", () => {
+    const m = markup(<ActivityIcon activity="sounds" />);
+    expect(m).not.toContain("M16 25h12l7 30H9Z");
+    expect(m).toContain("rotate(");
+  });
+  it("draws the transform board without the move arrow", () => {
+    const m = markup(<ActivityIcon activity="transform" />);
+    expect(m).not.toContain("M38 18");
+    expect(m).not.toContain("M21 19C26 9");
+  });
 });

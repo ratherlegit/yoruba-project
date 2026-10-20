@@ -1,6 +1,6 @@
 // One simple line icon per activity, in the same style as the level icons and drawn from
 // everyday Yoruba objects the level icons do not use: adire cloth (grammar), a woven basket,
-// apẹ̀rẹ̀ (vocab), the agogo double bell (sounds), a horse, since "òwe lẹ́ṣin ọ̀rọ̀", a proverb is
+// apẹ̀rẹ̀ (vocab), a fèrè flute (sounds), a horse, since "òwe lẹ́ṣin ọ̀rọ̀", a proverb is
 // the horse of speech (proverbs), and an ayò board (transform). Sacred objects are deliberately
 // not used. Decorative: the activity title is always shown beside the icon.
 export type ActivityId = "grammar" | "vocab" | "sounds" | "proverbs" | "transform";
@@ -29,14 +29,15 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
     </>
   ),
   sounds: (
-    <>
-      <path d="M16 25h12l7 30H9Z" />
-      <path d="M41 31h10l5 24H36Z" />
-      <path d="M12 42h20M14 34h14M38 44h16" strokeWidth="1.8" />
-      <path d="M22 25C22 11 46 14 46 31" />
-      <path d="M52 10 44 24" />
-      <circle cx="53.5" cy="8.5" r="3.2" fill="currentColor" fillOpacity=".25" />
-    </>
+    <g transform="rotate(-35 32 32)">
+      <rect x="4" y="26.5" width="56" height="11" rx="5.5" />
+      <ellipse cx="14" cy="32" rx="2.2" ry="1.6" fill="currentColor" fillOpacity=".25" />
+      <circle cx="26" cy="32" r="2" fill="currentColor" />
+      <circle cx="33" cy="32" r="2" fill="currentColor" />
+      <circle cx="40" cy="32" r="2" fill="currentColor" />
+      <circle cx="47" cy="32" r="2" fill="currentColor" />
+      <path d="M20 26.5v11M54 26.5v11" strokeWidth="1.8" />
+    </g>
   ),
   proverbs: (
     <>
@@ -47,7 +48,7 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
     </>
   ),
   transform: (
-    <>
+    <g transform="translate(0 -3)">
       <path d="M10 22h44a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26a4 4 0 0 1 4-4Z" />
       <circle cx="13" cy="30" r="3.2" />
       <circle cx="21" cy="30" r="3.2" fill="currentColor" fillOpacity=".25" />
@@ -61,9 +62,8 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
       <circle cx="37" cy="40" r="3.2" fill="currentColor" fillOpacity=".25" />
       <circle cx="45" cy="40" r="3.2" />
       <circle cx="53" cy="40" r="3.2" />
-      <path d="M21 19C26 9 35 9 38 18M38 18l-5-1M38 18l-1-5" />
       <path d="M14 48v8M50 48v8" />
-    </>
+    </g>
   ),
 };
 
