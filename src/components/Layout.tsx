@@ -10,6 +10,7 @@ export function Layout() {
           <nav className="header-nav">
             <Link to="/grammar">Grammar</Link>
             <Link to="/vocab">Vocab</Link>
+            <Link to="/numbers">Numbers</Link>
             <Link to="/sounds">Sound Bank</Link>
             <Link to="/proverbs">Proverbs</Link>
             <Link to="/transform">Transform</Link>

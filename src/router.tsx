@@ -8,6 +8,8 @@ import { Breakdown } from "@/pages/Breakdown";
 import { Diacritics } from "@/pages/Diacritics";
 import { Grammar } from "@/pages/Grammar";
 import { Home } from "@/pages/Home";
+import { Numbers } from "@/pages/Numbers";
+import { NumbersStep } from "@/pages/NumbersStep";
 import { LessonPage } from "@/pages/LessonPage";
 import { LevelPage } from "@/pages/LevelPage";
 import { SoundBank } from "@/pages/SoundBank";
@@ -26,6 +28,8 @@ const routes = [
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab", component: VocabHome }),
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId", component: VocabLevelPage }),
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId/$topicId", component: VocabTopicPage }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/numbers", component: Numbers }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/numbers/$stepId", component: NumbersStep }),
   createRoute({ getParentRoute: () => rootRoute, path: "/sounds", component: SoundBank }),
   createRoute({ getParentRoute: () => rootRoute, path: "/proverbs", component: Proverbs }),
   createRoute({ getParentRoute: () => rootRoute, path: "/transform", component: Transform }),
