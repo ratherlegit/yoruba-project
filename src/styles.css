@@ -239,3 +239,17 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .yo-keys { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .yo-key { min-width: 2.75rem; padding: 0.4rem 0.7rem; font-size: 1.1rem; }
 .transform-reveal { display: grid; gap: 0.4rem; padding: 0.75rem 1rem; border-radius: 0.7rem; background: var(--surface-2); border: 1px solid var(--border); }
+
+/* Landing page: one large card per activity, and the short stats strip above them */
+.activity-grid { display: grid; gap: 0.9rem; grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .activity-grid { grid-template-columns: repeat(2, 1fr); } }
+.activity-card { display: flex; gap: 1.1rem; align-items: center; padding: 1.4rem 1.3rem; text-decoration: none; color: var(--text); }
+.activity-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.activity-text { display: grid; gap: 0.3rem; min-width: 0; }
+.activity-text strong { font-size: 1.25rem; }
+.activity-progress { font-size: 0.9rem; font-weight: 600; color: var(--gold-text); }
+.stats-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; }
+.stats-figures { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; margin: 0; }
+.stats-figures > div { display: grid; gap: 0.1rem; }
+.stats-figures dd { margin: 0; font-size: 1.5rem; font-weight: 700; font-family: "Fraunces Variable", serif; }
+.stats-figures dt { font-size: 0.85rem; }

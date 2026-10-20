@@ -86,8 +86,8 @@ describe("vocab pages", () => {
     expect(screen.getByText("Getting Started").closest("a")).toHaveAttribute("href", "/vocab/getting-started");
   });
 
-  it("the grammar home still labels rings in lessons", async () => {
-    await renderAt("/");
+  it("the grammar page still labels rings in lessons", async () => {
+    await renderAt("/grammar");
     expect((await screen.findAllByLabelText(/lessons complete/)).length).toBe(5);
   });
 

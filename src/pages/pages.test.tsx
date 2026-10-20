@@ -16,13 +16,6 @@ beforeEach(() => {
 });
 
 describe("pages", () => {
-  it("home lists the five levels", async () => {
-    await renderAt("/");
-    for (const t of ["Getting Started", "Beginner", "Intermediate", "Advanced", "Mastery"]) {
-      expect(await screen.findByText(t)).toBeInTheDocument();
-    }
-  });
-
   it("grammar page lists the five levels", async () => {
     await renderAt("/grammar");
     for (const t of ["Getting Started", "Beginner", "Intermediate", "Advanced", "Mastery"]) {
