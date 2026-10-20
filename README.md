@@ -18,7 +18,7 @@ npm run build    # typecheck + production build
 
 ## Content and audio
 
-Lesson and vocabulary content lives in `content/`. Unverified items are tracked in `content/REVIEW.md`; corrections from Yoruba speakers are welcome via issues. Audio clips in `public/audio/` are generated with ElevenLabs using `tools/audio/` (see its README). Generating new clips needs your own `ELEVENLABS_API_KEY` in `tools/audio/.env`.
+Lesson and vocabulary content lives in `content/`. Corrections are welcome via issues. Audio clips in `public/audio/` are generated with ElevenLabs using `tools/audio/` (see its README). Generating new clips needs your own `ELEVENLABS_API_KEY` in `tools/audio/.env`.
 
 ## License
 
