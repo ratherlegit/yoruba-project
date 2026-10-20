@@ -14,6 +14,7 @@ export function Layout() {
             <Link to="/sounds">Sound Bank</Link>
             <Link to="/proverbs">Proverbs</Link>
             <Link to="/songs">Songs</Link>
+            <Link to="/dialogues">Dialogues</Link>
             <Link to="/transform">Transform</Link>
             <Link to="/stats">Stats</Link>
             <Link to="/about">About</Link>

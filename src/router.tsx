@@ -5,6 +5,8 @@ import { About } from "@/pages/About";
 import { Proverbs } from "@/pages/Proverbs";
 import { Transform } from "@/pages/Transform";
 import { Breakdown } from "@/pages/Breakdown";
+import { Dialogue } from "@/pages/Dialogue";
+import { Dialogues } from "@/pages/Dialogues";
 import { Diacritics } from "@/pages/Diacritics";
 import { Grammar } from "@/pages/Grammar";
 import { Home } from "@/pages/Home";
@@ -30,6 +32,8 @@ const routes = [
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab", component: VocabHome }),
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId", component: VocabLevelPage }),
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId/$topicId", component: VocabTopicPage }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/dialogues", component: Dialogues }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/dialogues/$dialogueId", component: Dialogue }),
   createRoute({ getParentRoute: () => rootRoute, path: "/numbers", component: Numbers }),
   createRoute({ getParentRoute: () => rootRoute, path: "/numbers/$stepId", component: NumbersStep }),
   createRoute({ getParentRoute: () => rootRoute, path: "/songs", component: Songs }),
