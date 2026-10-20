@@ -206,13 +206,13 @@ export const SONGS: Song[] = [
     about: "A folk song Yoruba-speaking children sing while playing together outdoors, often under the shade of a tree.",
     lines: [
       { yoruba: "Lábẹ́ igi òroǹbó", english: "Under the orange tree." },
-      { yoruba: "Níbẹ̀ là gbe ṣeré wa", english: "That is where we play our games." },
+      { yoruba: "Níbẹ̀ là gbé ń ṣeré wa", english: "That is where we play our games." },
       { yoruba: "Inú wa dùn, ara wa yá", english: "We are happy, we are lively." },
       { yoruba: "Òroǹbó, òroǹbó", english: "Orange, orange." },
     ],
     source: `Mama Lisa's World, contributed and translated by Belinda (Yinka) Adisa of the Yoruba Roots Language School, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `Line 2 is written "Níbẹ̀ là gbe ṣeré wa" in the video, as reported by the author; the Mama Lisa page has "l'agbe nsere wa", so the wording is not settled. The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.`,
+    note: `x, as reported by the author; the Mama Lisa page has "l'agbe nsere wa", so the wording is not settled. The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.`,
   },
   {
     id: "iya-ni-wura",
