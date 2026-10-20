@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { TRANSFORMS } from "../src/content/transforms";
 
-test("Landing page: seven activity cards in order and the empty stats message", async ({ page }) => {
+test("Landing page: eight activity cards in order and the empty stats message", async ({ page }) => {
   await page.goto("/");
   const cards = page.getByTestId("activity-card");
-  await expect(cards).toHaveCount(7);
-  await expect(cards.locator("strong")).toHaveText(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform", "Songs"]);
+  await expect(cards).toHaveCount(8);
+  await expect(cards.locator("strong")).toHaveText(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform", "Songs", "Dialogues"]);
   await expect(page.getByText("Start a lesson to see your stats")).toBeVisible();
   await expect(page.getByTestId("card-progress")).toHaveCount(0);
 });
@@ -60,7 +60,7 @@ test.describe("phone width", () => {
   for (const path of ["/", "/grammar", "/stats"]) {
     test(`no horizontal scroll and every nav link visible at ${path}`, async ({ page }) => {
       await page.goto(path);
-      for (const name of ["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Songs", "Transform", "Stats", "About"]) {
+      for (const name of ["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Songs", "Dialogues", "Transform", "Stats", "About"]) {
         await expect(page.getByRole("navigation").getByRole("link", { name })).toBeVisible();
       }
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);

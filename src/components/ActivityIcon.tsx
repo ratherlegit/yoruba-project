@@ -2,9 +2,9 @@
 // everyday Yoruba objects the level icons do not use: adire cloth (grammar), a woven basket,
 // apẹ̀rẹ̀ (vocab), a heap of yam tubers (numbers), a fèrè flute (sounds), a horse, since "òwe lẹ́ṣin ọ̀rọ̀", a proverb is
 // the horse of speech (proverbs), and an ayò board (transform). Sacred objects are deliberately
-// not used. Songs is a ṣẹ̀kẹ̀rẹ̀, the beaded gourd rattle. Decorative: the activity title is always shown beside the icon.
-export type ActivityId = "grammar" | "vocab" | "numbers" | "sounds" | "proverbs" | "transform" | "songs";
-export const ACTIVITY_IDS: readonly ActivityId[] = ["grammar", "vocab", "numbers", "sounds", "proverbs", "transform", "songs"];
+// not used. Songs is a ṣẹ̀kẹ̀rẹ̀, the beaded gourd rattle, and Dialogues is two facing stools (àga). Decorative: the activity title is always shown beside the icon.
+export type ActivityId = "grammar" | "vocab" | "numbers" | "sounds" | "proverbs" | "transform" | "songs" | "dialogues";
+export const ACTIVITY_IDS: readonly ActivityId[] = ["grammar", "vocab", "numbers", "sounds", "proverbs", "transform", "songs", "dialogues"];
 
 const SHAPES: Record<ActivityId, React.ReactNode> = {
   grammar: (
@@ -86,6 +86,19 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
       <circle cx="25.6" cy="47.4" r="1.7" fill="currentColor" fillOpacity=".35" />
       <circle cx="38.4" cy="47.4" r="1.7" fill="currentColor" fillOpacity=".35" />
       <path d="M52 20l4-3M55 28h5M12 20l-4-3M9 28H4" strokeWidth="1.8" />
+    </>
+  ),
+  dialogues: (
+    <>
+      <ellipse cx="17" cy="33" rx="12" ry="4.5" />
+      <path d="M12 37c1 5 1 8-1 12M22 37c-1 5-1 8 1 12" />
+      <ellipse cx="17" cy="52" rx="10" ry="3.2" />
+      <ellipse cx="47" cy="33" rx="12" ry="4.5" />
+      <path d="M42 37c1 5 1 8-1 12M52 37c-1 5-1 8 1 12" />
+      <ellipse cx="47" cy="52" rx="10" ry="3.2" />
+      <path d="M28 19c2.5-3 5.5-3 8 0" strokeWidth="1.8" />
+      <path d="M24 13c5.5-5.5 10.5-5.5 16 0" strokeWidth="1.8" />
+      <circle cx="32" cy="24" r="1.6" fill="currentColor" />
     </>
   ),
 };

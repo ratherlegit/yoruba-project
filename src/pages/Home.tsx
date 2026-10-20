@@ -76,6 +76,10 @@ export function Home() {
             activity="songs" to="/songs" title="Songs"
             description="Watch a Yoruba song and read a few of its lines with their meaning."
           />
+          <ActivityCard
+            activity="dialogues" to="/dialogues" title="Dialogues"
+            description="Read and hear everyday conversations between two people, at every level."
+          />
         </div>
       </main>
     </>

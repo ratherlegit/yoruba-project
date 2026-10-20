@@ -23,12 +23,12 @@ beforeEach(() => {
 });
 
 describe("Home", () => {
-  it("shows the hero and seven activity cards in order, each linking to its page", async () => {
+  it("shows the hero and eight activity cards in order, each linking to its page", async () => {
     const main = await renderHome();
     expect(screen.getByRole("heading", { level: 1, name: "Learn Yoruba, tone by tone" })).toBeInTheDocument();
     const cards = within(main).getAllByTestId("activity-card");
-    expect(cards.map((c) => c.querySelector("strong")!.textContent)).toEqual(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform", "Songs"]);
-    expect(cards.map((c) => c.getAttribute("href"))).toEqual(["/grammar", "/vocab", "/numbers", "/sounds", "/proverbs", "/transform", "/songs"]);
+    expect(cards.map((c) => c.querySelector("strong")!.textContent)).toEqual(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform", "Songs", "Dialogues"]);
+    expect(cards.map((c) => c.getAttribute("href"))).toEqual(["/grammar", "/vocab", "/numbers", "/sounds", "/proverbs", "/transform", "/songs", "/dialogues"]);
   });
 
   it("no longer lists the levels or the unlock checkbox", async () => {
@@ -100,6 +100,15 @@ describe("Home", () => {
     const card = within(main).getAllByTestId("activity-card")[6]!;
     expect(card.getAttribute("href")).toBe("/songs");
     expect(card.textContent).toContain("Songs");
+    expect(within(card).queryByTestId("card-progress")).toBeNull();
+  });
+
+  it("shows a Dialogues card, last, linking to the dialogues page and with no progress line", async () => {
+    await renderHome();
+    const main = screen.getByRole("main");
+    const card = within(main).getAllByTestId("activity-card")[7]!;
+    expect(card.getAttribute("href")).toBe("/dialogues");
+    expect(card.textContent).toContain("Dialogues");
     expect(within(card).queryByTestId("card-progress")).toBeNull();
   });
 });
