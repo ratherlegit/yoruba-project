@@ -1672,10 +1672,10 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 ## Transformations
 
 - `neg-mo-lo` (negative): **Mo lọ** (I went)
-  - Accepted answers: Mi ò lọ | N kò lọ
-  - Rule: kò goes before the verb. After mo it shows up as mi ò (or n kò).
+  - Accepted answers: N kò lọ | N ò lọ | Mi ò lọ
+  - Rule: kò goes before the verb. Before kò, mo becomes n (n kò, or n ò for short). Mi ò is the everyday form.
   - Source: COERLL, Yorùbá Yé Mi, Chapter 1, Lesson 2, page 35 (kò goes before the verb) and Chapter 3, Lesson 2, page 76 (pronoun table: N kò, and kò alone for he or she). Wiktionary, "ko" and "o" (ò is a short form of kò after personal pronouns), "mi" and "ṣe" (Mi ò fẹ́ ṣe nǹkan kan, I don't want to do anything).
-  - Doubt: The sentence is a new example. Confirm mi ò versus n kò as the usual form, and the reading "did not go" versus "am not going".
+  - Doubt: The sentence is a new example. Model answer follows lesson b-2. Confirm n kò versus mi ò as the usual form, and the reading "did not go" versus "am not going".
 - `q-o-fe-jeun` (question): **O fẹ́ jẹun** (You want to eat)
   - Accepted answers: Ṣé o fẹ́ jẹun?
   - Rule: Put ṣé in front of the statement. Nothing else moves.
@@ -1712,8 +1712,8 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: COERLL, Yorùbá Yé Mi, Chapter 1, Lesson 3, page 38 (without ń the verb means past: Mò ń lọ, Mo lọ). Wiktionary, "n" (Mo ń jẹun) and Template "yo-aspects" (unmarked verb is completed: mo lọ sí ilé-ìwé, I went to school; progressive Wọ́n ń ṣiṣẹ́).
   - Doubt: Ó ń ṣeré is written in COERLL. Confirm the tones on ṣeré and the reading "he played".
 - `neg-mo-fe-jeun` (negative): **Mo fẹ́ jẹun** (I want to eat)
-  - Accepted answers: Mi ò fẹ́ jẹun | N kò fẹ́ jẹun
-  - Rule: kò goes before the verb fẹ́. After mo it shows up as mi ò (or n kò).
+  - Accepted answers: N kò fẹ́ jẹun | N ò fẹ́ jẹun | Mi ò fẹ́ jẹun
+  - Rule: kò goes before the verb fẹ́. Before kò, mo becomes n (n kò, or n ò for short). Mi ò is the everyday form.
   - Source: COERLL, Yorùbá Yé Mi, Chapter 1, Lesson 2, page 35 (kò goes before the verb) and Chapter 3, Lesson 2, page 76 (pronoun table: N kò, and kò alone for he or she). Wiktionary, "ko" and "o" (ò is a short form of kò after personal pronouns), "mi" and "ṣe" (Mi ò fẹ́ ṣe nǹkan kan, I don't want to do anything).
   - Doubt: Built from Mi ò fẹ́ ṣe nǹkan kan (Wiktionary) and N kò fẹ́ jẹ búrẹ́dì (COERLL). Not found written out as given.
 - `q-e-sun` (question): **Ẹ sùn dáadáa** (You (plural or respectful) slept well)
@@ -1722,10 +1722,10 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: COERLL, Yorùbá Yé Mi, Chapter 1, Lesson 4, page 41 (Ṣé o fẹ́ jẹun?) and the Lesson 1 dialogue, page 27 (Ṣé o sùn dáadáa?). Wiktionary, "ṣe" (ṣé before a statement makes a yes or no question) and "daadaa" (Ṣé ẹ sùn dáadáa?).
   - Doubt: Wiktionary writes Ṣé ẹ sùn dáadáa? as an example. Confirm the tones.
 - `fut-mo-ilewe` (future): **Mo lọ sí ilé-ìwé** (I went to school)
-  - Accepted answers: Mo máa lọ sí ilé-ìwé | Èmi yóò lọ sí ilé-ìwé
-  - Rule: máa goes before the verb. With yóò, the long pronoun èmi is used.
+  - Accepted answers: Mo máa lọ sí ilé-ìwé | Èmi máa lọ sí ilé-ìwé | Mà á lọ sí ilé-ìwé | Èmi yóò lọ sí ilé-ìwé
+  - Rule: máa goes before the verb, with a short or long pronoun. With yóò, only the long pronoun èmi is used.
   - Source: Wiktionary, Template "yo-aspects" (Ajani 2001): máa anticipative and yóò intentional; examples Ẹ̀yin yóò wá kí wa lọ́la, Èmi yóò máa lọ, A ti máa lọ kí o tó dé. Wiktionary, "rọ": Òjò máa rọ̀ (it will rain).
-  - Doubt: The past sentence is written in Wiktionary. The future forms are built from the aspect table. Confirm Mo máa versus Èmi yóò.
+  - Doubt: The past sentence is written in Wiktionary. The future forms are built from the aspect table. Mà á lọ is listed by COERLL (lesson i-1). Confirm Mo máa versus Èmi yóò.
 - `past-ade-mu-omi` (past): **Adé ń mu omi** (Adé is drinking water)
   - Accepted answers: Adé mu omi
   - Rule: Drop ń. The bare verb means the action is done.
@@ -1742,8 +1742,8 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: COERLL, Yorùbá Yé Mi, Chapter 1, Lesson 4, page 41 (Ṣé o fẹ́ jẹun?) and the Lesson 1 dialogue, page 27 (Ṣé o sùn dáadáa?). Wiktionary, "ṣe" (ṣé before a statement makes a yes or no question) and "daadaa" (Ṣé ẹ sùn dáadáa?).
   - Doubt: The statement is written in COERLL. The question is built from the ṣé pattern and not found written out.
 - `fut-eyin-wa` (future): **Ẹ̀yin wá kí wa** (You came to greet us)
-  - Accepted answers: Ẹ̀yin yóò wá kí wa | Ẹ máa wá kí wa
-  - Rule: yóò goes after the long pronoun and before the verb.
+  - Accepted answers: Ẹ̀yin máa wá kí wa | Ẹ̀yin yóò wá kí wa | Ẹ máa wá kí wa
+  - Rule: máa or yóò goes before the verb. yóò needs the long pronoun ẹ̀yin; máa takes ẹ̀yin or ẹ.
   - Source: Wiktionary, Template "yo-aspects" (Ajani 2001): máa anticipative and yóò intentional; examples Ẹ̀yin yóò wá kí wa lọ́la, Èmi yóò máa lọ, A ti máa lọ kí o tó dé. Wiktionary, "rọ": Òjò máa rọ̀ (it will rain).
   - Doubt: Wiktionary writes Ẹ̀yin yóò wá kí wa lọ́la. The máa version with the short pronoun ẹ is built from the pattern.
 - `past-won-sise` (past): **Wọ́n ń ṣiṣẹ́** (They are working)
@@ -1762,8 +1762,8 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: COERLL, Yorùbá Yé Mi, Chapter 1, Lesson 4, page 41 (Ṣé o fẹ́ jẹun?) and the Lesson 1 dialogue, page 27 (Ṣé o sùn dáadáa?). Wiktionary, "ṣe" (ṣé before a statement makes a yes or no question) and "daadaa" (Ṣé ẹ sùn dáadáa?).
   - Doubt: Built from the ṣé pattern and the lọ sí ilé phrase in the lessons. Not found written out.
 - `fut-a-lo` (future): **A lọ** (We went)
-  - Accepted answers: A máa lọ | Àwa yóò lọ
-  - Rule: máa goes before the verb. With yóò, the long pronoun àwa is used.
+  - Accepted answers: A máa lọ | Àwa máa lọ | Àwa yóò lọ
+  - Rule: máa goes before the verb, with a short or long pronoun. With yóò, only the long pronoun àwa is used.
   - Source: Wiktionary, Template "yo-aspects" (Ajani 2001): máa anticipative and yóò intentional; examples Ẹ̀yin yóò wá kí wa lọ́la, Èmi yóò máa lọ, A ti máa lọ kí o tó dé. Wiktionary, "rọ": Òjò máa rọ̀ (it will rain).
   - Doubt: Wiktionary writes A ti máa lọ kí o tó dé and Àwa yóò ti lọ. The exact forms are built from the table.
 - `past-mo-lo` (past): **Mo ń lọ** (I am going)

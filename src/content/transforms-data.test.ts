@@ -22,4 +22,22 @@ describe("TRANSFORMS content", () => {
   it("has unique ids", () => {
     expect(new Set(TRANSFORMS.map((t) => t.id)).size).toBe(TRANSFORMS.length);
   });
+  it("accepts the forms the lessons teach (b-2 and i-1)", () => {
+    const accepted: Record<string, string[]> = {
+      "neg-mo-lo": ["N kò lọ", "N ò lọ", "Mi ò lọ"],
+      "neg-mo-fe-jeun": ["N kò fẹ́ jẹun", "N ò fẹ́ jẹun", "Mi ò fẹ́ jẹun"],
+      "fut-mo-ilewe": ["Mo máa lọ sí ilé-ìwé", "Èmi máa lọ sí ilé-ìwé", "Mà á lọ sí ilé-ìwé", "Èmi yóò lọ sí ilé-ìwé"],
+      "fut-a-lo": ["A máa lọ", "Àwa máa lọ", "Àwa yóò lọ"],
+      "fut-eyin-wa": ["Ẹ̀yin máa wá kí wa", "Ẹ̀yin yóò wá kí wa", "Ẹ máa wá kí wa"],
+    };
+    for (const [id, answers] of Object.entries(accepted)) {
+      const t = TRANSFORMS.find((x) => x.id === id)!;
+      for (const a of answers) expect(gradeTransform(a, t.answers, "advanced"), `${id}: ${a}`).toBe("right");
+    }
+  });
+  it("shows the lessons' usual first-person negative, n kò, as the model answer", () => {
+    for (const id of ["neg-mo-lo", "neg-mo-fe-jeun"]) {
+      expect(TRANSFORMS.find((x) => x.id === id)!.answers[0], id).toMatch(/^N kò /);
+    }
+  });
 });
