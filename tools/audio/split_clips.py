@@ -79,12 +79,13 @@ def find_segments(path: Path, noise: str, n_items: int, min_gap=None):
     return segments_from(sil, total, chosen), margin, internal, total
 
 
-PUNCT_PAUSE = re.compile(r"[,;:]")
+# A pause is expected at a comma, semicolon or colon, and at a sentence end that is followed by more text.
+PUNCT_PAUSE = re.compile(r"[,;:]|[.?!…](?=\s+\S)")
 PACE_TOLERANCE = 2.0
 
 
 def find_segments_by_punctuation(path: Path, noise: str, texts: list, min_gap: float):
-    """Separators found by counting: each item holds one pause per comma/semicolon/colon in its text,
+    """Separators found by counting: each item holds one pause per comma/semicolon/colon or mid-text sentence end in its text,
     then one separator. Returns (segments or None, internal_silences, total, expected_count)."""
     sil, total = detect_silences(path, noise, min_gap)
     internal = [x for x in sil if x[0] > 0.01 and x[1] < total - 0.01]
@@ -98,6 +99,63 @@ def find_segments_by_punctuation(path: Path, noise: str, texts: list, min_gap: f
         seps.append(internal[idx])
         idx += 1
     return segments_from(sil, total, seps), internal, total, expected
+
+
+def choose_separators_by_pace(cands, lead, tail, texts, bonus=3.0):
+    """Pick which silences are the gaps between items by pace: speech takes about the same time per
+    character, so the right cuts make each item's length proportional to its text. A pause inside an
+    item (between two sentences) can be as long as a real gap, so length alone cannot tell them apart,
+    but the item lengths can. cands: silences strictly inside the audio, sorted. Returns the indices of
+    the len(texts) - 1 chosen silences, or None when there are too few. A longer silence is slightly preferred."""
+    n, m = len(texts), len(cands)
+    if n == 1:
+        return []
+    if m < n - 1:
+        return None
+    lens = [max(len(re.sub(r"\s", "", t)), 1) for t in texts]
+    rate = (tail - lead) / sum(lens)
+    chosen = None
+    for _ in range(3):
+        inf = float("inf")
+        cost = [[inf] * m for _ in range(n - 1)]
+        back = [[-1] * m for _ in range(n - 1)]
+        for j in range(m):
+            cost[0][j] = (cands[j][0] - lead - rate * lens[0]) ** 2 - bonus * (cands[j][1] - cands[j][0])
+        for i in range(1, n - 1):
+            for j in range(i, m):
+                for k in range(i - 1, j):
+                    c = cost[i - 1][k] + (cands[j][0] - cands[k][1] - rate * lens[i]) ** 2 - bonus * (cands[j][1] - cands[j][0])
+                    if c < cost[i][j]:
+                        cost[i][j], back[i][j] = c, k
+        last = min(range(n - 2, m), key=lambda j: cost[n - 2][j] + (tail - cands[j][1] - rate * lens[n - 1]) ** 2)
+        chosen = [last]
+        for i in range(n - 2, 0, -1):
+            chosen.append(back[i][chosen[-1]])
+        chosen.reverse()
+        spans, pos = [], lead
+        for j in chosen:
+            spans.append(cands[j][0] - pos)
+            pos = cands[j][1]
+        spans.append(tail - pos)
+        rate = sum(spans) / sum(lens)  # re-estimate the pace from the cut and go again
+    return chosen
+
+
+def find_segments_by_pace(path: Path, noise: str, texts: list, min_gap: float):
+    """Segments cut at the silences that best match the item lengths. Returns (segments or None, internal, total, margin)."""
+    sil, total = detect_silences(path, noise, min_gap)
+    internal = [x for x in sil if x[0] > 0.01 and x[1] < total - 0.01]
+    lead = sil[0][1] if sil and sil[0][0] < 0.01 else 0.0
+    tail = sil[-1][0] if sil and sil[-1][1] > total - 0.01 and sil[-1][0] > 0.01 else total
+    picked = choose_separators_by_pace(internal, lead, tail, texts)
+    if picked is None:
+        return None, internal, total, None
+    seps = [internal[j] for j in picked]
+    rest = [x for j, x in enumerate(internal) if j not in picked]
+    shortest = min((e - s for s, e in seps), default=None)
+    longest_rest = max((e - s for s, e in rest), default=0.0)
+    margin = None if shortest is None or longest_rest <= 0 else shortest / longest_rest
+    return segments_from(sil, total, seps), internal, total, margin
 
 
 def pace_problems(segs, texts):
@@ -159,6 +217,8 @@ def main() -> int:
     ap.add_argument("--min-gap", type=float, default=None, help="optional fixed mode: split at every silence at least this long (default: use the N-1 longest gaps)")
     ap.add_argument("--by-punctuation", action="store_true",
                     help="find separators by counting the commas in each item's text (needs --min-gap, about 0.2)")
+    ap.add_argument("--by-pace", action="store_true",
+                    help="choose the gaps between items by matching each item's length to its text length (use when lines contain sentence breaks; default --min-gap 0.15)")
     ap.add_argument("--strings", default=str(ROOT / "tools/audio/strings.json"), help="strings.json with the item texts (for --by-punctuation)")
     ap.add_argument("--accept-low-margin", action="store_true", help="write clips even if the separation margin is below 1.5")
     ap.add_argument("--dry-run", action="store_true")
@@ -185,7 +245,9 @@ def main() -> int:
         return 1
 
     texts_by_key = {}
-    if a.by_punctuation:
+    if a.by_pace and a.min_gap is None:
+        a.min_gap = 0.15
+    if a.by_punctuation or a.by_pace:
         if a.min_gap is None:
             print("--by-punctuation needs --min-gap (try 0.2)", file=sys.stderr)
             return 1
@@ -200,7 +262,31 @@ def main() -> int:
     failed, manifest_new = 0, {}
     for name in sorted(files, key=sort_key):
         keys = order[name]
-        if a.by_punctuation:
+        if a.by_pace:
+            missing = [k for k in keys if k not in texts_by_key]
+            if missing:
+                print(f"\nERROR {files[name].name}: no text in {a.strings} for {missing[:3]}. Nothing was written.")
+                failed += 1
+                continue
+            texts = [texts_by_key[k] for k in keys]
+            segs, internal, total, _margin = find_segments_by_pace(files[name], a.noise, texts, a.min_gap)
+            margin = None  # the pace check below is the safeguard here, not the gap-length margin
+            if segs is None:
+                print(f"\nERROR {files[name].name}: found {len(internal)} pauses but {len(keys) - 1} separators are needed. Nothing was written for this file.")
+                print("  Try a smaller --min-gap (now %s), or check that the download holds every item." % a.min_gap)
+                failed += 1
+                continue
+            odd = pace_problems(segs, texts)
+            if odd:
+                print(f"\n!!! WARNING {files[name].name}: some items are much faster or slower than the rest, so the cuts may be misaligned:")
+                for i, ratio in odd:
+                    print(f"    item {i + 1} {texts[i]!r}: {ratio:.1f}x the median pace")
+                if not a.accept_low_margin:
+                    print("  Nothing was written for this file. Listen to the download, or pass --accept-low-margin to write anyway.")
+                    failed += 1
+                    continue
+            print(f"{files[name].name}: {len(keys)} items cut by pace from {len(internal)} pauses")
+        elif a.by_punctuation:
             missing = [k for k in keys if k not in texts_by_key]
             if missing:
                 print(f"\nERROR {files[name].name}: no text in {a.strings} for {missing[:3]}. Nothing was written.")

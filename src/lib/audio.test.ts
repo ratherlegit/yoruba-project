@@ -8,7 +8,8 @@ import { audioKey, audioUrlFor, lookupClip, voiceKey } from "./audio";
 import { MINIMAL_PAIRS, SOUNDS } from "@/content/sounds";
 import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
 import { NUMBERS } from "@/content/numbers";
-import { collectAudioStrings, collectNumbersAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
+import { DIALOGUES } from "@/content/dialogues";
+import { collectAudioStrings, collectDialogueAudioStrings, collectNumbersAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
 
 describe("audioKey", () => {
   it("lowercases and trims", () => {
@@ -55,8 +56,8 @@ describe("audio matches lesson content", () => {
     expect(file, `no manifest entry for "${key}"`).toBeTruthy();
     expect(existsSync(join("public", "audio", file!)), `missing public/audio/${file}`).toBe(true);
   });
-  it("has no manifest entries without a lesson, vocab or sound string", () => {
-    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectNumbersAudioStrings(NUMBERS), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS)].map((s) => s.key));
+  it("has no manifest entries without a lesson, vocab, numbers, sound or dialogue string", () => {
+    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectNumbersAudioStrings(NUMBERS), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS), ...collectDialogueAudioStrings(DIALOGUES)].map((s) => s.key));
     expect(Object.keys(manifest).filter((k) => !keys.has(k))).toEqual([]);
   });
 });
@@ -107,5 +108,24 @@ describe("voiceKey and lookupClip", () => {
   it("audioUrlFor accepts a voice and defaults to female", () => {
     expect(audioUrlFor("a text that has no clip anywhere", "male")).toBeNull();
     expect(audioUrlFor("a text that has no clip anywhere")).toBeNull();
+  });
+});
+
+describe("audio matches dialogue content", () => {
+  const dialogue = collectDialogueAudioStrings(DIALOGUES);
+  const files = manifest as Record<string, string>;
+  it("has a file on disk for every dialogue string that has a manifest entry", () => {
+    const missing = dialogue.filter((s) => files[s.key] && !existsSync(join("public", "audio", files[s.key]!))).map((s) => s.key);
+    expect(missing).toEqual([]);
+  });
+  it("has a male clip for every male line and no male clip that is also a female one", () => {
+    const male = dialogue.filter((s) => s.group === "dialogue-male");
+    expect(male.length).toBeGreaterThan(0);
+    for (const s of male) {
+      expect(s.key.startsWith("male|")).toBe(true);
+      expect(files[s.key], `no male clip for "${s.text}"`).toBeTruthy();
+      const female = files[s.key.slice("male|".length)];
+      if (female) expect(files[s.key], s.text).not.toBe(female);
+    }
   });
 });

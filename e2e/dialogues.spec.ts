@@ -14,8 +14,9 @@ test("Dialogues: from the landing card to a conversation, hide the English and a
   await expect(page.getByTestId("dialogue-english")).toHaveCount(0);
   await page.getByTestId("choice").first().click();
   await expect(page.locator('[data-state="correct"]')).toHaveCount(1);
-  // Some female lines reuse clips that already exist; no male clips exist yet, so male lines have no Listen button.
-  await expect(page.locator(".dlg-male button")).toHaveCount(0);
+  // Every male line has a clip in the male voice, so each shows a Listen button, and Play all is offered.
+  await expect(page.locator(".dlg-male button")).toHaveCount(2);
+  await expect(page.getByRole("button", { name: "Play all" })).toBeVisible();
 });
 
 test.describe("phone width", () => {

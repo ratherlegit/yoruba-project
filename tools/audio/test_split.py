@@ -139,6 +139,39 @@ class SplitTests(unittest.TestCase):
             self.assertEqual(len(list((td / "out3").glob("*.mp3"))), 3)
 
 
+def load_split():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("split_clips", SPLIT)
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+class PaceTests(unittest.TestCase):
+    """choose_separators_by_pace: pick the gaps that make each item's length match its text length."""
+
+    texts = ["a" * 10, "b" * 20, "c" * 10, "d" * 20]  # 0.1 s per character: 1, 2, 1 and 2 seconds
+
+    def test_picks_real_gaps_even_when_a_pause_inside_an_item_is_longer(self):
+        m = load_split()
+        # lead 1.0; item 1 1.0-2.0; gap; item 2 2.4-4.4 with a 0.45 s pause inside (3.2-3.65); gap; item 3 4.8-5.8; gap; item 4 6.2-8.2 with a pause inside.
+        cands = [(2.0, 2.4), (3.2, 3.65), (4.4, 4.8), (5.8, 6.2), (7.0, 7.45)]
+        self.assertEqual(m.choose_separators_by_pace(cands, 1.0, 8.2, self.texts), [0, 2, 3])
+
+    def test_returns_none_when_there_are_too_few_pauses(self):
+        m = load_split()
+        self.assertIsNone(m.choose_separators_by_pace([(2.0, 2.4), (4.4, 4.8)], 1.0, 8.2, self.texts))
+
+    def test_one_item_needs_no_separator(self):
+        m = load_split()
+        self.assertEqual(m.choose_separators_by_pace([(2.0, 2.4)], 1.0, 3.0, ["a" * 10]), [])
+
+    def test_two_items(self):
+        m = load_split()
+        cands = [(1.5, 1.9), (3.0, 3.4)]
+        self.assertEqual(m.choose_separators_by_pace(cands, 0.5, 5.0, ["a" * 20, "b" * 20]), [1])
+
+
 class PreparePasteTests(unittest.TestCase):
     """prepare_paste.py against a temp fixture: no real paste dir, no network."""
 
