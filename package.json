@@ -1,6 +1,6 @@
 {
   "name": "yoruba-project",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Learn Yoruba from zero: grammar, vocab, numbers, a Sound Bank, proverbs, sentence practice, songs and two-voice dialogues, with full tone marks and audio",
   "scripts": {
     "dev": "vite",
