@@ -2009,21 +2009,26 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Ẹlẹ́dàá mi gbé mi s'òkè, òkè gidi gan (My Creator lifted me up, really high up.)
   - Were, were, kia-kia wa je ka ma lo (Quickly, quickly, come, let us go.)
   - Ọjọ́ ti fé ṣ'òkùnkùn baba wa e gbá wa (The day is about to turn dark, our father, hold on to us.)
+  - A fe sere, sere, lo, lo, ma lo sọnù (We want to hurry, hurry, go, go, do not get lost.)
   - A fe j'aye lo, a fẹ́ dúró s'ilé (We want to enjoy life, we want to stay at home.)
+  - O ti yé mi nísinyí, ilẹ̀ ti fé ṣu bayi (I understand now, the ground is about to go dark like this.)
   - Lyrics page: https://notjustok.com/lyrics/okunkun-lyrics-by-solana-killertunes/
   - Video: https://www.youtube.com/watch?v=e4aLN_GwpQU (Visualizer on Solana's channel)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, and what "da wa" means in line 3 (trouble, find, or befall).
+  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).
 - `sade`: **Sade** by Adekunle Gold (Pop)
   - Oti pe ti'n mo ti'n ba e soro (It has been a long time that I have been talking to you.)
+  - Ojo n'lo (The days are passing.)
   - Omoge dakun gbo temi (Girl, please listen to me.)
+  - Baby mi jowo (My baby, please.)
+  - Je'n gbe e lole (Let me take you home.)
   - Mummy mi reti omo (My mother is waiting for a child.)
   - Baba mi n reti omo (My father is waiting for a child.)
   - Omoge wa femi (Girl, come and love me.)
   - Lyrics page: https://notjustok.com/lyrics/sade-lyrics-by-adekunle-gold/
   - Video: https://www.youtube.com/watch?v=1ShkDNA5ZCE (Official video)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren.
+  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.
 - `awe`: **Awe** by Asa (Pop)
   - O loyun fun o (She carried a pregnancy for you.)
   - Oyun oshu meji (A pregnancy of two months.)
@@ -2040,20 +2045,23 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `organise`: **Organise** by Asake (Afrobeats)
   - O logbon ju, o gbon, o gbon, o gbon, Iwo lo gbon ju (You are too wise; you are wise, wise, wise; you are the wisest.)
   - Agbogbon ju, ogbon, ama molo gbon ma-, mo ti logbon ju (Wiser than everyone, wisdom; I am the one who is wiser.)
+  - Emi yato sawon, kan ka mi soto, ka mi soto (I am different from them, just count me apart, count me apart.)
   - Lyrics page: https://notjustok.com/lyrics/organise-lyrics-asake/
   - Video: https://www.youtube.com/watch?v=_u4_iWCvZ5c (Official video)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: the second line is cut off in the typed lyrics ("ma-"), so its meaning is a loose reading.
+  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: the second line is cut off in the typed lyrics ("ma-"), so its meaning is a loose reading. The third line is a loose reading of "kan ka mi soto" (count me apart).
 - `ojuelegba`: **Ojuelegba** by Wizkid (Afrobeats)
   - Ni ojuelegba (At Ojuelegba.)
   - Aiye o le to yen oh (Life is not that hard.)
   - Adura lo le se o (Only prayer can do it.)
   - Ojojumo lo n s’adura (Every day there is praying.)
   - Ojojumo owo n wole wa (Every day money is coming in for us.)
+  - Mon jaiye mi won ni wan soro ju (I am living my life, they say it is too hard.)
+  - Won ni, won ni, won ni, won soro ju (They say, they say, they say, it is too hard.)
   - Lyrics page: https://notjustok.com/lyrics/ojuelegba-lyrics-by-wizkid/
   - Video: https://www.youtube.com/watch?v=Q7QiLceJSLQ (Video on the StarBoy TV channel)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: who is praying in line 4 (the focus word lo hides the subject). The video is on a fan or label channel, not an artist VEVO channel.
+  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.
 - `duduke`: **Duduke** by Simi (Afrobeats)
   - Ayanfe mi ayanfe (My beloved, my beloved.)
   - Gbo temi o (Listen to me.)
@@ -2064,13 +2072,17 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: "ko duro le ife mi" could also mean "do not stop at my love". Only three lines are Yoruba, the rest is Pidgin and English.
 - `motigbana`: **Motigbana** by Olamide (Afrobeats)
   - Motigbana O Moti Elevate Ori Mi Ko Ke Hibernate (I have caught fire, I have levelled up; my head will not hibernate.)
+  - Awon Bad Belle Won To Suffocate We Dey Gbadun We Dey Jollificate (The jealous ones are about to suffocate; we are enjoying ourselves, we are celebrating.)
   - Ola Tobi E Ma Pariwo Ye (My honour is great, so keep making noise.)
   - Owo Tobi E Ma Pariwo Ye (My money is big, so keep making noise.)
+  - Motor Tobi E Ma Pariwo Ye (My car is big, so keep making noise.)
   - Owo Po Gan Ninu Bullion Van (There is a lot of money in the bullion van.)
+  - Baby Oya Rotate Bi Ti Ceiling Fan (Baby, come on, rotate like a ceiling fan.)
+  - Abebe Ni E O If You Not A Fan (You are a hand fan if you are not a fan.)
   - Lyrics page: https://lyricsraag.com/motigbana-olamide-translation/
   - Video: https://www.youtube.com/watch?v=DR5dPcoIjOQ (Official video)
   - Source: lyricsraag lyrics page (Yoruba and an English translation), read 2026-10-20; Vagalume lists the writers; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. The English here is written for this site and only checked against the lyricsraag translation, whose translator is not named. Doubt: tones on ola and owo (honour or money).
+  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. The English here is written for this site and only checked against the lyricsraag translation, whose translator is not named. Doubt: tones on ola and owo (honour or money). "Abebe" is a hand fan, so the last line is a pun that this English only half carries.
 - `labe-igi-oronbo`: **Lábẹ́ Igi Òroǹbó** by Traditional children's song (Children's)
   - L'abe igi orombo (Under the orange tree.)
   - N'ibe l'agbe nsere wa (That is where we play our games.)

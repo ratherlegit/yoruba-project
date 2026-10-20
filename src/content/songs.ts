@@ -9,7 +9,7 @@ import type { Confidence } from "./types";
 
 export type Genre = "Afrobeats" | "Pop" | "Children's" | "Juju" | "Fuji";
 export const GENRES: readonly Genre[] = ["Afrobeats", "Pop", "Children's", "Juju", "Fuji"];
-export const MAX_LINES = 8;
+export const MAX_LINES = 12;
 
 export type SongLine = { yoruba: string; english: string };
 
@@ -52,11 +52,13 @@ export const SONGS: Song[] = [
       { yoruba: "Ẹlẹ́dàá mi gbé mi s'òkè, òkè gidi gan", english: "My Creator lifted me up, really high up." },
       { yoruba: "Were, were, kia-kia wa je ka ma lo", english: "Quickly, quickly, come, let us go." },
       { yoruba: "Ọjọ́ ti fé ṣ'òkùnkùn baba wa e gbá wa", english: "The day is about to turn dark, our father, hold on to us." },
+      { yoruba: "A fe sere, sere, lo, lo, ma lo sọnù", english: "We want to hurry, hurry, go, go, do not get lost." },
       { yoruba: "A fe j'aye lo, a fẹ́ dúró s'ilé", english: "We want to enjoy life, we want to stay at home." },
+      { yoruba: "O ti yé mi nísinyí, ilẹ̀ ti fé ṣu bayi", english: "I understand now, the ground is about to go dark like this." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, and what "da wa" means in line 3 (trouble, find, or befall).`,
+    note: `${PUBLISHED} Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).`,
   },
   {
     id: "sade",
@@ -70,14 +72,17 @@ export const SONGS: Song[] = [
     about: "Adekunle Gold's 2014 debut single, a plea to a woman to marry him. It mixes Yoruba, English and Pidgin.",
     lines: [
       { yoruba: "Oti pe ti'n mo ti'n ba e soro", english: "It has been a long time that I have been talking to you." },
+      { yoruba: "Ojo n'lo", english: "The days are passing." },
       { yoruba: "Omoge dakun gbo temi", english: "Girl, please listen to me." },
+      { yoruba: "Baby mi jowo", english: "My baby, please." },
+      { yoruba: "Je'n gbe e lole", english: "Let me take you home." },
       { yoruba: "Mummy mi reti omo", english: "My mother is waiting for a child." },
       { yoruba: "Baba mi n reti omo", english: "My father is waiting for a child." },
       { yoruba: "Omoge wa femi", english: "Girl, come and love me." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren.`,
+    note: `${PUBLISHED} Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.`,
   },
   {
     id: "awe",
@@ -116,10 +121,11 @@ export const SONGS: Song[] = [
     lines: [
       { yoruba: "O logbon ju, o gbon, o gbon, o gbon, Iwo lo gbon ju", english: "You are too wise; you are wise, wise, wise; you are the wisest." },
       { yoruba: "Agbogbon ju, ogbon, ama molo gbon ma-, mo ti logbon ju", english: "Wiser than everyone, wisdom; I am the one who is wiser." },
+      { yoruba: "Emi yato sawon, kan ka mi soto, ka mi soto", english: "I am different from them, just count me apart, count me apart." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubt: the second line is cut off in the typed lyrics ("ma-"), so its meaning is a loose reading.`,
+    note: `${PUBLISHED} Doubt: the second line is cut off in the typed lyrics ("ma-"), so its meaning is a loose reading. The third line is a loose reading of "kan ka mi soto" (count me apart).`,
   },
   {
     id: "ojuelegba",
@@ -137,10 +143,12 @@ export const SONGS: Song[] = [
       { yoruba: "Adura lo le se o", english: "Only prayer can do it." },
       { yoruba: "Ojojumo lo n s’adura", english: "Every day there is praying." },
       { yoruba: "Ojojumo owo n wole wa", english: "Every day money is coming in for us." },
+      { yoruba: "Mon jaiye mi won ni wan soro ju", english: "I am living my life, they say it is too hard." },
+      { yoruba: "Won ni, won ni, won ni, won soro ju", english: "They say, they say, they say, it is too hard." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubt: who is praying in line 4 (the focus word lo hides the subject). The video is on a fan or label channel, not an artist VEVO channel.`,
+    note: `${PUBLISHED} Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.`,
   },
   {
     id: "duduke",
@@ -173,13 +181,17 @@ export const SONGS: Song[] = [
     about: "Olamide's 2018 single, produced by Killertunes. A swaggering party song. The title is mo ti gbana, roughly \"I have caught fire\".",
     lines: [
       { yoruba: "Motigbana O Moti Elevate Ori Mi Ko Ke Hibernate", english: "I have caught fire, I have levelled up; my head will not hibernate." },
+      { yoruba: "Awon Bad Belle Won To Suffocate We Dey Gbadun We Dey Jollificate", english: "The jealous ones are about to suffocate; we are enjoying ourselves, we are celebrating." },
       { yoruba: "Ola Tobi E Ma Pariwo Ye", english: "My honour is great, so keep making noise." },
       { yoruba: "Owo Tobi E Ma Pariwo Ye", english: "My money is big, so keep making noise." },
+      { yoruba: "Motor Tobi E Ma Pariwo Ye", english: "My car is big, so keep making noise." },
       { yoruba: "Owo Po Gan Ninu Bullion Van", english: "There is a lot of money in the bullion van." },
+      { yoruba: "Baby Oya Rotate Bi Ti Ceiling Fan", english: "Baby, come on, rotate like a ceiling fan." },
+      { yoruba: "Abebe Ni E O If You Not A Fan", english: "You are a hand fan if you are not a fan." },
     ],
     source: `lyricsraag lyrics page (Yoruba and an English translation), ${READ}; Vagalume lists the writers; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} The English here is written for this site and only checked against the lyricsraag translation, whose translator is not named. Doubt: tones on ola and owo (honour or money).`,
+    note: `${PUBLISHED} The English here is written for this site and only checked against the lyricsraag translation, whose translator is not named. Doubt: tones on ola and owo (honour or money). "Abebe" is a hand fan, so the last line is a pun that this English only half carries.`,
   },
   {
     id: "labe-igi-oronbo",

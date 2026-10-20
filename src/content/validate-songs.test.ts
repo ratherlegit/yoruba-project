@@ -38,10 +38,10 @@ describe("validateSongs", () => {
   it("rejects a lyrics link that is not https", () => {
     expect(errs([song({ lyricsUrl: "http://example.com" })])).toContain("lyricsUrl");
   });
-  it("keeps the excerpt to one to eight lines", () => {
+  it("keeps the excerpt to one to twelve lines", () => {
     expect(errs([song({ lines: [] })])).toContain("lines");
-    expect(errs([song({ lines: line(9) })])).toContain("lines");
-    expect(validateSongs([song({ lines: line(8) })])).toEqual([]);
+    expect(errs([song({ lines: line(13) })])).toContain("lines");
+    expect(validateSongs([song({ lines: line(12) })])).toEqual([]);
   });
   it("rejects an empty Yoruba or English line", () => {
     expect(errs([song({ lines: [{ yoruba: " ", english: "x" }] })])).toContain("empty");
