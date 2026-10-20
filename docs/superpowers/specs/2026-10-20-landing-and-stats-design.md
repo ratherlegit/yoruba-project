@@ -12,7 +12,8 @@ The site is for the author's own use and for their portfolio. Data lives only in
 ## 2. Goals, non-goals, anti-goals
 
 ### Goals
-- **Landing page (`/`):** a large card per activity: Grammar, Vocab, Sound Bank, Proverbs, Transform. Each card has a title, a one-line description, and a short progress line.
+- **Landing page (`/`):** a large card per activity: Grammar, Vocab, Sound Bank, Proverbs, Transform. Each card has an icon, a title, a one-line description, and a short progress line.
+- **Icons:** each card has a line-drawn icon in the same style as the grammar level icons (gold tile, 64 by 64 viewBox, same stroke), drawn from an everyday Yoruba object that is not sacred and not already used by a level icon (section 4).
 - **Grammar page (`/grammar`):** the five level cards and the "Unlock all levels" checkbox move here unchanged, with a "Grammar" link in the top nav.
 - **Stats strip on the landing page:** three or four numbers, linking to `/stats`.
 - **Stats page (`/stats`):** a section per activity. Linked from the top nav and from the strip.
@@ -35,6 +36,8 @@ The site is for the author's own use and for their portfolio. Data lives only in
 - Existing lesson and vocab progress is lost or reset.
 - The landing page card for Grammar hides that levels exist (the progress line must show real counts).
 - Saved stats store anything about content that could be mistaken for private data. Only ids, counts and dates.
+- An icon that shows a sacred object (see the exclusion list in section 4), or one that repeats a level icon.
+- An icon too vague to recognise at card size, or that is unreadable in dark mode.
 
 ## 3. How it works
 
@@ -81,7 +84,29 @@ A section with no data shows the empty message and a link into that activity, no
 - New lib: `src/lib/stats.ts` (types, `emptyStats`, load, save, pure record functions, summary helpers) and a `useStats` hook beside `useProgress`.
 - Existing pages get one-line hooks to record: `TonePractice`, `Proverbs`, `Transform`.
 - `src/router.tsx` gains `/grammar` and `/stats`; `Layout.tsx` nav gains "Grammar" and "Stats".
+- New component `ActivityIcon` (beside `LevelIcon`, same tile styling) with one drawing per activity id.
 - Tests: unit tests for `stats.ts`; component tests for the landing page, the Grammar page, the Stats page (empty and populated); a recording test for each of the three activities; an e2e flow: landing shows five cards and the empty strip, answering in an activity makes the strip and `/stats` show it after reload.
+
+### Icons
+
+Five new icons, one per card. None repeats a level icon (cowrie shell, calabash, talking drum, aṣọ òkè cloth, palm tree).
+
+| Card | Object | Why |
+|---|---|---|
+| Grammar | Adire (indigo resist-dyed cloth) | Repeating patterns suggest structure. Drawn as a dyed motif of circles and squares, so it does not read as the woven aṣọ òkè strip. |
+| Vocab | Woven market basket (apẹ̀rẹ̀) | A basket of everyday words. |
+| Sound Bank | Agogo (iron double bell) | About sound. |
+| Proverbs | Horse (ẹṣin) | From the saying "Òwe lẹ́ṣin ọ̀rọ̀", a proverb is the horse of speech. |
+| Transform | Ayò board with seeds | Moving seeds between pits is like rearranging a sentence. |
+
+**Excluded as sacred:** Opón Ifá, the opele, Ṣàngó's double axe, egungun and gẹ̀lẹ̀dé masks, ibeji figures, the adé crown, horsetail whisks, kola nut, and the bàtá and igbin drums.
+
+**Pool for later activities** (about three more are planned; choose from here and do not repeat a used object):
+- Cultural objects: Lagos danfo, mortar and pestle, woven hand fan (abẹ̀bẹ́), fìlà cap, clay water pot, stool (àga), yam tuber (isu), ṣẹ̀kẹ̀rẹ̀ (beaded gourd rattle).
+- Foods: iyán with a bowl of ọbẹ̀, àmàlà, ẹ̀kọ, àkàrà, mọ́ínmọ́ín, jollof rice pot, ọ̀gẹ̀dẹ̀ (plantain), ata (pepper), suya skewers.
+- Instruments: sákárà (hand drum), fèrè (flute), ṣẹ̀kẹ̀rẹ̀.
+
+The icon component takes an activity id, so a later activity adds one drawing and one entry, nothing else. The builder renders the five icons (light and dark, at card size) and shows them to the author for approval before the work is merged. Drawing choices are the author's to approve, not the builder's to settle.
 
 ## 5. Constraints
 
@@ -109,6 +134,8 @@ A section with no data shows the empty message and a link into that activity, no
 No Yoruba content changes. The only copy added is interface text.
 
 ## 9. Calls made by the author of this spec (not agreed decisions)
+
+0. The five icon objects were proposed by the author and agreed: Grammar adire, Vocab basket, Sound Bank agogo, Proverbs horse, Transform ayò board. The pool above is also agreed as the source for later activities.
 
 1. Five landing cards: Grammar, Vocab, Sound Bank, Proverbs, Transform. Tone practice stays inside Sound Bank.
 2. Nav gains "Grammar" and "Stats".
