@@ -289,3 +289,13 @@ svg[role="img"] { transition: transform 0.25s ease; }
 /* The step pages are wide so the examples do not wrap; text and practice stay a readable width. */
 .numbers-intro { max-width: 46rem; }
 .numbers-practice { max-width: 46rem; }
+
+/* Songs */
+.genre-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.genre-filter .btn[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.genre-chip { display: inline-block; padding: 0.1rem 0.6rem; border-radius: 999px; border: 1px solid var(--line); font-size: 0.85rem; white-space: nowrap; }
+.video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 0.8rem; overflow: hidden; background: #000; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.song-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+.song-lines li { display: grid; gap: 0.15rem; }
+.song-yoruba { overflow-wrap: break-word; }
