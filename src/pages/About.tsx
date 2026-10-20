@@ -40,7 +40,7 @@ export function About() {
         <h2 style={{ marginTop: 0 }}>Audio and video</h2>
         {/* Owner: check ElevenLabs's current terms for your plan (for example attribution requirements) and adjust this sentence. */}
         <p>
-          Pronunciation clips were generated with ElevenLabs text-to-speech, with one female and one male voice for the dialogues. Clips are added in batches, so some Listen buttons are still missing. Song videos are embedded from YouTube. Song lyrics belong to their artists and publishers: this site shows only a few lines of each and links to the full lyrics.
+          Pronunciation clips were generated with ElevenLabs text-to-speech, with one female and one male voice for the dialogues. Song videos are embedded from YouTube. Song lyrics belong to their artists and publishers: this site shows only a few lines of each and links to the full lyrics.
         </p>
       </section>
       <section className="card">

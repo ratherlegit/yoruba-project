@@ -46,6 +46,8 @@ describe("About page", () => {
     const main = await renderAbout();
     const text = main.textContent!;
     expect(text).not.toMatch(/native speaker|needs-review|review list|reviewed|waiting for|REVIEW\.md/i);
+    expect(text).not.toContain("Clips are added in batches, so some Listen buttons are still missing.");
+    expect(text).not.toMatch(/in batches|still missing/i);
   });
 
   it("has no lesson content and not the old review-list sentence", async () => {
