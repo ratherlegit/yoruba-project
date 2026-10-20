@@ -11,6 +11,7 @@ export function Layout() {
             <Link to="/vocab">Vocab</Link>
             <Link to="/sounds">Sound Bank</Link>
             <Link to="/proverbs">Proverbs</Link>
+            <Link to="/transform">Transform</Link>
             <Link to="/about">About</Link>
             <ThemeToggle />
           </nav>

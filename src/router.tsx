@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import { NotFound } from "@/components/NotFound";
 import { About } from "@/pages/About";
 import { Proverbs } from "@/pages/Proverbs";
+import { Transform } from "@/pages/Transform";
 import { Breakdown } from "@/pages/Breakdown";
 import { Diacritics } from "@/pages/Diacritics";
 import { Home } from "@/pages/Home";
@@ -24,6 +25,7 @@ const routes = [
   createRoute({ getParentRoute: () => rootRoute, path: "/vocab/$levelId/$topicId", component: VocabTopicPage }),
   createRoute({ getParentRoute: () => rootRoute, path: "/sounds", component: SoundBank }),
   createRoute({ getParentRoute: () => rootRoute, path: "/proverbs", component: Proverbs }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/transform", component: Transform }),
   createRoute({ getParentRoute: () => rootRoute, path: "/about", component: About }),
   ...(import.meta.env.DEV
     ? [

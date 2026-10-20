@@ -229,3 +229,13 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .proverb-literal { margin: 0; display: grid; gap: 0.15rem; padding-left: 0.75rem; border-left: 3px solid var(--gold); }
 .proverb-literal .muted { font-size: 0.85rem; }
 .proverb-reveal { display: grid; gap: 0.4rem; padding: 0.75rem 1rem; border-radius: 0.7rem; background: var(--surface-2); border: 1px solid var(--border); }
+
+.transform-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.transform-modes { display: flex; gap: 0.5rem; }
+.transform-modes .btn[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.transform-card { display: grid; gap: 0.9rem; }
+.transform-base { margin: 0; font-size: 1.35rem; line-height: 1.5; }
+.transform-input { width: 100%; box-sizing: border-box; padding: 0.7rem 0.85rem; font-size: 1.1rem; border-radius: 0.7rem; border: 1px solid var(--border); background: var(--surface); color: inherit; }
+.yo-keys { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.yo-key { min-width: 2.75rem; padding: 0.4rem 0.7rem; font-size: 1.1rem; }
+.transform-reveal { display: grid; gap: 0.4rem; padding: 0.75rem 1rem; border-radius: 0.7rem; background: var(--surface-2); border: 1px solid var(--border); }
