@@ -11,6 +11,8 @@ import { PROVERBS } from "../src/content/proverbs";
 import { validateProverbs } from "../src/content/validate-proverbs";
 import { TRANSFORMS } from "../src/content/transforms";
 import { validateTransforms } from "../src/content/validate-transforms";
+import { NUMBERS, NUMBER_STEPS, PHRASES } from "../src/content/numbers";
+import { validateNumbers } from "../src/content/validate-numbers";
 import { validateToneTwins } from "../src/content/validate-tone-twins";
 
 let failed = 0;
@@ -55,6 +57,10 @@ for (const e of validateProverbs(PROVERBS)) {
   failed++;
 }
 for (const e of validateTransforms(TRANSFORMS)) {
+  console.error(e);
+  failed++;
+}
+for (const e of validateNumbers(NUMBERS, PHRASES, NUMBER_STEPS)) {
   console.error(e);
   failed++;
 }

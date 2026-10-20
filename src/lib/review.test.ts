@@ -11,6 +11,7 @@ import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import { PROVERBS, type Proverb } from "@/content/proverbs";
 import { TRANSFORMS, type Transform } from "@/content/transforms";
+import { NUMBERS, PHRASES, type NumberEntry, type NumberPhrase } from "@/content/numbers";
 import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
@@ -64,7 +65,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS, TRANSFORMS));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS, TRANSFORMS, NUMBERS, PHRASES));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
@@ -241,5 +242,24 @@ describe("buildReviewMarkdown transformations", () => {
   });
   it("adds no section for an empty list", () => {
     expect(buildReviewMarkdown(levels, [], undefined, [], [], [])).not.toContain("## Transformations");
+  });
+});
+
+describe("buildReviewMarkdown numbers", () => {
+  const entry: NumberEntry = {
+    id: "n-test", value: 15, yoruba: "ẹ̀ẹ́dógún", after: [], answers: ["ẹ̀ẹ́dógún", "ẹẹ́dógún"], build: "20-5", step: 2,
+    source: "Test source", confidence: "needs-review", note: "Check the contraction.",
+  };
+  const phrase: NumberPhrase = {
+    id: "p-test", step: 5, prompt: "two children", numeral: "", answers: ["ọmọ méjì"],
+    source: "Phrase source", confidence: "needs-review", note: "Check the tone.",
+  };
+  it("lists each number and phrase with answers, build, source and doubt", () => {
+    const md = buildReviewMarkdown(levels, [], undefined, [], [], [], [entry], [phrase]);
+    expect(md).toContain("## Numbers");
+    for (const s of ["n-test", "ẹ̀ẹ́dógún", "ẹẹ́dógún", "20-5", "Test source", "Check the contraction.", "p-test", "two children", "ọmọ méjì", "Phrase source", "Check the tone."]) expect(md).toContain(s);
+  });
+  it("adds no section for empty lists", () => {
+    expect(buildReviewMarkdown(levels, [], undefined, [], [], [], [], [])).not.toContain("## Numbers");
   });
 });

@@ -5,6 +5,7 @@ import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { Proverb } from "@/content/proverbs";
 import type { Transform } from "@/content/transforms";
+import type { NumberEntry, NumberPhrase } from "@/content/numbers";
 
 function questionLines(q: Question, n: number): string[] {
   if (q.type === "blank") {
@@ -24,7 +25,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = [], transforms: Transform[] = []): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = [], transforms: Transform[] = [], numbers: NumberEntry[] = [], numberPhrases: NumberPhrase[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -135,6 +136,25 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
   }
   const transformSection = transformLines.length ? ["## Transformations", "", ...transformLines, ""] : [];
 
+  const numberLines: string[] = [];
+  for (const n of numbers.filter((x) => x.confidence === "needs-review")) {
+    total += 1;
+    numberLines.push(`- \`${n.id}\` (${n.value}): **${n.yoruba}**`);
+    numberLines.push(`  - Accepted answers: ${n.answers.join(" | ")}`);
+    if (n.after.length) numberLines.push(`  - After a noun: ${n.after.join(" | ")}`);
+    if (n.build) numberLines.push(`  - Built as: ${n.build}`);
+    numberLines.push(`  - Source: ${n.source}`);
+    numberLines.push(`  - Doubt: ${n.note ?? "(none recorded)"}`);
+  }
+  for (const p of numberPhrases.filter((x) => x.confidence === "needs-review")) {
+    total += 1;
+    numberLines.push(`- \`${p.id}\` (phrase): **${p.prompt}**`);
+    numberLines.push(`  - Accepted answers: ${p.answers.join(" | ")}`);
+    numberLines.push(`  - Source: ${p.source}`);
+    numberLines.push(`  - Doubt: ${p.note ?? "(none recorded)"}`);
+  }
+  const numberSection = numberLines.length ? ["## Numbers", "", ...numberLines, ""] : [];
+
   const header = [
     "# Content review list",
     "",
@@ -161,5 +181,5 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     }
   }
 
-  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...transformSection, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...transformSection, ...numberSection, ...all].join("\n");
 }
