@@ -1,17 +1,8 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { AudioButton } from "@/components/AudioButton";
+import { NumbersPractice } from "@/components/NumbersPractice";
 import { NUMBERS, NUMBER_STEPS, PHRASES } from "@/content/numbers";
-
-// Shows a build expression the way a learner reads it: 20*3-10 becomes 20 × 3 − 10.
-export function showBuild(build: string): string {
-  return build
-    .replace(/\s+/g, "")
-    .replace(/[*x]/g, " × ")
-    .replace(/\+/g, " + ")
-    .replace(/([0-9)])-/g, "$1 − ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
+import { showBuild } from "@/lib/show-build";
 
 export function NumbersStep() {
   const { stepId } = useParams({ strict: false }) as { stepId: string };
@@ -94,7 +85,7 @@ export function NumbersStep() {
 
       <section className="card" data-testid="numbers-practice" style={{ display: "grid", gap: "0.75rem" }}>
         <h2 style={{ margin: 0 }}>Practice</h2>
-        <p className="muted" style={{ margin: 0 }}>Practice for this step is coming next.</p>
+        <NumbersPractice stepId={step.id} />
       </section>
     </main>
   );
