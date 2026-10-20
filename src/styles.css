@@ -266,4 +266,19 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .numbers-table td:first-child { font-weight: 700; white-space: nowrap; }
 .numbers-phrases { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
 .numbers-phrases li { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; align-items: center; }
-@media (max-width: 40rem) { .numbers-table { display: block; overflow-x: auto; } }
+/* Keep each audio button on the same line as its writing in the Numbers tables and lists,
+   and keep a single counting word whole (no break inside it). */
+.numbers-table .with-audio, .numbers-phrases .with-audio { flex-wrap: nowrap; }
+.numbers-table .with-audio > .yo, .numbers-phrases .with-audio > .yo { overflow-wrap: normal; word-break: keep-all; }
+.numbers-table td:nth-child(2), .numbers-table td:nth-child(3) { white-space: nowrap; }
+.audio-sentence { display: block; }
+.audio-english { display: block; }
+.audio-tail { display: inline-flex; align-items: center; gap: 0.6rem; white-space: nowrap; vertical-align: middle; }
+/* On a phone each row stacks, so every column is on screen without a sideways scroll. */
+@media (max-width: 40rem) {
+  .numbers-table, .numbers-table tbody, .numbers-table tr, .numbers-table td { display: block; }
+  .numbers-table thead { display: none; }
+  .numbers-table tr { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+  .numbers-table td { border: 0; padding: 0.2rem 0; }
+  .numbers-table td[data-label]::before { content: attr(data-label); display: block; font-size: 0.8rem; color: var(--text-muted); }
+}

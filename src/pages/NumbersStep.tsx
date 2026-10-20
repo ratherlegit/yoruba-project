@@ -4,6 +4,19 @@ import { NumbersPractice } from "@/components/NumbersPractice";
 import { NUMBERS, NUMBER_STEPS, PHRASES } from "@/content/numbers";
 import { showBuild } from "@/lib/show-build";
 
+// The audio button is glued to the sentence's last word, so a sentence that wraps never strands it.
+function SentenceWithAudio({ text }: { text: string }) {
+  const at = text.lastIndexOf(" ");
+  const head = at === -1 ? "" : text.slice(0, at + 1);
+  const last = at === -1 ? text : text.slice(at + 1);
+  return (
+    <span className="yo audio-sentence">
+      {head}
+      <span className="audio-tail">{last}<AudioButton text={text} /></span>
+    </span>
+  );
+}
+
 export function NumbersStep() {
   const { stepId } = useParams({ strict: false }) as { stepId: string };
   const stepIndex = NUMBER_STEPS.findIndex((s) => s.id === stepId);
@@ -43,11 +56,11 @@ export function NumbersStep() {
             {entries.map((n) => (
               <tr key={n.id}>
                 <td>{n.value}</td>
-                <td>
+                <td data-label="Yoruba">
                   <span className="with-audio"><span className="yo">{n.yoruba}</span><AudioButton text={n.yoruba} /></span>
                   {n.answers.length > 1 && <span className="muted"> also {n.answers.slice(1).join(", ")}</span>}
                 </td>
-                <td>
+                <td data-label={first ? "After a noun" : "How it is built"}>
                   {first ? (
                     <span className="with-audio"><span className="yo">{n.after.join(", ")}</span>{n.after[0] && <AudioButton text={n.after[0]} />}</span>
                   ) : n.build ? (
@@ -57,11 +70,11 @@ export function NumbersStep() {
                   )}
                 </td>
                 {first && (
-                  <td>
+                  <td data-label="Example">
                     {n.example && (
                       <>
-                        <span className="with-audio"><span className="yo">{n.example.yoruba}</span><AudioButton text={n.example.yoruba} /></span>
-                        <span className="muted">{n.example.english}</span>
+                        <SentenceWithAudio text={n.example.yoruba} />
+                        <span className="muted audio-english">{n.example.english}</span>
                       </>
                     )}
                   </td>

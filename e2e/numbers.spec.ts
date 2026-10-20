@@ -122,3 +122,60 @@ for (const scheme of ["light", "dark"] as const) {
     await expect(page.getByTestId("numbers-practice")).toBeVisible();
   });
 }
+
+// Each audio button must sit beside its writing, never wrapped onto a line below it.
+for (const width of [1280, 768, 375]) {
+  test(`Numbers: audio buttons sit next to their writing at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/numbers/one-to-ten");
+    const groups = page.locator(".numbers-table .with-audio");
+    const count = await groups.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      const g = groups.nth(i);
+      if ((await g.locator("button").count()) === 0) continue; // no clip for this text
+      const text = await g.locator(".yo").boundingBox();
+      const button = await g.locator("button").boundingBox();
+      expect(button, `group ${i}`).not.toBeNull();
+      expect(text, `group ${i}`).not.toBeNull();
+      // The button's top must be on the first line of the text, not below its last line.
+      expect(button!.y, `group ${i}: button below its text`).toBeLessThan(text!.y + text!.height);
+      expect(button!.x, `group ${i}: button left of its text`).toBeGreaterThanOrEqual(text!.x);
+    }
+    // An example sentence's button stays with its last word, on one line.
+    const tails = page.locator(".numbers-table .audio-tail");
+    for (let i = 0; i < (await tails.count()); i++) {
+      const box = await tails.nth(i).boundingBox();
+      if ((await tails.nth(i).locator("button").count()) === 0) continue;
+      expect(box!.height, `sentence tail ${i} split across lines`).toBeLessThan(60);
+    }
+    // A single counting word must stay on one line (no break inside the word).
+    const words = page.locator(".numbers-table td:nth-child(2) .with-audio .yo, .numbers-table td:nth-child(3) .with-audio .yo");
+    const n = await words.count();
+    for (let i = 0; i < n; i++) {
+      const box = await words.nth(i).boundingBox();
+      expect(box!.height, `word ${i} wrapped`).toBeLessThan(40);
+    }
+  });
+}
+
+test("Numbers: on a phone every table cell is on screen (rows stack, nothing needs a sideways scroll)", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 900 });
+  await page.goto("/numbers/one-to-ten");
+  const cells = page.locator(".numbers-table td");
+  const n = await cells.count();
+  expect(n).toBeGreaterThan(0);
+  for (let i = 0; i < n; i++) {
+    const box = await cells.nth(i).boundingBox();
+    expect(box!.x + box!.width, `cell ${i} runs off the right edge`).toBeLessThanOrEqual(376);
+  }
+  await expect(page.getByText("I have only one nose.")).toBeInViewport({ ratio: 1 });
+});
+
+test("Numbers: the English line sits under its example sentence, not beside the button", async ({ page }) => {
+  await page.setViewportSize({ width: 1100, height: 900 });
+  await page.goto("/numbers/one-to-ten");
+  const sentence = await page.locator(".numbers-table .audio-sentence").first().boundingBox();
+  const english = await page.getByText("I have only one nose.").boundingBox();
+  expect(english!.y).toBeGreaterThanOrEqual(sentence!.y + sentence!.height - 1);
+});

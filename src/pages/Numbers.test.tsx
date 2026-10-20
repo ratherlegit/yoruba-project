@@ -68,6 +68,17 @@ describe("Numbers step page", () => {
     expect(table.textContent).toContain("I have two eyes.");
   });
 
+  it("keeps each example sentence's audio button attached to the sentence's last word", async () => {
+    await renderAt("/numbers/one-to-ten");
+    const table = await screen.findByTestId("numbers-examples");
+    const tails = table.querySelectorAll(".audio-tail");
+    expect(tails).toHaveLength(10);
+    expect(tails[0]!.textContent).toBe("ní.");
+    expect(tails[8]!.textContent).toBe("mẹ́sàn-án.");
+    // The tail is the last word of the sentence, so a wrapped sentence never strands the button.
+    expect(tails[1]!.parentElement!.textContent).toBe("Mo ní ojú méjì.");
+  });
+
   it("lists the phrases on the counting and money steps", async () => {
     await renderAt("/numbers/money");
     expect(await screen.findByText("àádọ́ta náírà")).toBeInTheDocument();

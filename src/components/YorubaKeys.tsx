@@ -2,8 +2,8 @@ const KEYS: { ch: string; label: string; shown: string }[] = [
   { ch: "ẹ", label: "ẹ", shown: "ẹ" },
   { ch: "ọ", label: "ọ", shown: "ọ" },
   { ch: "ṣ", label: "ṣ", shown: "ṣ" },
-  { ch: "́", label: "Acute accent", shown: "◌́" },
-  { ch: "̀", label: "Grave accent", shown: "◌̀" },
+  { ch: "\u0301", label: "Acute accent", shown: "\u00b4" },
+  { ch: "\u0300", label: "Grave accent", shown: "`" },
 ];
 
 export function YorubaKeys({ onInsert, disabled = false }: { onInsert: (ch: string) => void; disabled?: boolean }) {
