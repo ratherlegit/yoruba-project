@@ -70,11 +70,12 @@ describe("Song page", () => {
     expect(full.getAttribute("rel")).toBe("noopener noreferrer");
   });
 
-  it("says the lyrics are shown as published, and that the meanings are unchecked", async () => {
+  it("says the Yoruba is shown as published, without the tone mark and native speaker caveats", async () => {
     await renderAt(`/songs/${song.id}`);
     await screen.findAllByTestId("song-line");
-    expect(document.body.textContent).toMatch(/as published/i);
-    expect(document.body.textContent).toMatch(/not been checked by a native speaker/i);
+    expect(document.body.textContent).toContain("The Yoruba is shown as published.");
+    expect(document.body.textContent).not.toMatch(/tone marks and dots/i);
+    expect(document.body.textContent).not.toMatch(/native speaker/i);
   });
 
   it("shows a not-found card with a way back for an unknown song", async () => {

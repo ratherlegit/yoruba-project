@@ -40,7 +40,7 @@ export function Song() {
           ))}
         </ol>
         <p className="muted" style={{ margin: 0 }}>
-          The Yoruba is shown as published, and published lyrics often leave out tone marks and dots. The English meanings have not been checked by a native speaker.
+          The Yoruba is shown as published.
         </p>
         <a className="btn" href={song.lyricsUrl} target="_blank" rel="noopener noreferrer">Read the full lyrics on {song.lyricsSite}</a>
       </section>
