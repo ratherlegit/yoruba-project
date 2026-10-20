@@ -78,6 +78,13 @@ describe("Song page", () => {
     expect(document.body.textContent).not.toMatch(/native speaker/i);
   });
 
+  it("prints the published note under the lyrics card, not inside it", async () => {
+    await renderAt(`/songs/${song.id}`);
+    const card = (await screen.findAllByTestId("song-line"))[0]!.closest("section")!;
+    expect(card.textContent).not.toContain("The Yoruba is shown as published.");
+    expect(card.nextElementSibling?.textContent).toBe("The Yoruba is shown as published.");
+  });
+
   it("shows a not-found card with a way back for an unknown song", async () => {
     await renderAt("/songs/nope");
     expect(await screen.findByText("We couldn't find that song")).toBeInTheDocument();
