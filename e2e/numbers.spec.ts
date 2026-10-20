@@ -1,7 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
+import { readFileSync } from "node:fs";
 import { NUMBERS, PHRASES } from "../src/content/numbers";
 
 const STEP = "/numbers/tens-and-twenties";
+const manifest = JSON.parse(readFileSync("src/content/audio-manifest.json", "utf8")) as Record<string, string>;
 
 function answerFor(prompt: string): string {
   let m = /^Type (\d+) in Yoruba$/.exec(prompt);
@@ -16,9 +18,19 @@ function answerFor(prompt: string): string {
 }
 const prompt = (page: Page) => page.getByTestId("numbers-prompt").innerText();
 
+// A "Listen and type the number" question: play the clip, see which file loads, and read the number from its word.
+async function answerForHear(page: Page): Promise<string> {
+  const request = page.waitForRequest(/\/audio\/[0-9a-f]{12}\.mp3/);
+  await page.getByRole("button", { name: "Play the number" }).click();
+  const file = (await request).url().split("/").pop()!;
+  const key = Object.entries(manifest).find(([, f]) => f === file)![0];
+  return String(NUMBERS.find((n) => n.yoruba.normalize("NFC").toLowerCase() === key)!.value);
+}
+const answerOf = async (page: Page, p: string) => (p.startsWith("Listen and type") ? answerForHear(page) : answerFor(p));
+
 async function playRound(page: Page, total = 8) {
   for (let i = 0; i < total; i++) {
-    await page.getByTestId("numbers-input").fill(answerFor(await prompt(page)));
+    await page.getByTestId("numbers-input").fill(await answerOf(page, await prompt(page)));
     await page.getByRole("button", { name: "Check" }).click();
     await expect(page.getByTestId("numbers-result")).toContainText("Correct.");
     await page.getByRole("button", { name: i === total - 1 ? "See score" : "Next" }).click();
@@ -30,7 +42,7 @@ async function untilTypeQuestion(page: Page): Promise<string> {
   for (let i = 0; i < 8; i++) {
     const p = await prompt(page);
     if (p.startsWith("Type ")) return answerFor(p);
-    await page.getByTestId("numbers-input").fill(answerFor(p));
+    await page.getByTestId("numbers-input").fill(await answerOf(page, p));
     await page.getByRole("button", { name: "Check" }).click();
     await page.getByRole("button", { name: "Next" }).click();
   }
