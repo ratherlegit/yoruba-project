@@ -1,10 +1,10 @@
 // One simple line icon per activity, in the same style as the level icons and drawn from
 // everyday Yoruba objects the level icons do not use: adire cloth (grammar), a woven basket,
-// apẹ̀rẹ̀ (vocab), a fèrè flute (sounds), a horse, since "òwe lẹ́ṣin ọ̀rọ̀", a proverb is
+// apẹ̀rẹ̀ (vocab), a heap of yam tubers (numbers), a fèrè flute (sounds), a horse, since "òwe lẹ́ṣin ọ̀rọ̀", a proverb is
 // the horse of speech (proverbs), and an ayò board (transform). Sacred objects are deliberately
 // not used. Decorative: the activity title is always shown beside the icon.
-export type ActivityId = "grammar" | "vocab" | "sounds" | "proverbs" | "transform";
-export const ACTIVITY_IDS: readonly ActivityId[] = ["grammar", "vocab", "sounds", "proverbs", "transform"];
+export type ActivityId = "grammar" | "vocab" | "numbers" | "sounds" | "proverbs" | "transform";
+export const ACTIVITY_IDS: readonly ActivityId[] = ["grammar", "vocab", "numbers", "sounds", "proverbs", "transform"];
 
 const SHAPES: Record<ActivityId, React.ReactNode> = {
   grammar: (
@@ -26,6 +26,15 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
       <path d="M12 23c1 18 6 31 20 31s19-13 20-31" />
       <path d="M22 28c-1 8 0 15 3 22M32 28v24M42 28c1 8 0 15-3 22" strokeWidth="1.8" />
       <path d="M14 34c12 5 24 5 36 0M17 43c10 4 20 4 30 0" strokeWidth="1.8" />
+    </>
+  ),
+  numbers: (
+    <>
+      <ellipse cx="21" cy="46" rx="14" ry="9" transform="rotate(-14 21 46)" />
+      <ellipse cx="43" cy="47" rx="13" ry="9" transform="rotate(14 43 47)" />
+      <ellipse cx="32" cy="27" rx="16" ry="10.5" transform="rotate(-18 32 27)" fill="currentColor" fillOpacity=".25" />
+      <path d="M12 43c3 1 5 4 5 8M20 40c3 1 5 5 5 9M38 43c3 1 5 5 4 9M46 44c3 1 5 4 4 8M24 25c3 1 4 4 4 7M33 21c3 1 4 4 4 7" strokeWidth="1.8" />
+      <path d="M44 15l3-4M47 20l4-2M48 26l4 0M7 50l-4 1M8 46l-4-2" strokeWidth="1.8" />
     </>
   ),
   sounds: (

@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { beforeEach, describe, expect, it } from "vitest";
 import { LEVELS } from "@/content/levels";
+import { NUMBER_STEPS } from "@/content/numbers";
 import { PROVERBS } from "@/content/proverbs";
 import { VOCAB_LEVELS } from "@/content/vocab";
 import { __resetStatsStoreForTests } from "@/hooks/useStats";
@@ -31,7 +32,7 @@ describe("Stats page, empty", () => {
     const main = await renderStats();
     for (const [id, link, href] of [
       ["grammar", "Go to Grammar", "/grammar"], ["vocab", "Go to Vocab", "/vocab"], ["tone", "Go to Sound Bank", "/sounds"],
-      ["proverbs", "Go to Proverbs", "/proverbs"], ["transform", "Go to Transform", "/transform"], ["days", "Start with Grammar", "/grammar"],
+      ["proverbs", "Go to Proverbs", "/proverbs"], ["transform", "Go to Transform", "/transform"], ["numbers", "Go to Numbers", "/numbers"], ["days", "Start with Grammar", "/grammar"],
     ] as const) {
       expect(within(section(id)).getByText(EMPTY), id).toBeInTheDocument();
       expect(within(section(id)).getByRole("link", { name: link }).getAttribute("href"), id).toBe(href);
@@ -139,5 +140,30 @@ describe("Stats page, grammar only", () => {
     }));
     await renderStats();
     expect(section("days").textContent).toContain("Days practised: 1");
+  });
+});
+
+describe("Stats page, numbers", () => {
+  it("shows steps done, the best score per step and accuracy by question type", async () => {
+    localStorage.setItem("yp:stats:v1", JSON.stringify({
+      numbers: {
+        steps: { "tens-and-twenties": { best: 0.75 }, "one-to-ten": { best: 1 } },
+        kinds: { "to-yoruba": { answered: 4, correct: 3 }, "to-numeral": { answered: 2, correct: 2 }, counting: { answered: 0, correct: 0 }, hear: { answered: 0, correct: 0 } },
+      },
+    }));
+    await renderStats();
+    const n = section("numbers");
+    expect(within(n).queryByText(EMPTY)).toBeNull();
+    expect(n.textContent).toContain(`2 of ${NUMBER_STEPS.length} steps done`);
+    expect(n.textContent).toContain("Tens and twenties");
+    expect(n.textContent).toContain("75%");
+    expect(n.textContent).toContain("3 of 4 right (75%)");
+    expect(n.textContent).toContain("2 of 2 right (100%)");
+    expect(n.textContent).not.toContain("Counting");
+  });
+  it("shows nothing for numbers with no practice, with no NaN", async () => {
+    const main = await renderStats();
+    expect(within(section("numbers")).getByText(EMPTY)).toBeInTheDocument();
+    expect(main.textContent).not.toMatch(/NaN/);
   });
 });

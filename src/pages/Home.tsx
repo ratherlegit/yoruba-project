@@ -7,7 +7,8 @@ import { VOCAB_LEVELS } from "@/content/vocab";
 import { useProgress } from "@/hooks/useProgress";
 import { useStats } from "@/hooks/useStats";
 import { useVocabProgress } from "@/hooks/useVocabProgress";
-import { proverbSummary, withExtraDays } from "@/lib/stats";
+import { NUMBER_STEPS } from "@/content/numbers";
+import { numbersSummary, proverbSummary, withExtraDays } from "@/lib/stats";
 import { buildStrip } from "@/lib/stats-summary";
 import { topicsDone } from "@/lib/vocab-progress";
 
@@ -24,6 +25,7 @@ export function Home() {
   const vocabDone = topicsDone(vocab, topicIds);
   const toneAnswers = Object.values(stats.tone).reduce((n, t) => n + t.answered, 0);
   const proverbsGuessed = proverbSummary(stats).guessed;
+  const numbersDone = numbersSummary(stats).stepsDone;
   const sentences = new Set(Object.keys(stats.transform).map((k) => k.slice(k.indexOf(":") + 1))).size;
   const completedAt = [
     ...Object.values(progress.completedLessons).map((l) => l.completedAt),
@@ -49,6 +51,11 @@ export function Home() {
             activity="vocab" to="/vocab" title="Vocab"
             description="Common words by topic, with flashcards and practice."
             progress={vocabDone > 0 ? `${vocabDone} of ${topicIds.length} topics done` : undefined}
+          />
+          <ActivityCard
+            activity="numbers" to="/numbers" title="Numbers"
+            description="Count in Yoruba, from one to a thousand, and see how the twenties work."
+            progress={numbersDone > 0 ? `${numbersDone} of ${NUMBER_STEPS.length} steps done` : undefined}
           />
           <ActivityCard
             activity="sounds" to="/sounds" title="Sound Bank"

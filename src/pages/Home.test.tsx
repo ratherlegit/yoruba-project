@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { beforeEach, describe, expect, it } from "vitest";
 import { LEVELS } from "@/content/levels";
+import { NUMBER_STEPS } from "@/content/numbers";
 import { PROVERBS } from "@/content/proverbs";
 import { __resetStatsStoreForTests } from "@/hooks/useStats";
 import { emptyProgress, recordCompletion, saveProgress } from "@/lib/progress";
@@ -26,8 +27,8 @@ describe("Home", () => {
     const main = await renderHome();
     expect(screen.getByRole("heading", { level: 1, name: "Learn Yoruba, tone by tone" })).toBeInTheDocument();
     const cards = within(main).getAllByTestId("activity-card");
-    expect(cards.map((c) => c.querySelector("strong")!.textContent)).toEqual(["Grammar", "Vocab", "Sound Bank", "Proverbs", "Transform"]);
-    expect(cards.map((c) => c.getAttribute("href"))).toEqual(["/grammar", "/vocab", "/sounds", "/proverbs", "/transform"]);
+    expect(cards.map((c) => c.querySelector("strong")!.textContent)).toEqual(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform"]);
+    expect(cards.map((c) => c.getAttribute("href"))).toEqual(["/grammar", "/vocab", "/numbers", "/sounds", "/proverbs", "/transform"]);
   });
 
   it("no longer lists the levels or the unlock checkbox", async () => {
@@ -68,9 +69,9 @@ describe("Home", () => {
     }));
     const main = await renderHome();
     const cards = within(main).getAllByTestId("activity-card");
-    expect(cards[2]!.textContent).toContain("4 practice answers");
-    expect(cards[3]!.textContent).toContain(`1 of ${PROVERBS.length} proverbs guessed`);
-    expect(cards[4]!.textContent).toContain("1 sentence checked");
+    expect(cards[3]!.textContent).toContain("4 practice answers");
+    expect(cards[4]!.textContent).toContain(`1 of ${PROVERBS.length} proverbs guessed`);
+    expect(cards[5]!.textContent).toContain("1 sentence checked");
     expect(within(main).getByText("Practice answers right")).toBeInTheDocument();
     expect(within(main).getByText("Days practised")).toBeInTheDocument();
   });
@@ -78,7 +79,18 @@ describe("Home", () => {
   it("uses singular wording for one practice answer", async () => {
     localStorage.setItem("yp:stats:v1", JSON.stringify({ tone: { words: { answered: 1, correct: 1 } } }));
     const main = await renderHome();
-    expect(within(main).getAllByTestId("activity-card")[2]!.textContent).toContain("1 practice answer");
-    expect(within(main).getAllByTestId("activity-card")[2]!.textContent).not.toContain("1 practice answers");
+    expect(within(main).getAllByTestId("activity-card")[3]!.textContent).toContain("1 practice answer");
+    expect(within(main).getAllByTestId("activity-card")[3]!.textContent).not.toContain("1 practice answers");
+  });
+
+  it("shows the Numbers card with its steps done, and nothing when there is no progress", async () => {
+    const empty = await renderHome();
+    expect(within(empty).getAllByTestId("activity-card")[2]!.textContent).not.toMatch(/steps done/);
+  });
+
+  it("shows how many Numbers steps are done", async () => {
+    localStorage.setItem("yp:stats:v1", JSON.stringify({ numbers: { steps: { "one-to-ten": { best: 1 }, hundreds: { best: 0.5 } } } }));
+    const main = await renderHome();
+    expect(within(main).getAllByTestId("activity-card")[2]!.textContent).toContain(`2 of ${NUMBER_STEPS.length} steps done`);
   });
 });

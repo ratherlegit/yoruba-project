@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { TRANSFORMS } from "../src/content/transforms";
 
-test("Landing page: five activity cards in order and the empty stats message", async ({ page }) => {
+test("Landing page: six activity cards in order and the empty stats message", async ({ page }) => {
   await page.goto("/");
   const cards = page.getByTestId("activity-card");
-  await expect(cards).toHaveCount(5);
-  await expect(cards.locator("strong")).toHaveText(["Grammar", "Vocab", "Sound Bank", "Proverbs", "Transform"]);
+  await expect(cards).toHaveCount(6);
+  await expect(cards.locator("strong")).toHaveText(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform"]);
   await expect(page.getByText("Start a lesson to see your stats")).toBeVisible();
   await expect(page.getByTestId("card-progress")).toHaveCount(0);
 });
@@ -24,7 +24,7 @@ test("A Transform check shows up on the landing card and the stats page after a 
   await page.getByRole("button", { name: "Check" }).click();
   await expect(page.getByTestId("transform-result")).toContainText("Correct");
   await page.goto("/");
-  await expect(page.getByTestId("activity-card").nth(4)).toContainText("1 sentence checked");
+  await expect(page.getByTestId("activity-card").nth(5)).toContainText("1 sentence checked");
   await page.getByRole("link", { name: "See all stats" }).click();
   await expect(page).toHaveURL(/\/stats$/);
   await expect(page.getByTestId("stats-transform")).toContainText("Negative: 1 right, 0 close, 0 wrong");
@@ -60,7 +60,7 @@ test.describe("phone width", () => {
   for (const path of ["/", "/grammar", "/stats"]) {
     test(`no horizontal scroll and every nav link visible at ${path}`, async ({ page }) => {
       await page.goto(path);
-      for (const name of ["Grammar", "Vocab", "Sound Bank", "Proverbs", "Transform", "Stats", "About"]) {
+      for (const name of ["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform", "Stats", "About"]) {
         await expect(page.getByRole("navigation").getByRole("link", { name })).toBeVisible();
       }
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);

@@ -8,7 +8,8 @@ import { VOCAB_LEVELS } from "@/content/vocab";
 import { useProgress } from "@/hooks/useProgress";
 import { useStats } from "@/hooks/useStats";
 import { useVocabProgress } from "@/hooks/useVocabProgress";
-import { accuracy, currentRun, practiceDays, proverbSummary, toneSummary, transformSummary, withExtraDays } from "@/lib/stats";
+import { NUMBER_STEPS } from "@/content/numbers";
+import { accuracy, currentRun, numbersSummary, practiceDays, proverbSummary, toneSummary, transformSummary, withExtraDays } from "@/lib/stats";
 import type { ToneMode } from "@/lib/tone-practice";
 
 const pct = (score: number) => `${Math.round(score * 100)}%`;
@@ -51,6 +52,9 @@ export function Stats() {
     ...Object.values(vocab.topics).flatMap((t) => [t.quiz?.completedAt, t.gap?.completedAt].filter((x): x is string => !!x)),
   ];
   const allDays = withExtraDays(stats, completedAt);
+  const nums = numbersSummary(stats);
+  const numberKinds = (["to-yoruba", "to-numeral", "counting", "hear"] as const).filter((k) => nums.kinds[k].answered > 0);
+  const KIND_LABEL = { "to-yoruba": "Numeral to Yoruba", "to-numeral": "Yoruba to numeral", counting: "Counting things", hear: "Listening" } as const;
   const days = practiceDays(allDays);
   const run = currentRun(allDays);
 
@@ -130,6 +134,25 @@ export function Stats() {
             {modes.map((m) => (
               <li key={m}>{label(m)}: {trans.byMode[m].right} right, {trans.byMode[m].close} close, {trans.byMode[m].wrong} wrong</li>
             ))}
+          </ul>
+        </StatsSection>
+
+        <StatsSection id="numbers" title="Numbers" empty={nums.stepsDone === 0 && numberKinds.length === 0} link={{ to: "/numbers", text: "Go to Numbers" }}>
+          <p style={{ margin: 0 }}>{nums.stepsDone} of {NUMBER_STEPS.length} steps done</p>
+          <ul className="stats-list">
+            {NUMBER_STEPS.filter((s) => nums.steps[s.id] !== undefined).map((s) => (
+              <li key={s.id}>{s.title} <span className="muted">{pct(nums.steps[s.id]!)}</span></li>
+            ))}
+          </ul>
+          <ul className="stats-list">
+            {numberKinds.map((k) => {
+              const a = accuracy(nums.kinds[k].correct, nums.kinds[k].answered);
+              return (
+                <li key={k}>
+                  <strong>{KIND_LABEL[k]}</strong> <span className="muted">{nums.kinds[k].correct} of {nums.kinds[k].answered} right{a !== null ? ` (${a}%)` : ""}</span>
+                </li>
+              );
+            })}
           </ul>
         </StatsSection>
 

@@ -7,8 +7,8 @@ import { LevelIcon } from "./LevelIcon";
 const markup = (node: React.ReactElement) => render(node).container.querySelector("svg")!.innerHTML;
 
 describe("ActivityIcon", () => {
-  it("has exactly the five activity ids", () => {
-    expect([...ACTIVITY_IDS]).toEqual(["grammar", "vocab", "sounds", "proverbs", "transform"]);
+  it("has exactly the six activity ids", () => {
+    expect([...ACTIVITY_IDS]).toEqual(["grammar", "vocab", "numbers", "sounds", "proverbs", "transform"]);
   });
   it("renders a decorative svg for each activity", () => {
     for (const id of ACTIVITY_IDS) {
@@ -20,10 +20,10 @@ describe("ActivityIcon", () => {
       unmount();
     }
   });
-  it("draws five different icons, none the same as a level icon", () => {
+  it("draws six different icons, none the same as a level icon", () => {
     const drawn = ACTIVITY_IDS.map((id) => markup(<ActivityIcon activity={id} />));
     const levels = LEVEL_IDS.map((id) => markup(<LevelIcon level={id} />));
-    expect(new Set(drawn).size).toBe(5);
+    expect(new Set(drawn).size).toBe(6);
     for (const d of drawn) expect(levels).not.toContain(d);
   });
   it("uses the large size class when asked", () => {
