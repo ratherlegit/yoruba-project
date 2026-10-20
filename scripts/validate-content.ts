@@ -13,6 +13,8 @@ import { TRANSFORMS } from "../src/content/transforms";
 import { validateTransforms } from "../src/content/validate-transforms";
 import { NUMBERS, NUMBER_STEPS, PHRASES } from "../src/content/numbers";
 import { validateNumbers } from "../src/content/validate-numbers";
+import { SONGS } from "../src/content/songs";
+import { validateSongs } from "../src/content/validate-songs";
 import { validateToneTwins } from "../src/content/validate-tone-twins";
 
 let failed = 0;
@@ -61,6 +63,10 @@ for (const e of validateTransforms(TRANSFORMS)) {
   failed++;
 }
 for (const e of validateNumbers(NUMBERS, PHRASES, NUMBER_STEPS)) {
+  console.error(e);
+  failed++;
+}
+for (const e of validateSongs(SONGS)) {
   console.error(e);
   failed++;
 }

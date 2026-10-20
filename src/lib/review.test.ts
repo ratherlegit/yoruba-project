@@ -12,7 +12,7 @@ import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import { PROVERBS, type Proverb } from "@/content/proverbs";
 import { TRANSFORMS, type Transform } from "@/content/transforms";
 import { NUMBERS, PHRASES, type NumberEntry, type NumberPhrase } from "@/content/numbers";
-import { buildReviewMarkdown } from "./review";
+import type { Song } from "@/content/songs";import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
   id, surface: "ẹ káàárọ̀", english: "good morning",
@@ -263,5 +263,22 @@ describe("buildReviewMarkdown numbers", () => {
   });
   it("adds no section for empty lists", () => {
     expect(buildReviewMarkdown(levels, [], undefined, [], [], [], [], [])).not.toContain("## Numbers");
+  });
+});
+
+describe("buildReviewMarkdown songs", () => {
+  const song: Song = {
+    id: "song-test", title: "Test Song", artist: "Test Artist", genre: "Afrobeats", videoId: "abcDEF12345",
+    videoLabel: "Official video", lyricsUrl: "https://example.com/lyrics", lyricsSite: "Example Lyrics",
+    about: "About it.", lines: [{ yoruba: "Mo ní ọmọ.", english: "I have a child." }],
+    source: "Song source", confidence: "needs-review", note: "Check the song tones.",
+  };
+  it("lists each song with its lines, lyrics page, source and doubt", () => {
+    const md = buildReviewMarkdown(levels, [], undefined, [], [], [], [], [], [song]);
+    expect(md).toContain("## Songs");
+    for (const s of ["song-test", "Test Song", "Test Artist", "Mo ní ọmọ.", "I have a child.", "https://example.com/lyrics", "Song source", "Check the song tones."]) expect(md).toContain(s);
+  });
+  it("adds no section when there are no songs", () => {
+    expect(buildReviewMarkdown(levels, [], undefined, [], [], [], [], [], [])).not.toContain("## Songs");
   });
 });

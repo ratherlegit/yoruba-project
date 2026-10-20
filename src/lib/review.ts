@@ -4,6 +4,7 @@ import type { MinimalPair, Sound } from "@/content/sounds";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { Proverb } from "@/content/proverbs";
+import type { Song } from "@/content/songs";
 import type { Transform } from "@/content/transforms";
 import type { NumberEntry, NumberPhrase } from "@/content/numbers";
 
@@ -25,7 +26,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = [], transforms: Transform[] = [], numbers: NumberEntry[] = [], numberPhrases: NumberPhrase[] = []): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = [], transforms: Transform[] = [], numbers: NumberEntry[] = [], numberPhrases: NumberPhrase[] = [], songs: Song[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -157,6 +158,18 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
   }
   const numberSection = numberLines.length ? ["## Numbers", "", ...numberLines, ""] : [];
 
+  const songLines: string[] = [];
+  for (const g of songs.filter((x) => x.confidence === "needs-review")) {
+    total += 1;
+    songLines.push(`- \`${g.id}\`: **${g.title}** by ${g.artist} (${g.genre})`);
+    for (const l of g.lines) songLines.push(`  - ${l.yoruba} (${l.english})`);
+    songLines.push(`  - Lyrics page: ${g.lyricsUrl}`);
+    songLines.push(`  - Video: https://www.youtube.com/watch?v=${g.videoId} (${g.videoLabel})`);
+    songLines.push(`  - Source: ${g.source}`);
+    songLines.push(`  - Doubt: ${g.note}`);
+  }
+  const songSection = songLines.length ? ["## Songs", "", ...songLines, ""] : [];
+
   const header = [
     "# Content review list",
     "",
@@ -183,5 +196,5 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     }
   }
 
-  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...transformSection, ...numberSection, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...transformSection, ...numberSection, ...songSection, ...all].join("\n");
 }
