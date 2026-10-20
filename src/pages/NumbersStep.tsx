@@ -37,10 +37,10 @@ export function NumbersStep() {
   const first = step.id === "one-to-ten";
 
   return (
-    <main className="page" style={{ display: "grid", gap: "1rem" }}>
+    <main className="page page-wide" style={{ display: "grid", gap: "1rem" }}>
       <Link to="/numbers">Back to Numbers</Link>
       <h1 style={{ margin: 0 }}>{step.title}</h1>
-      <p style={{ margin: 0 }}>{step.rule}</p>
+      <p className="numbers-intro" style={{ margin: 0 }}>{step.rule}</p>
 
       {entries.length > 0 && (
         <table className="numbers-table" data-testid="numbers-examples">
@@ -107,7 +107,7 @@ export function NumbersStep() {
         </ul>
       )}
 
-      <section className="card" data-testid="numbers-practice" style={{ display: "grid", gap: "0.75rem" }}>
+      <section className="card numbers-practice" data-testid="numbers-practice" style={{ display: "grid", gap: "0.75rem" }}>
         <h2 style={{ margin: 0 }}>Practice</h2>
         <NumbersPractice stepId={step.id} />
       </section>

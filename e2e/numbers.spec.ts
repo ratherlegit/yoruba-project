@@ -179,3 +179,18 @@ test("Numbers: the English line sits under its example sentence, not beside the 
   const english = await page.getByText("I have only one nose.").boundingBox();
   expect(english!.y).toBeGreaterThanOrEqual(sentence!.y + sentence!.height - 1);
 });
+
+test("Numbers: at desktop width the one to ten examples stay on one line, and the practice card stays readable", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/numbers/one-to-ten");
+  const sentences = page.locator(".numbers-table .audio-sentence");
+  const n = await sentences.count();
+  expect(n).toBe(20);
+  for (let i = 0; i < n; i++) {
+    const box = await sentences.nth(i).boundingBox();
+    // One line is the 44px audio button; a wrapped sentence would be taller.
+    expect(box!.height, `example ${i} wraps`).toBeLessThan(50);
+  }
+  const card = await page.getByTestId("numbers-practice").boundingBox();
+  expect(card!.width).toBeLessThanOrEqual(740);
+});
