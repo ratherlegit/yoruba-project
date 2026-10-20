@@ -2093,12 +2093,16 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: Mama Lisa's World, contributed and translated by Belinda (Yinka) Adisa of the Yoruba Roots Language School, read 2026-10-20; video checked on YouTube
   - Doubt: Line 2 is written "Níbẹ̀ là gbé ń ṣeré wa" in the video, as reported by the author; the Mama Lisa page has "l'agbe nsere wa", so the wording is not settled. The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.
 - `iya-ni-wura`: **Ìyá Ni Wúrà** by Traditional children's song (Children's)
+  - Ìyá ni wúrà iyebíye (Mother is gold, a precious gem.)
+  - Tí a kò lè f'owó rà (That we cannot buy with money.)
+  - Ó lóyún mi f'óṣù mẹ́sàn-án (She carried me in pregnancy for nine months.)
+  - Ó pọ̀n mí fíín ọdún mẹ́ta (She carried me on her back for three years.)
   - Ìyá ni wúrà, ìyebíye ni (Mother is gold, she is precious.)
   - Bí o l'ìyá, o l'àlàáfíà (If you have a mother, you have peace.)
-  - Lyrics page: https://www.headteacher.ng/learning-cultural-values-through-folk-songs-and-stories-for-pre-school-level-3/
+  - Lyrics page: https://www.mamalisa.com/?t=es&p=6843
   - Video: https://www.youtube.com/watch?v=0fvwQZ3XLgs (Lyric video by Yoruba for Kidz)
-  - Source: HeadTeacher.ng pre-school lesson plan, which prints the lyrics with an English line under each, read 2026-10-20; video checked on YouTube
-  - Doubt: The page labels it "Traditional Yoruba folk song" but a Zikoko list credits Dele Ojo and his Star Brothers Band, so authorship is unsettled. The lyrics are unmarked on the page, so the tone marks and dots here, and in the title, are the author's guesses.
+  - Source: Mama Lisa's World, folk song shared with its translation and recording by Gabriel Olubunmi Osho-Davies (lines 1 to 4, with tone marks), the on-screen words of the Yoruba for Kidz video (lines 2 and 4, as reported by the author), and the HeadTeacher.ng pre-school lesson plan (lines 5 and 6, unmarked), read 2026-10-20; video checked on YouTube
+  - Doubt: The sources word the song a little differently: lines 2 and 4 follow the video ("f'owó rà", "fíín ọdún mẹ́ta"), where Mama Lisa has "fowo ra" and "f'ọ́dún mẹ́ta", and lines 1 and 5 are two forms of the same line. The marks on lines 3, 5 and 6 and on the title are the author's guesses. Line 4 uses pọ̀n, to carry on the back, where Mama Lisa's English says nursed. The page labels it a folk song, but a Zikoko list credits Dele Ojo and his Star Brothers Band, so authorship is unsettled. Mama Lisa's page is copyrighted, so only a few lines are shown.
 
 ## All learner-facing Yoruba
 
