@@ -1,15 +1,25 @@
-const KEYS: { ch: string; label: string; shown: string }[] = [
-  { ch: "ẹ", label: "ẹ", shown: "ẹ" },
-  { ch: "ọ", label: "ọ", shown: "ọ" },
-  { ch: "ṣ", label: "ṣ", shown: "ṣ" },
-  { ch: "\u0301", label: "Acute accent", shown: "\u00b4" },
-  { ch: "\u0300", label: "Grave accent", shown: "`" },
+const nfc = (s: string) => s.normalize("NFC");
+
+type Key = { ch: string; label: string; shown: string };
+
+const letter = (c: string): Key => ({ ch: nfc(c), label: nfc(c), shown: nfc(c) });
+
+// Letters that need a dot under them, then the two tone marks, which attach to the letter before the cursor.
+const BASE: Key[] = [
+  letter("ẹ"), letter("ọ"), letter("ṣ"),
+  { ch: "́", label: "Acute accent", shown: "´" },
+  { ch: "̀", label: "Grave accent", shown: "`" },
 ];
 
+// Every vowel (and n) with a high or low tone, as one key, so a tone letter is one tap.
+const TONED: Key[] = ["a", "e", "i", "o", "u", "ẹ", "ọ", "n"].flatMap((b) =>
+  ["́", "̀"].map((m) => letter(b + m)),
+);
+
 export function YorubaKeys({ onInsert, disabled = false }: { onInsert: (ch: string) => void; disabled?: boolean }) {
-  return (
-    <div className="yo-keys" data-testid="yoruba-keys" role="group" aria-label="Yoruba letters and tone marks">
-      {KEYS.map((k) => (
+  const row = (keys: Key[], label: string) => (
+    <div className="yo-keys-row" role="group" aria-label={label}>
+      {keys.map((k) => (
         <button
           key={k.label}
           type="button"
@@ -22,6 +32,13 @@ export function YorubaKeys({ onInsert, disabled = false }: { onInsert: (ch: stri
           {k.shown}
         </button>
       ))}
+    </div>
+  );
+  return (
+    <div className="yo-keys" data-testid="yoruba-keys" role="group" aria-label="Yoruba letters and tone marks">
+      {row(BASE, "Dotted letters and tone marks")}
+      {row(TONED, "Letters with a high or low tone")}
+      <p className="muted yo-keys-hint">Tap a tone mark after a letter to add it, or tap a letter that already has one.</p>
     </div>
   );
 }
