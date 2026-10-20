@@ -2025,13 +2025,18 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
   - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren.
 - `awe`: **Awe** by Asa (Pop)
+  - O loyun fun o (She carried a pregnancy for you.)
+  - Oyun oshu meji (A pregnancy of two months.)
+  - Wahidi omo sekina (Wahidi, child of Sekina.)
+  - Omo mohammed (Child of Mohammed.)
   - Anti to loyun fun o (The aunty who carried the pregnancy for you.)
   - O to bi e l'omo (The one who gave birth to you as her child.)
   - O bi 'mo oh oh (She gave birth to a child.)
+  - Mama to bi mama re (The mother who gave birth to your mother.)
   - Lyrics page: https://www.elyrics.net/read/a/asa-lyrics/awe-lyrics.html
   - Video: https://www.youtube.com/watch?v=VVgaH1ONtx8 (Audio on a playlist channel)
   - Source: eLyrics.net lyrics page (user submitted), read 2026-10-20; BellaNaija analysis for the story; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. The song uses a regional dialect (Ekiti and Ondo, per BellaNaija), so the meanings here are the weakest in the set and need a native check. The uploader of the video is a playlist channel, not Asa's own.
+  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. The song uses a regional dialect (Ekiti and Ondo, per BellaNaija), so the meanings here are the weakest in the set and need a native check. Wahidi, Sekina and Mohammed are read as names, which is a guess. The uploader of the video is a playlist channel, not Asa's own.
 - `organise`: **Organise** by Asake (Afrobeats)
   - O logbon ju, o gbon, o gbon, o gbon, Iwo lo gbon ju (You are too wise; you are wise, wise, wise; you are the wisest.)
   - Agbogbon ju, ogbon, ama molo gbon ma-, mo ti logbon ju (Wiser than everyone, wisdom; I am the one who is wiser.)
