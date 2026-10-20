@@ -25,6 +25,19 @@ const three = [make(1), make(2), make(3)];
 const next = () => screen.getByRole("button", { name: "Next" });
 const prev = () => screen.getByRole("button", { name: "Previous" });
 
+describe("Proverbs hero", () => {
+  it("has a hero with the page heading, with proverbs and with none", () => {
+    const { unmount } = render(<Proverbs proverbs={three} />);
+    expect(screen.getByRole("heading", { level: 1, name: "Learn Yoruba proverbs, òwe by òwe" })).toBeInTheDocument();
+    expect(document.querySelectorAll(".hero")).toHaveLength(1);
+    expect(document.querySelectorAll("h1")).toHaveLength(1);
+    unmount();
+    render(<Proverbs proverbs={[]} />);
+    expect(screen.getByRole("heading", { level: 1, name: "Learn Yoruba proverbs, òwe by òwe" })).toBeInTheDocument();
+    expect(document.querySelectorAll(".hero")).toHaveLength(1);
+  });
+});
+
 describe("Proverbs page", () => {
   it("shows the first proverb, its translation and three choices, with no reveal yet", () => {
     render(<Proverbs proverbs={three} />);

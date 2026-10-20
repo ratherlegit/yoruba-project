@@ -25,6 +25,19 @@ async function answer(user: ReturnType<typeof userEvent.setup>, text: string) {
   await user.click(screen.getByRole("button", { name: "Check" }));
 }
 
+describe("Transform hero", () => {
+  it("has a hero with the page heading, with sentences and with none", () => {
+    const { unmount } = render(<Transform items={four} />);
+    expect(screen.getByRole("heading", { level: 1, name: "Transform sentences, form by form" })).toBeInTheDocument();
+    expect(document.querySelectorAll(".hero")).toHaveLength(1);
+    expect(document.querySelectorAll("h1")).toHaveLength(1);
+    unmount();
+    render(<Transform items={[]} />);
+    expect(screen.getByRole("heading", { level: 1, name: "Transform sentences, form by form" })).toBeInTheDocument();
+    expect(document.querySelectorAll(".hero")).toHaveLength(1);
+  });
+});
+
 describe("Transform page", () => {
   it("shows the first sentence, its English, the instruction and no result", () => {
     render(<Transform items={four} />);

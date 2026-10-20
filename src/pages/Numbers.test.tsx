@@ -17,6 +17,12 @@ beforeEach(() => {
 });
 
 describe("Numbers path", () => {
+  it("has a hero that says what the page is for", async () => {
+    await renderAt("/numbers");
+    expect(await screen.findByRole("heading", { level: 1, name: "Count in Yoruba, from one to a thousand" })).toBeInTheDocument();
+    expect(document.querySelector(".hero")).not.toBeNull();
+  });
+
   it("lists the six steps in order, each linking to its page", async () => {
     await renderAt("/numbers");
     const cards = await screen.findAllByTestId("numbers-step-card");

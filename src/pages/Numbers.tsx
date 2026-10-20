@@ -11,7 +11,7 @@ export function Numbers() {
   const best = numbersSummary(stats).steps;
   return (
     <>
-      <Hero first="Count in Yoruba," second="twenty by twenty" />
+      <Hero first="Count in Yoruba," second="from one to a thousand" />
       <main className="page" style={{ display: "grid", gap: "1rem" }}>
         <p className="muted" style={{ margin: 0 }}>
           Yoruba counts in twenties. Work through the steps in any order: a short explanation first, then typed practice.
