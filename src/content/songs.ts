@@ -3,7 +3,8 @@ import type { Confidence } from "./types";
 // Songs shown on the Songs page. Each song has an embedded YouTube video, a few lyric lines
 // with an English meaning, and a link to the full published lyrics. Only a few lines are shown
 // (at most MAX_LINES): the full text lives on the page it is linked to.
-// The Yoruba lines are copied as published there, which often leaves out tone marks and dots.
+// The Yoruba lines follow the wording published there. Where the page leaves out tone marks and
+// dots, the author added them as guesses, so they are needs-review too.
 // The English meanings are written for this site and are needs-review until a native speaker
 // checks them.
 
@@ -31,7 +32,7 @@ export type Song = {
 
 // Every entry: lyric lines read from the linked page and video ids checked on YouTube on 2026-10-20.
 const READ = "read 2026-10-20";
-const PUBLISHED = "Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker.";
+const PUBLISHED = "The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker.";
 
 export const SONGS: Song[] = [
   {
@@ -71,14 +72,14 @@ export const SONGS: Song[] = [
     lyricsSite: "notjustok",
     about: "Adekunle Gold's 2014 debut single, a plea to a woman to marry him. It mixes Yoruba, English and Pidgin.",
     lines: [
-      { yoruba: "Oti pe ti'n mo ti'n ba e soro", english: "It has been a long time that I have been talking to you." },
-      { yoruba: "Ojo n'lo", english: "The days are passing." },
-      { yoruba: "Omoge dakun gbo temi", english: "Girl, please listen to me." },
-      { yoruba: "Baby mi jowo", english: "My baby, please." },
-      { yoruba: "Je'n gbe e lole", english: "Let me take you home." },
-      { yoruba: "Mummy mi reti omo", english: "My mother is waiting for a child." },
-      { yoruba: "Baba mi n reti omo", english: "My father is waiting for a child." },
-      { yoruba: "Omoge wa femi", english: "Girl, come and love me." },
+      { yoruba: "Ó ti pẹ́ tí mo ti ń bá ẹ sọ̀rọ̀", english: "It has been a long time that I have been talking to you." },
+      { yoruba: "Ọjọ́ ń lọ", english: "The days are passing." },
+      { yoruba: "Ọmọge dákun gbọ́ tèmi", english: "Girl, please listen to me." },
+      { yoruba: "Baby mi, jọ̀wọ́", english: "My baby, please." },
+      { yoruba: "Jẹ́ n gbé ẹ lọ ilé", english: "Let me take you home." },
+      { yoruba: "Mummy mi retí ọmọ", english: "My mother is waiting for a child." },
+      { yoruba: "Baba mi ń retí ọmọ", english: "My father is waiting for a child." },
+      { yoruba: "Ọmọge wá fẹ́ mi", english: "Girl, come and love me." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
@@ -95,14 +96,14 @@ export const SONGS: Song[] = [
     lyricsSite: "eLyrics.net",
     about: "From Asa's 2009 album, written by Cobhams Asuquo and Bukola Elemide. A ballad about a young man drawn into city life; \"awe\" is a dialect word often glossed as friend.",
     lines: [
-      { yoruba: "O loyun fun o", english: "She carried a pregnancy for you." },
-      { yoruba: "Oyun oshu meji", english: "A pregnancy of two months." },
-      { yoruba: "Wahidi omo sekina", english: "Wahidi, child of Sekina." },
-      { yoruba: "Omo mohammed", english: "Child of Mohammed." },
-      { yoruba: "Anti to loyun fun o", english: "The aunty who carried the pregnancy for you." },
-      { yoruba: "O to bi e l'omo", english: "The one who gave birth to you as her child." },
-      { yoruba: "O bi 'mo oh oh", english: "She gave birth to a child." },
-      { yoruba: "Mama to bi mama re", english: "The mother who gave birth to your mother." },
+      { yoruba: "Ó lóyún fún ọ", english: "She carried a pregnancy for you." },
+      { yoruba: "Oyún oṣù méjì", english: "A pregnancy of two months." },
+      { yoruba: "Wahidi ọmọ Sekina", english: "Wahidi, child of Sekina." },
+      { yoruba: "Ọmọ Mohammed", english: "Child of Mohammed." },
+      { yoruba: "Anti tó lóyún fún ọ", english: "The aunty who carried the pregnancy for you." },
+      { yoruba: "Ó tó bí ẹ lọ́mọ", english: "The one who gave birth to you as her child." },
+      { yoruba: "Ó bí ọmọ oh oh", english: "She gave birth to a child." },
+      { yoruba: "Mama tó bí mama rẹ", english: "The mother who gave birth to your mother." },
     ],
     source: `eLyrics.net lyrics page (user submitted), ${READ}; BellaNaija analysis for the story; video checked on YouTube`,
     confidence: "needs-review",
@@ -119,9 +120,9 @@ export const SONGS: Song[] = [
     lyricsSite: "notjustok",
     about: "The third track on Asake's 2022 album Mr Money With The Vibe. The chorus plays on ogbon, wisdom.",
     lines: [
-      { yoruba: "O logbon ju, o gbon, o gbon, o gbon, Iwo lo gbon ju", english: "You are too wise; you are wise, wise, wise; you are the wisest." },
-      { yoruba: "Agbogbon ju, ogbon, ama molo gbon ma-, mo ti logbon ju", english: "Wiser than everyone, wisdom; I am the one who is wiser." },
-      { yoruba: "Emi yato sawon, kan ka mi soto, ka mi soto", english: "I am different from them, just count me apart, count me apart." },
+      { yoruba: "Ó lọ́gbọ́n jù, ó gbọ́n, ó gbọ́n, ó gbọ́n, Ìwọ ló gbọ́n jù", english: "You are too wise; you are wise, wise, wise; you are the wisest." },
+      { yoruba: "Àgbọ́gbọ́n jù, ọgbọ́n, ama mọ ló gbọ́n má-, mo ti lọ́gbọ́n jù", english: "Wiser than everyone, wisdom; I am the one who is wiser." },
+      { yoruba: "Èmi yàtọ̀ sáwọn, kan kà mí sọ́tọ̀, kà mí sọ́tọ̀", english: "I am different from them, just count me apart, count me apart." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
@@ -138,13 +139,13 @@ export const SONGS: Song[] = [
     lyricsSite: "notjustok",
     about: "Wizkid's 2014 song, named for the Lagos neighbourhood he grew up in. The Yoruba is in the verses; the chorus is English.",
     lines: [
-      { yoruba: "Ni ojuelegba", english: "At Ojuelegba." },
-      { yoruba: "Aiye o le to yen oh", english: "Life is not that hard." },
-      { yoruba: "Adura lo le se o", english: "Only prayer can do it." },
-      { yoruba: "Ojojumo lo n s’adura", english: "Every day there is praying." },
-      { yoruba: "Ojojumo owo n wole wa", english: "Every day money is coming in for us." },
-      { yoruba: "Mon jaiye mi won ni wan soro ju", english: "I am living my life, they say it is too hard." },
-      { yoruba: "Won ni, won ni, won ni, won soro ju", english: "They say, they say, they say, it is too hard." },
+      { yoruba: "Ní Òjuelégba", english: "At Ojuelegba." },
+      { yoruba: "Ayé ò le tó yẹn oh", english: "Life is not that hard." },
+      { yoruba: "Àdúrà ló lè ṣe o", english: "Only prayer can do it." },
+      { yoruba: "Ojoojúmọ́ ló ń ṣ’àdúrà", english: "Every day there is praying." },
+      { yoruba: "Ojoojúmọ́ owó ń wọlé wá", english: "Every day money is coming in for us." },
+      { yoruba: "Mo ń jayé mi wọ́n ní wọ́n ṣòro jù", english: "I am living my life, they say it is too hard." },
+      { yoruba: "Wọ́n ní, wọ́n ní, wọ́n ní, wọ́n ṣòro jù", english: "They say, they say, they say, it is too hard." },
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
@@ -161,9 +162,9 @@ export const SONGS: Song[] = [
     lyricsSite: "eLyrics.net",
     about: "Simi's 2020 song for her unborn child. She has said \"duduke\" is just a sound for a beating heart or a drum, not a name. Mostly Pidgin and English, with some Yoruba.",
     lines: [
-      { yoruba: "Ayanfe mi ayanfe", english: "My beloved, my beloved." },
-      { yoruba: "Gbo temi o", english: "Listen to me." },
-      { yoruba: "Ko duro le ife mi o", english: "Rest on my love." },
+      { yoruba: "Àyànfẹ́ mi àyànfẹ́", english: "My beloved, my beloved." },
+      { yoruba: "Gbọ́ tèmi o", english: "Listen to me." },
+      { yoruba: "Kó dúró lé ìfẹ́ mi o", english: "Rest on my love." },
     ],
     source: `eLyrics.net lyrics page (user submitted), ${READ}; Simi's comment on the title from a notjustok news report; video checked on YouTube`,
     confidence: "needs-review",
@@ -180,14 +181,14 @@ export const SONGS: Song[] = [
     lyricsSite: "lyricsraag",
     about: "Olamide's 2018 single, produced by Killertunes. A swaggering party song. The title is mo ti gbana, roughly \"I have caught fire\".",
     lines: [
-      { yoruba: "Motigbana O Moti Elevate Ori Mi Ko Ke Hibernate", english: "I have caught fire, I have levelled up; my head will not hibernate." },
-      { yoruba: "Awon Bad Belle Won To Suffocate We Dey Gbadun We Dey Jollificate", english: "The jealous ones are about to suffocate; we are enjoying ourselves, we are celebrating." },
-      { yoruba: "Ola Tobi E Ma Pariwo Ye", english: "My honour is great, so keep making noise." },
-      { yoruba: "Owo Tobi E Ma Pariwo Ye", english: "My money is big, so keep making noise." },
-      { yoruba: "Motor Tobi E Ma Pariwo Ye", english: "My car is big, so keep making noise." },
-      { yoruba: "Owo Po Gan Ninu Bullion Van", english: "There is a lot of money in the bullion van." },
-      { yoruba: "Baby Oya Rotate Bi Ti Ceiling Fan", english: "Baby, come on, rotate like a ceiling fan." },
-      { yoruba: "Abebe Ni E O If You Not A Fan", english: "You are a hand fan if you are not a fan." },
+      { yoruba: "Mo ti gbana ò mo ti elevate orí mi kò ní hibernate", english: "I have caught fire, I have levelled up; my head will not hibernate." },
+      { yoruba: "Àwọn bad belle wọ́n tó suffocate we dey gbádùn we dey jollificate", english: "The jealous ones are about to suffocate; we are enjoying ourselves, we are celebrating." },
+      { yoruba: "Ọlá tóbi ẹ máa pariwo yé", english: "My honour is great, so keep making noise." },
+      { yoruba: "Owó tóbi ẹ máa pariwo yé", english: "My money is big, so keep making noise." },
+      { yoruba: "Mọ́tò tóbi ẹ máa pariwo yé", english: "My car is big, so keep making noise." },
+      { yoruba: "Owó pọ̀ gan nínú bullion van", english: "There is a lot of money in the bullion van." },
+      { yoruba: "Baby ọya rotate bí tí ceiling fan", english: "Baby, come on, rotate like a ceiling fan." },
+      { yoruba: "Abẹ̀bẹ́ ni ẹ o if you not a fan", english: "You are a hand fan if you are not a fan." },
     ],
     source: `lyricsraag lyrics page (Yoruba and an English translation), ${READ}; Vagalume lists the writers; video checked on YouTube`,
     confidence: "needs-review",
@@ -204,10 +205,10 @@ export const SONGS: Song[] = [
     lyricsSite: "Mama Lisa's World",
     about: "A folk song Yoruba-speaking children sing while playing together outdoors, often under the shade of a tree.",
     lines: [
-      { yoruba: "L'abe igi orombo", english: "Under the orange tree." },
-      { yoruba: "N'ibe l'agbe nsere wa", english: "That is where we play our games." },
-      { yoruba: "Inu wa dun, ara wa ya", english: "We are happy, we are lively." },
-      { yoruba: "Orombo, orombo", english: "Orange, orange." },
+      { yoruba: "Lábẹ́ igi òroǹbó", english: "Under the orange tree." },
+      { yoruba: "Níbẹ̀ là ń ṣeré wa", english: "That is where we play our games." },
+      { yoruba: "Inú wa dùn, ara wa yá", english: "We are happy, we are lively." },
+      { yoruba: "Òroǹbó, òroǹbó", english: "Orange, orange." },
     ],
     source: `Mama Lisa's World, contributed and translated by Belinda (Yinka) Adisa of the Yoruba Roots Language School, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
@@ -224,11 +225,11 @@ export const SONGS: Song[] = [
     lyricsSite: "HeadTeacher.ng",
     about: "A folk song that teaches children to love and respect their mothers. The title means Mother is gold.",
     lines: [
-      { yoruba: "Iya ni wura, iyebiye ni", english: "Mother is gold, she is precious." },
-      { yoruba: "Bi o l'iya, o l'alaafia", english: "If you have a mother, you have peace." },
+      { yoruba: "Ìyá ni wúrà, ìyebíye ni", english: "Mother is gold, she is precious." },
+      { yoruba: "Bí o l'ìyá, o l'àlàáfíà", english: "If you have a mother, you have peace." },
     ],
     source: `HeadTeacher.ng pre-school lesson plan, which prints the lyrics with an English line under each, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `The page labels it "Traditional Yoruba folk song" but a Zikoko list credits Dele Ojo and his Star Brothers Band, so authorship is unsettled. The lyrics are unmarked on the page; the title's marks are the author's.`,
+    note: `The page labels it "Traditional Yoruba folk song" but a Zikoko list credits Dele Ojo and his Star Brothers Band, so authorship is unsettled. The lyrics are unmarked on the page, so the tone marks and dots here, and in the title, are the author's guesses.`,
   },
 ];
