@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { ChoiceQuestion } from "@/components/ChoiceQuestion";
+import { useStats } from "@/hooks/useStats";
 import { proverbChoices } from "@/lib/proverb-choices";
+import { recordProverbAnswer } from "@/lib/stats";
 import { PROVERBS, type Proverb } from "@/content/proverbs";
 
 export function Proverbs({ proverbs = PROVERBS }: { proverbs?: Proverb[] }) {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const { update: updateStats } = useStats();
 
   const proverb = proverbs[index];
   if (!proverb) {
@@ -35,7 +38,10 @@ export function Proverbs({ proverbs = PROVERBS }: { proverbs?: Proverb[] }) {
           choices={proverbChoices(proverb)}
           chosen={chosen}
           correct={proverb.meaning}
-          onChoose={(c) => setAnswers((a) => ({ ...a, [proverb.id]: c }))}
+          onChoose={(c) => {
+            setAnswers((a) => ({ ...a, [proverb.id]: c }));
+            updateStats((st) => recordProverbAnswer(st, proverb.id, c === proverb.meaning));
+          }}
         />
         {chosen !== null && (
           <div className="proverb-reveal" data-testid="proverb-reveal">

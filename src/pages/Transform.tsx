@@ -1,7 +1,9 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { YorubaKeys } from "@/components/YorubaKeys";
+import { useStats } from "@/hooks/useStats";
 import { INSTRUCTIONS, TRANSFORMS, type Transform as Item } from "@/content/transforms";
 import { insertChar } from "@/lib/insert-char";
+import { recordTransformResult } from "@/lib/stats";
 import { gradeTransform, type TransformMode, type TransformResult } from "@/lib/transform-grade";
 
 const MESSAGE: Record<TransformResult, string> = {
@@ -15,6 +17,7 @@ export function Transform({ items = TRANSFORMS }: { items?: Item[] }) {
   const [mode, setMode] = useState<TransformMode>("easy");
   const [drafts, setDrafts] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState<Record<string, { given: string; result: TransformResult }>>({});
+  const { update: updateStats } = useStats();
   const inputRef = useRef<HTMLInputElement>(null);
   const caretRef = useRef<number | null>(null);
 
@@ -40,7 +43,9 @@ export function Transform({ items = TRANSFORMS }: { items?: Item[] }) {
 
   function check() {
     if (!item || done || !value.trim()) return;
-    setChecked((c) => ({ ...c, [item.id]: { given: value, result: gradeTransform(value, item.answers, mode) } }));
+    const result = gradeTransform(value, item.answers, mode);
+    setChecked((c) => ({ ...c, [item.id]: { given: value, result } }));
+    updateStats((st) => recordTransformResult(st, item.id, item.kind, mode, result));
   }
 
   function insert(ch: string) {

@@ -1,9 +1,11 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { Transform as T } from "@/content/transforms";
 import { routeTree } from "@/router";
+import { __resetStatsStoreForTests } from "@/hooks/useStats";
+import { loadStats } from "@/lib/stats";
 import { Transform } from "./Transform";
 
 const item = (id: string, over: Partial<T>): T => ({
@@ -160,5 +162,56 @@ describe("Transform page", () => {
     render(<RouterProvider router={router} />);
     await router.load();
     expect((await screen.findByRole("link", { name: "Transform" })).getAttribute("href")).toBe("/transform");
+  });
+});
+
+describe("Transform stats", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    __resetStatsStoreForTests();
+  });
+
+  it("records a right answer under the current mode", async () => {
+    const user = userEvent.setup();
+    render(<Transform items={four} />);
+    await answer(user, "mi o lo");
+    expect(loadStats().transform).toEqual({ "easy:t1": { kind: "negative", mode: "easy", result: "right" } });
+  });
+  it("records a close answer in advanced mode", async () => {
+    const user = userEvent.setup();
+    render(<Transform items={four} />);
+    await user.click(screen.getByRole("button", { name: "Advanced" }));
+    await answer(user, "mi o lo");
+    expect(loadStats().transform["advanced:t1"]!.result).toBe("close");
+  });
+  it("records a wrong answer", async () => {
+    const user = userEvent.setup();
+    render(<Transform items={four} />);
+    await answer(user, "Mo ń lọ");
+    expect(loadStats().transform["easy:t1"]!.result).toBe("wrong");
+  });
+  it("records nothing for an empty Check", async () => {
+    const user = userEvent.setup();
+    render(<Transform items={four} />);
+    await user.click(screen.getByRole("button", { name: "Check" }));
+    expect(localStorage.getItem("yp:stats:v1")).toBeNull();
+  });
+  it("counts the same item once per mode, keeping the first result", async () => {
+    const user = userEvent.setup();
+    const first = render(<Transform items={four} />);
+    await answer(user, "Mo ń lọ");
+    first.unmount();
+    render(<Transform items={four} />);
+    await answer(user, "Mi ò lọ");
+    expect(loadStats().transform["easy:t1"]!.result).toBe("wrong");
+    expect(Object.keys(loadStats().transform)).toEqual(["easy:t1"]);
+  });
+  it("still works when storage throws", async () => {
+    const spy = vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw new Error("blocked"); });
+    const user = userEvent.setup();
+    render(<Transform items={four} />);
+    await answer(user, "Mi ò lọ");
+    expect(screen.getByTestId("transform-result").textContent).toContain("Correct");
+    spy.mockRestore();
   });
 });

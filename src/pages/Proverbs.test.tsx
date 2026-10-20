@@ -1,11 +1,13 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { shuffledChoices } from "@/components/ChoiceQuestion";
 import type { Proverb } from "@/content/proverbs";
 import { proverbChoices } from "@/lib/proverb-choices";
 import { routeTree } from "@/router";
+import { __resetStatsStoreForTests } from "@/hooks/useStats";
+import { loadStats } from "@/lib/stats";
 import { Proverbs } from "./Proverbs";
 
 const make = (n: number): Proverb => ({
@@ -88,5 +90,57 @@ describe("Proverbs page", () => {
     render(<RouterProvider router={router} />);
     await router.load();
     expect((await screen.findByRole("link", { name: "Proverbs" })).getAttribute("href")).toBe("/proverbs");
+  });
+});
+
+describe("Proverbs stats", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    __resetStatsStoreForTests();
+  });
+  const pick = (p: Proverb, text: string) =>
+    screen.getAllByTestId("choice").find((c) => c.textContent!.replace(/^[✓✗] /, "") === text)!;
+
+  it("records nothing before an answer", () => {
+    render(<Proverbs proverbs={three} />);
+    expect(localStorage.getItem("yp:stats:v1")).toBeNull();
+  });
+  it("records a right guess", async () => {
+    const user = userEvent.setup();
+    render(<Proverbs proverbs={three} />);
+    await user.click(pick(three[0]!, three[0]!.meaning));
+    expect(loadStats().proverbs).toEqual({ p1: { correct: true } });
+  });
+  it("records a wrong guess", async () => {
+    const user = userEvent.setup();
+    render(<Proverbs proverbs={three} />);
+    await user.click(pick(three[0]!, three[0]!.wrong[0]));
+    expect(loadStats().proverbs).toEqual({ p1: { correct: false } });
+  });
+  it("does not count again when going Next and Previous", async () => {
+    const user = userEvent.setup();
+    render(<Proverbs proverbs={three} />);
+    await user.click(pick(three[0]!, three[0]!.meaning));
+    await user.click(next());
+    await user.click(prev());
+    expect(Object.keys(loadStats().proverbs)).toEqual(["p1"]);
+    expect(loadStats().days).toHaveLength(1);
+  });
+  it("keeps the first result when the page is mounted again", async () => {
+    const user = userEvent.setup();
+    const first = render(<Proverbs proverbs={three} />);
+    await user.click(pick(three[0]!, three[0]!.wrong[0]));
+    first.unmount();
+    render(<Proverbs proverbs={three} />);
+    await user.click(pick(three[0]!, three[0]!.meaning));
+    expect(loadStats().proverbs.p1).toEqual({ correct: false });
+  });
+  it("still works when storage throws", async () => {
+    const spy = vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw new Error("blocked"); });
+    const user = userEvent.setup();
+    render(<Proverbs proverbs={three} />);
+    await user.click(pick(three[0]!, three[0]!.meaning));
+    expect(screen.getByTestId("proverb-reveal")).toBeTruthy();
+    spy.mockRestore();
   });
 });

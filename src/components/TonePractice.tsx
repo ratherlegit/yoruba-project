@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
+import { useStats } from "@/hooks/useStats";
 import { audioUrlFor } from "@/lib/audio";
 import { playClip } from "@/lib/clip";
+import { recordToneAnswer } from "@/lib/stats";
 import { buildToneRound, type ToneMode, type ToneSources } from "@/lib/tone-practice";
 import { AudioButton } from "./AudioButton";
 import { ChoiceQuestion } from "./ChoiceQuestion";
@@ -18,6 +20,7 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState<string | null>(null);
   const [score, setScore] = useState(0);
+  const { update: updateStats } = useStats();
   const questions = useMemo(() => buildToneRound(mode, sources, `tone#${mode}#${attempt}`), [mode, sources, attempt]);
 
   const restart = () => { setAttempt((a) => a + 1); setIndex(0); setScore(0); setChosen(null); };
@@ -73,6 +76,7 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
         onChoose={(c) => {
           setChosen(c);
           if (c === q.answer) setScore((s) => s + 1);
+          updateStats((st) => recordToneAnswer(st, mode, c === q.answer));
           const url = audioUrlFor(q.audioText);
           if (url) playClip(url);
         }}

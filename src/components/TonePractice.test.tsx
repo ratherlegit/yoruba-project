@@ -7,6 +7,8 @@ import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { VocabLevel } from "@/content/vocab/types";
 import { audioUrlFor } from "@/lib/audio";
 import { playClip } from "@/lib/clip";
+import { loadStats } from "@/lib/stats";
+import { __resetStatsStoreForTests } from "@/hooks/useStats";
 import type { ToneSources } from "@/lib/tone-practice";
 import { TonePractice } from "./TonePractice";
 
@@ -43,6 +45,8 @@ const choiceTexts = () => screen.getAllByTestId("choice").map(bare);
 const choice = (text: string) => screen.getAllByTestId("choice").find((c) => bare(c) === n(text))!;
 
 beforeEach(() => {
+  localStorage.clear();
+  __resetStatsStoreForTests();
   vi.mocked(audioUrlFor).mockReset();
   vi.mocked(playClip).mockReset();
   vi.stubGlobal("Audio", class { play = () => Promise.resolve(); pause = () => {}; addEventListener() {} });
@@ -197,5 +201,42 @@ describe("TonePractice", () => {
     await userEvent.setup().click(choice("ọkọ̀"));
     expect(screen.queryByText(/You chose/)).toBeNull();
     expect(screen.queryByRole("button", { name: n("Listen to ọkọ") })).toBeNull();
+  });
+});
+
+describe("TonePractice stats", () => {
+  it("records nothing before an answer", () => {
+    withClips("ọkọ̀");
+    render(<TonePractice sources={sources} />);
+    expect(localStorage.getItem("yp:stats:v1")).toBeNull();
+  });
+  it("records a right answer in Words mode", async () => {
+    withClips("ọkọ̀");
+    render(<TonePractice sources={sources} />);
+    await userEvent.setup().click(choice("ọkọ̀"));
+    expect(loadStats().tone.words).toEqual({ answered: 1, correct: 1 });
+  });
+  it("records a wrong answer as answered but not correct", async () => {
+    withClips("ọkọ̀");
+    render(<TonePractice sources={sources} />);
+    await userEvent.setup().click(choice("ọkọ"));
+    expect(loadStats().tone.words).toEqual({ answered: 1, correct: 0 });
+  });
+  it("records a Sentences mode answer under sentences", async () => {
+    withClips("ọkọ̀", "Ọkọ̀ mi pupa.");
+    const user = userEvent.setup();
+    render(<TonePractice sources={sources} />);
+    await user.click(screen.getByRole("button", { name: "Sentences" }));
+    await user.click(choice("ọkọ̀"));
+    expect(loadStats().tone.sentences).toEqual({ answered: 1, correct: 1 });
+    expect(loadStats().tone.words.answered).toBe(0);
+  });
+  it("still works when storage throws", async () => {
+    withClips("ọkọ̀");
+    const spy = vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw new Error("blocked"); });
+    render(<TonePractice sources={sources} />);
+    await userEvent.setup().click(choice("ọkọ̀"));
+    expect(choice("ọkọ̀").getAttribute("data-state")).toBe("correct");
+    spy.mockRestore();
   });
 });
