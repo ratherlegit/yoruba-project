@@ -71,3 +71,18 @@ All the big audio working files live in `tools/audio/workspace/`, which is git-i
 - `listening-checks/`: numbered copies of each batch's clips for listening before committing, one folder per batch.
 
 New batch routine: save the web tool's download anywhere, copy it into `raw-downloads/`, then copy it as `part-N.mp3` with the matching `order.json` into a new `split-work/<batch>/` folder.
+
+### Dialogue clips: two voices
+
+Dialogues have a female speaker and a male speaker. The female lines use the same voice as the rest of the site ("Olufunmilola") and are stored under the plain key, so any line whose text already has a clip reuses it. The male lines use the ElevenLabs voice "Yomi" and are stored in the same manifest under a `male|` key prefix, so a male clip never replaces or matches a female one. A voice has to be generated on its own, so run the two groups as two separate batches:
+
+    npm run audio:list
+    python tools/audio/prepare_paste.py --group dialogue-female --no-test
+    # ElevenLabs web tool: voice "Olufunmilola", model Multilingual v2. Generate each part, save as part-N.mp3 in a work folder, then:
+    python tools/audio/split_clips.py --parts-dir tools/audio/workspace/split-work/<female-batch>
+
+    python tools/audio/prepare_paste.py --group dialogue-male --no-test
+    # Same, but choose the voice "Yomi" in the web tool. Use a different work folder:
+    python tools/audio/split_clips.py --parts-dir tools/audio/workspace/split-work/<male-batch>
+
+Run `prepare_paste.py` again between the two batches, because it overwrites `tools/audio/paste/`. The `male|` keys are listed in `strings.json` with the group `dialogue-male`, and `audio-manifest.json` gets one entry per clip as usual. A line with no clip simply has no Listen button.

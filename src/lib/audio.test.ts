@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import manifest from "@/content/audio-manifest.json";
 import { LEVELS } from "@/content/levels";
 import { VOCAB_LEVELS } from "@/content/vocab";
-import { audioKey, audioUrlFor } from "./audio";
+import { audioKey, audioUrlFor, lookupClip, voiceKey } from "./audio";
 import { MINIMAL_PAIRS, SOUNDS } from "@/content/sounds";
 import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
 import { NUMBERS } from "@/content/numbers";
@@ -86,5 +86,26 @@ describe("audio matches sound bank content", () => {
     const pending = sounds.filter((s) => !files[s.key]).length;
     console.info(`sound audio: ${pending} of ${sounds.length} words still without a clip`);
     expect(pending).toBeGreaterThanOrEqual(0);
+  });
+});
+
+describe("voiceKey and lookupClip", () => {
+  const files = { "ẹ káàárọ̀": "female1.mp3", "male|ẹ káàárọ̀": "male1.mp3", "ọmọ": "female2.mp3" };
+  it("uses the plain audio key for the female voice and a male| prefix for the male voice", () => {
+    expect(voiceKey("Ẹ káàárọ̀.", "female")).toBe("ẹ káàárọ̀");
+    expect(voiceKey("Ẹ káàárọ̀.")).toBe("ẹ káàárọ̀");
+    expect(voiceKey("Ẹ káàárọ̀.", "male")).toBe("male|ẹ káàárọ̀");
+  });
+  it("finds different clips for the same text in the two voices", () => {
+    expect(lookupClip(files, "Ẹ káàárọ̀.", "female")).toBe("/audio/female1.mp3");
+    expect(lookupClip(files, "Ẹ káàárọ̀.", "male")).toBe("/audio/male1.mp3");
+  });
+  it("never falls back to the female clip for the male voice", () => {
+    expect(lookupClip(files, "ọmọ", "female")).toBe("/audio/female2.mp3");
+    expect(lookupClip(files, "ọmọ", "male")).toBeNull();
+  });
+  it("audioUrlFor accepts a voice and defaults to female", () => {
+    expect(audioUrlFor("a text that has no clip anywhere", "male")).toBeNull();
+    expect(audioUrlFor("a text that has no clip anywhere")).toBeNull();
   });
 });

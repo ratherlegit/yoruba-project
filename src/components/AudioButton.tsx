@@ -1,9 +1,10 @@
 import { useState } from "react";
+import type { Voice } from "@/content/dialogues";
 import { audioUrlFor } from "@/lib/audio";
 import { playClip } from "@/lib/clip";
 
-export function AudioButton({ text, label }: { text: string; label?: string }) {
-  const url = audioUrlFor(text);
+export function AudioButton({ text, label, voice = "female" }: { text: string; label?: string; voice?: Voice }) {
+  const url = audioUrlFor(text, voice);
   const [playing, setPlaying] = useState(false);
   if (!url) return null;
 

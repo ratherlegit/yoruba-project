@@ -5,7 +5,8 @@ import { audioKey } from "./audio";
 import { collectAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { MinimalPair, Sound } from "@/content/sounds";
-import { collectNumbersAudioStrings } from "./audio-strings";
+import { collectDialogueAudioStrings, collectNumbersAudioStrings } from "./audio-strings";
+import type { Dialogue } from "@/content/dialogues";
 import type { NumberEntry } from "@/content/numbers";
 
 describe("collectAudioStrings", () => {
@@ -121,5 +122,28 @@ describe("collectNumbersAudioStrings", () => {
   it("skips one-letter strings and duplicates", () => {
     const out = collectNumbersAudioStrings([entry({ yoruba: "a", after: ["méjì"], example: undefined }), entry({ id: "m", after: ["méjì"], example: undefined })]);
     expect(out.map((o) => o.text)).toEqual(["méjì", "èjì"]);
+  });
+});
+
+describe("collectDialogueAudioStrings", () => {
+  const dialogue = (lines: Dialogue["lines"]): Dialogue => ({
+    id: "d", level: "getting-started", situationId: "s", title: "t", setting: "s", lines, questions: [],
+    source: "s", confidence: "needs-review", note: "n",
+  });
+  const f = (yoruba: string) => ({ speaker: "A", voice: "female" as const, yoruba, english: "x" });
+  const m = (yoruba: string) => ({ speaker: "B", voice: "male" as const, yoruba, english: "x" });
+  it("lists each line in its speaker's voice, with the male voice under a male| key", () => {
+    const out = collectDialogueAudioStrings([dialogue([f("Ẹ káàárọ̀."), m("Ṣé àlàáfíà ni?")])]);
+    expect(out).toEqual([
+      { key: "ẹ káàárọ̀", text: "Ẹ káàárọ̀.", group: "dialogue-female" },
+      { key: "male|ṣé àlàáfíà ni", text: "Ṣé àlàáfíà ni?", group: "dialogue-male" },
+    ]);
+  });
+  it("lists identical text once per voice, and skips duplicates within a voice", () => {
+    const out = collectDialogueAudioStrings([dialogue([f("Ẹ ṣé."), m("Ẹ ṣé."), f("Ẹ ṣé.")]), dialogue([m("Ẹ ṣé.")])]);
+    expect(out.map((o) => o.key)).toEqual(["ẹ ṣé", "male|ẹ ṣé"]);
+  });
+  it("skips one-letter strings", () => {
+    expect(collectDialogueAudioStrings([dialogue([f("A"), m("ẹ")])])).toEqual([]);
   });
 });

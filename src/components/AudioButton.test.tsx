@@ -4,7 +4,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AudioButton } from "./AudioButton";
 
 vi.mock("@/lib/audio", () => ({
-  audioUrlFor: (text: string) => (text === "ọmọ" ? "/audio/abc123def456.mp3" : text === "oko" ? "/audio/zzz.mp3" : null),
+  audioUrlFor: (text: string, voice: string = "female") =>
+    voice === "male" ? (text === "ọmọ" ? "/audio/male-omo.mp3" : null) : text === "ọmọ" ? "/audio/abc123def456.mp3" : text === "oko" ? "/audio/zzz.mp3" : null,
 }));
 
 const instances: { url: string; play: ReturnType<typeof vi.fn>; pause: ReturnType<typeof vi.fn> }[] = [];
@@ -88,5 +89,13 @@ describe("AudioButton", () => {
     render(<AudioButton text="ọmọ" />);
     await userEvent.setup().click(screen.getByRole("button", { name: /listen/i }));
     expect(screen.getByRole("button", { name: /listen/i })).toBeInTheDocument();
+  });
+
+  it("plays the male clip for the male voice, and renders nothing when only the female clip exists", async () => {
+    render(<AudioButton text="ọmọ" voice="male" />);
+    await userEvent.click(screen.getByRole("button", { name: "Listen to ọmọ" }));
+    expect(instances.at(-1)!.url).toBe("/audio/male-omo.mp3");
+    const { container } = render(<AudioButton text="oko" voice="male" />);
+    expect(container).toBeEmptyDOMElement();
   });
 });

@@ -3,7 +3,8 @@ import type { NumberEntry } from "@/content/numbers";
 import type { VocabLevel } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
-import { audioKey } from "./audio";
+import type { Dialogue } from "@/content/dialogues";
+import { audioKey, voiceKey } from "./audio";
 
 // Pick answers that are English sentences or glossed fragments, not Yoruba speech.
 const ENGLISH_WORDS = new Set([
@@ -95,4 +96,22 @@ export function collectSoundAudioStrings(
   for (const r of compare) for (const w of r.words) add(w.yoruba);
   for (const x of sets) for (const w of x.words) add(w.yoruba);
   return [...seen].map(([key, text]) => ({ key, text, group: "sound-word" as const }));
+}
+
+export type DialogueAudioGroup = "dialogue-female" | "dialogue-male";
+
+// Every dialogue line, in its speaker's voice. A female line has the plain key (so it reuses any
+// clip that already exists for the same text); a male line has the male| key. One-letter
+// strings are skipped, as elsewhere.
+export function collectDialogueAudioStrings(dialogues: Dialogue[]): { key: string; text: string; group: DialogueAudioGroup }[] {
+  const seen = new Map<string, { text: string; group: DialogueAudioGroup }>();
+  for (const d of dialogues) {
+    for (const l of d.lines) {
+      const key = voiceKey(l.yoruba, l.voice);
+      if ([...audioKey(l.yoruba)].length > 1 && !seen.has(key)) {
+        seen.set(key, { text: l.yoruba, group: l.voice === "male" ? "dialogue-male" : "dialogue-female" });
+      }
+    }
+  }
+  return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group }));
 }

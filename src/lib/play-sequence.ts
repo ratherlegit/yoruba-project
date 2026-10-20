@@ -1,3 +1,4 @@
+import type { Voice } from "@/content/dialogues";
 import { audioUrlFor } from "./audio";
 import { isCurrentClip, playClip } from "./clip";
 
@@ -15,16 +16,20 @@ function playUntilEnded(url: string): Promise<boolean> {
   });
 }
 
+export type SequenceItem = string | { text: string; voice: Voice };
+
+// Plain strings are played in the female voice; a dialogue passes each line with its own voice.
 export async function playSequence(
-  texts: string[],
-  opts: { lookup?: (text: string) => string | null; play?: (url: string) => Promise<boolean> } = {},
+  items: SequenceItem[],
+  opts: { lookup?: (text: string, voice: Voice) => string | null; play?: (url: string) => Promise<boolean> } = {},
 ): Promise<void> {
   const id = ++run;
   const lookup = opts.lookup ?? audioUrlFor;
   const play = opts.play ?? playUntilEnded;
-  for (const text of texts) {
+  for (const item of items) {
     if (id !== run) return;
-    const url = lookup(text);
+    const { text, voice } = typeof item === "string" ? { text: item, voice: "female" as Voice } : item;
+    const url = lookup(text, voice);
     if (!url) continue;
     if (!(await play(url))) return;
   }

@@ -1,4 +1,5 @@
 import manifest from "@/content/audio-manifest.json";
+import type { Voice } from "@/content/dialogues";
 
 const files: Record<string, string> = manifest;
 
@@ -15,7 +16,18 @@ export function audioKey(text: string): string {
     .normalize("NFC");
 }
 
-export function audioUrlFor(text: string): string | null {
-  const file = files[audioKey(text)];
+// The female voice keeps the plain key, so every clip made before there was a second voice still
+// matches. The male voice lives in the same manifest under a "male|" prefix.
+export function voiceKey(text: string, voice: Voice = "female"): string {
+  const key = audioKey(text);
+  return voice === "male" ? `male|${key}` : key;
+}
+
+export function lookupClip(map: Record<string, string>, text: string, voice: Voice = "female"): string | null {
+  const file = map[voiceKey(text, voice)];
   return file ? `/audio/${file}` : null;
+}
+
+export function audioUrlFor(text: string, voice: Voice = "female"): string | null {
+  return lookupClip(files, text, voice);
 }

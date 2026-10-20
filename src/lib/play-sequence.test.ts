@@ -34,4 +34,12 @@ describe("playSequence", () => {
   it("does nothing for an empty list", async () => {
     await expect(playSequence([], { lookup, play: async () => true })).resolves.toBeUndefined();
   });
+  it("looks each item up in its own voice, and treats plain strings as female", async () => {
+    const asked: string[] = [];
+    const voiceLookup = (t: string, v: string) => (asked.push(`${v}:${t}`), `/audio/${v}-${t}.mp3`);
+    const played: string[] = [];
+    await playSequence([{ text: "a", voice: "female" }, { text: "b", voice: "male" }, "c"], { lookup: voiceLookup, play: async (u) => (played.push(u), true) });
+    expect(asked).toEqual(["female:a", "male:b", "female:c"]);
+    expect(played).toEqual(["/audio/female-a.mp3", "/audio/male-b.mp3", "/audio/female-c.mp3"]);
+  });
 });
