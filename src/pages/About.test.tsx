@@ -37,14 +37,15 @@ describe("About page", () => {
     expect(text).toMatch(/no accounts/i);
     expect(text).toContain("ElevenLabs");
     expect(text).toContain("YouTube");
-    expect(text).toContain("The tone marks and dots added to song lyrics are best guesses.");
+    expect(text).toMatch(/there may be mistakes/i);
+    expect(text).toContain("tone marks and dots were added as best guesses");
     expect(text).toContain("Corrections are very welcome");
   });
 
-  it("does not carry the sentence about all the Yoruba waiting on a native speaker", async () => {
+  it("says there may be mistakes but does not describe the internal review process", async () => {
     const main = await renderAbout();
-    expect(main.textContent).not.toContain("All of the Yoruba here is still waiting for a native speaker to confirm it");
-    expect(main.textContent).not.toContain("tone marks are easy to get wrong");
+    const text = main.textContent!;
+    expect(text).not.toMatch(/native speaker|needs-review|review list|reviewed|waiting for|REVIEW\.md/i);
   });
 
   it("has no lesson content and not the old review-list sentence", async () => {

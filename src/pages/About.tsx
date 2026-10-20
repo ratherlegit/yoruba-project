@@ -44,9 +44,9 @@ export function About() {
         </p>
       </section>
       <section className="card">
-        <h2 style={{ marginTop: 0 }}>How reliable is the Yoruba?</h2>
+        <h2 style={{ marginTop: 0 }}>Spotting mistakes</h2>
         <p>
-          The tone marks and dots added to song lyrics are best guesses. Corrections are very welcome as issues on the <a href="https://github.com/ratherlegit/yoruba-project/issues" target="_blank" rel="noopener noreferrer">GitHub project</a>.
+          Yoruba is a tonal language and tone marks are easy to get wrong, so there may be mistakes here. The tone marks and dots were added as best guesses on some song lyrics. Corrections are very welcome as issues on the <a href="https://github.com/ratherlegit/yoruba-project/issues" target="_blank" rel="noopener noreferrer">GitHub project</a>.
         </p>
       </section>
     </main>
