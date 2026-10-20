@@ -72,6 +72,10 @@ export function Home() {
             description="Type the negative, question, future or past form of a sentence."
             progress={sentences > 0 ? `${plural(sentences, "sentence", "sentences")} checked` : undefined}
           />
+          <ActivityCard
+            activity="songs" to="/songs" title="Songs"
+            description="Watch a Yoruba song and read a few of its lines with their meaning."
+          />
         </div>
       </main>
     </>

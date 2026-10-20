@@ -23,12 +23,12 @@ beforeEach(() => {
 });
 
 describe("Home", () => {
-  it("shows the hero and five activity cards in order, each linking to its page", async () => {
+  it("shows the hero and seven activity cards in order, each linking to its page", async () => {
     const main = await renderHome();
     expect(screen.getByRole("heading", { level: 1, name: "Learn Yoruba, tone by tone" })).toBeInTheDocument();
     const cards = within(main).getAllByTestId("activity-card");
-    expect(cards.map((c) => c.querySelector("strong")!.textContent)).toEqual(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform"]);
-    expect(cards.map((c) => c.getAttribute("href"))).toEqual(["/grammar", "/vocab", "/numbers", "/sounds", "/proverbs", "/transform"]);
+    expect(cards.map((c) => c.querySelector("strong")!.textContent)).toEqual(["Grammar", "Vocab", "Numbers", "Sound Bank", "Proverbs", "Transform", "Songs"]);
+    expect(cards.map((c) => c.getAttribute("href"))).toEqual(["/grammar", "/vocab", "/numbers", "/sounds", "/proverbs", "/transform", "/songs"]);
   });
 
   it("no longer lists the levels or the unlock checkbox", async () => {
@@ -92,5 +92,14 @@ describe("Home", () => {
     localStorage.setItem("yp:stats:v1", JSON.stringify({ numbers: { steps: { "one-to-ten": { best: 1 }, hundreds: { best: 0.5 } } } }));
     const main = await renderHome();
     expect(within(main).getAllByTestId("activity-card")[2]!.textContent).toContain(`2 of ${NUMBER_STEPS.length} steps done`);
+  });
+
+  it("shows a Songs card, last, linking to the songs page and with no progress line", async () => {
+    await renderHome();
+    const main = screen.getByRole("main");
+    const card = within(main).getAllByTestId("activity-card")[6]!;
+    expect(card.getAttribute("href")).toBe("/songs");
+    expect(card.textContent).toContain("Songs");
+    expect(within(card).queryByTestId("card-progress")).toBeNull();
   });
 });

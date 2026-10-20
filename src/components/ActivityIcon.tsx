@@ -2,9 +2,9 @@
 // everyday Yoruba objects the level icons do not use: adire cloth (grammar), a woven basket,
 // apẹ̀rẹ̀ (vocab), a heap of yam tubers (numbers), a fèrè flute (sounds), a horse, since "òwe lẹ́ṣin ọ̀rọ̀", a proverb is
 // the horse of speech (proverbs), and an ayò board (transform). Sacred objects are deliberately
-// not used. Decorative: the activity title is always shown beside the icon.
-export type ActivityId = "grammar" | "vocab" | "numbers" | "sounds" | "proverbs" | "transform";
-export const ACTIVITY_IDS: readonly ActivityId[] = ["grammar", "vocab", "numbers", "sounds", "proverbs", "transform"];
+// not used. Songs is a ṣẹ̀kẹ̀rẹ̀, the beaded gourd rattle. Decorative: the activity title is always shown beside the icon.
+export type ActivityId = "grammar" | "vocab" | "numbers" | "sounds" | "proverbs" | "transform" | "songs";
+export const ACTIVITY_IDS: readonly ActivityId[] = ["grammar", "vocab", "numbers", "sounds", "proverbs", "transform", "songs"];
 
 const SHAPES: Record<ActivityId, React.ReactNode> = {
   grammar: (
@@ -73,6 +73,20 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
       <circle cx="53" cy="40" r="3.2" />
       <path d="M14 48v8M50 48v8" />
     </g>
+  ),
+  songs: (
+    <>
+      <path d="M28 25V11a4 4 0 0 1 8 0v14" />
+      <path d="M26 11h12" strokeWidth="1.8" />
+      <circle cx="32" cy="42" r="17" />
+      <path d="M32 25v34M20.5 29.5c-4 7-4 18 0 25M43.5 29.5c4 7 4 18 0 25" strokeWidth="1.8" />
+      <path d="M16 36c10 5 22 5 32 0M15.5 48c10 5 23 5 33 0" strokeWidth="1.8" />
+      <circle cx="32" cy="40.5" r="2" fill="currentColor" />
+      <circle cx="23" cy="43.5" r="2" fill="currentColor" fillOpacity=".25" />
+      <circle cx="41" cy="43.5" r="2" fill="currentColor" fillOpacity=".25" />
+      <circle cx="32" cy="52.5" r="2" fill="currentColor" fillOpacity=".25" />
+      <path d="M52 21l4-3M54 28h5M10 21l-4-3M8 28H3" strokeWidth="1.8" />
+    </>
   ),
 };
 
