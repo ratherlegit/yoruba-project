@@ -172,6 +172,28 @@ test("Numbers: on a phone every table cell is on screen (rows stack, nothing nee
   await expect(page.getByText("I have only one nose.")).toBeInViewport({ ratio: 1 });
 });
 
+test("Numbers: the last word of an example sentence sits on the same line as the words before it", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/numbers/one-to-ten");
+  const rows = await page.locator(".numbers-table .audio-sentence").evaluateAll((els) =>
+    els.map((el) => {
+      const rect = (node: Node, a: number, b: number) => {
+        const r = document.createRange();
+        r.setStart(node, a);
+        r.setEnd(node, b);
+        return r.getBoundingClientRect();
+      };
+      const head = el.firstChild as Text;
+      const tail = el.querySelector(".audio-tail")!.firstChild as Text;
+      return { head: rect(head, 0, 1).bottom, last: rect(tail, 0, 1).bottom };
+    }),
+  );
+  expect(rows.length).toBe(20);
+  for (const [i, r] of rows.entries()) {
+    expect(Math.abs(r.head - r.last), `sentence ${i}: last word is off the baseline`).toBeLessThan(0.5);
+  }
+});
+
 test("Numbers: the English line sits under its example sentence, not beside the button", async ({ page }) => {
   await page.setViewportSize({ width: 1100, height: 900 });
   await page.goto("/numbers/one-to-ten");

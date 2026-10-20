@@ -275,7 +275,9 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .numbers-table td:nth-child(2), .numbers-table td:nth-child(3) { white-space: nowrap; }
 .audio-sentence { display: block; }
 .audio-english { display: block; }
-.audio-tail { display: inline-flex; align-items: center; gap: 0.6rem; white-space: nowrap; vertical-align: middle; }
+/* Inline, so the last word stays on the sentence's baseline; only the button is centred on the line. */
+.audio-tail { white-space: nowrap; }
+.audio-tail > button { margin-left: 0.6rem; vertical-align: middle; }
 /* On a phone each row stacks, so every column is on screen without a sideways scroll. */
 @media (max-width: 40rem) {
   .numbers-table, .numbers-table tbody, .numbers-table tr, .numbers-table td { display: block; }
