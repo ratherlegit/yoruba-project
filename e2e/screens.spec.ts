@@ -5,6 +5,10 @@ for (const scheme of ["light", "dark"] as const) {
     await page.emulateMedia({ colorScheme: scheme });
     await page.goto("/");
     await page.screenshot({ path: `.screenshots/home-${scheme}.png`, fullPage: true });
+    await page.goto("/grammar");
+    await page.screenshot({ path: `.screenshots/grammar-${scheme}.png`, fullPage: true });
+    await page.goto("/stats");
+    await page.screenshot({ path: `.screenshots/stats-${scheme}.png`, fullPage: true });
     await page.goto("/lesson/getting-started/gs-1");
     await page.getByRole("button", { name: "Start practice" }).waitFor();
     await page.screenshot({ path: `.screenshots/primer-${scheme}.png`, fullPage: true });
