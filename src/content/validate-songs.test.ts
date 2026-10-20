@@ -49,7 +49,7 @@ describe("validateSongs", () => {
   });
   it("rejects strings that are not NFC, have an em dash, or a stray ɡ", () => {
     expect(errs([song({ about: "ẹ" })])).toContain("NFC");
-    expect(errs([song({ about: "a — b" })])).toContain("em dash");
+    expect(errs([song({ about: `a ${String.fromCharCode(0x2014)} b` })])).toContain("em dash");
     expect(errs([song({ lines: [{ yoruba: "ɡba", english: "x" }] })])).toContain("U+0261");
   });
   it("needs a source, and a note while needs-review", () => {
