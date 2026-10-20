@@ -2015,90 +2015,94 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Lyrics page: https://notjustok.com/lyrics/okunkun-lyrics-by-solana-killertunes/
   - Video: https://www.youtube.com/watch?v=e4aLN_GwpQU (Visualizer on Solana's channel)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).
+  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).
 - `sade`: **Sade** by Adekunle Gold (Pop)
-  - Oti pe ti'n mo ti'n ba e soro (It has been a long time that I have been talking to you.)
-  - Ojo n'lo (The days are passing.)
-  - Omoge dakun gbo temi (Girl, please listen to me.)
-  - Baby mi jowo (My baby, please.)
-  - Je'n gbe e lole (Let me take you home.)
-  - Mummy mi reti omo (My mother is waiting for a child.)
-  - Baba mi n reti omo (My father is waiting for a child.)
-  - Omoge wa femi (Girl, come and love me.)
+  - Ó ti pẹ́ tí mo ti ń bá ẹ sọ̀rọ̀ (It has been a long time that I have been talking to you.)
+  - Ọjọ́ ń lọ (The days are passing.)
+  - Ọmọge dákun gbọ́ tèmi (Girl, please listen to me.)
+  - Baby mi, jọ̀wọ́ (My baby, please.)
+  - Jẹ́ n gbé ẹ lọ ilé (Let me take you home.)
+  - Mummy mi retí ọmọ (My mother is waiting for a child.)
+  - Baba mi ń retí ọmọ (My father is waiting for a child.)
+  - Ọmọge wá fẹ́ mi (Girl, come and love me.)
   - Lyrics page: https://notjustok.com/lyrics/sade-lyrics-by-adekunle-gold/
   - Video: https://www.youtube.com/watch?v=1ShkDNA5ZCE (Official video)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.
+  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.
 - `awe`: **Awe** by Asa (Pop)
-  - O loyun fun o (She carried a pregnancy for you.)
-  - Oyun oshu meji (A pregnancy of two months.)
-  - Wahidi omo sekina (Wahidi, child of Sekina.)
-  - Omo mohammed (Child of Mohammed.)
-  - Anti to loyun fun o (The aunty who carried the pregnancy for you.)
-  - O to bi e l'omo (The one who gave birth to you as her child.)
-  - O bi 'mo oh oh (She gave birth to a child.)
-  - Mama to bi mama re (The mother who gave birth to your mother.)
+  - Ó lóyún fún ọ (She carried a pregnancy for you.)
+  - Oyún oṣù méjì (A pregnancy of two months.)
+  - Wahidi ọmọ Sekina (Wahidi, child of Sekina.)
+  - Ọmọ Mohammed (Child of Mohammed.)
+  - Anti tó lóyún fún ọ (The aunty who carried the pregnancy for you.)
+  - Ó tó bí ẹ lọ́mọ (The one who gave birth to you as her child.)
+  - Ó bí ọmọ oh oh (She gave birth to a child.)
+  - Mama tó bí mama rẹ (The mother who gave birth to your mother.)
   - Lyrics page: https://www.elyrics.net/read/a/asa-lyrics/awe-lyrics.html
   - Video: https://www.youtube.com/watch?v=VVgaH1ONtx8 (Audio on a playlist channel)
   - Source: eLyrics.net lyrics page (user submitted), read 2026-10-20; BellaNaija analysis for the story; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. The song uses a regional dialect (Ekiti and Ondo, per BellaNaija), so the meanings here are the weakest in the set and need a native check. Wahidi, Sekina and Mohammed are read as names, which is a guess. The uploader of the video is a playlist channel, not Asa's own.
+  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. The song uses a regional dialect (Ekiti and Ondo, per BellaNaija), so the meanings here are the weakest in the set and need a native check. Wahidi, Sekina and Mohammed are read as names, which is a guess. The uploader of the video is a playlist channel, not Asa's own.
 - `organise`: **Organise** by Asake (Afrobeats)
-  - O logbon ju, o gbon, o gbon, o gbon, Iwo lo gbon ju (You are too wise; you are wise, wise, wise; you are the wisest.)
-  - Agbogbon ju, ogbon, ama molo gbon ma-, mo ti logbon ju (Wiser than everyone, wisdom; I am the one who is wiser.)
-  - Emi yato sawon, kan ka mi soto, ka mi soto (I am different from them, just count me apart, count me apart.)
+  - Ó lọ́gbọ́n jù, ó gbọ́n, ó gbọ́n, ó gbọ́n, Ìwọ ló gbọ́n jù (You are too wise; you are wise, wise, wise; you are the wisest.)
+  - Àgbọ́gbọ́n jù, ọgbọ́n, ama mọ ló gbọ́n má-, mo ti lọ́gbọ́n jù (Wiser than everyone, wisdom; I am the one who is wiser.)
+  - Èmi yàtọ̀ sáwọn, kan kà mí sọ́tọ̀, kà mí sọ́tọ̀ (I am different from them, just count me apart, count me apart.)
   - Lyrics page: https://notjustok.com/lyrics/organise-lyrics-asake/
   - Video: https://www.youtube.com/watch?v=_u4_iWCvZ5c (Official video)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: the second line is cut off in the typed lyrics ("ma-"), so its meaning is a loose reading. The third line is a loose reading of "kan ka mi soto" (count me apart).
+  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: the second line is cut off in the typed lyrics ("ma-"), so its meaning is a loose reading. The third line is a loose reading of "kan ka mi soto" (count me apart).
 - `ojuelegba`: **Ojuelegba** by Wizkid (Afrobeats)
-  - Ni ojuelegba (At Ojuelegba.)
-  - Aiye o le to yen oh (Life is not that hard.)
-  - Adura lo le se o (Only prayer can do it.)
-  - Ojojumo lo n s’adura (Every day there is praying.)
-  - Ojojumo owo n wole wa (Every day money is coming in for us.)
-  - Mon jaiye mi won ni wan soro ju (I am living my life, they say it is too hard.)
-  - Won ni, won ni, won ni, won soro ju (They say, they say, they say, it is too hard.)
+  - Ní Òjuelégba (At Ojuelegba.)
+  - Ayé ò le tó yẹn oh (Life is not that hard.)
+  - Àdúrà ló lè ṣe o (Only prayer can do it.)
+  - Ojoojúmọ́ ló ń ṣ’àdúrà (Every day there is praying.)
+  - Ojoojúmọ́ owó ń wọlé wá (Every day money is coming in for us.)
+  - Mo ń jayé mi wọ́n ní wọ́n ṣòro jù (I am living my life, they say it is too hard.)
+  - Wọ́n ní, wọ́n ní, wọ́n ní, wọ́n ṣòro jù (They say, they say, they say, it is too hard.)
   - Lyrics page: https://notjustok.com/lyrics/ojuelegba-lyrics-by-wizkid/
   - Video: https://www.youtube.com/watch?v=Q7QiLceJSLQ (Video on the StarBoy TV channel)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.
+  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.
 - `duduke`: **Duduke** by Simi (Afrobeats)
-  - Ayanfe mi ayanfe (My beloved, my beloved.)
-  - Gbo temi o (Listen to me.)
-  - Ko duro le ife mi o (Rest on my love.)
+  - Àyànfẹ́ mi àyànfẹ́ (My beloved, my beloved.)
+  - Gbọ́ tèmi o (Listen to me.)
+  - Kó dúró lé ìfẹ́ mi o (Rest on my love.)
   - Lyrics page: https://www.elyrics.net/read/s/simi-lyrics/duduke-lyrics.html
   - Video: https://www.youtube.com/watch?v=-L8hLkg21MQ (Official video)
   - Source: eLyrics.net lyrics page (user submitted), read 2026-10-20; Simi's comment on the title from a notjustok news report; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. Doubt: "ko duro le ife mi" could also mean "do not stop at my love". Only three lines are Yoruba, the rest is Pidgin and English.
+  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: "ko duro le ife mi" could also mean "do not stop at my love". Only three lines are Yoruba, the rest is Pidgin and English.
 - `motigbana`: **Motigbana** by Olamide (Afrobeats)
-  - Motigbana O Moti Elevate Ori Mi Ko Ke Hibernate (I have caught fire, I have levelled up; my head will not hibernate.)
-  - Awon Bad Belle Won To Suffocate We Dey Gbadun We Dey Jollificate (The jealous ones are about to suffocate; we are enjoying ourselves, we are celebrating.)
-  - Ola Tobi E Ma Pariwo Ye (My honour is great, so keep making noise.)
-  - Owo Tobi E Ma Pariwo Ye (My money is big, so keep making noise.)
-  - Motor Tobi E Ma Pariwo Ye (My car is big, so keep making noise.)
-  - Owo Po Gan Ninu Bullion Van (There is a lot of money in the bullion van.)
-  - Baby Oya Rotate Bi Ti Ceiling Fan (Baby, come on, rotate like a ceiling fan.)
-  - Abebe Ni E O If You Not A Fan (You are a hand fan if you are not a fan.)
+  - Mo ti gbana ò mo ti elevate orí mi kò ní hibernate (I have caught fire, I have levelled up; my head will not hibernate.)
+  - Àwọn bad belle wọ́n tó suffocate we dey gbádùn we dey jollificate (The jealous ones are about to suffocate; we are enjoying ourselves, we are celebrating.)
+  - Ọlá tóbi ẹ máa pariwo yé (My honour is great, so keep making noise.)
+  - Owó tóbi ẹ máa pariwo yé (My money is big, so keep making noise.)
+  - Mọ́tò tóbi ẹ máa pariwo yé (My car is big, so keep making noise.)
+  - Owó pọ̀ gan nínú bullion van (There is a lot of money in the bullion van.)
+  - Baby ọya rotate bí tí ceiling fan (Baby, come on, rotate like a ceiling fan.)
+  - Abẹ̀bẹ́ ni ẹ o if you not a fan (You are a hand fan if you are not a fan.)
   - Lyrics page: https://lyricsraag.com/motigbana-olamide-translation/
   - Video: https://www.youtube.com/watch?v=DR5dPcoIjOQ (Official video)
   - Source: lyricsraag lyrics page (Yoruba and an English translation), read 2026-10-20; Vagalume lists the writers; video checked on YouTube
-  - Doubt: Yoruba lines are copied as published, which leaves out many tone marks and dots, and the page is user or site typed, not checked by a native speaker. The English here is written for this site and only checked against the lyricsraag translation, whose translator is not named. Doubt: tones on ola and owo (honour or money). "Abebe" is a hand fan, so the last line is a pun that this English only half carries.
+  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. The English here is written for this site and only checked against the lyricsraag translation, whose translator is not named. Doubt: tones on ola and owo (honour or money). "Abebe" is a hand fan, so the last line is a pun that this English only half carries.
 - `labe-igi-oronbo`: **Lábẹ́ Igi Òroǹbó** by Traditional children's song (Children's)
-  - L'abe igi orombo (Under the orange tree.)
-  - N'ibe l'agbe nsere wa (That is where we play our games.)
-  - Inu wa dun, ara wa ya (We are happy, we are lively.)
-  - Orombo, orombo (Orange, orange.)
+  - Lábẹ́ igi òroǹbó (Under the orange tree.)
+  - Níbẹ̀ là gbé ń ṣeré wa (That is where we play our games.)
+  - Inú wa dùn, ara wa yá (We are happy, we are lively.)
+  - Òroǹbó, òroǹbó (Orange, orange.)
   - Lyrics page: https://www.mamalisa.com/?p=2900&t=es
   - Video: https://www.youtube.com/watch?v=potZ8OT0HV8 (Nursery rhyme video by Yoruba Stars)
   - Source: Mama Lisa's World, contributed and translated by Belinda (Yinka) Adisa of the Yoruba Roots Language School, read 2026-10-20; video checked on YouTube
-  - Doubt: The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.
+  - Doubt: Line 2 is written "Níbẹ̀ là gbé ń ṣeré wa" in the video, as reported by the author; the Mama Lisa page has "l'agbe nsere wa", so the wording is not settled. The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.
 - `iya-ni-wura`: **Ìyá Ni Wúrà** by Traditional children's song (Children's)
-  - Iya ni wura, iyebiye ni (Mother is gold, she is precious.)
-  - Bi o l'iya, o l'alaafia (If you have a mother, you have peace.)
-  - Lyrics page: https://www.headteacher.ng/learning-cultural-values-through-folk-songs-and-stories-for-pre-school-level-3/
+  - Ìyá ni wúrà iyebíye (Mother is gold, a precious gem.)
+  - Tí a kò lè f'owó rà (That we cannot buy with money.)
+  - Ó lóyún mi f'óṣù mẹ́sàn-án (She carried me in pregnancy for nine months.)
+  - Ó pọ̀n mí fíín ọdún mẹ́ta (She carried me on her back for three years.)
+  - Ìyá ni wúrà, ìyebíye ni (Mother is gold, she is precious.)
+  - Bí o l'ìyá, o l'àlàáfíà (If you have a mother, you have peace.)
+  - Lyrics page: https://www.mamalisa.com/?t=es&p=6843
   - Video: https://www.youtube.com/watch?v=0fvwQZ3XLgs (Lyric video by Yoruba for Kidz)
-  - Source: HeadTeacher.ng pre-school lesson plan, which prints the lyrics with an English line under each, read 2026-10-20; video checked on YouTube
-  - Doubt: The page labels it "Traditional Yoruba folk song" but a Zikoko list credits Dele Ojo and his Star Brothers Band, so authorship is unsettled. The lyrics are unmarked on the page; the title's marks are the author's.
+  - Source: Mama Lisa's World, folk song shared with its translation and recording by Gabriel Olubunmi Osho-Davies (lines 1 to 4, with tone marks), the on-screen words of the Yoruba for Kidz video (lines 2 and 4, as reported by the author), and the HeadTeacher.ng pre-school lesson plan (lines 5 and 6, unmarked), read 2026-10-20; video checked on YouTube
+  - Doubt: The sources word the song a little differently: lines 2 and 4 follow the video ("f'owó rà", "fíín ọdún mẹ́ta"), where Mama Lisa has "fowo ra" and "f'ọ́dún mẹ́ta", and lines 1 and 5 are two forms of the same line. The marks on lines 3, 5 and 6 and on the title are the author's guesses. Line 4 uses pọ̀n, to carry on the back, where Mama Lisa's English says nursed. The page labels it a folk song, but a Zikoko list credits Dele Ojo and his Star Brothers Band, so authorship is unsettled. Mama Lisa's page is copyrighted, so only a few lines are shown.
 
 ## Dialogues
 

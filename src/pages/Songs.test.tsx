@@ -21,6 +21,21 @@ describe("Songs list", () => {
     expect(cards[0]!.textContent).toContain(SONGS[0]!.genre);
   });
 
+  it("puts that genre's icon first in every song row", async () => {
+    await renderAt("/songs");
+    const cards = await screen.findAllByTestId("song-card");
+    for (const c of cards) {
+      const first = c.firstElementChild!;
+      expect(first.classList.contains("level-icon")).toBe(true);
+      expect(first.getAttribute("aria-hidden")).toBe("true");
+    }
+    const byTitle = (t: string) => cards.find((c) => c.textContent!.includes(t))!.firstElementChild!.innerHTML;
+    expect(byTitle("Okunkun")).toBe(byTitle("Sade"));
+    expect(byTitle("Sade")).not.toBe(byTitle("Organise"));
+    expect(byTitle("Organise")).not.toBe(byTitle("Lábẹ́ Igi"));
+    expect(byTitle("Okunkun")).not.toBe(byTitle("Lábẹ́ Igi"));
+  });
+
   it("offers All plus only the genres in use, and filters by genre", async () => {
     await renderAt("/songs");
     await screen.findAllByTestId("song-card");

@@ -299,6 +299,7 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .song-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
 .song-lines li { display: grid; gap: 0.15rem; }
 .song-yoruba { overflow-wrap: break-word; }
+.song-row > .level-icon { align-self: center; flex: none; }
 
 /* Dialogues */
 .dlg-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
