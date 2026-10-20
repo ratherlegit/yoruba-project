@@ -1,0 +1,124 @@
+import { expect, test, type Page } from "@playwright/test";
+import { NUMBERS, PHRASES } from "../src/content/numbers";
+
+const STEP = "/numbers/tens-and-twenties";
+
+function answerFor(prompt: string): string {
+  let m = /^Type (\d+) in Yoruba$/.exec(prompt);
+  if (m) return NUMBERS.find((n) => n.value === Number(m![1]))!.yoruba;
+  m = /^What number is (.+)\?$/.exec(prompt);
+  if (m) return String(NUMBERS.find((n) => n.yoruba === m![1])!.value);
+  m = /^Say '(.+)' in Yoruba$/.exec(prompt);
+  if (m) return PHRASES.find((p) => p.prompt === m![1])!.answers[0]!;
+  m = /^What price is (.+)\?$/.exec(prompt);
+  if (m) return PHRASES.find((p) => p.answers[0] === m![1])!.numeral;
+  throw new Error(`unexpected prompt: ${prompt}`);
+}
+const prompt = (page: Page) => page.getByTestId("numbers-prompt").innerText();
+
+async function playRound(page: Page, total = 8) {
+  for (let i = 0; i < total; i++) {
+    await page.getByTestId("numbers-input").fill(answerFor(await prompt(page)));
+    await page.getByRole("button", { name: "Check" }).click();
+    await expect(page.getByTestId("numbers-result")).toContainText("Correct.");
+    await page.getByRole("button", { name: i === total - 1 ? "See score" : "Next" }).click();
+  }
+}
+
+// Answers questions correctly until a "Type N in Yoruba" question appears, then returns its model answer.
+async function untilTypeQuestion(page: Page): Promise<string> {
+  for (let i = 0; i < 8; i++) {
+    const p = await prompt(page);
+    if (p.startsWith("Type ")) return answerFor(p);
+    await page.getByTestId("numbers-input").fill(answerFor(p));
+    await page.getByRole("button", { name: "Check" }).click();
+    await page.getByRole("button", { name: "Next" }).click();
+  }
+  throw new Error("no Type question in the round");
+}
+
+test("Numbers: from the landing card through a practice round to the stats page", async ({ page }) => {
+  await page.goto("/");
+  await page.getByTestId("activity-card").nth(2).click();
+  await expect(page).toHaveURL(/\/numbers$/);
+  await expect(page.getByTestId("numbers-step-card")).toHaveCount(6);
+  await page.getByTestId("numbers-step-card").nth(2).click();
+  await expect(page).toHaveURL(/\/numbers\/tens-and-twenties$/);
+  await expect(page.getByTestId("numbers-examples")).toContainText("ogójì");
+  await expect(page.getByTestId("numbers-examples")).toContainText("20 × 2");
+  await expect(page.getByTestId("numbers-question")).toContainText("Question 1 of 8");
+  await playRound(page);
+  await expect(page.getByTestId("numbers-score")).toContainText("You got 8 of 8 right.");
+  await page.goto("/");
+  await expect(page.getByTestId("activity-card").nth(2)).toContainText("1 of 6 steps done");
+  await page.goto("/stats");
+  await expect(page.getByTestId("stats-numbers")).toContainText("1 of 6 steps done");
+  await expect(page.getByTestId("stats-numbers")).toContainText("Tens and twenties");
+  await expect(page.getByTestId("stats-numbers")).toContainText("100%");
+  await page.goto("/numbers");
+  await expect(page.getByTestId("numbers-step-card").nth(2)).toContainText("Best 100%");
+});
+
+test("Numbers accepts a pasted decomposed (NFD) answer", async ({ page }) => {
+  await page.goto(STEP);
+  await page.getByRole("button", { name: "Advanced" }).click();
+  const model = await untilTypeQuestion(page);
+  await page.getByTestId("numbers-input").fill(model.normalize("NFD"));
+  await page.getByRole("button", { name: "Check" }).click();
+  await expect(page.getByTestId("numbers-result")).toContainText("Correct.");
+});
+
+test("Numbers: easy mode accepts plain letters, advanced calls them close", async ({ page }) => {
+  const plain = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
+  await page.goto(STEP);
+  let model = await untilTypeQuestion(page);
+  await page.getByTestId("numbers-input").fill(plain(model));
+  await page.getByRole("button", { name: "Check" }).click();
+  await expect(page.getByTestId("numbers-result")).toContainText("Correct.");
+  await page.goto(STEP);
+  await page.getByRole("button", { name: "Advanced" }).click();
+  model = await untilTypeQuestion(page);
+  await page.getByTestId("numbers-input").fill(plain(model));
+  await page.getByRole("button", { name: "Check" }).click();
+  await expect(page.getByTestId("numbers-result")).toContainText("check the dots and tones");
+});
+
+test("Numbers One to ten is no longer in the vocab list", async ({ page }) => {
+  await page.goto("/vocab/getting-started");
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.getByText("Numbers one to ten")).toHaveCount(0);
+});
+
+test("The Numbers pages render and work when localStorage is blocked", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, "localStorage", { get() { throw new Error("blocked"); } });
+  });
+  await page.goto("/numbers");
+  await expect(page.getByTestId("numbers-step-card")).toHaveCount(6);
+  await page.goto(STEP);
+  await page.getByTestId("numbers-input").fill(answerFor(await prompt(page)));
+  await page.getByRole("button", { name: "Check" }).click();
+  await expect(page.getByTestId("numbers-result")).toContainText("Correct.");
+});
+
+test.describe("phone width", () => {
+  test.use({ viewport: { width: 375, height: 800 } });
+  for (const path of ["/numbers", STEP, "/numbers/one-to-ten"]) {
+    test(`no horizontal scroll and the Numbers nav link visible at ${path}`, async ({ page }) => {
+      await page.goto(path);
+      await expect(page.getByRole("navigation").getByRole("link", { name: "Numbers" })).toBeVisible();
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      expect(overflow).toBeLessThanOrEqual(0);
+    });
+  }
+});
+
+for (const scheme of ["light", "dark"] as const) {
+  test(`Numbers pages are visible in ${scheme} mode`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: scheme });
+    await page.goto("/numbers");
+    await expect(page.getByTestId("numbers-step-card").first()).toBeVisible();
+    await page.goto(STEP);
+    await expect(page.getByTestId("numbers-practice")).toBeVisible();
+  });
+}

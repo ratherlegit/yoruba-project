@@ -102,7 +102,7 @@ export function NumbersPractice({ stepId }: { stepId: string }) {
         </div>
       </div>
       <div className="with-audio">
-        <p style={{ margin: 0 }}><strong>{q.prompt}</strong></p>
+        <p style={{ margin: 0 }}><strong data-testid="numbers-prompt">{q.prompt}</strong></p>
         {q.kind === "hear" && q.audioText && <AudioButton text={q.audioText} label="Play the number" />}
       </div>
       <input
