@@ -2001,7 +2001,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 
 ## Songs
 
-- `okunkun`: **Okunkun** by Solana & Killertunes (Afrobeats)
+- `okunkun`: **Okunkun** by Solana & Killertunes (Pop)
   - Ọjọ́ ti fe ṣ'òkùnkùn, ẹmi nìkan péré (The day is about to turn dark, it is only me.)
   - Mi o duro, kia-kia mo múra mo mere (I am not standing still; quickly I get ready and go.)
   - Ẹlẹ́dàá mi gbé mi s'òkè, òkè gidi gan (My Creator lifted me up, really high up.)

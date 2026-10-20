@@ -38,7 +38,7 @@ export const SONGS: Song[] = [
     id: "okunkun",
     title: "Okunkun",
     artist: "Solana & Killertunes",
-    genre: "Afrobeats",
+    genre: "Pop",
     videoId: "e4aLN_GwpQU",
     videoLabel: "Visualizer on Solana's channel",
     lyricsUrl: "https://notjustok.com/lyrics/okunkun-lyrics-by-solana-killertunes/",

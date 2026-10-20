@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
-import { SONGS } from "@/content/songs";
+import { GENRES, SONGS } from "@/content/songs";
 import { routeTree } from "@/router";
 
 async function renderAt(path: string) {
@@ -26,7 +26,7 @@ describe("Songs list", () => {
     await screen.findAllByTestId("song-card");
     const filter = screen.getByRole("group", { name: "Filter by genre" });
     const names = within(filter).getAllByRole("button").map((b) => b.textContent);
-    expect(names).toEqual(["All", ...[...new Set(SONGS.map((s) => s.genre))]]);
+    expect(names).toEqual(["All", ...GENRES.filter((g) => SONGS.some((s) => s.genre === g))]);
     expect(within(filter).getByRole("button", { name: "All" })).toHaveAttribute("aria-pressed", "true");
     fireEvent.click(within(filter).getByRole("button", { name: "Children's" }));
     const kids = screen.getAllByTestId("song-card");
