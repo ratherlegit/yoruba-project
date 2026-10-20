@@ -253,3 +253,8 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .stats-figures > div { display: grid; gap: 0.1rem; }
 .stats-figures dd { margin: 0; font-size: 1.5rem; font-weight: 700; font-family: "Fraunces Variable", serif; }
 .stats-figures dt { font-size: 0.85rem; }
+
+/* Stats page */
+.stats-section { display: grid; gap: 0.6rem; }
+.stats-block { display: grid; gap: 0.3rem; }
+.stats-list { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.2rem; }

@@ -39,7 +39,7 @@ describe("pages", () => {
 
   it("the stats route renders", async () => {
     await renderAt("/stats");
-    expect(await screen.findByRole("heading", { name: "Stats" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "Your stats" })).toBeInTheDocument();
   });
 
   it("the level page links back to the grammar page", async () => {
