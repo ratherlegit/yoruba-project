@@ -49,7 +49,8 @@ export function NumbersStep() {
               <th scope="col">Number</th>
               <th scope="col">Yoruba</th>
               <th scope="col">{first ? "After a noun" : "How it is built"}</th>
-              {first && <th scope="col">Example</th>}
+              {first && <th scope="col">Example after a noun</th>}
+              {first && <th scope="col">Example on its own</th>}
             </tr>
           </thead>
           <tbody>
@@ -70,11 +71,21 @@ export function NumbersStep() {
                   )}
                 </td>
                 {first && (
-                  <td data-label="Example">
+                  <td data-label="Example after a noun">
                     {n.example && (
                       <>
                         <SentenceWithAudio text={n.example.yoruba} />
                         <span className="muted audio-english">{n.example.english}</span>
+                      </>
+                    )}
+                  </td>
+                )}
+                {first && (
+                  <td data-label="Example on its own">
+                    {n.plainExample && (
+                      <>
+                        <SentenceWithAudio text={n.plainExample.yoruba} />
+                        <span className="muted audio-english">{n.plainExample.english}</span>
                       </>
                     )}
                   </td>

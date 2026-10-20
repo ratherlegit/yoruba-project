@@ -1738,63 +1738,73 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `num-1` (1): **ọ̀kan**
   - Accepted answers: ọ̀kan
   - After a noun: kan
-  - Example: Imú kan ṣoṣo ni mo ní. (I have only one nose.)
+  - Example after a noun: Imú kan ṣoṣo ni mo ní. (I have only one nose.)
+  - Example on its own: Ọ̀kan, èjì, ẹ̀ta. (One, two, three.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary lists ọ̀kan (one) and kan after a noun. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm ṣoṣo (only) reads naturally in Imú kan ṣoṣo ni mo ní.
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary lists ọ̀kan (one) and kan after a noun. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm ṣoṣo (only) reads naturally in Imú kan ṣoṣo ni mo ní. The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-2` (2): **èjì**
   - Accepted answers: èjì
   - After a noun: méjì
-  - Example: Mo ní ojú méjì. (I have two eyes.)
+  - Example after a noun: Mo ní ojú méjì. (I have two eyes.)
+  - Example on its own: Ọ̀kan àti ọ̀kan jẹ́ èjì. (One and one make two.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-3` (3): **ẹ̀ta**
   - Accepted answers: ẹ̀ta
   - After a noun: mẹ́ta
-  - Example: Méjì àti ọ̀kan jẹ́ mẹ́ta. (Two and one make three.)
+  - Example after a noun: Mo ní ọmọ mẹ́ta. (I have three children.)
+  - Example on its own: Ọ̀kan àti èjì jẹ́ ẹ̀ta. (One and two make three.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm àti (and) plus jẹ́ is a natural way to say a sum to a learner.
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm àti (and) plus jẹ́ is a natural way to say a sum to a learner. The after-a-noun sentence is the model's own composition; the earlier sum sentence was replaced. The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-4` (4): **ẹ̀rin**
   - Accepted answers: ẹ̀rin
   - After a noun: mẹ́rin
-  - Example: Ajá ní ẹsẹ̀ mẹ́rin. (A dog has four legs.)
+  - Example after a noun: Ajá ní ẹsẹ̀ mẹ́rin. (A dog has four legs.)
+  - Example on its own: Èjì àti èjì jẹ́ ẹ̀rin. (Two and two make four.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. The animal word ajá is the model's own knowledge.
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. The animal word ajá is the model's own knowledge. The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-5` (5): **àrún**
   - Accepted answers: àrún
   - After a noun: márùn-ún
-  - Example: Ọwọ́ kan ní ìka márùn-ún. (One hand has five fingers.)
+  - Example after a noun: Ọwọ́ kan ní ìka márùn-ún. (One hand has five fingers.)
+  - Example on its own: Èjì àti ẹ̀ta jẹ́ àrún. (Two and three make five.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-6` (6): **ẹ̀fà**
   - Accepted answers: ẹ̀fà
   - After a noun: mẹ́fà
-  - Example: Èèrà ní ẹsẹ̀ mẹ́fà. (An ant has six legs.)
+  - Example after a noun: Èèrà ní ẹsẹ̀ mẹ́fà. (An ant has six legs.)
+  - Example on its own: Ẹ̀ta àti ẹ̀ta jẹ́ ẹ̀fà. (Three and three make six.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the tones of èèrà (ant).
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the tones of èèrà (ant). The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-7` (7): **èje**
   - Accepted answers: èje
   - After a noun: méje | mẹ́je
-  - Example: Ọ̀sẹ̀ kan ní ọjọ́ méje. (A week has seven days.)
+  - Example after a noun: Ọ̀sẹ̀ kan ní ọjọ́ méje. (A week has seven days.)
+  - Example on its own: Ẹ̀ta àti ẹ̀rin jẹ́ èje. (Three and four make seven.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary labels èje as an Ekiti form of seven. Wikipedia and the vocab sentence use èje and méje. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the tones of ọ̀sẹ̀ (week).
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary labels èje as an Ekiti form of seven. Wikipedia and the vocab sentence use èje and méje. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the tones of ọ̀sẹ̀ (week). The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-8` (8): **ẹ̀jọ**
   - Accepted answers: ẹ̀jọ
   - After a noun: mẹ́jọ
-  - Example: Aláǹtakùn ní ẹsẹ̀ mẹ́jọ. (A spider has eight legs.)
+  - Example after a noun: Aláǹtakùn ní ẹsẹ̀ mẹ́jọ. (A spider has eight legs.)
+  - Example on its own: Ẹ̀rin àti ẹ̀rin jẹ́ ẹ̀jọ. (Four and four make eight.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the spelling and tones of aláǹtakùn (spider).
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the spelling and tones of aláǹtakùn (spider). The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-9` (9): **ẹ̀sán**
   - Accepted answers: ẹ̀sán
   - After a noun: mẹ́sàn-án
-  - Example: Mẹ́rin àti márùn-ún jẹ́ mẹ́sàn-án. (Four and five make nine.)
+  - Example after a noun: Mo ní ajá mẹ́sàn-án. (I have nine dogs.)
+  - Example on its own: Ẹ̀rin àti àrún jẹ́ ẹ̀sán. (Four and five make nine.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. The after-a-noun sentence is the model's own composition; the earlier sum sentence was replaced. The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-10` (10): **ẹ̀wá**
   - Accepted answers: ẹ̀wá
   - After a noun: mẹ́wàá
-  - Example: Ọwọ́ méjì ní ìka mẹ́wàá. (Two hands have ten fingers.)
+  - Example after a noun: Ọwọ́ méjì ní ìka mẹ́wàá. (Two hands have ten fingers.)
+  - Example on its own: Àrún àti àrún jẹ́ ẹ̀wá. (Five and five make ten.)
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. The example on its own was drafted by the model from the counting forms (Wikipedia lists them for counting and sums); confirm speakers use the counting forms there.
 - `num-11` (11): **ọ̀kanlá**
   - Accepted answers: ọ̀kanlá | oókànlá
   - Built as: 10+1

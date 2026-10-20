@@ -70,6 +70,30 @@ describe("numbers content", () => {
   });
 });
 
+describe("step 1 has two examples per number: after a noun, and on its own", () => {
+  const tokens = (t: string) => t.normalize("NFC").toLowerCase().split(/[^\p{L}\p{M}-]+/u).filter(Boolean);
+  const one = () => NUMBERS.filter((n) => n.step === 1);
+  it("gives every number an example after a noun that uses one of its after-noun forms", () => {
+    for (const n of one()) {
+      const words = tokens(n.example!.yoruba);
+      expect(n.after.some((a) => words.includes(a.normalize("NFC").toLowerCase())), `${n.id}: ${n.example!.yoruba}`).toBe(true);
+      expect(words.length, n.id).toBeGreaterThan(1);
+    }
+  });
+  it("gives every number an example on its own that uses its counting form and none of its after-noun forms", () => {
+    for (const n of one()) {
+      expect(n.plainExample, n.id).toBeDefined();
+      const words = tokens(n.plainExample!.yoruba);
+      expect(words, `${n.id}: ${n.plainExample!.yoruba}`).toContain(n.yoruba.normalize("NFC").toLowerCase());
+      for (const a of n.after) expect(words, `${n.id} uses its after-noun form ${a}`).not.toContain(a.normalize("NFC").toLowerCase());
+      expect(n.plainExample!.english, n.id).toBeTruthy();
+    }
+  });
+  it("flags the new sentences as drafted by the model in the note", () => {
+    for (const n of one()) expect(n.note, n.id).toContain("on its own was drafted by the model");
+  });
+});
+
 describe("vocab after the move", () => {
   it("no longer has the numbers topic, and Getting Started has 4 topics", () => {
     expect(getVocabTopic("getting-started", "gs-numbers")).toBeUndefined();

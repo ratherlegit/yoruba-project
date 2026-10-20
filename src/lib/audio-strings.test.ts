@@ -113,6 +113,11 @@ describe("collectNumbersAudioStrings", () => {
       ["èjì", "number-word"], ["méjì", "number-word"], ["Mo ní ojú méjì.", "number-sentence"],
     ]);
   });
+  it("also lists the example on its own", () => {
+    const out = collectNumbersAudioStrings([entry({ plainExample: { yoruba: "Ọ̀kan àti ọ̀kan jẹ́ èjì.", english: "One and one make two." } })]);
+    expect(out.map((o) => o.text)).toContain("Ọ̀kan àti ọ̀kan jẹ́ èjì.");
+    expect(out.find((o) => o.text === "Ọ̀kan àti ọ̀kan jẹ́ èjì.")!.group).toBe("number-sentence");
+  });
   it("skips one-letter strings and duplicates", () => {
     const out = collectNumbersAudioStrings([entry({ yoruba: "a", after: ["méjì"], example: undefined }), entry({ id: "m", after: ["méjì"], example: undefined })]);
     expect(out.map((o) => o.text)).toEqual(["méjì", "èjì"]);

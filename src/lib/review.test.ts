@@ -249,6 +249,7 @@ describe("buildReviewMarkdown numbers", () => {
   const entry: NumberEntry = {
     id: "n-test", value: 15, yoruba: "ẹ̀ẹ́dógún", after: [], answers: ["ẹ̀ẹ́dógún", "ẹẹ́dógún"], build: "20-5", step: 2,
     example: { yoruba: "Mo ní ẹ̀ẹ́dógún.", english: "I have fifteen." },
+    plainExample: { yoruba: "Ẹ̀ẹ́dógún jẹ́ ogún dín àrún.", english: "Fifteen is twenty minus five." },
     source: "Test source", confidence: "needs-review", note: "Check the contraction.",
   };
   const phrase: NumberPhrase = {
@@ -258,7 +259,7 @@ describe("buildReviewMarkdown numbers", () => {
   it("lists each number and phrase with answers, build, source and doubt", () => {
     const md = buildReviewMarkdown(levels, [], undefined, [], [], [], [entry], [phrase]);
     expect(md).toContain("## Numbers");
-    for (const s of ["n-test", "ẹ̀ẹ́dógún", "ẹẹ́dógún", "20-5", "Mo ní ẹ̀ẹ́dógún.", "I have fifteen.", "Test source", "Check the contraction.", "p-test", "two children", "ọmọ méjì", "Phrase source", "Check the tone."]) expect(md).toContain(s);
+    for (const s of ["n-test", "ẹ̀ẹ́dógún", "ẹẹ́dógún", "20-5", "Mo ní ẹ̀ẹ́dógún.", "I have fifteen.", "Ẹ̀ẹ́dógún jẹ́ ogún dín àrún.", "Fifteen is twenty minus five.", "Test source", "Check the contraction.", "p-test", "two children", "ọmọ méjì", "Phrase source", "Check the tone."]) expect(md).toContain(s);
   });
   it("adds no section for empty lists", () => {
     expect(buildReviewMarkdown(levels, [], undefined, [], [], [], [], [])).not.toContain("## Numbers");

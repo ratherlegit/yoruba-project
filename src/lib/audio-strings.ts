@@ -71,7 +71,10 @@ export function collectNumbersAudioStrings(entries: NumberEntry[]): { key: strin
     add(e.yoruba, "number-word");
     for (const a of e.after) add(a, "number-word");
   }
-  for (const e of entries) if (e.example) add(e.example.yoruba, "number-sentence");
+  for (const e of entries) {
+    if (e.example) add(e.example.yoruba, "number-sentence");
+    if (e.plainExample) add(e.plainExample.yoruba, "number-sentence");
+  }
   return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group }));
 }
 
