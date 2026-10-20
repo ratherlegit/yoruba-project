@@ -16,6 +16,12 @@
   --gold-text: #8d6512;
   --icon-tile: #14307a;
   --danger: #9b1c1c;
+  --cell-bg: #14307a;
+  --cell-text: #f6f0e0;
+  --cell-done: #e3b84f;
+  --cell-todo: #c9d3f5;
+  --chip-bg: #e3b84f;
+  --chip-text: #101a3d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +41,12 @@
     --gold-text: #e3b84f;
     --icon-tile: #0b1634;
     --danger: #ff9b9b;
+    --cell-bg: #0b1634;
+    --cell-text: #f1ecde;
+    --cell-done: #e3b84f;
+    --cell-todo: #bcc8ef;
+    --chip-bg: #e3b84f;
+    --chip-text: #101a3d;
   }
 }
 
@@ -54,6 +66,12 @@
   --gold-text: #e3b84f;
   --icon-tile: #0b1634;
   --danger: #ff9b9b;
+  --cell-bg: #0b1634;
+  --cell-text: #f1ecde;
+  --cell-done: #e3b84f;
+  --cell-todo: #bcc8ef;
+  --chip-bg: #e3b84f;
+  --chip-text: #101a3d;
 }
 
 html, body { background: var(--bg); color: var(--text); }
@@ -77,9 +95,9 @@ a.card:hover { transform: translateY(-3px); border-color: var(--gold); box-shado
 /* A cream card with a gold offset shadow, used for the flashcard. Re-scopes the tokens so everything inside stays readable. */
 .row-card { display: flex; align-items: stretch; gap: 1rem; padding-right: 0; }
 .row-main { flex: 1; align-self: center; min-width: 0; }
-.status-cell { display: grid; align-content: center; justify-items: center; gap: 0.2rem; width: 10.5rem; flex: none; padding: 0.25rem 0.75rem; margin: -1rem 0; border-left: 2px solid var(--line); background: var(--surface-2); border-radius: 0 0.75rem 0.75rem 0; text-align: center; font-size: 0.95rem; }
-.status-done { color: var(--gold-text); font-weight: 800; }
-.status-todo { color: var(--text-muted); font-weight: 600; }
+.status-cell { display: grid; align-content: center; justify-items: center; gap: 0.2rem; width: 10.5rem; flex: none; padding: 0.25rem 0.75rem; margin: -1rem 0; border-left: 2px solid var(--line); background: var(--cell-bg); color: var(--cell-text); border-radius: 0 0.75rem 0.75rem 0; text-align: center; font-size: 0.95rem; }
+.status-done { color: var(--cell-done); font-weight: 800; }
+.status-todo { color: var(--cell-todo); font-weight: 600; }
 @media (max-width: 30rem) { .status-cell { width: 7.5rem; padding: 0.25rem 0.5rem; } }
 .card-feature { --surface: #fffdf7; --surface-2: #ebe4cf; --text: #101a3d; --text-muted: #3b4a7d; --primary: #14307a; --on-primary: #f6f0e0; --accent: #14307a; --border: #aab4d6; --line: #14307a;
   background: #f2ebd9; color: var(--text); box-shadow: 8px 8px 0 var(--gold); position: relative; overflow: hidden; border-radius: 1.1rem; }
@@ -293,7 +311,7 @@ svg[role="img"] { transition: transform 0.25s ease; }
 /* Songs */
 .genre-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .genre-filter .btn[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
-.genre-chip { display: inline-block; padding: 0.1rem 0.6rem; border-radius: 999px; border: 1px solid var(--line); font-size: 0.85rem; white-space: nowrap; }
+.genre-chip { display: inline-block; padding: 0.1rem 0.6rem; border-radius: 999px; border: 1px solid var(--chip-bg); background: var(--chip-bg); color: var(--chip-text); font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
 .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 0.8rem; overflow: hidden; background: #000; }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .song-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
