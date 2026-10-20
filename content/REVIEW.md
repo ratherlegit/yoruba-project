@@ -2091,7 +2091,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Lyrics page: https://www.mamalisa.com/?p=2900&t=es
   - Video: https://www.youtube.com/watch?v=potZ8OT0HV8 (Nursery rhyme video by Yoruba Stars)
   - Source: Mama Lisa's World, contributed and translated by Belinda (Yinka) Adisa of the Yoruba Roots Language School, read 2026-10-20; video checked on YouTube
-  - Doubt: x, as reported by the author; the Mama Lisa page has "l'agbe nsere wa", so the wording is not settled. The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.
+  - Doubt: Line 2 is written "Níbẹ̀ là gbé ń ṣeré wa" in the video, as reported by the author; the Mama Lisa page has "l'agbe nsere wa", so the wording is not settled. The page spells the tree word "orombo" with no marks, YouTube titles write òroǹbó, and other sources write òròmbó, so the spelling and tones are not settled. Mama Lisa's page is copyrighted, so only a few lines are shown. orombo can mean orange or lime.
 - `iya-ni-wura`: **Ìyá Ni Wúrà** by Traditional children's song (Children's)
   - Ìyá ni wúrà, ìyebíye ni (Mother is gold, she is precious.)
   - Bí o l'ìyá, o l'àlàáfíà (If you have a mother, you have peace.)
