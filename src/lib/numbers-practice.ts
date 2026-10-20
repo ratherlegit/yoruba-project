@@ -70,11 +70,13 @@ export function buildNumbersRound(
 }
 
 const digits = (s: string) => s.replace(/[\s,₦]/g, "");
+// Hyphens in the -ún and -án forms are written inconsistently (márùn-ún, marunun), so they are ignored.
+const noHyphen = (s: string) => s.replace(/-/g, "");
 
 export function gradeNumbers(input: string, q: NumbersQuestion, mode: TransformMode): TransformResult {
   if (q.kind === "to-numeral" || q.kind === "hear") {
     const d = digits(input);
     return d !== "" && d === q.answers[0] ? "right" : "wrong";
   }
-  return gradeTransform(input, q.answers, mode);
+  return gradeTransform(noHyphen(input), q.answers.map(noHyphen), mode);
 }

@@ -1738,53 +1738,63 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 - `num-1` (1): **ọ̀kan**
   - Accepted answers: ọ̀kan
   - After a noun: kan
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary lists ọ̀kan (one) and kan after a noun.
+  - Example: Imú kan ṣoṣo ni mo ní. (I have only one nose.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary lists ọ̀kan (one) and kan after a noun. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm ṣoṣo (only) reads naturally in Imú kan ṣoṣo ni mo ní.
 - `num-2` (2): **èjì**
   - Accepted answers: èjì
   - After a noun: méjì
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Mo ní ojú méjì. (I have two eyes.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
 - `num-3` (3): **ẹ̀ta**
   - Accepted answers: ẹ̀ta
   - After a noun: mẹ́ta
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Méjì àti ọ̀kan jẹ́ mẹ́ta. (Two and one make three.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm àti (and) plus jẹ́ is a natural way to say a sum to a learner.
 - `num-4` (4): **ẹ̀rin**
   - Accepted answers: ẹ̀rin
   - After a noun: mẹ́rin
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Ajá ní ẹsẹ̀ mẹ́rin. (A dog has four legs.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. The animal word ajá is the model's own knowledge.
 - `num-5` (5): **àrún**
   - Accepted answers: àrún
   - After a noun: márùn-ún
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Ọwọ́ kan ní ìka márùn-ún. (One hand has five fingers.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
 - `num-6` (6): **ẹ̀fà**
   - Accepted answers: ẹ̀fà
   - After a noun: mẹ́fà
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Èèrà ní ẹsẹ̀ mẹ́fà. (An ant has six legs.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the tones of èèrà (ant).
 - `num-7` (7): **èje**
   - Accepted answers: èje
   - After a noun: méje | mẹ́je
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary labels èje as an Ekiti form of seven. Wikipedia and the vocab sentence use èje and méje.
+  - Example: Ọ̀sẹ̀ kan ní ọjọ́ méje. (A week has seven days.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Wiktionary labels èje as an Ekiti form of seven. Wikipedia and the vocab sentence use èje and méje. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the tones of ọ̀sẹ̀ (week).
 - `num-8` (8): **ẹ̀jọ**
   - Accepted answers: ẹ̀jọ
   - After a noun: mẹ́jọ
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Aláǹtakùn ní ẹsẹ̀ mẹ́jọ. (A spider has eight legs.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally. Confirm the spelling and tones of aláǹtakùn (spider).
 - `num-9` (9): **ẹ̀sán**
   - Accepted answers: ẹ̀sán
   - After a noun: mẹ́sàn-án
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Mẹ́rin àti márùn-ún jẹ́ mẹ́sàn-án. (Four and five make nine.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
 - `num-10` (10): **ẹ̀wá**
   - Accepted answers: ẹ̀wá
   - After a noun: mẹ́wàá
-  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun)
-  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries.
+  - Example: Ọwọ́ méjì ní ìka mẹ́wàá. (Two hands have ten fingers.)
+  - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); the example sentences were drafted by the model
+  - Doubt: Tones from Wikipedia and Wiktionary; the forms after a noun are from Wiktionary's adjective entries. Sentence drafted by the model, not found written out; confirm it reads naturally.
 - `num-11` (11): **ọ̀kanlá**
   - Accepted answers: ọ̀kanlá | oókànlá
   - Built as: 10+1
@@ -1844,10 +1854,10 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); Preply, "Numbers in Yoruba" (the 1 to 100 lists); Eugene S. L. Chan, "Yoruba" numerals page (lingweb.eva.mpg.de/channumerals), data from Armstrong 1962, "Yoruba Numerals", supplied by Dr Ethelbert Kari in 1998
   - Doubt: A base word. Differs from ọgbọ́n (wisdom) only in tone; Wikipedia also lists ọgbọ̀n ǒ for counting objects, left out here.
 - `num-35` (35): **aárùn-ún-dínlógójì**
-  - Accepted answers: aárùn-ún-dínlógójì
+  - Accepted answers: aárùn-ún-dínlógójì | aárùndínlógójì
   - Built as: 40-5
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); University at Buffalo, "Yoruba Numerals" page (math.buffalo.edu)
-  - Doubt: Forty minus five. Buffalo gives the unmarked aarundinlogoji, so the tones come from Wikipedia alone. Confirm the tones.
+  - Doubt: Forty minus five. Buffalo gives the unmarked aarundinlogoji (no -ún-), accepted here as aárùndínlógójì with tones assumed from Wikipedia's form. Confirm the tones and which spelling is standard.
 - `num-40` (40): **ogójì**
   - Accepted answers: ogójì
   - Built as: 20*2
@@ -1947,7 +1957,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: Taught in the vocab topics (the nouns) and Wiktionary's adjective entries (the number forms after a noun)
   - Doubt: From the vocab sentence Èèrà ní ẹsẹ̀ mẹ́fà.
 - `count-seven-days` (phrase): **seven days**
-  - Accepted answers: ọjọ́ méje
+  - Accepted answers: ọjọ́ méje | ọjọ́ mẹ́je
   - Source: Taught in the vocab topics (the nouns) and Wiktionary's adjective entries (the number forms after a noun)
   - Doubt: From the vocab sentence Ọ̀sẹ̀ kan ní ọjọ́ méje.
 - `count-ten-fingers` (phrase): **ten fingers**
@@ -1959,11 +1969,11 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: Wiktionary and Wikipedia for the number words; the vocab topic Market and money for the náírà sentences
   - Doubt: Number before náírà, as in the vocab sentence with ọgọ́rùn-ún náírà. Confirm the order.
 - `price-100` (phrase): **one hundred naira**
-  - Accepted answers: ọgọ́rùn-ún náírà
+  - Accepted answers: ọgọ́rùn-ún náírà | ọrún náírà
   - Source: Wiktionary and Wikipedia for the number words; the vocab topic Market and money for the náírà sentences
   - Doubt: From a vocab sentence in Market and money. Confirm the order.
 - `price-200` (phrase): **two hundred naira**
-  - Accepted answers: igba náírà
+  - Accepted answers: igba náírà | igbéo náírà
   - Source: Wiktionary and Wikipedia for the number words; the vocab topic Market and money for the náírà sentences
   - Doubt: From a vocab sentence in Market and money. Confirm the order.
 - `price-400` (phrase): **four hundred naira**
@@ -1971,7 +1981,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Source: Wiktionary and Wikipedia for the number words; the vocab topic Market and money for the náírà sentences
   - Doubt: Built from the table and the same order. Confirm.
 - `price-500` (phrase): **five hundred naira**
-  - Accepted answers: ọ̀ọ́dẹ́gbẹ̀ta náírà
+  - Accepted answers: ọ̀ọ́dẹ́gbẹ̀ta náírà | ẹ̀ẹ́dẹ́gbẹ̀ta náírà
   - Source: Wiktionary and Wikipedia for the number words; the vocab topic Market and money for the náírà sentences
   - Doubt: Built from the table and the same order. Confirm the variant.
 - `price-1000` (phrase): **one thousand naira**

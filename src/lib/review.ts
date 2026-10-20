@@ -143,6 +143,7 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     numberLines.push(`  - Accepted answers: ${n.answers.join(" | ")}`);
     if (n.after.length) numberLines.push(`  - After a noun: ${n.after.join(" | ")}`);
     if (n.build) numberLines.push(`  - Built as: ${n.build}`);
+    if (n.example) numberLines.push(`  - Example: ${n.example.yoruba} (${n.example.english})`);
     numberLines.push(`  - Source: ${n.source}`);
     numberLines.push(`  - Doubt: ${n.note ?? "(none recorded)"}`);
   }

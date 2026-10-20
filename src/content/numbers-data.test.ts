@@ -76,3 +76,38 @@ describe("vocab after the move", () => {
     expect(getVocabLevel("getting-started")!.topics).toHaveLength(4);
   });
 });
+
+describe("phrases accept every variant of their number", () => {
+  const phrase = (id: string) => PHRASES.find((p) => p.id === id)!;
+  it("accepts every counting variant of a price, before náírà", () => {
+    for (const p of PHRASES.filter((x) => x.step === 6)) {
+      const n = NUMBERS.find((e) => e.value === Number(p.numeral))!;
+      for (const a of n.answers) {
+        expect(gradeTransform(`${a} náírà`, p.answers, "advanced"), `${p.id}: ${a} náírà`).toBe("right");
+      }
+    }
+  });
+  it("accepts every after-noun form of a counted noun", () => {
+    const counted: [string, string, number][] = [
+      ["count-one-child", "ọmọ", 1], ["count-two-children", "ọmọ", 2], ["count-three-dogs", "ajá", 3],
+      ["count-four-legs", "ẹsẹ̀", 4], ["count-five-fingers", "ìka", 5], ["count-six-legs", "ẹsẹ̀", 6],
+      ["count-seven-days", "ọjọ́", 7], ["count-ten-fingers", "ìka", 10],
+    ];
+    for (const [id, noun, value] of counted) {
+      const n = NUMBERS.find((e) => e.value === value)!;
+      for (const a of n.after) {
+        expect(gradeTransform(`${noun} ${a}`, phrase(id).answers, "advanced"), `${id}: ${noun} ${a}`).toBe("right");
+      }
+    }
+  });
+});
+
+describe("step 1 example sentences keep their provenance", () => {
+  it("says the sentences were drafted by the model, in the source and the note", () => {
+    for (const n of NUMBERS.filter((x) => x.step === 1)) {
+      expect(n.source, n.id).toContain("drafted by the model");
+      expect(n.note, n.id).toContain("Sentence drafted by the model");
+    }
+  });
+});
+

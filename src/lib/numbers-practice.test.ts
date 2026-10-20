@@ -114,4 +114,12 @@ describe("gradeNumbers", () => {
     expect(gradeNumbers(" ", find("num-20:to-numeral"), "advanced")).toBe("wrong");
     expect(gradeNumbers("20", find("num-20:hear"), "advanced")).toBe("right");
   });
+  it("ignores hyphens, so unhyphenated spellings of the -ún and -án forms are accepted", () => {
+    expect(gradeNumbers("aarundinlogoji", find("num-35:to-yoruba"), "easy")).toBe("right");
+    expect(gradeNumbers("aarun-un-dinlogoji", find("num-35:to-yoruba"), "easy")).toBe("right");
+    expect(gradeNumbers("marunun", find("num-5:to-yoruba"), "easy")).toBe("right");
+    expect(gradeNumbers("mẹ́sànán", find("num-9:to-yoruba"), "easy")).toBe("right");
+    expect(gradeNumbers("aárùnúndínlógójì", find("num-35:to-yoruba"), "advanced")).toBe("right");
+    expect(gradeNumbers("aarunundinlogoji", find("num-35:to-yoruba"), "advanced")).toBe("close");
+  });
 });
