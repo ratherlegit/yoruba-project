@@ -8,10 +8,12 @@ export function Layout() {
         <div className="header-bar">
           <Link to="/" className="brand">Yoruba Project</Link>
           <nav className="header-nav">
+            <Link to="/grammar">Grammar</Link>
             <Link to="/vocab">Vocab</Link>
             <Link to="/sounds">Sound Bank</Link>
             <Link to="/proverbs">Proverbs</Link>
             <Link to="/transform">Transform</Link>
+            <Link to="/stats">Stats</Link>
             <Link to="/about">About</Link>
             <ThemeToggle />
           </nav>

@@ -22,7 +22,7 @@ export function LevelPage() {
 
   return (
     <main className="page" style={{ display: "grid", gap: "1rem" }}>
-      <Link to="/">All levels</Link>
+      <Link to="/grammar">All levels</Link>
       <div className="level-head"><LevelIcon level={level.id} size="lg" /><h1 style={{ margin: 0 }}>{level.title}</h1></div>
       <p className="muted" style={{ margin: 0 }}>{level.summary}</p>
       {level.lessons.length === 0 && <p className="muted">Lessons for this level are on the way.</p>}

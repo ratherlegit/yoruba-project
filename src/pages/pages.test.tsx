@@ -23,6 +23,37 @@ describe("pages", () => {
     }
   });
 
+  it("grammar page lists the five levels", async () => {
+    await renderAt("/grammar");
+    for (const t of ["Getting Started", "Beginner", "Intermediate", "Advanced", "Mastery"]) {
+      expect(await screen.findByText(t)).toBeInTheDocument();
+    }
+  });
+
+  it("grammar page has the Unlock all levels checkbox and it saves", async () => {
+    await renderAt("/grammar");
+    const box = await screen.findByRole("checkbox", { name: "Unlock all levels" });
+    expect(box).not.toBeChecked();
+    await userEvent.setup().click(box);
+    expect(JSON.parse(localStorage.getItem("yp:progress:v1")!).skipAhead).toBe(true);
+  });
+
+  it("the nav links Grammar and Stats", async () => {
+    await renderAt("/");
+    expect((await screen.findByRole("link", { name: "Grammar" })).getAttribute("href")).toBe("/grammar");
+    expect(screen.getByRole("link", { name: "Stats" }).getAttribute("href")).toBe("/stats");
+  });
+
+  it("the stats route renders", async () => {
+    await renderAt("/stats");
+    expect(await screen.findByRole("heading", { name: "Stats" })).toBeInTheDocument();
+  });
+
+  it("the level page links back to the grammar page", async () => {
+    await renderAt("/level/getting-started");
+    expect((await screen.findByRole("link", { name: "All levels" })).getAttribute("href")).toBe("/grammar");
+  });
+
   it("an unknown level shows a friendly page with a way home", async () => {
     await renderAt("/level/nope");
     expect(await screen.findByText(/couldn't find/i)).toBeInTheDocument();
