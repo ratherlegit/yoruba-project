@@ -76,16 +76,16 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
   ),
   songs: (
     <>
-      <path d="M28 25V11a4 4 0 0 1 8 0v14" />
-      <path d="M26 11h12" strokeWidth="1.8" />
-      <circle cx="32" cy="42" r="17" />
-      <path d="M32 25v34M20.5 29.5c-4 7-4 18 0 25M43.5 29.5c4 7 4 18 0 25" strokeWidth="1.8" />
-      <path d="M16 36c10 5 22 5 32 0M15.5 48c10 5 23 5 33 0" strokeWidth="1.8" />
-      <circle cx="32" cy="40.5" r="2" fill="currentColor" />
-      <circle cx="23" cy="43.5" r="2" fill="currentColor" fillOpacity=".25" />
-      <circle cx="41" cy="43.5" r="2" fill="currentColor" fillOpacity=".25" />
-      <circle cx="32" cy="52.5" r="2" fill="currentColor" fillOpacity=".25" />
-      <path d="M52 21l4-3M54 28h5M10 21l-4-3M8 28H3" strokeWidth="1.8" />
+      <path d="M28.5 26V12.5a3.5 3.5 0 0 1 7 0V26" />
+      <path d="M26.5 12.5h11" strokeWidth="1.8" />
+      <circle cx="32" cy="41" r="16" />
+      <path d="M35 25.3 16.3 44M16.3 38 35 56.7M43.3 29.7 20.7 52.3M20.7 29.7 43.3 52.3M47.7 38 29 56.7M29 25.3 47.7 44" strokeWidth="1.8" />
+      <circle cx="32" cy="41" r="2.3" fill="currentColor" />
+      <circle cx="25.6" cy="34.6" r="1.7" fill="currentColor" fillOpacity=".35" />
+      <circle cx="38.4" cy="34.6" r="1.7" fill="currentColor" fillOpacity=".35" />
+      <circle cx="25.6" cy="47.4" r="1.7" fill="currentColor" fillOpacity=".35" />
+      <circle cx="38.4" cy="47.4" r="1.7" fill="currentColor" fillOpacity=".35" />
+      <path d="M52 20l4-3M55 28h5M12 20l-4-3M9 28H4" strokeWidth="1.8" />
     </>
   ),
 };
