@@ -12,7 +12,8 @@ import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import { PROVERBS, type Proverb } from "@/content/proverbs";
 import { TRANSFORMS, type Transform } from "@/content/transforms";
 import { NUMBERS, PHRASES, type NumberEntry, type NumberPhrase } from "@/content/numbers";
-import { SONGS, type Song } from "@/content/songs";import { buildReviewMarkdown } from "./review";
+import { SONGS, type Song } from "@/content/songs";
+import { DIALOGUES, type Dialogue } from "@/content/dialogues";import { buildReviewMarkdown } from "./review";
 
 const word = (id: string, confidence: "verified" | "needs-review"): WordBreakdown => ({
   id, surface: "ẹ káàárọ̀", english: "good morning",
@@ -65,7 +66,7 @@ describe("buildReviewMarkdown", () => {
     expect(buildReviewMarkdown(only)).toContain("#### Greetings (`gs-3`)");
   });
   it("matches the committed content/REVIEW.md", () => {
-    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS, TRANSFORMS, NUMBERS, PHRASES, SONGS));
+    expect(readFileSync("content/REVIEW.md", "utf8")).toBe(buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS, TRANSFORMS, NUMBERS, PHRASES, SONGS, DIALOGUES));
   });
   it("says everything is verified when nothing needs review", () => {
     const only = JSON.parse(JSON.stringify(levels)) as Level[];
@@ -280,5 +281,26 @@ describe("buildReviewMarkdown songs", () => {
   });
   it("adds no section when there are no songs", () => {
     expect(buildReviewMarkdown(levels, [], undefined, [], [], [], [], [], [])).not.toContain("## Songs");
+  });
+});
+
+describe("buildReviewMarkdown dialogues", () => {
+  const dialogue: Dialogue = {
+    id: "dlg-test", level: "getting-started", situationId: "meeting", title: "Test conversation", setting: "Two people meet.",
+    lines: [
+      { speaker: "Bùkọ́lá", voice: "female", yoruba: "Ẹ káàárọ̀.", english: "Good morning." },
+      { speaker: "Adé", voice: "male", yoruba: "Ẹ káàárọ̀.", english: "Good morning." },
+      { speaker: "Bùkọ́lá", voice: "female", yoruba: "Ṣé àlàáfíà ni?", english: "Is everything well?" },
+    ],
+    questions: [{ prompt: "When?", choices: ["Morning", "Night"], answer: "Morning" }],
+    source: "Dialogue source", confidence: "needs-review", note: "Check the greeting.",
+  };
+  it("lists each conversation with its lines, source and doubt", () => {
+    const md = buildReviewMarkdown(levels, [], undefined, [], [], [], [], [], [], [dialogue]);
+    expect(md).toContain("## Dialogues");
+    for (const s of ["dlg-test", "Test conversation", "Bùkọ́lá", "Ẹ káàárọ̀.", "Good morning.", "Dialogue source", "Check the greeting."]) expect(md).toContain(s);
+  });
+  it("adds no section when there are no dialogues", () => {
+    expect(buildReviewMarkdown(levels, [], undefined, [], [], [], [], [], [], [])).not.toContain("## Dialogues");
   });
 });

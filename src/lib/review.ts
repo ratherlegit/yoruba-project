@@ -5,6 +5,7 @@ import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
 import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { Proverb } from "@/content/proverbs";
 import type { Song } from "@/content/songs";
+import type { Dialogue } from "@/content/dialogues";
 import type { Transform } from "@/content/transforms";
 import type { NumberEntry, NumberPhrase } from "@/content/numbers";
 
@@ -26,7 +27,7 @@ function questionLines(q: Question, n: number): string[] {
   return [`- Q${n} (order): ${q.english}`, `  - Answer: ${q.answer.join(" ")}`];
 }
 
-export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = [], transforms: Transform[] = [], numbers: NumberEntry[] = [], numberPhrases: NumberPhrase[] = [], songs: Song[] = []): string {
+export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] = [], soundData?: { sounds: Sound[]; pairs: MinimalPair[]; compare?: ToneCompareRow[]; sets?: ConsonantSet[] }, toneTwins: ToneTwinEntry[] = [], proverbs: Proverb[] = [], transforms: Transform[] = [], numbers: NumberEntry[] = [], numberPhrases: NumberPhrase[] = [], songs: Song[] = [], dialogues: Dialogue[] = []): string {
   const lines: string[] = [];
   let total = 0;
 
@@ -170,6 +171,16 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
   }
   const songSection = songLines.length ? ["## Songs", "", ...songLines, ""] : [];
 
+  const dialogueLines: string[] = [];
+  for (const d of dialogues.filter((x) => x.confidence === "needs-review")) {
+    total += 1;
+    dialogueLines.push(`- \`${d.id}\` (${d.level}): **${d.title}**. ${d.setting}`);
+    for (const l of d.lines) dialogueLines.push(`  - ${l.speaker} (${l.voice}): ${l.yoruba} (${l.english})`);
+    dialogueLines.push(`  - Source: ${d.source}`);
+    dialogueLines.push(`  - Doubt: ${d.note}`);
+  }
+  const dialogueSection = dialogueLines.length ? ["## Dialogues", "", ...dialogueLines, ""] : [];
+
   const header = [
     "# Content review list",
     "",
@@ -196,5 +207,5 @@ export function buildReviewMarkdown(levels: Level[], vocabLevels: VocabLevel[] =
     }
   }
 
-  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...transformSection, ...numberSection, ...songSection, ...all].join("\n");
+  return [...header, ...lines, ...vocabSection, ...soundSection, ...twinSection, ...proverbSection, ...transformSection, ...numberSection, ...songSection, ...dialogueSection, ...all].join("\n");
 }

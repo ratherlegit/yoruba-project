@@ -15,6 +15,8 @@ import { NUMBERS, NUMBER_STEPS, PHRASES } from "../src/content/numbers";
 import { validateNumbers } from "../src/content/validate-numbers";
 import { SONGS } from "../src/content/songs";
 import { validateSongs } from "../src/content/validate-songs";
+import { DIALOGUES, SITUATIONS } from "../src/content/dialogues";
+import { validateDialogues } from "../src/content/validate-dialogues";
 import { validateToneTwins } from "../src/content/validate-tone-twins";
 
 let failed = 0;
@@ -67,6 +69,10 @@ for (const e of validateNumbers(NUMBERS, PHRASES, NUMBER_STEPS)) {
   failed++;
 }
 for (const e of validateSongs(SONGS)) {
+  console.error(e);
+  failed++;
+}
+for (const e of validateDialogues(SITUATIONS, DIALOGUES)) {
   console.error(e);
   failed++;
 }

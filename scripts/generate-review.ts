@@ -8,8 +8,9 @@ import { PROVERBS } from "../src/content/proverbs";
 import { TRANSFORMS } from "../src/content/transforms";
 import { NUMBERS, PHRASES } from "../src/content/numbers";
 import { SONGS } from "../src/content/songs";
+import { DIALOGUES } from "../src/content/dialogues";
 import { buildReviewMarkdown } from "../src/lib/review";
 
 mkdirSync("content", { recursive: true });
-writeFileSync("content/REVIEW.md", buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS, TRANSFORMS, NUMBERS, PHRASES, SONGS));
+writeFileSync("content/REVIEW.md", buildReviewMarkdown(LEVELS, VOCAB_LEVELS, { sounds: SOUNDS, pairs: MINIMAL_PAIRS, compare: TONE_COMPARE, sets: CONSONANT_SETS }, TONE_TWINS, PROVERBS, TRANSFORMS, NUMBERS, PHRASES, SONGS, DIALOGUES));
 console.log("Wrote content/REVIEW.md");
