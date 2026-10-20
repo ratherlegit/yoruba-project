@@ -26,7 +26,7 @@ export function Layout() {
       <footer className="site-footer">
         <div className="page">
           <strong>Yoruba Project</strong>
-          <p className="muted" style={{ margin: "0.25rem 0 0" }}>Learn Yoruba grammar and vocabulary from scratch.</p>
+          <p className="muted" style={{ margin: "0.25rem 0 0" }}>Learn Yoruba from zero, with tone marks and audio.</p>
         </div>
       </footer>
     </div>

@@ -39,3 +39,12 @@ describe("About page", () => {
     expect(text).not.toContain("Items still waiting on review by a Yoruba speaker are tracked in the project's review list.");
   });
 });
+
+describe("Site footer", () => {
+  it("describes the whole site, not just grammar and vocabulary", async () => {
+    await renderAbout();
+    const footer = document.querySelector("footer.site-footer")!;
+    expect(footer.textContent).toContain("Learn Yoruba from zero, with tone marks and audio.");
+    expect(footer.textContent).not.toContain("grammar and vocabulary from scratch");
+  });
+});
