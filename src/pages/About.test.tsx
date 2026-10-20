@@ -30,14 +30,21 @@ describe("About page", () => {
     expect(css).toMatch(/\.about-name \{[^}]*color: var\(--gold-text\)/);
   });
 
-  it("explains where progress is kept, what the audio and videos are, and how reliable the Yoruba is", async () => {
+  it("explains where progress is kept, what the audio and videos are, and the caveat about song lyrics", async () => {
     const main = await renderAbout();
     const text = main.textContent!;
     expect(text).toMatch(/saved in your browser/i);
     expect(text).toMatch(/no accounts/i);
     expect(text).toContain("ElevenLabs");
     expect(text).toContain("YouTube");
-    expect(text).toMatch(/native speaker/i);
+    expect(text).toContain("The tone marks and dots added to song lyrics are best guesses.");
+    expect(text).toContain("Corrections are very welcome");
+  });
+
+  it("does not carry the sentence about all the Yoruba waiting on a native speaker", async () => {
+    const main = await renderAbout();
+    expect(main.textContent).not.toContain("All of the Yoruba here is still waiting for a native speaker to confirm it");
+    expect(main.textContent).not.toContain("tone marks are easy to get wrong");
   });
 
   it("has no lesson content and not the old review-list sentence", async () => {

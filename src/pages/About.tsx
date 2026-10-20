@@ -46,7 +46,7 @@ export function About() {
       <section className="card">
         <h2 style={{ marginTop: 0 }}>How reliable is the Yoruba?</h2>
         <p>
-          All of the Yoruba here is still waiting for a native speaker to confirm it, and tone marks are easy to get wrong. The tone marks and dots added to song lyrics are best guesses. Corrections are very welcome as issues on the <a href="https://github.com/ratherlegit/yoruba-project/issues" target="_blank" rel="noopener noreferrer">GitHub project</a>.
+          The tone marks and dots added to song lyrics are best guesses. Corrections are very welcome as issues on the <a href="https://github.com/ratherlegit/yoruba-project/issues" target="_blank" rel="noopener noreferrer">GitHub project</a>.
         </p>
       </section>
     </main>
