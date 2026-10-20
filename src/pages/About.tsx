@@ -1,32 +1,53 @@
+const SECTIONS: { name: string; text: string }[] = [
+  { name: "Grammar", text: "Five levels, from sounds and greetings to proverbs, one small lesson at a time, each with practice." },
+  { name: "Vocab", text: "Common words by topic, with flashcards, quizzes and an example sentence for every word." },
+  { name: "Numbers", text: "Counting from one to a thousand, how the twenties work, counting things and naira prices, with typed practice." },
+  { name: "Sound Bank", text: "Every vowel, consonant and tone with audio, plus listening and tone practice." },
+  { name: "Proverbs", text: "Read a Yoruba proverb, guess what it means, then see when it is used." },
+  { name: "Transform", text: "Type the negative, question, future or past form of a sentence, in an easy mode that ignores dots and tone marks or an advanced mode that needs them." },
+  { name: "Songs", text: "Yoruba songs with the video embedded, a few lines in Yoruba with their English meaning, and a link to the full lyrics. Filter by genre." },
+  { name: "Dialogues", text: "Everyday conversations at every level, read with or without the English, heard line by line in two voices, with a few questions after each." },
+  { name: "Stats", text: "A page, and a short summary on the landing page, showing what you have practised." },
+];
+
 export function About() {
   return (
     <main className="page" style={{ display: "grid", gap: "1rem" }}>
-      <h1 style={{ marginBottom: 0 }}>About this guide</h1>
+      <h1 style={{ marginBottom: 0 }}>About this site</h1>
       <section className="card">
-        <h2 style={{ marginTop: 0 }}>Reading tone marks</h2>
-        <p>Yoruba is tonal: the pitch of a syllable changes the word. Three tones are written.</p>
-        <ul>
-          <li>High tone is an acute accent, as in ká.</li>
-          <li>Low tone is a grave accent, as in rọ̀.</li>
-          <li>Mid tone has no mark, as in ma.</li>
+        <h2 style={{ marginTop: 0 }}>What this is</h2>
+        <p>
+          Yoruba Project is a free, self-paced web app for learning Yoruba from zero. It is built around reading and hearing real Yoruba, always written with full tone marks and dots, and practising it by typing and answering questions rather than memorising flashcards.
+        </p>
+      </section>
+      <section className="card">
+        <h2 style={{ marginTop: 0 }}>What is in it</h2>
+        <ul data-testid="about-sections" style={{ display: "grid", gap: "0.6rem", paddingLeft: "1.2rem", margin: 0 }}>
+          {SECTIONS.map((s) => (
+            <li key={s.name}>
+              <strong>{s.name}</strong>: {s.text}
+            </li>
+          ))}
         </ul>
       </section>
       <section className="card">
-        <h2 style={{ marginTop: 0 }}>Reading a word breakdown</h2>
-        <p>Each tile is one component with its meaning. The steps show how the parts join and then change in speech. Each change names the rule behind it.</p>
+        <h2 style={{ marginTop: 0 }}>Your progress</h2>
+        <p>
+          Lesson results, scores and stats are saved in your browser on your own device. There are no accounts and your progress is not sent anywhere, so clearing your browser data clears your progress.
+        </p>
       </section>
       <section className="card">
-        <h2 style={{ marginTop: 0 }}>Content review</h2>
-        <p>Lessons are drafted carefully and checked against published sources, but tone marks are easy to get wrong. Items still waiting on review by a Yoruba speaker are tracked in the project's review list.</p>
-      </section>
-      <section className="card">
-        <h2 style={{ marginTop: 0 }}>Vocab</h2>
-        <p>The Vocab section groups common words by topic, at the same five levels as the grammar lessons. All vocabulary and example sentences are still waiting on a native speaker to confirm, the same review status as the grammar lessons. Audio clips are being added in batches, so most Listen buttons will be missing at first.</p>
-      </section>
-      <section className="card">
-        <h2 style={{ marginTop: 0 }}>Audio</h2>
+        <h2 style={{ marginTop: 0 }}>Audio and video</h2>
         {/* Owner: check ElevenLabs's current terms for your plan (for example attribution requirements) and adjust this sentence. */}
-        <p>Audio pronunciation clips were generated with ElevenLabs text-to-speech.</p>
+        <p>
+          Pronunciation clips were generated with ElevenLabs text-to-speech, with one female and one male voice for the dialogues. Clips are added in batches, so some Listen buttons are still missing. Song videos are embedded from YouTube. Song lyrics belong to their artists and publishers: this site shows only a few lines of each and links to the full lyrics.
+        </p>
+      </section>
+      <section className="card">
+        <h2 style={{ marginTop: 0 }}>How reliable is the Yoruba?</h2>
+        <p>
+          All of the Yoruba here is still waiting for a native speaker to confirm it, and tone marks are easy to get wrong. The tone marks and dots added to song lyrics are best guesses. Corrections are very welcome as issues on the <a href="https://github.com/ratherlegit/yoruba-project/issues" target="_blank" rel="noopener noreferrer">GitHub project</a>.
+        </p>
       </section>
     </main>
   );
