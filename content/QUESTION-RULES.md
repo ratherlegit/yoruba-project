@@ -6,6 +6,8 @@ Two rules. A question that breaks either one is invalid.
    matching shapes (the only choice with a dot, the only choice with two letters), by
    eliminating choices that look different, or because the prompt already contains the answer,
    rewrite it. Ask about what a rule says or does, not about what the choices look like.
+   A question about a contrast (ṣ against s, ọ against o) must put the look-alike in the choices.
+   If the other choices start with unrelated letters, the learner can pass without knowing the rule.
 2. **It may only ask what has been taught.** Every word and every ordering pattern must appear
    in this lesson's primer or an earlier one. Do not use an order question for a lesson that
    teaches no ordering (sounds, tones, syllables).
