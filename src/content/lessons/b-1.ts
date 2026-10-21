@@ -11,15 +11,14 @@ export const b1: Lesson = {
     "Wiktionary, \"ni\" (Yoruba section): ni, mid tone, to be (identification); usage note that ni cannot be used with regular subject pronouns such as mo or ó, with the example Òun ni ọ̀rẹ́ mi (he is my friend). ní, high tone, is a different word (to have; at).",
     "Wiktionary, \"olukọ\" (Yoruba section): olùkọ́ teacher, with a quoted sentence ẹ jẹ́ olùkọ́ from Schleicher, Jẹ́ K'Á Sọ Yorùbá (Yale University Press, 1993), page 257.",
     "Wiktionary, \"eyi\", \"ile\", \"ọrẹ\", \"mi\" (Yoruba sections): èyí this, ilé house, ọ̀rẹ́ friend, mi my.",
-    "Èyí ni ilé mi is not written out in any consulted source; it follows the pattern of Wiktionary's Èyí ni mo fẹ́ rà (this is what I want to buy). Not cross-checked against a print grammar.",
   ],
   primer: {
     rule: "Yoruba has two common words for \"to be\". jẹ́ says what someone is, such as a job. ni points out or names someone or something. In the formula, the subject is who or what the sentence is about.",
     formula: "subject + jẹ́ + noun (what someone is); èyí or a long pronoun + ni + noun (pointing out)",
     rules: [
       { id: "je-what", title: "jẹ́ says what you are", explanation: "Use jẹ́ for a job or a role: Mo jẹ́ olùkọ́, I am a teacher. jẹ́ has a high mark. Without it, jẹ means \"eat\"." },
-      { id: "ni-identify", title: "ni points it out", explanation: "Use ni to point out or name: Èyí ni ilé mi, this is my house. Òun ni ọ̀rẹ́ mi, he is my friend. ni has no mark (mid tone). ní with a high mark is a different word (to have)." },
-      { id: "ni-long-form", title: "ni takes the long pronoun", explanation: "ni does not follow the short pronouns such as mo or ó. Use a long form instead: Òun ni ọ̀rẹ́ mi. The long forms (èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn) are in Getting Started 4." },
+      { id: "ni-identify", title: "ni points it out", explanation: "Use ni to point out or name: Èyí ni ìyá mi, this is my mother (you met this in Getting Started 4). Òun ni ọ̀rẹ́ mi, he is my friend. ni has no mark (mid tone). ní with a high mark is a different word (to have)." },
+      { id: "ni-long-form", title: "ni takes the long pronoun", explanation: "ni does not follow the short pronouns such as mo or ó. Use a long form instead: Òun ni ọ̀rẹ́ mi. The long forms (èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn) are in Getting Started 3." },
     ],
     examples: [
       {
@@ -43,17 +42,6 @@ export const b1: Lesson = {
         note: "Appears in COERLL as an exercise sentence without an English gloss. Confirm the gloss and the tones on ọ̀rẹ́ (low then high).",
       },
       {
-        id: "eyi-ni-ile-mi", surface: "Èyí ni ilé mi", english: "This is my house",
-        parts: [
-          { text: "Èyí", gloss: "this (one)", role: "pronoun" },
-          { text: "ni", gloss: "is (points it out)", role: "verb" },
-          { text: "ilé", gloss: "house", role: "noun" },
-          { text: "mi", gloss: "my", role: "possessive" },
-        ],
-        steps: [], confidence: "needs-review",
-        note: "Not found written out in a source. Wiktionary shows Èyí ni mo fẹ́ rà and Àǹtí mi ni èyí (this is my auntie), so ilé mi ni èyí may also be heard. Confirm with a speaker.",
-      },
-      {
         id: "oun-ni-ore-mi", surface: "Òun ni ọ̀rẹ́ mi", english: "He (or she) is my friend",
         parts: [
           { text: "Òun", gloss: "he, she (long form)", role: "pronoun" },
@@ -73,7 +61,7 @@ export const b1: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "Mo ___ olùkọ́. (I am a teacher.)", answer: "jẹ́", choices: ["jẹ́", "ni", "àti"], wordId: "mo-je-oluko" },
-    { type: "blank", prompt: "Èyí ___ ilé mi. (This is my house.)", answer: "ni", choices: ["ni", "jẹ́", "àti"], wordId: "eyi-ni-ile-mi" },
+    { type: "pick", prompt: "Why is Ó ni olùkọ́ wrong?", choices: ["ni does not follow a short pronoun like ó", "ó is not a pronoun", "olùkọ́ cannot follow ni"], answer: 0, wordId: "mo-je-oluko" },
     { type: "blank", prompt: "___ ni ọ̀rẹ́ mi. (He is my friend.)", answer: "Òun", choices: ["Òun", "Ó", "Èmi"], wordId: "oun-ni-ore-mi" },
     { type: "pick", prompt: "Which sentence says what job someone has?", choices: ["Èyí ni ilé mi", "Mo jẹ́ olùkọ́", "Òun ni ọ̀rẹ́ mi"], answer: 1, wordId: "mo-je-oluko" },
     { type: "pick", prompt: "Which means \"We are friends\"?", choices: ["Jẹ́ àwa ọ̀rẹ́", "Àwa jẹ́ ọ̀rẹ́", "Ọ̀rẹ́ àwa jẹ́"], answer: 1, wordId: "awa-je-ore" },

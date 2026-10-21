@@ -69,7 +69,7 @@ export const m3: Lesson = {
           { text: "rọ̀", gloss: "fell (of rain)", role: "verb" },
         ],
         steps: [], confidence: "needs-review",
-        note: "COERLL lists nítorí pé as \"because\". The bare verb rọ̀ is read as past, as in Getting Started 4. Not written out in a source. Confirm.",
+        note: "COERLL lists nítorí pé as \"because\". The bare verb rọ̀ is read as past, as COERLL reads Mo lọ (I went). Not written out in a source. Confirm.",
       },
     ],
     commonMistake: {

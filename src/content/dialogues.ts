@@ -77,7 +77,7 @@ export const DIALOGUES: Dialogue[] = [
     ],
     source: SOURCE,
     confidence: "needs-review",
-    note: "Check \"Ẹ káalẹ́\" and \"Ẹ kúuṣẹ́\" against lesson 3, and the tone on \"Ṣé\". All of this Yoruba was written by the author with no published source, so every line needs a native speaker.",
+    note: "Check \"Ẹ káalẹ́\" and \"Ẹ kúuṣẹ́\" against Getting Started 2 (Ẹ kúuṣẹ́ is no longer taught in a lesson), and the tone on \"Ṣé\". All of this Yoruba was written by the author with no published source, so every line needs a native speaker.",
   },
   {
     id: "gs-names",

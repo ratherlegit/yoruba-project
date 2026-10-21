@@ -5,7 +5,6 @@ export const gs3: Lesson = {
   level: "getting-started",
   title: "Where you are from",
   sources: [
-    "COERLL translates Mo lọ as \"I went\" and lists both Mo lọ and Èmí lọ as correct. Not cross-checked against a print grammar.",
     "Wiktionary, \"wá\" and \"láti\" (Yoruba sections): wá to come, láti from.",
     "The sentences Mo wá láti Nàìjíríà, Ó wá láti Amẹ́ríkà and Wọ́n wá láti Èkó, and the question Níbo ni o ti wá, were written for this lesson. Not found written out in a consulted source. Needs a native speaker's check before verifying.",
   ],

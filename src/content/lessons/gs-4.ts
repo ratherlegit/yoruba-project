@@ -5,7 +5,7 @@ export const gs4: Lesson = {
   level: "getting-started",
   title: "Family and interests",
   sources: [
-    "Wiktionary, \"ìyá\", \"arákùnrin\", \"fẹ́ràn\", \"orin\", \"oúnjẹ\" and \"kan\" (Yoruba sections): mother, brother, to like or love, song or music, food, one.",
+    "Wiktionary, \"ìyá\", \"bàbá\", \"arákùnrin\", \"arábìnrin\", \"fẹ́ràn\", \"orin\", \"oúnjẹ\" and \"kan\" (Yoruba sections): mother, brother, to like or love, song or music, food, one.",
     "The sentences Èyí ni ìyá mi, Mo ní arákùnrin kan, Mo fẹ́ràn orin and Mo fẹ́ràn oúnjẹ were written for this lesson from those words and the patterns taught earlier. Not found written out in a consulted source. Needs a native speaker's check before verifying.",
   ],
   primer: {
@@ -13,7 +13,7 @@ export const gs4: Lesson = {
     formula: "èyí ni + noun + mi (this is my ...); mo fẹ́ràn + noun (I like ...); mo ní + noun + kan (I have one ...)",
     rules: [
       { id: "pointing", title: "Pointing out someone", explanation: "Èyí ni points at a person or thing: Èyí ni ìyá mi, this is my mother." },
-      { id: "my-after", title: "mi still comes after the noun", explanation: "As with orúkọ mi, my goes after the noun: ìyá mi is my mother, bàbá mi is my father." },
+      { id: "family-words", title: "Family words", explanation: "ìyá is mother, bàbá is father, arákùnrin is brother and arábìnrin is sister. Each takes mi after it, as orúkọ does: ìyá mi, bàbá mi." },
       { id: "like", title: "Saying what you like", explanation: "Mo fẹ́ràn means \"I like\". The thing you like comes right after: Mo fẹ́ràn orin, I like music." },
       { id: "have", title: "Saying what you have", explanation: "Mo ní means \"I have\". kan goes after the noun and means \"one\": Mo ní arákùnrin kan, I have one brother." },
     ],
@@ -72,7 +72,7 @@ export const gs4: Lesson = {
     { type: "blank", prompt: "Mo ___ orin. (I like music.)", answer: "fẹ́ràn", choices: ["fẹ́ràn", "ní", "wá"], wordId: "mo-feran-orin" },
     { type: "blank", prompt: "Mo ní arákùnrin ___. (I have one brother.)", answer: "kan", choices: ["kan", "mi", "rẹ"], wordId: "mo-ni-arakunrin" },
     { type: "pick", prompt: "Which means \"I like food\"?", choices: ["Mo fẹ́ràn oúnjẹ", "Mo ní oúnjẹ kan", "Èyí ni oúnjẹ mi"], answer: 0, wordId: "mo-feran-ounje" },
-    { type: "pick", prompt: "Where does mi go in ìyá mi?", choices: ["Right after the noun", "Before the noun", "At the end of the sentence"], answer: 0, wordId: "eyi-ni-iya-mi" },
+    { type: "pick", prompt: "What comes right after mo fẹ́ràn?", choices: ["The thing you like", "The place you are from", "Your name"], answer: 0, wordId: "mo-feran-orin" },
     { type: "pick", prompt: "Which sentence says you have one brother?", choices: ["Mo ní arákùnrin kan", "Mo fẹ́ràn arákùnrin", "Èyí ni arákùnrin mi"], answer: 0, wordId: "mo-ni-arakunrin" },
     { type: "order", english: "This is my mother", words: ["ìyá", "mi", "ni", "Èyí"], answer: ["Èyí", "ni", "ìyá", "mi"] },
     { type: "order", english: "I like music", words: ["orin", "fẹ́ràn", "Mo"], answer: ["Mo", "fẹ́ràn", "orin"] },

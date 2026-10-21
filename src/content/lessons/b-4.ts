@@ -19,7 +19,7 @@ export const b4: Lesson = {
     rules: [
       { id: "se-first", title: "ṣé comes first", explanation: "Take a statement such as O fẹ́ jẹun (you want to eat) and put ṣé in front: Ṣé o fẹ́ jẹun? (do you want to eat?). Nothing else moves. ṣé has a high mark; ṣe with no mark is the verb \"do\"." },
       { id: "ki-ni-what", title: "kí ni asks what", explanation: "kí ni at the start asks \"what\": Kí ni o fẹ́? (what do you want?). It asks about things. For people, Yoruba uses a different word, ta ni (who)." },
-      { id: "re-your", title: "rẹ means your", explanation: "rẹ with no mark (mid tone) is \"your\" for one person. rẹ̀ with a low mark is \"his\" or \"her\". Only the tone tells them apart." },
+      { id: "re-your", title: "rẹ or rẹ̀", explanation: "You met rẹ (your) in Getting Started 2. Its look-alike rẹ̀ with a low mark is \"his\" or \"her\". Only the tone tells them apart." },
     ],
     examples: [
       {
@@ -45,17 +45,6 @@ export const b4: Lesson = {
         note: "COERLL uses it in a dialogue and Wiktionary glosses the ẹ form as \"did you sleep well?\". Confirm the tones on dáadáa (high, mid, high, mid).",
       },
       {
-        id: "ki-ni-oruko-re", surface: "Kí ni orúkọ rẹ", english: "What is your name?",
-        parts: [
-          { text: "Kí", gloss: "what", role: "question word" },
-          { text: "ni", gloss: "is (the ni from Beginner 1)", role: "verb" },
-          { text: "orúkọ", gloss: "name", role: "noun" },
-          { text: "rẹ", gloss: "your (one person)", role: "possessive" },
-        ],
-        steps: [], confidence: "needs-review",
-        note: "Wiktionary writes kí ni orúkọ rẹ. COERLL writes a longer vowel, orúkọọ̀ rẹ. Treating this ni as the same word as in Beginner 1 is a simplification. Confirm both points.",
-      },
-      {
         id: "ki-ni-o-fe", surface: "Kí ni o fẹ́", english: "What do you want?",
         parts: [
           { text: "Kí", gloss: "what", role: "question word" },
@@ -76,7 +65,7 @@ export const b4: Lesson = {
   questions: [
     { type: "blank", prompt: "___ o fẹ́ jẹun? (Do you want to eat?)", answer: "Ṣé", choices: ["Ṣé", "Kí ni", "Èyí ni"], wordId: "se-o-fe-jeun" },
     { type: "blank", prompt: "___ ni o fẹ́? (What do you want?)", answer: "Kí", choices: ["Kí", "Ṣé", "Níbo"], wordId: "ki-ni-o-fe" },
-    { type: "blank", prompt: "Kí ni orúkọ ___? (What is your name?)", answer: "rẹ", choices: ["rẹ", "mi", "ṣé"], wordId: "ki-ni-oruko-re" },
+    { type: "pick", prompt: "What does kí ni ask about?", choices: ["Things", "People", "Places"], answer: 0, wordId: "ki-ni-o-fe" },
     { type: "pick", prompt: "Which is the usual way to ask \"Do you want to eat?\"", choices: ["O fẹ́ jẹun ṣé?", "Ṣé o fẹ́ jẹun?", "O ṣé fẹ́ jẹun?"], answer: 1, wordId: "se-o-fe-jeun" },
     { type: "pick", prompt: "Which one is a yes or no question?", choices: ["Kí ni o fẹ́?", "Kí ni orúkọ rẹ?", "Ṣé o sùn dáadáa?"], answer: 2, wordId: "se-o-sun-daadaa" },
     { type: "order", english: "Do you want to eat?", words: ["fẹ́", "jẹun", "Ṣé", "o"], answer: ["Ṣé", "o", "fẹ́", "jẹun"] },
