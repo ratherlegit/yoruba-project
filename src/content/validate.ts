@@ -73,6 +73,14 @@ export function validateLesson(lesson: Lesson): string[] {
   }
   if (lesson.primer.examples.length < 3) err("needs at least 3 examples");
 
+  for (const t of lesson.primer.tables ?? []) {
+    if (t.rows.length === 0) err(`table "${t.id}" has no rows`);
+    t.rows.forEach((row, n) => {
+      if (row.length !== t.columns.length) err(`table "${t.id}" row ${n + 1} has ${row.length} cells, expected ${t.columns.length}`);
+      if (row.some((c) => c.trim() === "")) err(`table "${t.id}" row ${n + 1} has an empty cell`);
+    });
+  }
+
   const ruleIds = new Set(lesson.primer.rules.map((r) => r.id));
   const wordIds = new Set(lesson.primer.examples.map((e) => e.id));
   for (const w of lesson.primer.examples) for (const e of validateBreakdown(w, ruleIds)) err(e);

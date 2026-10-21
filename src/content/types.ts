@@ -34,6 +34,15 @@ export type PickQuestion = { type: "pick"; prompt: string; choices: string[]; an
 export type OrderQuestion = { type: "order"; english: string; words: string[]; answer: string[] };
 export type Question = BlankQuestion | PickQuestion | OrderQuestion;
 
+// A reference grid shown above the rule cards. Columns marked yo are set in the Yoruba face.
+export type PrimerTable = {
+  id: string;
+  title: string;
+  columns: { label: string; yo?: boolean }[];
+  rows: string[][];
+  note?: string;
+};
+
 export type Lesson = {
   id: string;
   level: LevelId;
@@ -43,6 +52,7 @@ export type Lesson = {
     rule: string;
     formula: string;
     rules: Rule[];
+    tables?: PrimerTable[];
     examples: WordBreakdown[];
     commonMistake: { wrong: string; right: string; why: string };
     toneFocus?: Tone[];

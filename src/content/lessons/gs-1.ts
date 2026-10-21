@@ -13,14 +13,31 @@ export const gs1: Lesson = {
     rule: "Yoruba spells most sounds with one letter. Three letters carry a dot underneath, and the pitch of each syllable is written with a tone mark. The Sound Bank has more practice.",
     formula: "ẹ and ọ are open vowels, ṣ is \"sh\", gb is one sound; acute = high, grave = low, no mark = mid",
     toneFocus: ["high", "mid", "low"],
-    rules: [
-      { id: "under-dot-vowel", title: "Dotted vowels", explanation: "A dot under e or o opens the vowel. ẹ sounds like the e in \"bed\" and ọ like the \"aw\" in \"law\". Without the dot, e and o are the closed sounds." },
-      { id: "sh-sound", title: "The letter ṣ", explanation: "ṣ with a dot is the \"sh\" sound. Plain s is the s in \"sun\"." },
-      { id: "gb-sound", title: "The pair gb", explanation: "gb is one sound made by closing both lips and the back of the throat at once. Treat it as a single letter." },
-      { id: "high-tone", title: "High tone", explanation: "A mark that slants up to the right, as in ó, means the voice goes high on that syllable." },
-      { id: "low-tone", title: "Low tone", explanation: "A mark that slants down to the right, as in ò, means the voice goes low on that syllable." },
-      { id: "mid-tone", title: "Mid tone", explanation: "No mark means a level voice in the middle. Standard spelling leaves mid tone unmarked on vowels." },
+    tables: [
+      {
+        id: "letters",
+        title: "Letters with a dot, and gb",
+        columns: [{ label: "Letter", yo: true }, { label: "How it sounds" }],
+        rows: [
+          ["ẹ", "Like the e in \"bed\". Plain e is the closed sound"],
+          ["ọ", "Like the \"aw\" in \"law\". Plain o is the closed sound"],
+          ["ṣ", "The \"sh\" sound. Plain s is the s in \"sun\""],
+          ["gb", "One sound, made by closing both lips and the back of the throat at once. Treat it as a single letter"],
+        ],
+      },
+      {
+        id: "tones",
+        title: "Tone marks",
+        columns: [{ label: "Tone" }, { label: "Written as" }, { label: "Example", yo: true }, { label: "Your voice" }],
+        rows: [
+          ["High", "A mark that slants up to the right", "ó", "Goes high"],
+          ["Low", "A mark that slants down to the right", "ò", "Goes low"],
+          ["Mid", "No mark", "o", "Stays level, in the middle"],
+        ],
+        note: "Standard spelling leaves mid tone unmarked on vowels.",
+      },
     ],
+    rules: [],
     examples: [
       {
         id: "omo", surface: "ọmọ", english: "child",

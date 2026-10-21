@@ -15,6 +15,20 @@ export const i1: Lesson = {
   primer: {
     rule: "Small words before the verb tell you when or how often something happens. ti says it is done, máa and yóò say it will happen, and máa ń says it usually happens. In the formula, the subject is who or what the sentence is about.",
     formula: "subject + ti + verb (done); subject + máa + verb (will); long pronoun + yóò + verb (will); subject + máa ń + verb (usually)",
+    tables: [
+      {
+        id: "markers",
+        title: "The four markers side by side",
+        columns: [{ label: "Marker", yo: true }, { label: "Says" }, { label: "Pronoun before it" }, { label: "Example", yo: true }],
+        rows: [
+          ["ti", "It is done", "Short (mo, o, ó)", "Mo ti jẹun"],
+          ["máa", "It will happen", "Short (mo, o, ó)", "Mo máa lọ"],
+          ["yóò", "It will happen, with intent", "Long (èmi, ìwọ, òun)", "Èmi yóò lọ"],
+          ["máa ń", "It usually happens", "Short (mo, o, ó)", "Mo máa ń jẹun"],
+        ],
+        note: "Mo ti jẹun: I have eaten. Mo máa lọ and Èmi yóò lọ: I will go. Mo máa ń jẹun: I usually eat.",
+      },
+    ],
     rules: [
       { id: "ti-done", title: "ti: done", explanation: "ti before the verb says the action has happened and still matters now: Mo ti jẹun, I have eaten (so I am full)." },
       { id: "maa-will", title: "máa: will", explanation: "máa before the verb says the action is expected to happen: Mo máa lọ, I will go. It works with the short pronouns like mo." },

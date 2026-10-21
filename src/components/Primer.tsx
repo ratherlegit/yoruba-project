@@ -17,6 +17,31 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
         )}
       </section>
 
+      {primer.tables?.map((t) => (
+        <section key={t.id} className="card">
+          <h3 style={{ marginTop: 0 }}>{t.title}</h3>
+          <table className="primer-table" data-testid={`primer-table-${t.id}`}>
+            <thead>
+              <tr>{t.columns.map((c) => <th key={c.label} scope="col">{c.label}</th>)}</tr>
+            </thead>
+            <tbody>
+              {t.rows.map((row) => (
+                <tr key={row[0]}>
+                  {row.map((cell, i) => {
+                    const label = t.columns[i]!.label;
+                    const cls = t.columns[i]!.yo ? "yo" : undefined;
+                    return i === 0
+                      ? <th key={label} scope="row" className={cls}>{cell}</th>
+                      : <td key={label} data-label={label} className={cls}>{cell}</td>;
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {t.note && <p className="muted" style={{ marginBottom: 0 }}>{t.note}</p>}
+        </section>
+      ))}
+
       {primer.rules.length > 0 && (
         <section style={{ display: "grid", gap: "0.5rem" }}>
           <h3>How it works</h3>

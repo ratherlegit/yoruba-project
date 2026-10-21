@@ -11,11 +11,24 @@ export const gs3: Lesson = {
   primer: {
     rule: "A pronoun stands in for a person, and Yoruba uses a short form right before the verb. To say where you come from, use a short pronoun, then wá láti, then the place.",
     formula: "mo (I), o (you), ó (he/she/it), a (we), ẹ (you plural), wọ́n (they) + wá láti + place",
+    tables: [
+      {
+        id: "pronouns",
+        title: "Pronouns",
+        columns: [{ label: "Person" }, { label: "Short form", yo: true }, { label: "Long form", yo: true }, { label: "Good to know" }],
+        rows: [
+          ["I", "mo", "èmi", "Same pronoun for any speaker"],
+          ["you (one person)", "o", "ìwọ", "No mark: mid tone"],
+          ["he, she, it", "ó", "òun", "High tone. Only the tone tells o and ó apart"],
+          ["we", "a", "àwa", "Same pronoun for any group"],
+          ["you (a group)", "ẹ", "ẹ̀yin", "Also used for one older person"],
+          ["they", "wọ́n", "àwọn", "Also used for one respected elder, such as your father"],
+        ],
+        note: "Use the short form right before a verb. Use the long form when no verb follows, or to stress who did it.",
+      },
+    ],
     rules: [
-      { id: "short-forms", title: "Short forms", explanation: "The short forms sit right before the verb: Mo wá, I come. Ó wá, he or she comes. A wá, we come." },
-      { id: "long-forms", title: "Long forms", explanation: "Each pronoun also has a long form: èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn. Use the long form when no verb follows, as in Àwọn àti ẹ̀yin (they and you). It can also stress who did it." },
-      { id: "o-tones", title: "o or ó", explanation: "o with no mark (mid tone) is \"you\". ó with a high mark is \"he\", \"she\", or \"it\". Only the tone tells them apart." },
-      { id: "respect", title: "Pronouns of respect", explanation: "ẹ is \"you\" for a group, and also for one older person. wọ́n is \"they\", and is also used for one respected elder, such as your father." },
+      { id: "short-long", title: "Short before a verb, long on its own", explanation: "The short forms sit right before the verb: Mo wá, I come. Ó wá, he or she comes. Use the long form when no verb follows, as in Àwọn àti ẹ̀yin (they and you). It can also stress who did it." },
       { id: "wa-lati", title: "wá láti: come from", explanation: "wá means \"come\" and láti means \"from\". Put the place last: Mo wá láti Nàìjíríà, I come from Nigeria." },
     ],
     examples: [

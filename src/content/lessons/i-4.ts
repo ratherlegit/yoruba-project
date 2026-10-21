@@ -15,6 +15,18 @@ export const i4: Lesson = {
   primer: {
     rule: "A demonstrative is a word like \"this\" or \"that\". In Yoruba it comes after the noun. A plural means more than one; Yoruba shows it with àwọn before the noun, and the noun itself never changes. A particle is a small word that has a job but no meaning on its own, such as àwọn.",
     formula: "noun + yìí (this) or yẹn (that); àwọn + noun (plural)",
+    tables: [
+      {
+        id: "demonstratives",
+        title: "This, that, these, those",
+        columns: [{ label: "How many" }, { label: "Near: this, these", yo: true }, { label: "Far: that, those", yo: true }],
+        rows: [
+          ["One", "yìí", "yẹn"],
+          ["More than one", "wọ̀nyí", "wọ̀nyẹn"],
+        ],
+        note: "All four come after the noun. For more than one, also put àwọn before the noun: àwọn ọmọ wọ̀nyí, these children.",
+      },
+    ],
     rules: [
       { id: "after-noun", title: "This and that come after", explanation: "yìí (this) and yẹn (that) follow the noun: ọmọ yìí, this child. ọmọ yẹn, that child." },
       { id: "awon-before", title: "àwọn comes before", explanation: "àwọn goes in front of the noun to make it plural: àwọn ọmọ, children. The word ọmọ stays the same. When the plural is already clear, àwọn can be left out." },

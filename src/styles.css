@@ -307,6 +307,18 @@ svg[role="img"] { transition: transform 0.25s ease; }
   .numbers-table td { border: 0; padding: 0.2rem 0; }
   .numbers-table td[data-label]::before { content: attr(data-label); display: block; font-size: 0.8rem; color: var(--text-muted); }
 }
+/* Primer reference tables. Cells are short, so on a phone the grid stays a grid and text wraps. */
+.primer-table { width: 100%; border-collapse: collapse; }
+.primer-table th, .primer-table td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.primer-table thead th { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+.primer-table tbody th { font-weight: 700; }
+.primer-table .yo { line-height: 1.4; }
+.primer-table tbody th.yo { white-space: nowrap; }
+.primer-table tbody tr:last-child th, .primer-table tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 40rem) {
+  .primer-table th, .primer-table td { padding: 0.4rem 0.35rem; font-size: 0.9rem; }
+  .primer-table .yo { font-size: 1.05rem; overflow-wrap: normal; }
+}
 /* The step pages are wide so the examples do not wrap; text and practice stay a readable width. */
 .numbers-intro { max-width: 46rem; }
 .numbers-practice { max-width: 46rem; }
