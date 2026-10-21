@@ -2299,13 +2299,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Good morning (to an elder): Ẹ ___.
-  - Choices: káàárọ̀ | kaaro | káàrọ̀
+  - Choices: káàárọ̀ | kú àárọ̀ | kúàárọ̀
   - Answer: káàárọ̀
 - Q2 (blank): kú + alẹ́ (evening) join in speech. Good evening (to an elder): Ẹ ___.
   - Choices: káalẹ́ | kúalẹ́ | kaalẹ́
   - Answer: káalẹ́
 - Q3 (blank): Orúkọ ___ ni Bùkọ́lá. (My name is Bùkọ́lá.)
-  - Choices: mi | rẹ | mí
+  - Choices: mi | rẹ | wa
   - Answer: mi
 - Q4 (pick): Where does mi go in orúkọ mi?
   - Choices: Right after the noun | Before the noun | At the end of the sentence
@@ -2330,13 +2330,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): ___ wá láti Nàìjíríà. (I come from Nigeria.)
-  - Choices: Mo | Mọ | Mó
+  - Choices: Mo | Ó | A
   - Answer: Mo
 - Q2 (blank): ___ wá láti Èkó. (They come from Lagos.)
-  - Choices: Wọ́n | Wọn | Wọ̀n
+  - Choices: Wọ́n | Mo | Ó
   - Answer: Wọ́n
 - Q3 (blank): Mo wá ___ Nàìjíríà. (I come from Nigeria.)
-  - Choices: láti | lati | látì
+  - Choices: láti | àti | ni
   - Answer: láti
 - Q4 (pick): Which pronoun do you use to speak politely to one older person?
   - Choices: o | ó | ẹ
@@ -2361,13 +2361,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Èyí ni ìyá ___. (This is my mother.)
-  - Choices: mi | rẹ | mí
+  - Choices: mi | rẹ | wa
   - Answer: mi
 - Q2 (blank): Mo ___ orin. (I like music.)
-  - Choices: fẹ́ràn | fẹ́ran | fẹrán
+  - Choices: fẹ́ràn | ní | wá
   - Answer: fẹ́ràn
 - Q3 (blank): Mo ní arákùnrin ___. (I have one brother.)
-  - Choices: kan | kán | kàn
+  - Choices: kan | mi | rẹ
   - Answer: kan
 - Q4 (pick): Which means "I like food"?
   - Choices: Mo fẹ́ràn oúnjẹ | Mo ní oúnjẹ kan | Èyí ni oúnjẹ mi
@@ -2394,19 +2394,19 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Mo ___ olùkọ́. (I am a teacher.)
-  - Choices: jẹ́ | jẹ | ni
+  - Choices: jẹ́ | ni | àti
   - Answer: jẹ́
 - Q2 (blank): Èyí ___ ilé mi. (This is my house.)
-  - Choices: ni | ní | nì
+  - Choices: ni | jẹ́ | àti
   - Answer: ni
 - Q3 (blank): ___ ni ọ̀rẹ́ mi. (He is my friend.)
-  - Choices: Òun | Ó | Oun
+  - Choices: Òun | Ó | Èmi
   - Answer: Òun
 - Q4 (pick): Which sentence says what job someone has?
   - Choices: Èyí ni ilé mi | Mo jẹ́ olùkọ́ | Òun ni ọ̀rẹ́ mi
   - Answer: Mo jẹ́ olùkọ́
 - Q5 (pick): Which means "We are friends"?
-  - Choices: Àwa jẹ ọ̀rẹ́ | Àwa jẹ́ ọ̀rẹ́ | Àwa jẹ́ ọ̀rẹ
+  - Choices: Jẹ́ àwa ọ̀rẹ́ | Àwa jẹ́ ọ̀rẹ́ | Ọ̀rẹ́ àwa jẹ́
   - Answer: Àwa jẹ́ ọ̀rẹ́
 - Q6 (order): I am a teacher
   - Answer: Mo jẹ́ olùkọ́
@@ -2427,10 +2427,10 @@ Questions:
   - Choices: N | Mo | Ó
   - Answer: N
 - Q2 (blank): A ___ lọ. (We did not go.)
-  - Choices: ò | ó | o
+  - Choices: ò | ń | jẹ́
   - Answer: ò
 - Q3 (blank): ___ lọ. (He did not go.)
-  - Choices: Kò | Ko | Kó
+  - Choices: Kò | Ó | Mo
   - Answer: Kò
 - Q4 (pick): Which is the usual way to say "I did not go"?
   - Choices: Mo kò lọ | N kò lọ | Ń kò lọ
@@ -2454,13 +2454,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Mo ___ jẹun. (I am eating.)
-  - Choices: ń | n | ǹ
+  - Choices: ń | kò | jẹ́
   - Answer: ń
-- Q2 (blank): Ó ń ___. (He is going.)
-  - Choices: lọ | lo | lọ́
-  - Answer: lọ
+- Q2 (blank): Ó ___ lọ. (He is going.)
+  - Choices: ń | ni | jẹ́
+  - Answer: ń
 - Q3 (blank): Adé ___ mu omi. (Adé is drinking water.)
-  - Choices: ń | ní | ni
+  - Choices: ń | jẹ́ | ni
   - Answer: ń
 - Q4 (pick): Which means "I am eating"?
   - Choices: Mo jẹun | Mo ń jẹun | Mo ń lọ
@@ -2484,13 +2484,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): ___ o fẹ́ jẹun? (Do you want to eat?)
-  - Choices: Ṣé | Ṣe | Se
+  - Choices: Ṣé | Kí ni | Èyí ni
   - Answer: Ṣé
 - Q2 (blank): ___ ni o fẹ́? (What do you want?)
-  - Choices: Kí | Ki | Kì
+  - Choices: Kí | Ṣé | Níbo
   - Answer: Kí
 - Q3 (blank): Kí ni orúkọ ___? (What is your name?)
-  - Choices: rẹ | rẹ̀ | re
+  - Choices: rẹ | mi | ṣé
   - Answer: rẹ
 - Q4 (pick): Which is the usual way to ask "Do you want to eat?"
   - Choices: O fẹ́ jẹun ṣé? | Ṣé o fẹ́ jẹun? | O ṣé fẹ́ jẹun?
@@ -2516,13 +2516,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Mo ___ jẹun. (I have eaten.)
-  - Choices: ti | tí | ń
+  - Choices: ti | ń | máa
   - Answer: ti
 - Q2 (blank): Èmi ___ lọ. (I will go.)
   - Choices: yóò | ti | ń
   - Answer: yóò
 - Q3 (blank): Mo ___ ń jẹun. (I usually eat.)
-  - Choices: máa | maa | ti
+  - Choices: máa | ti | yóò
   - Answer: máa
 - Q4 (pick): Which word can follow mo to say "will"?
   - Choices: yóò | máa | ti
@@ -2546,13 +2546,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Ilé ___ (the king's house)
-  - Choices: ọba | oba | ọbá
+  - Choices: ọba | ilé | bàbá
   - Answer: ọba
 - Q2 (blank): ___ Àkàndé (Àkàndé's cap)
-  - Choices: fìlà | fila | fílà
+  - Choices: fìlà | ilé | ọba
   - Answer: fìlà
 - Q3 (blank): Ilé bàbá ___ (my father's house)
-  - Choices: mi | mí | wa
+  - Choices: mi | wa | rẹ
   - Answer: mi
 - Q4 (pick): Which means "father's house"?
   - Choices: bàbá ilé | ilé bàbá | ilé ọba
@@ -2576,13 +2576,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): oní + ẹja (fish) becomes ___ (fish seller).
-  - Choices: ẹlẹ́ja | oníẹja | ẹlẹja
+  - Choices: ẹlẹ́ja | oníẹja | onílẹja
   - Answer: ẹlẹ́ja
 - Q2 (blank): Landlord: ___lé
-  - Choices: oní | oni | olù
+  - Choices: oní | olù | ẹlẹ́
   - Answer: oní
 - Q3 (blank): Teacher: olù___
-  - Choices: kọ́ | kọ | ko
+  - Choices: kọ́ | ilé | ẹja
   - Answer: kọ́
 - Q4 (pick): What happens to the two i sounds when oní meets ilé?
   - Choices: They merge into one high í | The n is dropped | Nothing changes
@@ -2606,17 +2606,17 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Ọmọ ___ (this child)
-  - Choices: yìí | yíí | yii
+  - Choices: yìí | yẹn | àwọn
   - Answer: yìí
 - Q2 (blank): Ọmọ ___ (that child)
-  - Choices: yẹn | yen | yìí
+  - Choices: yẹn | yìí | àwọn
   - Answer: yẹn
 - Q3 (blank): ___ ọmọ (children)
-  - Choices: Àwọn | Àwọ̀n | Awọn
+  - Choices: Àwọn | Yìí | Yẹn
   - Answer: Àwọn
-- Q4 (pick): Which word makes a noun plural?
-  - Choices: yìí | yẹn | àwọn
-  - Answer: àwọn
+- Q4 (pick): In ọmọ yìí, where does yìí go?
+  - Choices: After the noun | Before the noun | At the start of the sentence
+  - Answer: After the noun
 - Q5 (pick): Which means "these children"?
   - Choices: ọmọ yẹn | àwọn ọmọ wọ̀nyí | ọmọ àwọn
   - Answer: àwọn ọmọ wọ̀nyí

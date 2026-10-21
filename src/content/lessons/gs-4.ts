@@ -68,9 +68,9 @@ export const gs4: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "Èyí ni ìyá ___. (This is my mother.)", answer: "mi", choices: ["mi", "rẹ", "mí"], wordId: "eyi-ni-iya-mi" },
-    { type: "blank", prompt: "Mo ___ orin. (I like music.)", answer: "fẹ́ràn", choices: ["fẹ́ràn", "fẹ́ran", "fẹrán"], wordId: "mo-feran-orin" },
-    { type: "blank", prompt: "Mo ní arákùnrin ___. (I have one brother.)", answer: "kan", choices: ["kan", "kán", "kàn"], wordId: "mo-ni-arakunrin" },
+    { type: "blank", prompt: "Èyí ni ìyá ___. (This is my mother.)", answer: "mi", choices: ["mi", "rẹ", "wa"], wordId: "eyi-ni-iya-mi" },
+    { type: "blank", prompt: "Mo ___ orin. (I like music.)", answer: "fẹ́ràn", choices: ["fẹ́ràn", "ní", "wá"], wordId: "mo-feran-orin" },
+    { type: "blank", prompt: "Mo ní arákùnrin ___. (I have one brother.)", answer: "kan", choices: ["kan", "mi", "rẹ"], wordId: "mo-ni-arakunrin" },
     { type: "pick", prompt: "Which means \"I like food\"?", choices: ["Mo fẹ́ràn oúnjẹ", "Mo ní oúnjẹ kan", "Èyí ni oúnjẹ mi"], answer: 0, wordId: "mo-feran-ounje" },
     { type: "pick", prompt: "Where does mi go in ìyá mi?", choices: ["Right after the noun", "Before the noun", "At the end of the sentence"], answer: 0, wordId: "eyi-ni-iya-mi" },
     { type: "pick", prompt: "Which sentence says you have one brother?", choices: ["Mo ní arákùnrin kan", "Mo fẹ́ràn arákùnrin", "Èyí ni arákùnrin mi"], answer: 0, wordId: "mo-ni-arakunrin" },

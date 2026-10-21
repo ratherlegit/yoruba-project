@@ -8,6 +8,8 @@ Two rules. A question that breaks either one is invalid.
    rewrite it. Ask about what a rule says or does, not about what the choices look like.
    A question about a contrast (ṣ against s, ọ against o) must put the look-alike in the choices.
    If the other choices start with unrelated letters, the learner can pass without knowing the rule.
+   Choices that are all the same word with different tone marks or dots let the most-marked one win
+   with no grammar. Outside the sounds and tones lesson, use real alternatives from the lesson's grammar.
 2. **It may only ask what has been taught.** Every word and every ordering pattern must appear
    in this lesson's primer or an earlier one. Do not use an order question for a lesson that
    teaches no ordering (sounds, tones, syllables).

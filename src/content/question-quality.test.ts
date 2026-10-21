@@ -111,3 +111,19 @@ describe("answers are not handed over by the prompt", () => {
     });
   }
 });
+
+describe("choices are not just spellings of one word", () => {
+  // When every choice has the same letters and differs only by tone marks or dots, the most
+  // fully marked one wins without any grammar. Sounds and tones (gs-1) are about exactly this,
+  // so it is exempt. Advanced and Mastery are not audited yet.
+  const base = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+  const audited = flat.filter((l) => l.id !== "gs-1" && ["getting-started", "beginner", "intermediate"].includes(l.level));
+  for (const lesson of audited) {
+    lesson.questions.forEach((q, n) => {
+      if (q.type === "order") return;
+      it(`${lesson.id} question ${n + 1} offers real alternatives, not tone variants`, () => {
+        expect(new Set(q.choices.map(base)).size).toBeGreaterThan(1);
+      });
+    });
+  }
+});

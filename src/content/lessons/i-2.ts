@@ -66,9 +66,9 @@ export const i2: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "Ilé ___ (the king's house)", answer: "ọba", choices: ["ọba", "oba", "ọbá"], wordId: "ile-oba" },
-    { type: "blank", prompt: "___ Àkàndé (Àkàndé's cap)", answer: "fìlà", choices: ["fìlà", "fila", "fílà"], wordId: "fila-akande" },
-    { type: "blank", prompt: "Ilé bàbá ___ (my father's house)", answer: "mi", choices: ["mi", "mí", "wa"], wordId: "ile-baba-mi" },
+    { type: "blank", prompt: "Ilé ___ (the king's house)", answer: "ọba", choices: ["ọba", "ilé", "bàbá"], wordId: "ile-oba" },
+    { type: "blank", prompt: "___ Àkàndé (Àkàndé's cap)", answer: "fìlà", choices: ["fìlà", "ilé", "ọba"], wordId: "fila-akande" },
+    { type: "blank", prompt: "Ilé bàbá ___ (my father's house)", answer: "mi", choices: ["mi", "wa", "rẹ"], wordId: "ile-baba-mi" },
     { type: "pick", prompt: "Which means \"father's house\"?", choices: ["bàbá ilé", "ilé bàbá", "ilé ọba"], answer: 1, wordId: "ile-baba" },
     { type: "pick", prompt: "In a phrase like ilé ọba, where does the owner go?", choices: ["Right after the thing owned", "Before the thing owned", "At the end of the sentence"], answer: 0, wordId: "ile-oba" },
     { type: "order", english: "The king's house", words: ["ọba", "Ilé"], answer: ["Ilé", "ọba"] },

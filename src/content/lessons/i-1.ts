@@ -71,9 +71,9 @@ export const i1: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "Mo ___ jẹun. (I have eaten.)", answer: "ti", choices: ["ti", "tí", "ń"], wordId: "mo-ti-jeun" },
+    { type: "blank", prompt: "Mo ___ jẹun. (I have eaten.)", answer: "ti", choices: ["ti", "ń", "máa"], wordId: "mo-ti-jeun" },
     { type: "blank", prompt: "Èmi ___ lọ. (I will go.)", answer: "yóò", choices: ["yóò", "ti", "ń"], wordId: "emi-yoo-lo" },
-    { type: "blank", prompt: "Mo ___ ń jẹun. (I usually eat.)", answer: "máa", choices: ["máa", "maa", "ti"], wordId: "mo-maa-n-jeun" },
+    { type: "blank", prompt: "Mo ___ ń jẹun. (I usually eat.)", answer: "máa", choices: ["máa", "ti", "yóò"], wordId: "mo-maa-n-jeun" },
     { type: "pick", prompt: "Which word can follow mo to say \"will\"?", choices: ["yóò", "máa", "ti"], answer: 1, wordId: "mo-maa-lo" },
     { type: "pick", prompt: "Which means \"I usually eat\"?", choices: ["Mo ti jẹun", "Mo ń jẹun", "Mo máa ń jẹun"], answer: 2, wordId: "mo-maa-n-jeun" },
     { type: "order", english: "I have eaten", words: ["jẹun", "Mo", "ti"], answer: ["Mo", "ti", "jẹun"] },

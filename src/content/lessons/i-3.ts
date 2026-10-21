@@ -87,9 +87,9 @@ export const i3: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "oní + ẹja (fish) becomes ___ (fish seller).", answer: "ẹlẹ́ja", choices: ["ẹlẹ́ja", "oníẹja", "ẹlẹja"], wordId: "eleja" },
-    { type: "blank", prompt: "Landlord: ___lé", answer: "oní", choices: ["oní", "oni", "olù"], wordId: "onile" },
-    { type: "blank", prompt: "Teacher: olù___", answer: "kọ́", choices: ["kọ́", "kọ", "ko"], wordId: "oluko" },
+    { type: "blank", prompt: "oní + ẹja (fish) becomes ___ (fish seller).", answer: "ẹlẹ́ja", choices: ["ẹlẹ́ja", "oníẹja", "onílẹja"], wordId: "eleja" },
+    { type: "blank", prompt: "Landlord: ___lé", answer: "oní", choices: ["oní", "olù", "ẹlẹ́"], wordId: "onile" },
+    { type: "blank", prompt: "Teacher: olù___", answer: "kọ́", choices: ["kọ́", "ilé", "ẹja"], wordId: "oluko" },
     { type: "pick", prompt: "What happens to the two i sounds when oní meets ilé?", choices: ["They merge into one high í", "The n is dropped", "Nothing changes"], answer: 0, wordId: "onile" },
     { type: "pick", prompt: "Which prefix goes before a verb?", choices: ["oní-", "olù-", "ẹlẹ́-"], answer: 1, wordId: "oluko" },
     { type: "order", english: "My teacher", words: ["mi", "Olùkọ́"], answer: ["Olùkọ́", "mi"] },

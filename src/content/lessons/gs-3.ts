@@ -73,9 +73,9 @@ export const gs3: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "___ wá láti Nàìjíríà. (I come from Nigeria.)", answer: "Mo", choices: ["Mo", "Mọ", "Mó"], wordId: "mo-wa" },
-    { type: "blank", prompt: "___ wá láti Èkó. (They come from Lagos.)", answer: "Wọ́n", choices: ["Wọ́n", "Wọn", "Wọ̀n"], wordId: "won-wa" },
-    { type: "blank", prompt: "Mo wá ___ Nàìjíríà. (I come from Nigeria.)", answer: "láti", choices: ["láti", "lati", "látì"], wordId: "mo-wa" },
+    { type: "blank", prompt: "___ wá láti Nàìjíríà. (I come from Nigeria.)", answer: "Mo", choices: ["Mo", "Ó", "A"], wordId: "mo-wa" },
+    { type: "blank", prompt: "___ wá láti Èkó. (They come from Lagos.)", answer: "Wọ́n", choices: ["Wọ́n", "Mo", "Ó"], wordId: "won-wa" },
+    { type: "blank", prompt: "Mo wá ___ Nàìjíríà. (I come from Nigeria.)", answer: "láti", choices: ["láti", "àti", "ni"], wordId: "mo-wa" },
     { type: "pick", prompt: "Which pronoun do you use to speak politely to one older person?", choices: ["o", "ó", "ẹ"], answer: 2 },
     { type: "pick", prompt: "With no tone mark, which pronoun is said to one friend (\"you\")?", choices: ["ó", "o", "a"], answer: 1, wordId: "nibo-ni-o-wa" },
     { type: "pick", prompt: "In Àwọn àti ẹ̀yin (they and you), why are the long forms used?", choices: ["No verb follows, so a short form cannot be used", "Long forms are more polite", "Short forms are only for children"], answer: 0, wordId: "won-wa" },

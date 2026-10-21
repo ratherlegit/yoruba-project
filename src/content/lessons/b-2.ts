@@ -75,8 +75,8 @@ export const b2: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "___ kò lọ. (I did not go.)", answer: "N", choices: ["N", "Mo", "Ó"], wordId: "n-ko-lo" },
-    { type: "blank", prompt: "A ___ lọ. (We did not go.)", answer: "ò", choices: ["ò", "ó", "o"], wordId: "a-o-lo" },
-    { type: "blank", prompt: "___ lọ. (He did not go.)", answer: "Kò", choices: ["Kò", "Ko", "Kó"], wordId: "ko-lo" },
+    { type: "blank", prompt: "A ___ lọ. (We did not go.)", answer: "ò", choices: ["ò", "ń", "jẹ́"], wordId: "a-o-lo" },
+    { type: "blank", prompt: "___ lọ. (He did not go.)", answer: "Kò", choices: ["Kò", "Ó", "Mo"], wordId: "ko-lo" },
     { type: "pick", prompt: "Which is the usual way to say \"I did not go\"?", choices: ["Mo kò lọ", "N kò lọ", "Ń kò lọ"], answer: 1, wordId: "n-ko-lo" },
     { type: "pick", prompt: "After what kind of word is kò often shortened to ò?", choices: ["A pronoun like a or mi", "A verb like lọ", "A question word like ṣé"], answer: 0, wordId: "a-o-lo" },
     { type: "order", english: "I did not go (everyday form)", words: ["lọ", "ò", "Mi"], answer: ["Mi", "ò", "lọ"] },

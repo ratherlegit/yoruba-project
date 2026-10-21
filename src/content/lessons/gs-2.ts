@@ -77,9 +77,9 @@ export const gs2: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "Good morning (to an elder): Ẹ ___.", answer: "káàárọ̀", choices: ["káàárọ̀", "kaaro", "káàrọ̀"], wordId: "e-kaaro" },
+    { type: "blank", prompt: "Good morning (to an elder): Ẹ ___.", answer: "káàárọ̀", choices: ["káàárọ̀", "kú àárọ̀", "kúàárọ̀"], wordId: "e-kaaro" },
     { type: "blank", prompt: "kú + alẹ́ (evening) join in speech. Good evening (to an elder): Ẹ ___.", answer: "káalẹ́", choices: ["káalẹ́", "kúalẹ́", "kaalẹ́"], wordId: "e-kaale" },
-    { type: "blank", prompt: "Orúkọ ___ ni Bùkọ́lá. (My name is Bùkọ́lá.)", answer: "mi", choices: ["mi", "rẹ", "mí"], wordId: "oruko-mi" },
+    { type: "blank", prompt: "Orúkọ ___ ni Bùkọ́lá. (My name is Bùkọ́lá.)", answer: "mi", choices: ["mi", "rẹ", "wa"], wordId: "oruko-mi" },
     { type: "pick", prompt: "Where does mi go in orúkọ mi?", choices: ["Right after the noun", "Before the noun", "At the end of the sentence"], answer: 0, wordId: "oruko-mi" },
     { type: "pick", prompt: "kú àárọ̀ becomes káàárọ̀. What happens to the u of kú?", choices: ["It becomes a, matching the next vowel", "It is dropped", "It becomes i"], answer: 0, wordId: "e-kaaro" },
     { type: "pick", prompt: "Who is ẹ káàárọ̀ for?", choices: ["An older person or a group", "Only your own age mates", "Only a baby"], answer: 0, wordId: "e-kaaro" },
