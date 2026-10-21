@@ -16,12 +16,7 @@ for (const scheme of ["light", "dark"] as const) {
     await page.getByTestId("choice").first().click();
     await page.screenshot({ path: `.screenshots/activity-${scheme}.png`, fullPage: true });
 
-    // Dev-only fixture: gs-1 has no word steps, so the stepper is shown here.
     await page.goto("/dev/breakdown");
-    await page.getByRole("button", { name: "Next step" }).click();
-    await page.waitForTimeout(300); // let the step rise animation finish
-    await page.screenshot({ path: `.screenshots/breakdown-step-${scheme}.png`, fullPage: true });
-    await page.getByRole("button", { name: "Show all" }).click();
     await page.waitForTimeout(300);
     await page.screenshot({ path: `.screenshots/breakdown-all-${scheme}.png`, fullPage: true });
   });

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { Rule, WordBreakdown } from "@/content/types";
 import { hasConstruction } from "@/lib/construction";
 import { SHOW_REVIEW_MARKERS } from "@/lib/flags";
@@ -8,9 +7,6 @@ import { PitchLine } from "./PitchLine";
 type Props = { word: WordBreakdown; rules: Rule[]; showReviewMarker?: boolean };
 
 export function WordBreakdownCard({ word, rules, showReviewMarker = SHOW_REVIEW_MARKERS }: Props) {
-  const [shown, setShown] = useState(0);
-  const total = word.steps.length;
-  const finished = shown >= total;
   const ruleTitle = (id?: string) => rules.find((r) => r.id === id)?.title;
 
   const header = (
@@ -51,38 +47,27 @@ export function WordBreakdownCard({ word, rules, showReviewMarker = SHOW_REVIEW_
         ))}
       </div>
 
-      {total > 0 && (
-        <>
-          <ol className="steps" aria-live="polite">
-            {word.steps.slice(0, shown).map((s, i) => (
-              <li key={i}>
-                <span aria-hidden="true">→ </span>
-                <span className="yo">{s.result}</span>
-                <span className="muted" style={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}>
-                  {s.kind === "join" ? "Join the parts" : ruleTitle(s.ruleId)}
-                </span>
-              </li>
-            ))}
-          </ol>
-          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-            <button className="btn" onClick={() => setShown((n) => Math.min(n + 1, total))} disabled={finished}>
-              Next step
-            </button>
-            <button className="btn" onClick={() => setShown(total)} disabled={finished}>Show all</button>
-            <button className="btn" onClick={() => setShown(0)} disabled={shown === 0}>Reset</button>
-          </div>
-        </>
+      {word.steps.length > 0 && (
+        <ol className="steps">
+          {word.steps.map((s, i) => (
+            <li key={i}>
+              <span aria-hidden="true">→ </span>
+              <span className="yo">{s.result}</span>
+              <span className="muted" style={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}>
+                {s.kind === "join" ? "Parts joined (illustration only, not the final word)" : ruleTitle(s.ruleId)}
+              </span>
+            </li>
+          ))}
+        </ol>
       )}
 
-      {finished && (
-        <div style={{ display: "grid", gap: "0.5rem" }}>
-          <div className="with-audio">
-            <div className="yo"><strong>{word.surface}</strong></div>
-            <AudioButton text={word.surface} />
-          </div>
-          <PitchLine word={word.surface} />
+      <div style={{ display: "grid", gap: "0.5rem" }}>
+        <div className="with-audio">
+          <div className="yo"><strong>{word.surface}</strong></div>
+          <AudioButton text={word.surface} />
         </div>
-      )}
+        <PitchLine word={word.surface} />
+      </div>
     </article>
   );
 }
