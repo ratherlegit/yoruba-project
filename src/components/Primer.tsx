@@ -8,8 +8,8 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
   return (
     <div style={{ display: "grid", gap: "1.25rem" }}>
       <section className="card">
-        <h2 style={{ marginTop: 0 }}>{primer.rule}</h2>
-        <p className="yo">{primer.formula}</p>
+        <p className="primer-rule">{primer.rule}</p>
+        <p className="yo primer-formula">{primer.formula}</p>
         {primer.toneFocus && (
           <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
             {primer.toneFocus.map((t) => <ToneChip key={t} tone={t} />)}
@@ -22,7 +22,7 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
           <h3>How it works</h3>
           {primer.rules.map((r) => (
             <div key={r.id} className="card">
-              <strong>{r.title}</strong>
+              <strong className="rule-title">{r.title}</strong>
               <p style={{ margin: "0.25rem 0 0" }}>{r.explanation}</p>
             </div>
           ))}
