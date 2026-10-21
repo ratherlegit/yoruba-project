@@ -16,6 +16,21 @@ export const b4: Lesson = {
   primer: {
     rule: "Put ṣé at the start of a statement to make a yes or no question. Start with kí ni to ask \"what\". A question word is a word that starts a question. An adverb is a word that tells how an action is done, such as dáadáa, well.",
     formula: "ṣé + statement?; kí ni + rest of the question?",
+    tables: [
+      {
+        id: "look-alikes",
+        title: "Look-alike words: only the tone tells them apart",
+        columns: [{ label: "Pair", yo: true }, { label: "First means" }, { label: "Second means" }, { label: "Learned in" }],
+        rows: [
+          ["o / ó", "you", "he, she, it", "Getting Started 3"],
+          ["jẹ / jẹ́", "eat", "to be (a job or role)", "Beginner 1"],
+          ["ni / ní", "points out or names", "to have", "Beginner 1"],
+          ["ṣe / ṣé", "do", "starts a yes or no question", "this lesson"],
+          ["rẹ / rẹ̀", "your", "his or her", "this lesson"],
+        ],
+        note: "One more pair, ti and tí, comes later in Intermediate 1 and Advanced 4.",
+      },
+    ],
     rules: [
       { id: "se-first", title: "ṣé comes first", explanation: "Take a statement such as O fẹ́ jẹun (you want to eat) and put ṣé in front: Ṣé o fẹ́ jẹun? (do you want to eat?). Nothing else moves. ṣé has a high mark; ṣe with no mark is the verb \"do\"." },
       { id: "ki-ni-what", title: "kí ni asks what", explanation: "kí ni at the start asks \"what\": Kí ni o fẹ́? (what do you want?). It asks about things. For people, Yoruba uses a different word, ta ni (who)." },
