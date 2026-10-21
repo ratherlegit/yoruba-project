@@ -6,9 +6,9 @@ describe("SONGS", () => {
   it("passes the validator", () => {
     expect(validateSongs(SONGS)).toEqual([]);
   });
-  it("has the nine starter songs", () => {
+  it("has the ten starter songs", () => {
     expect(SONGS.map((s) => s.id)).toEqual([
-      "okunkun", "sade", "awe", "organise", "ojuelegba", "duduke", "motigbana", "labe-igi-oronbo", "iya-ni-wura",
+      "okunkun", "sade", "awe", "organise", "ojuelegba", "duduke", "motigbana", "labe-igi-oronbo", "iya-ni-wura", "daju",
     ]);
   });
   it("uses only known genres, and has two children's songs", () => {
