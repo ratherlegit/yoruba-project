@@ -77,9 +77,9 @@ export const m2: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "Adé ___ ó ra ìwé. (It was Adé who bought the book.)", answer: "ni", choices: ["ni", "ní", "nì"], wordId: "ade-ni-o-ra-iwe" },
-    { type: "blank", prompt: "Akin ni ó ___. (It was Akin who went.)", answer: "lọ", choices: ["lọ", "lo", "lọ̀"], wordId: "akin-ni-o-lo" },
-    { type: "blank", prompt: "Ìwé ni Adé ___. (It was a book that Adé bought.)", answer: "rà", choices: ["rà", "ra", "rá"], wordId: "iwe-ni-ade-ra" },
+    { type: "blank", prompt: "Adé ___ ó ra ìwé. (It was Adé who bought the book.)", answer: "ni", choices: ["ni", "kò", "ń"], wordId: "ade-ni-o-ra-iwe" },
+    { type: "blank", prompt: "Akin ni ó ___. (It was Akin who went.)", answer: "lọ", choices: ["lọ", "ra", "gbé"], wordId: "akin-ni-o-lo" },
+    { type: "blank", prompt: "Ìwé ni Adé ___. (It was a book that Adé bought.)", answer: "rà", choices: ["rà", "ra", "lọ"], wordId: "iwe-ni-ade-ra" },
     { type: "pick", prompt: "Which sentence puts the spotlight on Akin?", choices: ["Akin ni ó lọ", "Akin lọ", "Ṣé Akin lọ"], answer: 0, wordId: "akin-ni-o-lo" },
     { type: "pick", prompt: "Which means \"It was not Olú who carried the stick\"?", choices: ["Olú kọ́ ni ó gbé igi", "Olú ni ó gbé igi", "Olú kò gbé igi"], answer: 0, wordId: "olu-ko-ni-o-gbe-igi" },
     { type: "order", english: "It was Adé who bought the book", words: ["ra", "ni", "Adé", "ìwé", "ó"], answer: ["Adé", "ni", "ó", "ra", "ìwé"] },

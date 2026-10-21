@@ -79,9 +79,9 @@ export const m3: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "___ òjò bá rọ̀. (If it rains.)", answer: "Bí", choices: ["Bí", "Bì", "Bi"], wordId: "bi-ojo-ba-ro" },
-    { type: "blank", prompt: "Bí o ___ kàwé rẹ. (If you read your books.)", answer: "bá", choices: ["bá", "ba", "bà"], wordId: "bi-o-ba-kawe-re" },
-    { type: "blank", prompt: "___ pé òjò rọ̀. (Because it rained.)", answer: "Nítorí", choices: ["Nítorí", "Nitori", "Nìtorí"], wordId: "nitori-pe-ojo-ro" },
+    { type: "blank", prompt: "___ òjò bá rọ̀. (If it rains.)", answer: "Bí", choices: ["Bí", "Nítorí", "Ṣé"], wordId: "bi-ojo-ba-ro" },
+    { type: "blank", prompt: "Bí o ___ kàwé rẹ. (If you read your books.)", answer: "bá", choices: ["bá", "ti", "ń"], wordId: "bi-o-ba-kawe-re" },
+    { type: "blank", prompt: "___ pé òjò rọ̀. (Because it rained.)", answer: "Nítorí", choices: ["Nítorí", "Bí", "Ṣé"], wordId: "nitori-pe-ojo-ro" },
     { type: "pick", prompt: "Which means \"we will not go\"?", choices: ["A ò níí lọ", "A ò lọ", "A máa lọ"], answer: 0, wordId: "a-o-nii-lo" },
     { type: "pick", prompt: "In an if-clause, where does bá go?", choices: ["Right before the verb", "At the end of the sentence", "Before bí"], answer: 0, wordId: "bi-ojo-ba-ro" },
     { type: "order", english: "If it rains, we will not go", words: ["lọ", "bá", "a", "Bí", "níí", "rọ̀", "ò", "òjò"], answer: ["Bí", "òjò", "bá", "rọ̀", "a", "ò", "níí", "lọ"] },

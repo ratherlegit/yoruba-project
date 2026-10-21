@@ -2641,7 +2641,7 @@ Questions:
   - Choices: rẹran | raẹran | rẹ́ran
   - Answer: rẹran
 - Q2 (blank): rí ẹja (to see fish) is said ___ja.
-  - Choices: rẹ́ | rẹ | ré
+  - Choices: rẹ́ | ra | rí
   - Answer: rẹ́
 - Q3 (blank): ta iṣu (to sell yams) is said ___.
   - Choices: taṣu | taiṣu | tasu
@@ -2668,16 +2668,16 @@ Common mistake:
 
 Questions:
 - Q1 (blank): jẹ (eat) → ___jẹ (eating)
-  - Choices: jí | jì | ji
+  - Choices: jí | jẹ | lí
   - Answer: jí
 - Q2 (blank): kà (read) → ___ (reading)
-  - Choices: kíkà | kíka | kikà
+  - Choices: kíkà | kàkà | kíkí
   - Answer: kíkà
 - Q3 (blank): gbé (carry) → ___gbé (carrying)
   - Choices: gbí | bí | gí
   - Answer: gbí
 - Q4 (pick): lọ (go) becomes which verbal noun?
-  - Choices: lílọ | lilọ | lílọ̀
+  - Choices: lílọ | lọlọ | jíjẹ
   - Answer: lílọ
 - Q5 (pick): What tone does the added í always carry?
   - Choices: High | Low | The same as the verb
@@ -2687,7 +2687,7 @@ Questions:
 - Q7 (order): Going to school
   - Answer: Ilé-ìwé lílọ
 - Q8 (blank): mu (drink) → ___ (drinking)
-  - Choices: mímu | mìmu | mimu
+  - Choices: mímu | mu | jíjẹ
   - Answer: mímu
 
 #### Serial verbs (`a-3`)
@@ -2699,13 +2699,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Ó mú ìwé ___. (He brought the book.)
-  - Choices: wá | wà | wa
+  - Choices: wá | lọ | kò
   - Answer: wá
 - Q2 (blank): Ó gbé ìwé ___. (He took the book away.)
-  - Choices: lọ | lọ̀ | lo
+  - Choices: lọ | wá | jẹ
   - Answer: lọ
 - Q3 (blank): Olú ___ mú ìwé wá ilé. (Olú did not bring a book home.)
-  - Choices: kò | ko | kó
+  - Choices: kò | ń | ni
   - Answer: kò
 - Q4 (pick): Which means "Olú took the knife to cut meat"?
   - Choices: Olú mú ọ̀bẹ gé ẹran | Olú gé ọ̀bẹ mú ẹran | Olú mú ẹran gé ọ̀bẹ
@@ -2729,13 +2729,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): ọmọ ___ ó lọ (the child who went)
-  - Choices: tí | ti | tì
+  - Choices: tí | ni | àti
   - Answer: tí
 - Q2 (blank): adìyẹ tí mo ___ (the chicken that I bought)
-  - Choices: rà | ra | rá
+  - Choices: rà | ra | tà
   - Answer: rà
 - Q3 (blank): ọkùnrin tí ___ ra aṣọ (the man who bought the cloth)
-  - Choices: ó | o | ọ
+  - Choices: ó | mo | a
   - Answer: ó
 - Q4 (pick): Which means "the house that Bọ́lá lives in"?
   - Choices: ilé tí Bọ́lá ń gbé | ilé Bọ́lá tí ń gbé | ilé tí ń gbé Bọ́lá
@@ -2761,19 +2761,19 @@ Common mistake:
 
 Questions:
 - Q1 (blank): ní + ọ̀la fuse into ___ (tomorrow).
-  - Choices: lọ́la | lọ̀la | lọla
+  - Choices: lọ́la | nọ́la | ní ọ̀la
   - Answer: lọ́la
 - Q2 (blank): ní + ilé fuse into ___ (at home).
-  - Choices: nílé | níilé | nilé
+  - Choices: nílé | lílé | ní ilé
   - Answer: nílé
 - Q3 (blank): tí + ó fuse into ___.
-  - Choices: tó | tí | tò
+  - Choices: tó | tí ó | ní
   - Answer: tó
 - Q4 (pick): Which two words make lọ́la?
   - Choices: ní + ọ̀la | ní + ọlà | ní + ilé
   - Answer: ní + ọ̀la
 - Q5 (pick): Which two words make tó?
-  - Choices: tí + ó | ti + o | tì + ó
+  - Choices: tí + ó | ní + ó | ní + ilé
   - Answer: tí + ó
 - Q6 (pick): What happens to the n of ní in lọ́la?
   - Choices: It becomes l | It stays n | It becomes a high tone
@@ -2794,13 +2794,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Adé ___ ó ra ìwé. (It was Adé who bought the book.)
-  - Choices: ni | ní | nì
+  - Choices: ni | kò | ń
   - Answer: ni
 - Q2 (blank): Akin ni ó ___. (It was Akin who went.)
-  - Choices: lọ | lo | lọ̀
+  - Choices: lọ | ra | gbé
   - Answer: lọ
 - Q3 (blank): Ìwé ni Adé ___. (It was a book that Adé bought.)
-  - Choices: rà | ra | rá
+  - Choices: rà | ra | lọ
   - Answer: rà
 - Q4 (pick): Which sentence puts the spotlight on Akin?
   - Choices: Akin ni ó lọ | Akin lọ | Ṣé Akin lọ
@@ -2824,13 +2824,13 @@ Common mistake:
 
 Questions:
 - Q1 (blank): ___ òjò bá rọ̀. (If it rains.)
-  - Choices: Bí | Bì | Bi
+  - Choices: Bí | Nítorí | Ṣé
   - Answer: Bí
 - Q2 (blank): Bí o ___ kàwé rẹ. (If you read your books.)
-  - Choices: bá | ba | bà
+  - Choices: bá | ti | ń
   - Answer: bá
 - Q3 (blank): ___ pé òjò rọ̀. (Because it rained.)
-  - Choices: Nítorí | Nitori | Nìtorí
+  - Choices: Nítorí | Bí | Ṣé
   - Answer: Nítorí
 - Q4 (pick): Which means "we will not go"?
   - Choices: A ò níí lọ | A ò lọ | A máa lọ
@@ -2854,19 +2854,19 @@ Common mistake:
 
 Questions:
 - Q1 (blank): Ọmọ tí a kò ___ (the untaught child)
-  - Choices: kọ́ | kọ | kọ̀
+  - Choices: kọ́ | tà | rí
   - Answer: kọ́
 - Q2 (blank): Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ ___.
-  - Choices: tà | ta | tá
+  - Choices: tà | kọ́ | gbé
   - Answer: tà
 - Q3 (blank): Òní l'a ___, ọba òkè l'ó rọ́la.
-  - Choices: rí | ri | rì
+  - Choices: rí | tà | kọ́
   - Answer: rí
 - Q4 (pick): What does Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà mean?
   - Choices: The child who is not taught will sell the house that is built | The child who is not taught will build a house | A house that is not built cannot be sold
   - Answer: The child who is not taught will sell the house that is built
 - Q5 (blank): Ọmọ tí a kò kọ́ ___ yóò gbé ilé tí a kọ́ tà. (The word that puts the spotlight on the child.)
-  - Choices: ni | ní | nì
+  - Choices: ni | tí | kò
   - Answer: ni
 - Q6 (order): The child who is not taught will sell the house that is built
   - Answer: Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà

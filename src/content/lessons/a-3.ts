@@ -74,9 +74,9 @@ export const a3: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "Ó mú ìwé ___. (He brought the book.)", answer: "wá", choices: ["wá", "wà", "wa"], wordId: "o-mu-iwe-wa" },
-    { type: "blank", prompt: "Ó gbé ìwé ___. (He took the book away.)", answer: "lọ", choices: ["lọ", "lọ̀", "lo"], wordId: "o-gbe-iwe-lo" },
-    { type: "blank", prompt: "Olú ___ mú ìwé wá ilé. (Olú did not bring a book home.)", answer: "kò", choices: ["kò", "ko", "kó"], wordId: "olu-mu-iwe-wa-ile" },
+    { type: "blank", prompt: "Ó mú ìwé ___. (He brought the book.)", answer: "wá", choices: ["wá", "lọ", "kò"], wordId: "o-mu-iwe-wa" },
+    { type: "blank", prompt: "Ó gbé ìwé ___. (He took the book away.)", answer: "lọ", choices: ["lọ", "wá", "jẹ"], wordId: "o-gbe-iwe-lo" },
+    { type: "blank", prompt: "Olú ___ mú ìwé wá ilé. (Olú did not bring a book home.)", answer: "kò", choices: ["kò", "ń", "ni"], wordId: "olu-mu-iwe-wa-ile" },
     { type: "pick", prompt: "Which means \"Olú took the knife to cut meat\"?", choices: ["Olú mú ọ̀bẹ gé ẹran", "Olú gé ọ̀bẹ mú ẹran", "Olú mú ẹran gé ọ̀bẹ"], answer: 0, wordId: "olu-mu-obe-ge-eran" },
     { type: "pick", prompt: "Where does kò go in a serial verb sentence?", choices: ["Before the first verb", "Between the two verbs", "At the end"], answer: 0, wordId: "olu-mu-iwe-wa-ile" },
     { type: "order", english: "He brought the book", words: ["wá", "ìwé", "Ó", "mú"], answer: ["Ó", "mú", "ìwé", "wá"] },

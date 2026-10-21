@@ -82,13 +82,13 @@ export const a2: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "jẹ (eat) → ___jẹ (eating)", answer: "jí", choices: ["jí", "jì", "ji"], wordId: "jije" },
-    { type: "blank", prompt: "kà (read) → ___ (reading)", answer: "kíkà", choices: ["kíkà", "kíka", "kikà"], wordId: "kika" },
+    { type: "blank", prompt: "jẹ (eat) → ___jẹ (eating)", answer: "jí", choices: ["jí", "jẹ", "lí"], wordId: "jije" },
+    { type: "blank", prompt: "kà (read) → ___ (reading)", answer: "kíkà", choices: ["kíkà", "kàkà", "kíkí"], wordId: "kika" },
     { type: "blank", prompt: "gbé (carry) → ___gbé (carrying)", answer: "gbí", choices: ["gbí", "bí", "gí"], wordId: "gbigbe" },
-    { type: "pick", prompt: "lọ (go) becomes which verbal noun?", choices: ["lílọ", "lilọ", "lílọ̀"], answer: 0, wordId: "lilo" },
+    { type: "pick", prompt: "lọ (go) becomes which verbal noun?", choices: ["lílọ", "lọlọ", "jíjẹ"], answer: 0, wordId: "lilo" },
     { type: "pick", prompt: "What tone does the added í always carry?", choices: ["High", "Low", "The same as the verb"], answer: 0, wordId: "kika" },
     { type: "order", english: "Studies (book reading)", words: ["kíkà", "Ìwé"], answer: ["Ìwé", "kíkà"] },
     { type: "order", english: "Going to school", words: ["lílọ", "Ilé-ìwé"], answer: ["Ilé-ìwé", "lílọ"] },
-    { type: "blank", prompt: "mu (drink) → ___ (drinking)", answer: "mímu", choices: ["mímu", "mìmu", "mimu"], wordId: "mimu" },
+    { type: "blank", prompt: "mu (drink) → ___ (drinking)", answer: "mímu", choices: ["mímu", "mu", "jíjẹ"], wordId: "mimu" },
   ],
 };

@@ -76,9 +76,9 @@ export const a4: Lesson = {
     },
   },
   questions: [
-    { type: "blank", prompt: "ọmọ ___ ó lọ (the child who went)", answer: "tí", choices: ["tí", "ti", "tì"], wordId: "omo-ti-o-lo" },
-    { type: "blank", prompt: "adìyẹ tí mo ___ (the chicken that I bought)", answer: "rà", choices: ["rà", "ra", "rá"], wordId: "adiye-ti-mo-ra" },
-    { type: "blank", prompt: "ọkùnrin tí ___ ra aṣọ (the man who bought the cloth)", answer: "ó", choices: ["ó", "o", "ọ"], wordId: "okunrin-ti-o-ra-aso" },
+    { type: "blank", prompt: "ọmọ ___ ó lọ (the child who went)", answer: "tí", choices: ["tí", "ni", "àti"], wordId: "omo-ti-o-lo" },
+    { type: "blank", prompt: "adìyẹ tí mo ___ (the chicken that I bought)", answer: "rà", choices: ["rà", "ra", "tà"], wordId: "adiye-ti-mo-ra" },
+    { type: "blank", prompt: "ọkùnrin tí ___ ra aṣọ (the man who bought the cloth)", answer: "ó", choices: ["ó", "mo", "a"], wordId: "okunrin-ti-o-ra-aso" },
     { type: "pick", prompt: "Which means \"the house that Bọ́lá lives in\"?", choices: ["ilé tí Bọ́lá ń gbé", "ilé Bọ́lá tí ń gbé", "ilé tí ń gbé Bọ́lá"], answer: 0, wordId: "ile-ti-bola-n-gbe" },
     { type: "pick", prompt: "In ọmọ tí ó lọ, why is ó there?", choices: ["The child is the one who went", "It means \"not\"", "It makes a question"], answer: 0, wordId: "omo-ti-o-lo" },
     { type: "order", english: "The child who went", words: ["lọ", "tí", "Ọmọ", "ó"], answer: ["Ọmọ", "tí", "ó", "lọ"] },
