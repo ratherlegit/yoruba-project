@@ -26,7 +26,7 @@ Sources consulted: Needs cross-check against a published Yoruba orthography guid
   - Doubt: Wiktionary gives mid-low. Confirm that "vehicle" covers both car and boat, as Wiktionary suggests.
 
 ### Greetings and your name (`gs-2`)
-Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 1 "Ìkíni", page 32: kú + àárọ̀ = káàárọ̀, kú + alẹ́ = káalẹ́; ẹ used to greet an older person, and káàárọ̀ o with no ẹ as the reply to a friend or younger sibling. The PDF uses a legacy font encoding for tone marks.; Wiktionary, "káàárọ̀" and "káalẹ́" (Yoruba sections): etymology kú + noun, and the usage note that ẹ comes first when speaking respectfully.; Wiktionary, "mi" and "rẹ" (Yoruba sections): my and your, placed after the noun.; The sentence Orúkọ mi ni Adé is built from the noun + mi pattern and ni. It was written for this lesson and not found written out in a consulted source. Needs a native speaker's check before verifying.
+Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 1, Lesson 1 "Ìkíni", page 32: kú + àárọ̀ = káàárọ̀, kú + alẹ́ = káalẹ́; ẹ used to greet an older person, and káàárọ̀ o with no ẹ as the reply to a friend or younger sibling. The PDF uses a legacy font encoding for tone marks.; Wiktionary, "káàárọ̀" and "káalẹ́" (Yoruba sections): etymology kú + noun, and the usage note that ẹ comes first when speaking respectfully.; Wiktionary, "mi" and "rẹ" (Yoruba sections): my and your, placed after the noun.; The sentence Orúkọ mi ni Bùkọ́lá is built from the noun + mi pattern and ni. It was written for this lesson and not found written out in a consulted source. Needs a native speaker's check before verifying.
 
 - `e-kaaro`: **ẹ káàárọ̀** (good morning (to an elder or a group))
   - Parts: ẹ + kú + àárọ̀
@@ -36,8 +36,8 @@ Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chap
   - Parts: ẹ + kú + alẹ́
   - Steps: ẹ kúalẹ́ > ẹ káalẹ́
   - Doubt: COERLL and Wiktionary both give káalẹ́. Confirm the mid tone on the second a, and whether a shorter form with the u dropped is also used.
-- `oruko-mi`: **Orúkọ mi ni Adé** (My name is Adé)
-  - Parts: Orúkọ + mi + ni + Adé
+- `oruko-mi`: **Orúkọ mi ni Bùkọ́lá** (My name is Bùkọ́lá)
+  - Parts: Orúkọ + mi + ni + Bùkọ́lá
   - Doubt: Written for this lesson from the noun + mi pattern. Confirm the tones of orúkọ and that ni is the natural linker here.
 - `ki-ni-oruko-re`: **Kí ni orúkọ rẹ** (What is your name?)
   - Parts: Kí ni + orúkọ + rẹ
@@ -2293,8 +2293,8 @@ Questions:
 #### Greetings and your name (`gs-2`)
 
 Common mistake:
-- Wrong: Mi orúkọ ni Adé
-- Right: Orúkọ mi ni Adé
+- Wrong: Mi orúkọ ni Bùkọ́lá
+- Right: Orúkọ mi ni Bùkọ́lá
 - Why: English puts "my" first, but Yoruba puts mi after the noun: orúkọ mi.
 
 Questions:
@@ -2304,7 +2304,7 @@ Questions:
 - Q2 (blank): kú + alẹ́ (evening) join in speech. Good evening (to an elder): Ẹ ___.
   - Choices: káalẹ́ | kúalẹ́ | kaalẹ́
   - Answer: káalẹ́
-- Q3 (blank): Orúkọ ___ ni Adé. (My name is Adé.)
+- Q3 (blank): Orúkọ ___ ni Bùkọ́lá. (My name is Bùkọ́lá.)
   - Choices: mi | rẹ | mí
   - Answer: mi
 - Q4 (pick): Where does mi go in orúkọ mi?
@@ -2316,8 +2316,8 @@ Questions:
 - Q6 (pick): Who is ẹ káàárọ̀ for?
   - Choices: An older person or a group | Only your own age mates | Only a baby
   - Answer: An older person or a group
-- Q7 (order): My name is Adé
-  - Answer: Orúkọ mi ni Adé
+- Q7 (order): My name is Bùkọ́lá
+  - Answer: Orúkọ mi ni Bùkọ́lá
 - Q8 (order): What is your name?
   - Answer: Kí ni orúkọ rẹ
 
