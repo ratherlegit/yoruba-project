@@ -11,9 +11,22 @@ export const gs4: Lesson = {
   primer: {
     rule: "Introduce your family with èyí ni (this is) and a noun followed by mi (my). Say what you like with mo fẹ́ràn, and what you have with mo ní.",
     formula: "èyí ni + noun + mi (this is my ...); mo fẹ́ràn + noun (I like ...); mo ní + noun + kan (I have one ...)",
+    tables: [
+      {
+        id: "family-words",
+        title: "Family words",
+        columns: [{ label: "Word", yo: true }, { label: "Means" }, { label: "With mi", yo: true }],
+        rows: [
+          ["ìyá", "mother", "ìyá mi"],
+          ["bàbá", "father", "bàbá mi"],
+          ["arákùnrin", "brother", "arákùnrin mi"],
+          ["arábìnrin", "sister", "arábìnrin mi"],
+        ],
+        note: "Each takes mi (my) after it, as orúkọ does: ìyá mi, my mother.",
+      },
+    ],
     rules: [
       { id: "pointing", title: "Pointing out someone", explanation: "Èyí ni points at a person or thing: Èyí ni ìyá mi, this is my mother." },
-      { id: "family-words", title: "Family words", explanation: "ìyá is mother, bàbá is father, arákùnrin is brother and arábìnrin is sister. Each takes mi after it, as orúkọ does: ìyá mi, bàbá mi." },
       { id: "like", title: "Saying what you like", explanation: "Mo fẹ́ràn means \"I like\". The thing you like comes right after: Mo fẹ́ràn orin, I like music." },
       { id: "have", title: "Saying what you have", explanation: "Mo ní means \"I have\". kan goes after the noun and means \"one\": Mo ní arákùnrin kan, I have one brother." },
     ],

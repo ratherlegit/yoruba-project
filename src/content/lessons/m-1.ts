@@ -14,6 +14,18 @@ export const m1: Lesson = {
   primer: {
     rule: "A fused form is two words that are so often said together that they are written as one word. Many start with ní (at, in) joined to a word for a place or a day.",
     formula: "ní + ilé → nílé (at home); ní + ọ̀la → lọ́la (tomorrow); tí + ó → tó",
+    tables: [
+      {
+        id: "fused-forms",
+        title: "Fused forms at a glance",
+        columns: [{ label: "Joined from", yo: true }, { label: "Written as", yo: true }, { label: "Means" }, { label: "What happens" }],
+        rows: [
+          ["ní + ilé", "nílé", "at home", "The two i sounds merge into one high í"],
+          ["ní + ọ̀la", "lọ́la", "tomorrow", "n becomes l, the i drops, and ọ takes the high tone"],
+          ["tí + ó", "tó", "who, that (with he or she)", "The i drops (the lesson author's reading)"],
+        ],
+      },
+    ],
     rules: [
       { id: "ni-i-merge", title: "ní before i", explanation: "When the next word starts with i, the two i sounds merge into one high í: ní + ilé = nílé, at home." },
       { id: "ni-to-l", title: "ní before other vowels (several changes at once)", explanation: "Before another vowel, n becomes l, the i of ní drops, and the next vowel takes the high tone: ní + ọ̀la = lọ́la, tomorrow. Several sound changes happen together. The one step shown stands for all of them. Wiktionary gives only the result." },

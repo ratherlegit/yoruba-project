@@ -13,10 +13,23 @@ export const a2: Lesson = {
   primer: {
     rule: "A verbal noun is a noun that names an action, like \"reading\" in English. Yoruba makes one by reduplication, which means copying part of a word: copy the verb's first consonant, add a high-tone í, then say the verb.",
     formula: "first consonant + í + verb: lọ → lílọ (going)",
+    tables: [
+      {
+        id: "verbal-nouns",
+        title: "From verb to verbal noun",
+        columns: [{ label: "Verb", yo: true }, { label: "Verb tone" }, { label: "Verbal noun", yo: true }, { label: "Means" }],
+        rows: [
+          ["lọ", "mid", "lílọ", "going"],
+          ["jẹ", "mid", "jíjẹ", "eating"],
+          ["kà", "low", "kíkà", "reading, counting"],
+          ["gbé", "high", "gbígbé", "carrying, taking"],
+          ["mu", "mid", "mímu", "drinking"],
+        ],
+        note: "The added í is always high, and the verb part keeps its own tone. gb is one sound, so the whole gb is copied: gbé → gbígbé.",
+      },
+    ],
     rules: [
       { id: "copy-ci", title: "Copy the consonant, add í", explanation: "Take the verb's first consonant and add í with a high tone in front of the verb: jẹ (eat) → jíjẹ (eating). Inkelas and Zoll describe this pattern, citing Kawu." },
-      { id: "keep-verb-tone", title: "The verb keeps its own tone", explanation: "The added í is always high, but the verb part does not change: kà (read, low) → kíkà; jẹ (eat, mid) → jíjẹ; gbé (carry, high) → gbígbé." },
-      { id: "gb-copy", title: "gb is copied whole", explanation: "gb is one sound, so the whole gb is copied: gbé → gbígbé." },
       { id: "noun-first", title: "In these examples the noun comes first", explanation: "COERLL puts the noun before the verbal noun in phrases like ìwé kíkà (book reading, studies) and ilé-ìwé lílọ (going to school). The examples here keep the noun first." },
     ],
     examples: [
