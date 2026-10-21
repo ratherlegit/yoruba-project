@@ -10,28 +10,8 @@
     "group": "grammar"
   },
   {
-    "key": "ṣọ́ra",
-    "text": "ṣọ́ra",
-    "group": "grammar"
-  },
-  {
     "key": "gbọ́",
     "text": "gbọ́",
-    "group": "grammar"
-  },
-  {
-    "key": "ẹja àti ọmọ",
-    "text": "ẹja àti ọmọ",
-    "group": "grammar"
-  },
-  {
-    "key": "mo gbọ́ ọmọ",
-    "text": "Mo gbọ́ ọmọ",
-    "group": "grammar"
-  },
-  {
-    "key": "ẹja ni",
-    "text": "Ẹja ni",
     "group": "grammar"
   },
   {
@@ -45,41 +25,6 @@
     "group": "grammar"
   },
   {
-    "key": "ọkọ́",
-    "text": "ọkọ́",
-    "group": "grammar"
-  },
-  {
-    "key": "ọ̀kọ̀",
-    "text": "ọ̀kọ̀",
-    "group": "grammar"
-  },
-  {
-    "key": "oko",
-    "text": "oko",
-    "group": "grammar"
-  },
-  {
-    "key": "ọkọ̀ mi",
-    "text": "Ọkọ̀ mi",
-    "group": "grammar"
-  },
-  {
-    "key": "ọkọ mi",
-    "text": "Ọkọ mi",
-    "group": "grammar"
-  },
-  {
-    "key": "oko mi",
-    "text": "Oko mi",
-    "group": "grammar"
-  },
-  {
-    "key": "àárọ̀",
-    "text": "àárọ̀",
-    "group": "grammar"
-  },
-  {
     "key": "ẹ káàárọ̀",
     "text": "ẹ káàárọ̀",
     "group": "grammar"
@@ -90,33 +35,53 @@
     "group": "grammar"
   },
   {
-    "key": "ẹ kúuṣẹ́",
-    "text": "ẹ kúuṣẹ́",
+    "key": "orúkọ mi ni adé",
+    "text": "Orúkọ mi ni Adé",
     "group": "grammar"
   },
   {
-    "key": "mo",
-    "text": "mo",
+    "key": "kí ni orúkọ rẹ",
+    "text": "Kí ni orúkọ rẹ",
     "group": "grammar"
   },
   {
-    "key": "wọ́n",
-    "text": "wọ́n",
+    "key": "mo wá láti nàìjíríà",
+    "text": "Mo wá láti Nàìjíríà",
     "group": "grammar"
   },
   {
-    "key": "a lọ",
-    "text": "A lọ",
+    "key": "ó wá láti amẹ́ríkà",
+    "text": "Ó wá láti Amẹ́ríkà",
     "group": "grammar"
   },
   {
-    "key": "mo lọ",
-    "text": "Mo lọ",
+    "key": "wọ́n wá láti èkó",
+    "text": "Wọ́n wá láti Èkó",
     "group": "grammar"
   },
   {
-    "key": "ó lọ",
-    "text": "Ó lọ",
+    "key": "níbo ni o ti wá",
+    "text": "Níbo ni o ti wá",
+    "group": "grammar"
+  },
+  {
+    "key": "èyí ni ìyá mi",
+    "text": "Èyí ni ìyá mi",
+    "group": "grammar"
+  },
+  {
+    "key": "mo ní arákùnrin kan",
+    "text": "Mo ní arákùnrin kan",
+    "group": "grammar"
+  },
+  {
+    "key": "mo fẹ́ràn orin",
+    "text": "Mo fẹ́ràn orin",
+    "group": "grammar"
+  },
+  {
+    "key": "mo fẹ́ràn oúnjẹ",
+    "text": "Mo fẹ́ràn oúnjẹ",
     "group": "grammar"
   },
   {
@@ -137,6 +102,11 @@
   {
     "key": "òun ni ọ̀rẹ́ mi",
     "text": "Òun ni ọ̀rẹ́ mi",
+    "group": "grammar"
+  },
+  {
+    "key": "òun jẹ́ olùkọ́",
+    "text": "Òun jẹ́ olùkọ́",
     "group": "grammar"
   },
   {
@@ -187,11 +157,6 @@
   {
     "key": "ṣé o sùn dáadáa",
     "text": "Ṣé o sùn dáadáa",
-    "group": "grammar"
-  },
-  {
-    "key": "kí ni orúkọ rẹ",
-    "text": "Kí ni orúkọ rẹ",
     "group": "grammar"
   },
   {
@@ -390,18 +355,8 @@
     "group": "grammar"
   },
   {
-    "key": "kà",
-    "text": "kà",
-    "group": "grammar"
-  },
-  {
     "key": "ilé-ìwé lílọ",
     "text": "Ilé-ìwé lílọ",
-    "group": "grammar"
-  },
-  {
-    "key": "nǹkan mímu",
-    "text": "Nǹkan mímu",
     "group": "grammar"
   },
   {
@@ -462,21 +417,6 @@
   {
     "key": "tó",
     "text": "tó",
-    "group": "grammar"
-  },
-  {
-    "key": "mo máa lọ lónìí",
-    "text": "Mo máa lọ lónìí",
-    "group": "grammar"
-  },
-  {
-    "key": "mo máa lọ lọ́la",
-    "text": "Mo máa lọ lọ́la",
-    "group": "grammar"
-  },
-  {
-    "key": "ọmọ tó lọ",
-    "text": "Ọmọ tó lọ",
     "group": "grammar"
   },
   {
@@ -557,6 +497,12 @@
   {
     "key": "ẹ káàsán",
     "text": "ẹ káàsán",
+    "group": "vocab-word",
+    "level": "getting-started"
+  },
+  {
+    "key": "ẹ kúuṣẹ́",
+    "text": "ẹ kúuṣẹ́",
     "group": "vocab-word",
     "level": "getting-started"
   },
@@ -1007,6 +953,12 @@
   {
     "key": "alẹ́",
     "text": "alẹ́",
+    "group": "vocab-word",
+    "level": "beginner"
+  },
+  {
+    "key": "àárọ̀",
+    "text": "àárọ̀",
     "group": "vocab-word",
     "level": "beginner"
   },
@@ -3756,6 +3708,11 @@
     "group": "sound-word"
   },
   {
+    "key": "ọkọ́",
+    "text": "ọkọ́",
+    "group": "sound-word"
+  },
+  {
     "key": "ìgbà",
     "text": "ìgbà",
     "group": "sound-word"
@@ -3778,6 +3735,11 @@
   {
     "key": "àpá",
     "text": "àpá",
+    "group": "sound-word"
+  },
+  {
+    "key": "oko",
+    "text": "oko",
     "group": "sound-word"
   },
   {
@@ -3913,6 +3875,11 @@
   {
     "key": "wọn",
     "text": "wọn",
+    "group": "sound-word"
+  },
+  {
+    "key": "wọ́n",
+    "text": "wọ́n",
     "group": "sound-word"
   },
   {

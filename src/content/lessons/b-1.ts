@@ -78,7 +78,7 @@ export const b1: Lesson = {
     { type: "pick", prompt: "Which sentence says what job someone has?", choices: ["Èyí ni ilé mi", "Mo jẹ́ olùkọ́", "Òun ni ọ̀rẹ́ mi"], answer: 1, wordId: "mo-je-oluko" },
     { type: "pick", prompt: "Which means \"We are friends\"?", choices: ["Àwa jẹ ọ̀rẹ́", "Àwa jẹ́ ọ̀rẹ́", "Àwa jẹ́ ọ̀rẹ"], answer: 1, wordId: "awa-je-ore" },
     { type: "order", english: "I am a teacher", words: ["olùkọ́", "Mo", "jẹ́"], answer: ["Mo", "jẹ́", "olùkọ́"] },
-    { type: "order", english: "This is my house", words: ["ilé", "ni", "mi", "Èyí"], answer: ["Èyí", "ni", "ilé", "mi"] },
+    { type: "order", english: "He is a teacher", words: ["olùkọ́", "jẹ́", "Òun"], answer: ["Òun", "jẹ́", "olùkọ́"] },
     { type: "order", english: "We are friends", words: ["ọ̀rẹ́", "jẹ́", "Àwa"], answer: ["Àwa", "jẹ́", "ọ̀rẹ́"] },
   ],
 };

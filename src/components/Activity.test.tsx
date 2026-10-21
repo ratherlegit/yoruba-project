@@ -7,7 +7,7 @@ import { Activity } from "./Activity";
 const questions: Question[] = [
   { type: "blank", prompt: "Fish is ___ja.", answer: "ẹ", choices: ["ẹ", "e", "i"] },
   { type: "pick", prompt: "Which is child?", choices: ["ọmọ", "ẹja"], answer: 0 },
-  { type: "order", english: "Fish and child", words: ["ọmọ", "àti", "ẹja"], answer: ["ẹja", "àti", "ọmọ"] },
+  { type: "order", english: "I come from Nigeria", words: ["láti", "wá", "Nàìjíríà", "Mo"], answer: ["Mo", "wá", "láti", "Nàìjíríà"] },
 ];
 
 describe("Activity", () => {
@@ -24,7 +24,7 @@ describe("Activity", () => {
     expect(screen.getByText(/Not quite/)).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Continue" }));
 
-    for (const w of ["ẹja", "àti", "ọmọ"]) {
+    for (const w of ["mo", "wá", "láti", "nàìjíríà"]) {
       await user.click(screen.getByRole("button", { name: w }));
     }
     await user.click(screen.getByRole("button", { name: "Check" }));
@@ -61,9 +61,9 @@ describe("Activity", () => {
     await user.click(screen.getByRole("button", { name: "ọmọ" }));
     expect(screen.getByRole("button", { name: "Listen to ọmọ" })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Continue" }));
-    for (const w of ["ẹja", "àti", "ọmọ"]) await user.click(screen.getByRole("button", { name: w }));
+    for (const w of ["mo", "wá", "láti", "nàìjíríà"]) await user.click(screen.getByRole("button", { name: w }));
     await user.click(screen.getByRole("button", { name: "Check" }));
-    expect(screen.getByRole("button", { name: "Listen to ẹja àti ọmọ" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Listen to Mo wá láti Nàìjíríà" })).toBeInTheDocument();
   });
 
   it("disables answering after an answer is given", async () => {
@@ -76,9 +76,9 @@ describe("Activity", () => {
   it("lets a learner remove a placed word in the order question", async () => {
     const user = userEvent.setup();
     render(<Activity questions={[questions[2]!]} onDone={() => {}} />);
-    await user.click(screen.getByRole("button", { name: "ọmọ" }));
-    await user.click(screen.getByRole("button", { name: "Remove ọmọ" }));
-    expect(screen.getAllByTestId("bank-word")).toHaveLength(3);
+    await user.click(screen.getByRole("button", { name: "wá" }));
+    await user.click(screen.getByRole("button", { name: "Remove wá" }));
+    expect(screen.getAllByTestId("bank-word")).toHaveLength(4);
   });
 
   it("explains a tone-only mistake", async () => {

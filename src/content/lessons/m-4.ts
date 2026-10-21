@@ -99,7 +99,7 @@ export const m4: Lesson = {
     { type: "blank", prompt: "Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ ___.", answer: "tà", choices: ["tà", "ta", "tá"], wordId: "owe-omo" },
     { type: "blank", prompt: "Òní l'a ___, ọba òkè l'ó rọ́la.", answer: "rí", choices: ["rí", "ri", "rì"], wordId: "oni-la-ri" },
     { type: "pick", prompt: "What does Ọmọ tí a kò kọ́ ni yóò gbé ilé tí a kọ́ tà mean?", choices: ["The child who is not taught will sell the house that is built", "The child who is not taught will build a house", "A house that is not built cannot be sold"], answer: 0, wordId: "owe-omo" },
-    { type: "pick", prompt: "kọ́ appears twice in the first proverb. Which two meanings does it carry?", choices: ["teach and build", "sell and buy", "go and come"], answer: 0, wordId: "ile-ti-a-ko" },
+    { type: "blank", prompt: "Ọmọ tí a kò kọ́ ___ yóò gbé ilé tí a kọ́ tà. (The word that puts the spotlight on the child.)", answer: "ni", choices: ["ni", "ní", "nì"], wordId: "owe-omo" },
     { type: "order", english: "The child who is not taught will sell the house that is built", words: ["ni yóò gbé", "ilé tí a kọ́ tà", "Ọmọ tí a kò kọ́"], answer: ["Ọmọ tí a kò kọ́", "ni yóò gbé", "ilé tí a kọ́ tà"] },
     { type: "order", english: "It is only today that we see; only the Most High sees tomorrow", words: ["l'ó rọ́la", "Òní l'a rí,", "ọba òkè"], answer: ["Òní l'a rí,", "ọba òkè", "l'ó rọ́la"] },
     { type: "order", english: "The child who is not taught", words: ["kọ́", "tí", "Ọmọ", "kò", "a"], answer: ["Ọmọ", "tí", "a", "kò", "kọ́"] },

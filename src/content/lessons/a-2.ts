@@ -86,9 +86,9 @@ export const a2: Lesson = {
     { type: "blank", prompt: "kà (read) → ___ (reading)", answer: "kíkà", choices: ["kíkà", "kíka", "kikà"], wordId: "kika" },
     { type: "blank", prompt: "gbé (carry) → ___gbé (carrying)", answer: "gbí", choices: ["gbí", "bí", "gí"], wordId: "gbigbe" },
     { type: "pick", prompt: "lọ (go) becomes which verbal noun?", choices: ["lílọ", "lilọ", "lílọ̀"], answer: 0, wordId: "lilo" },
-    { type: "pick", prompt: "Which verb does kíkà come from?", choices: ["kà", "kí", "kọ́"], answer: 0, wordId: "kika" },
+    { type: "pick", prompt: "What tone does the added í always carry?", choices: ["High", "Low", "The same as the verb"], answer: 0, wordId: "kika" },
     { type: "order", english: "Studies (book reading)", words: ["kíkà", "Ìwé"], answer: ["Ìwé", "kíkà"] },
     { type: "order", english: "Going to school", words: ["lílọ", "Ilé-ìwé"], answer: ["Ilé-ìwé", "lílọ"] },
-    { type: "order", english: "Drinks (things for drinking)", words: ["mímu", "Nǹkan"], answer: ["Nǹkan", "mímu"] },
+    { type: "blank", prompt: "mu (drink) → ___ (drinking)", answer: "mímu", choices: ["mímu", "mìmu", "mimu"], wordId: "mimu" },
   ],
 };

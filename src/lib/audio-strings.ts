@@ -9,7 +9,7 @@ import { audioKey, voiceKey } from "./audio";
 // Pick answers that are English sentences or glossed fragments, not Yoruba speech.
 const ENGLISH_WORDS = new Set([
   "the", "is", "who", "that", "will", "and", "before", "of", "it", "not", "thing", "food",
-  "which", "one", "was", "are", "for", "with", "he", "you", "we", "at", "end", "between",
+  "which", "one", "was", "are", "for", "with", "he", "you", "we", "at", "end", "between", "top", "older", "verb", "high", "pronoun",
 ]);
 
 export function isSpokenYoruba(text: string): boolean {
