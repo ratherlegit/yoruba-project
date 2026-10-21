@@ -27,7 +27,8 @@ export type WordBreakdown = {
   note?: string;
 };
 
-export type Rule = { id: string; title: string; explanation: string };
+// A string is one paragraph; an array renders as bullets, one point each.
+export type Rule = { id: string; title: string; explanation: string | string[] };
 
 export type BlankQuestion = { type: "blank"; prompt: string; answer: string; choices: string[]; wordId?: string };
 export type PickQuestion = { type: "pick"; prompt: string; choices: string[]; answer: number; wordId?: string };

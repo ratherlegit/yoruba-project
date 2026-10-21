@@ -9,15 +9,88 @@ export const gs2: Lesson = {
     "Wiktionary, \"káàárọ̀\" and \"káalẹ́\" (Yoruba sections): etymology kú + noun, and the usage note that ẹ comes first when speaking respectfully.",
     "Wiktionary, \"mi\" and \"rẹ\" (Yoruba sections): my and your, placed after the noun.",
     "The sentence Orúkọ mi ni Bùkọ́lá is built from the noun + mi pattern and ni. It was written for this lesson and not found written out in a consulted source. Needs a native speaker's check before verifying.",
+    "The extra greetings (káàsán, ẹ kú ìrọ̀lẹ́, ẹ kú àbọ̀, ẹ kú iṣẹ́, ẹ ṣé, ó dàárọ̀, Báwo ni, Mo wà dáadáa) are common Yoruba phrases written out for this lesson. Not checked against a consulted source here. Needs a native speaker's check before verifying.",
   ],
   primer: {
     rule: "Greet an older person or a group with ẹ and kú, which join the word after them. To say your name, put mi (my) after orúkọ (name), then ni and the name.",
     formula: "ẹ + kú + àárọ̀ becomes ẹ káàárọ̀; orúkọ mi ni + name",
+    tables: [
+      {
+        id: "greetings",
+        title: "Greetings for the day",
+        columns: [{ label: "When" }, { label: "Say", yo: true }],
+        rows: [
+          ["Morning", "Ẹ káàárọ̀"],
+          ["Afternoon", "Ẹ káàsán"],
+          ["Evening", "Ẹ káalẹ́"],
+          ["Late evening", "Ẹ kú ìrọ̀lẹ́"],
+          ["Night, bedtime", "Ó dàárọ̀"],
+        ],
+        note: "Drop ẹ with a friend or a younger person. Learn káàsán as it is, the way it sounds when you say kú ọ̀sán fast.",
+      },
+      {
+        id: "other-greetings",
+        title: "Greetings for the moment",
+        columns: [{ label: "When" }, { label: "Say", yo: true }],
+        rows: [
+          ["Someone is working", "Ẹ kú iṣẹ́"],
+          ["Someone returns", "Ẹ kú àbọ̀"],
+          ["Thank you", "Ẹ ṣé"],
+          ["How are you?", "Báwo ni?"],
+          ["I am well", "Mo wà dáadáa"],
+        ],
+        note: "kú means roughly \"well done with\". The word after it names what you are greeting: work (iṣẹ́), a return (àbọ̀).",
+      },
+      {
+        id: "name-words",
+        title: "Words for introducing yourself",
+        columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["name", "orúkọ"],
+          ["my", "mi"],
+          ["your", "rẹ"],
+          ["what", "kí ni"],
+          ["is", "ni"],
+        ],
+      },
+    ],
     rules: [
-      { id: "respect-e", title: "Start with ẹ for respect", explanation: "ẹ means \"you\" when you speak to an older person or to a group. Put it first when you greet them. An older person answering a friend or a younger sibling says káàárọ̀ o, without ẹ." },
-      { id: "u-to-a", title: "kú takes on an a", explanation: "In a greeting, kú runs into the next word. When that word starts with a, the u of kú becomes a too. The high tone of kú stays: kú àárọ̀ is said káàárọ̀." },
-      { id: "my-your", title: "mi and rẹ come after the noun", explanation: "mi means \"my\" and rẹ means \"your\". Both go after the noun: orúkọ mi is my name, orúkọ rẹ is your name." },
-      { id: "name-sentence", title: "Saying your name", explanation: "Orúkọ mi ni Bùkọ́lá means \"My name is Bùkọ́lá\". ni links \"my name\" to the name itself." },
+      {
+        id: "respect-e",
+        title: "Start with ẹ for respect",
+        explanation: [
+          "ẹ means \"you\" for an older person or a group.",
+          "Put it first when you greet them: Ẹ káàárọ̀.",
+          "With a friend or a younger sibling, leave ẹ out: Káàárọ̀ o.",
+        ],
+      },
+      {
+        id: "u-to-a",
+        title: "kú takes on an a",
+        explanation: [
+          "In a greeting, kú runs into the next word.",
+          "When that word starts with a, the u of kú becomes a too.",
+          "The high tone of kú stays: kú àárọ̀ is said káàárọ̀.",
+        ],
+      },
+      {
+        id: "my-your",
+        title: "mi and rẹ come after the noun",
+        explanation: [
+          "mi means \"my\" and rẹ means \"your\".",
+          "Both go after the noun.",
+          "Orúkọ mi is my name. Orúkọ rẹ is your name.",
+        ],
+      },
+      {
+        id: "name-sentence",
+        title: "Saying your name",
+        explanation: [
+          "Orúkọ mi ni Bùkọ́lá means \"My name is Bùkọ́lá\".",
+          "ni links \"my name\" to the name itself.",
+          "To ask, say Kí ni orúkọ rẹ? (what is your name?).",
+        ],
+      },
     ],
     examples: [
       {
@@ -80,10 +153,10 @@ export const gs2: Lesson = {
     { type: "blank", prompt: "Good morning (to an elder): Ẹ ___.", answer: "káàárọ̀", choices: ["káàárọ̀", "kú àárọ̀", "kúàárọ̀"], wordId: "e-kaaro" },
     { type: "blank", prompt: "kú + alẹ́ (evening) join in speech. Good evening (to an elder): Ẹ ___.", answer: "káalẹ́", choices: ["káalẹ́", "kúalẹ́", "kaalẹ́"], wordId: "e-kaale" },
     { type: "blank", prompt: "Orúkọ ___ ni Bùkọ́lá. (My name is Bùkọ́lá.)", answer: "mi", choices: ["mi", "rẹ", "wa"], wordId: "oruko-mi" },
-    { type: "pick", prompt: "Where does mi go in orúkọ mi?", choices: ["Right after the noun", "Before the noun", "At the end of the sentence"], answer: 0, wordId: "oruko-mi" },
+    { type: "blank", prompt: "___ ni orúkọ rẹ? (What is your name?)", answer: "Kí", choices: ["Kí", "Báwo", "Mo"], wordId: "ki-ni-oruko-re" },
+    { type: "blank", prompt: "Someone gives you a gift. You say: Ẹ ___. (Thank you.)", answer: "ṣé", choices: ["ṣé", "kú", "mi"] },
     { type: "pick", prompt: "kú àárọ̀ becomes káàárọ̀. What happens to the u of kú?", choices: ["It becomes a, matching the next vowel", "It is dropped", "It becomes i"], answer: 0, wordId: "e-kaaro" },
     { type: "pick", prompt: "Who is ẹ káàárọ̀ for?", choices: ["An older person or a group", "Only your own age mates", "Only a baby"], answer: 0, wordId: "e-kaaro" },
     { type: "order", english: "My name is Bùkọ́lá", words: ["ni", "mi", "Bùkọ́lá", "Orúkọ"], answer: ["Orúkọ", "mi", "ni", "Bùkọ́lá"] },
-    { type: "order", english: "What is your name?", words: ["orúkọ", "Kí", "rẹ", "ni"], answer: ["Kí", "ni", "orúkọ", "rẹ"] },
   ],
 };

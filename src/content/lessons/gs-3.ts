@@ -7,6 +7,7 @@ export const gs3: Lesson = {
   sources: [
     "Wiktionary, \"wá\" and \"láti\" (Yoruba sections): wá to come, láti from.",
     "The sentences Mo wá láti Nàìjíríà, Ó wá láti Amẹ́ríkà and Wọ́n wá láti Èkó, and the question Níbo ni o ti wá, were written for this lesson. Not found written out in a consulted source. Needs a native speaker's check before verifying.",
+    "The questions Orílẹ̀-èdè wo ni o ti wá, Ìlú wo ni o ti wá, Abúlé wo ni o ti wá and Ìpínlẹ̀ wo ni o ti wá, and the answers Orílẹ̀-èdè mi ni Nàìjíríà, Ìlú mi ni Ìbàdàn and Ìpínlẹ̀ mi ni Ọ̀yọ́, were written for this lesson from the noun + wo (which) and noun + mi + ni patterns. Not found written out in a consulted source. Needs a native speaker's check before verifying.",
   ],
   primer: {
     rule: "A pronoun stands in for a person, and Yoruba uses a short form right before the verb. To say where you come from, use a short pronoun, then wá láti, then the place.",
@@ -26,10 +27,100 @@ export const gs3: Lesson = {
         ],
         note: "Use the short form right before a verb. Use the long form when no verb follows, or to stress who did it.",
       },
+      {
+        id: "places",
+        title: "Places to say you come from",
+        columns: [{ label: "Place" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["Nigeria", "Nàìjíríà"],
+          ["Lagos", "Èkó"],
+          ["Ibadan", "Ìbàdàn"],
+          ["America", "Amẹ́ríkà"],
+          ["England", "Ilẹ̀ Gẹ̀ẹ́sì"],
+          ["Canada", "Kánádà"],
+          ["Ghana", "Gánà"],
+        ],
+        note: "Any of these can go after wá láti.",
+      },
+      {
+        id: "place-words",
+        title: "Kinds of place",
+        columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["country", "orílẹ̀-èdè"],
+          ["state", "ìpínlẹ̀"],
+          ["town, city", "ìlú"],
+          ["village", "abúlé"],
+          ["home", "ilé"],
+        ],
+      },
+      {
+        id: "ask-where",
+        title: "Ask where someone is from",
+        columns: [{ label: "You want to know" }, { label: "Ask", yo: true }],
+        rows: [
+          ["Where are you from?", "Níbo ni o ti wá?"],
+          ["Which country are you from?", "Orílẹ̀-èdè wo ni o ti wá?"],
+          ["Which state are you from?", "Ìpínlẹ̀ wo ni o ti wá?"],
+          ["Which town are you from?", "Ìlú wo ni o ti wá?"],
+          ["Which village are you from?", "Abúlé wo ni o ti wá?"],
+        ],
+        note: "wo means \"which\". It comes right after the kind of place.",
+      },
+      {
+        id: "answer-where",
+        title: "Answer",
+        columns: [{ label: "You say" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["I come from Ghana", "Mo wá láti Gánà"],
+          ["My country is Nigeria", "Orílẹ̀-èdè mi ni Nàìjíríà"],
+          ["My state is Oyo", "Ìpínlẹ̀ mi ni Ọ̀yọ́"],
+          ["My town is Ibadan", "Ìlú mi ni Ìbàdàn"],
+          ["My village is (name)", "Abúlé mi ni (name)"],
+        ],
+        note: "Same pattern as Orúkọ mi ni Bùkọ́lá: the kind of place, mi, ni, then the name.",
+      },
     ],
     rules: [
-      { id: "short-long", title: "Short before a verb, long on its own", explanation: "The short forms sit right before the verb: Mo wá, I come. Ó wá, he or she comes. Use the long form when no verb follows, as in Àwọn àti ẹ̀yin (they and you). It can also stress who did it." },
-      { id: "wa-lati", title: "wá láti: come from", explanation: "wá means \"come\" and láti means \"from\". Put the place last: Mo wá láti Nàìjíríà, I come from Nigeria." },
+      {
+        id: "short-long",
+        title: "Short before a verb, long on its own",
+        explanation: [
+          "Short forms sit right before the verb: Mo wá (I come), Ó wá (he or she comes).",
+          "Use the long form when no verb follows: Àwọn àti ẹ̀yin (they and you).",
+          "The long form can also stress who did it.",
+        ],
+      },
+      {
+        id: "wa-lati",
+        title: "wá láti: come from",
+        explanation: [
+          "wá means \"come\" and láti means \"from\".",
+          "Order: pronoun, wá láti, place.",
+          "Mo wá láti Nàìjíríà means \"I come from Nigeria\".",
+          "Swap in any place from the table above.",
+        ],
+      },
+      {
+        id: "which-place",
+        title: "Asking which place: wo",
+        explanation: [
+          "Put the kind of place first, then wo (which): Ìlú wo? means \"which town?\".",
+          "Add ni o ti wá to finish the question: Ìlú wo ni o ti wá?",
+          "Use ẹ instead of o when you ask an older person: Ìlú wo ni ẹ ti wá?",
+          "Níbo ni o ti wá? is the general \"where are you from?\".",
+        ],
+      },
+      {
+        id: "my-place",
+        title: "Answering with mi ni",
+        explanation: [
+          "Kind of place, then mi (my), then ni, then the name.",
+          "Ìlú mi ni Ìbàdàn: my town is Ibadan.",
+          "Ìpínlẹ̀ mi ni Ọ̀yọ́: my state is Oyo.",
+          "Or answer shortly with Mo wá láti plus the place.",
+        ],
+      },
     ],
     examples: [
       {
@@ -77,6 +168,29 @@ export const gs3: Lesson = {
         steps: [], confidence: "needs-review",
         note: "Learn this as a fixed phrase for now. ni and ti are taught properly later. Confirm the phrase and its tones.",
       },
+      {
+        id: "ilu-wo", surface: "Ìlú wo ni o ti wá", english: "Which town are you from?",
+        parts: [
+          { text: "Ìlú", gloss: "town, city", role: "noun" },
+          { text: "wo", gloss: "which", role: "question" },
+          { text: "ni", gloss: "(focus word)", role: "particle" },
+          { text: "o", gloss: "you", role: "pronoun" },
+          { text: "ti wá", gloss: "(learn as part of the phrase)", role: "verb" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Written for this lesson on the pattern of Níbo ni o ti wá. Confirm wo after the noun and the tones.",
+      },
+      {
+        id: "ilu-mi", surface: "Ìlú mi ni Ìbàdàn", english: "My town is Ibadan",
+        parts: [
+          { text: "Ìlú", gloss: "town, city", role: "noun" },
+          { text: "mi", gloss: "my", role: "possessive" },
+          { text: "ni", gloss: "is", role: "linker" },
+          { text: "Ìbàdàn", gloss: "Ibadan", role: "noun" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Same pattern as Orúkọ mi ni Bùkọ́lá in the previous lesson. Confirm the tones of Ìbàdàn and that this is the natural reply.",
+      },
     ],
     commonMistake: {
       wrong: "Wọ́n àti ẹ̀yin",
@@ -86,12 +200,12 @@ export const gs3: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "___ wá láti Nàìjíríà. (I come from Nigeria.)", answer: "Mo", choices: ["Mo", "Ó", "A"], wordId: "mo-wa" },
-    { type: "blank", prompt: "___ wá láti Èkó. (They come from Lagos.)", answer: "Wọ́n", choices: ["Wọ́n", "Mo", "Ó"], wordId: "won-wa" },
-    { type: "blank", prompt: "Mo wá ___ Nàìjíríà. (I come from Nigeria.)", answer: "láti", choices: ["láti", "àti", "ni"], wordId: "mo-wa" },
+    { type: "blank", prompt: "___ wo ni o ti wá? (Which town are you from?)", answer: "Ìlú", choices: ["Ìlú", "Ìpínlẹ̀", "Orílẹ̀-èdè"], wordId: "ilu-wo" },
+    { type: "blank", prompt: "Ìlú ___ ni Ìbàdàn. (My town is Ibadan.)", answer: "mi", choices: ["mi", "wo", "wá"], wordId: "ilu-mi" },
+    { type: "pick", prompt: "In Ìlú wo ni o ti wá?, where does wo (which) go?", choices: ["Right after the kind of place", "At the very end", "Before the kind of place"], answer: 0, wordId: "ilu-wo" },
     { type: "pick", prompt: "Which pronoun do you use to speak politely to one older person?", choices: ["o", "ó", "ẹ"], answer: 2 },
-    { type: "pick", prompt: "With no tone mark, which pronoun is said to one friend (\"you\")?", choices: ["ó", "o", "a"], answer: 1, wordId: "nibo-ni-o-wa" },
     { type: "pick", prompt: "In Àwọn àti ẹ̀yin (they and you), why are the long forms used?", choices: ["No verb follows, so a short form cannot be used", "Long forms are more polite", "Short forms are only for children"], answer: 0, wordId: "won-wa" },
-    { type: "order", english: "I come from Nigeria", words: ["láti", "wá", "Nàìjíríà", "Mo"], answer: ["Mo", "wá", "láti", "Nàìjíríà"] },
-    { type: "order", english: "They come from Lagos", words: ["Èkó", "láti", "Wọ́n", "wá"], answer: ["Wọ́n", "wá", "láti", "Èkó"] },
+    { type: "order", english: "Which town are you from?", words: ["wá", "Ìlú", "o", "ni", "wo", "ti"], answer: ["Ìlú", "wo", "ni", "o", "ti", "wá"] },
+    { type: "order", english: "My state is Oyo", words: ["ni", "Ọ̀yọ́", "mi", "Ìpínlẹ̀"], answer: ["Ìpínlẹ̀", "mi", "ni", "Ọ̀yọ́"] },
   ],
 };

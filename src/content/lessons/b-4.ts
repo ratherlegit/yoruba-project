@@ -12,6 +12,7 @@ export const b4: Lesson = {
     "Wiktionary, \"orukọ\" and \"rẹ\" (Yoruba sections): orúkọ name; the phrase kí ni orúkọ rẹ; rẹ (mid tone) your, rẹ̀ (low tone) his or her.",
     "Wikipedia, \"Yoruba language\", Grammar section: kí ni asks \"what?\" about things, ta ni asks \"who?\" about people.",
     "Not cross-checked against a print grammar.",
+    "The extra question words (ta ni, báwo, mélòó, nígbà wo), the answers Bẹ́ẹ̀ ni and Rárá, and the sentences Ṣé o fẹ́ omi and Ṣé o ń jẹun were added for this lesson. Not checked against a consulted source here. Needs a native speaker's check before verifying.",
   ],
   primer: {
     rule: "Put ṣé at the start of a statement to make a yes or no question. Start with kí ni to ask \"what\". A question word is a word that starts a question. An adverb is a word that tells how an action is done, such as dáadáa, well.",
@@ -30,11 +31,79 @@ export const b4: Lesson = {
         ],
         note: "One more pair, ti and tí, comes later in Intermediate 1 and Advanced 4.",
       },
+      {
+        id: "question-words",
+        title: "Question words",
+        columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "Asks about" }],
+        rows: [
+          ["what", "kí ni", "things"],
+          ["who", "ta ni", "people"],
+          ["where", "níbo", "places"],
+          ["how", "báwo", "how things are"],
+          ["how many", "mélòó", "a number"],
+          ["when", "nígbà wo", "time"],
+          ["do you...? (yes or no)", "ṣé", "a yes or no answer"],
+        ],
+        note: "ṣé starts a yes or no question. The others ask for a piece of information.",
+      },
+      {
+        id: "yes-no-asks",
+        title: "Yes or no questions and answers",
+        columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["Do you want water?", "Ṣé o fẹ́ omi?"],
+          ["Are you eating?", "Ṣé o ń jẹun?"],
+          ["Yes", "Bẹ́ẹ̀ ni"],
+          ["No", "Rárá"],
+          ["Yes, I want water", "Bẹ́ẹ̀ ni, mo fẹ́ omi"],
+          ["No, I do not want water", "Rárá, n kò fẹ́ omi"],
+        ],
+        note: "Bẹ́ẹ̀ ni is \"yes\", literally \"it is so\". Rárá is \"no\".",
+      },
+      {
+        id: "who-where",
+        title: "More questions you can already ask",
+        columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["Who is this?", "Ta ni èyí?"],
+          ["Where are you from?", "Níbo ni o ti wá?"],
+          ["What is your name?", "Kí ni orúkọ rẹ?"],
+          ["What do you like?", "Kí ni o fẹ́ràn?"],
+          ["What are you doing?", "Kí ni o ń ṣe?"],
+        ],
+        note: "Each one reuses a pattern from an earlier lesson.",
+      },
     ],
     rules: [
-      { id: "se-first", title: "ṣé comes first", explanation: "Take a statement such as O fẹ́ jẹun (you want to eat) and put ṣé in front: Ṣé o fẹ́ jẹun? (do you want to eat?). Nothing else moves. ṣé has a high mark; ṣe with no mark is the verb \"do\"." },
-      { id: "ki-ni-what", title: "kí ni asks what", explanation: "kí ni at the start asks \"what\": Kí ni o fẹ́? (what do you want?). It asks about things. For people, Yoruba uses a different word, ta ni (who)." },
-      { id: "re-your", title: "rẹ or rẹ̀", explanation: "You met rẹ (your) in Getting Started 2. Its look-alike rẹ̀ with a low mark is \"his\" or \"her\". Only the tone tells them apart." },
+      {
+        id: "se-first",
+        title: "ṣé comes first",
+        explanation: [
+          "Start with a statement such as O fẹ́ jẹun (you want to eat).",
+          "Put ṣé in front: Ṣé o fẹ́ jẹun? (do you want to eat?).",
+          "Nothing else moves.",
+          "ṣé has a high mark. ṣe with no mark is the verb \"do\".",
+          "Answer with Bẹ́ẹ̀ ni (yes) or Rárá (no).",
+        ],
+      },
+      {
+        id: "ki-ni-what",
+        title: "kí ni asks what",
+        explanation: [
+          "kí ni at the start asks \"what\": Kí ni o fẹ́? (what do you want?).",
+          "It asks about things.",
+          "For people, use ta ni (who): Ta ni èyí?",
+        ],
+      },
+      {
+        id: "re-your",
+        title: "rẹ or rẹ̀",
+        explanation: [
+          "rẹ (your) was in Getting Started 2.",
+          "Its look-alike rẹ̀ with a low mark is \"his\" or \"her\".",
+          "Only the tone tells them apart.",
+        ],
+      },
     ],
     examples: [
       {
@@ -70,6 +139,28 @@ export const b4: Lesson = {
         steps: [], confidence: "needs-review",
         note: "Taken from COERLL page 41. Confirm the gloss of ni in this question.",
       },
+      {
+        id: "se-o-fe-omi", surface: "Ṣé o fẹ́ omi", english: "Do you want water?",
+        parts: [
+          { text: "Ṣé", gloss: "yes or no question word", role: "question word" },
+          { text: "o", gloss: "you (one person)", role: "pronoun" },
+          { text: "fẹ́", gloss: "want", role: "verb" },
+          { text: "omi", gloss: "water", role: "noun" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Built on COERLL's Ṣé o fẹ́ jẹun. Confirm the tones.",
+      },
+      {
+        id: "se-o-n-jeun", surface: "Ṣé o ń jẹun", english: "Are you eating?",
+        parts: [
+          { text: "Ṣé", gloss: "yes or no question word", role: "question word" },
+          { text: "o", gloss: "you (one person)", role: "pronoun" },
+          { text: "ń", gloss: "is ...-ing (action going on)", role: "aspect marker" },
+          { text: "jẹun", gloss: "eat (a meal)", role: "verb" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Written for this lesson from ṣé plus Mo ń jẹun. Confirm the tones.",
+      },
     ],
     commonMistake: {
       wrong: "O fẹ́ jẹun ṣé?",
@@ -80,11 +171,11 @@ export const b4: Lesson = {
   questions: [
     { type: "blank", prompt: "___ o fẹ́ jẹun? (Do you want to eat?)", answer: "Ṣé", choices: ["Ṣé", "Kí ni", "Èyí ni"], wordId: "se-o-fe-jeun" },
     { type: "blank", prompt: "___ ni o fẹ́? (What do you want?)", answer: "Kí", choices: ["Kí", "Ṣé", "Níbo"], wordId: "ki-ni-o-fe" },
-    { type: "pick", prompt: "What does kí ni ask about?", choices: ["Things", "People", "Places"], answer: 0, wordId: "ki-ni-o-fe" },
+    { type: "blank", prompt: "___ ni èyí? (Who is this?)", answer: "Ta", choices: ["Ta", "Kí", "Ṣé"] },
+    { type: "blank", prompt: "___, mo fẹ́ omi. (Yes, I want water.)", answer: "Bẹ́ẹ̀ ni", choices: ["Bẹ́ẹ̀ ni", "Rárá", "Ṣé"], wordId: "se-o-fe-omi" },
     { type: "pick", prompt: "Which is the usual way to ask \"Do you want to eat?\"", choices: ["O fẹ́ jẹun ṣé?", "Ṣé o fẹ́ jẹun?", "O ṣé fẹ́ jẹun?"], answer: 1, wordId: "se-o-fe-jeun" },
     { type: "pick", prompt: "Which one is a yes or no question?", choices: ["Kí ni o fẹ́?", "Kí ni orúkọ rẹ?", "Ṣé o sùn dáadáa?"], answer: 2, wordId: "se-o-sun-daadaa" },
-    { type: "order", english: "Do you want to eat?", words: ["fẹ́", "jẹun", "Ṣé", "o"], answer: ["Ṣé", "o", "fẹ́", "jẹun"] },
-    { type: "order", english: "Did you sleep well?", words: ["dáadáa", "sùn", "Ṣé", "o"], answer: ["Ṣé", "o", "sùn", "dáadáa"] },
-    { type: "order", english: "What do you want?", words: ["fẹ́", "ni", "o", "Kí"], answer: ["Kí", "ni", "o", "fẹ́"] },
+    { type: "order", english: "Do you want water?", words: ["omi", "fẹ́", "Ṣé", "o"], answer: ["Ṣé", "o", "fẹ́", "omi"] },
+    { type: "order", english: "Are you eating?", words: ["jẹun", "o", "Ṣé", "ń"], answer: ["Ṣé", "o", "ń", "jẹun"] },
   ],
 };

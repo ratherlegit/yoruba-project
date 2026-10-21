@@ -9,6 +9,7 @@ export const a2: Lesson = {
     "Wiktionary, \"jijẹ\" (jíjẹ, eating, partial reduplication of jẹ), \"ka\" (kà, to read or count; derived term kíkà, reading), \"mu\" (mu, to drink; derived term mímu, drinking), \"wa\" (wà, to be; derived term wíwà, existence), \"gbe\" (gbé, to carry; example Gbígbé ni mo gbé e), \"lọ\" (lọ, to go, mid tone; lọ̀, to grind; lílọ̀, ground).",
     "COERLL, Yorùbá Yé Mi (University of Texas at Austin): ìwé kíkà (studies), Chapter 9 vocabulary, page 213; ilé-ìwé lílọ (going to school), Chapter 9, page 221; nǹkan mímu (drinks), Chapter 7, page 170; aṣọ wíwọ̀ (wearing clothes), Chapter 11 title, page 263. The PDF uses a legacy font encoding for tone marks.",
     "lílọ is taken from COERLL's ilé-ìwé lílọ; Wiktionary has no entry for it. Not cross-checked against a print grammar.",
+    "The extra verbal nouns rírìn, sísùn, wíwá, rírí, ṣíṣe, jíjó and kíkọ, and the phrase orin kíkọ, were built for this lesson from the same recipe. Not found in a consulted source. Needs a native speaker's check before verifying.",
   ],
   primer: {
     rule: "A verbal noun is a noun that names an action, like \"reading\" in English. Yoruba makes one by reduplication, which means copying part of a word: copy the verb's first consonant, add a high-tone í, then say the verb.",
@@ -27,10 +28,55 @@ export const a2: Lesson = {
         ],
         note: "The added í is always high, and the verb part keeps its own tone. gb is one sound, so the whole gb is copied: gbé → gbígbé.",
       },
+      {
+        id: "more-verbal-nouns",
+        title: "More verbs to turn into nouns",
+        columns: [{ label: "Verb" }, { label: "Yoruba", yo: true }, { label: "Verbal noun", yo: true }, { label: "Means" }],
+        rows: [
+          ["sleep", "sùn", "sísùn", "sleeping"],
+          ["walk", "rìn", "rírìn", "walking"],
+          ["come", "wá", "wíwá", "coming"],
+          ["see", "rí", "rírí", "seeing"],
+          ["do, make", "ṣe", "ṣíṣe", "doing, making"],
+          ["dance", "jó", "jíjó", "dancing"],
+          ["write", "kọ", "kíkọ", "writing"],
+        ],
+        note: "Same recipe each time: copy the first consonant, add a high í, then the verb with its own tone.",
+      },
+      {
+        id: "verbal-phrases",
+        title: "Noun + verbal noun phrases",
+        columns: [{ label: "Phrase" }, { label: "Yoruba", yo: true }, { label: "Means" }],
+        rows: [
+          ["studies", "ìwé kíkà", "book reading"],
+          ["going to school", "ilé-ìwé lílọ", "school going"],
+          ["drinks", "nǹkan mímu", "things for drinking"],
+          ["singing", "orin kíkọ", "song singing"],
+        ],
+        note: "The noun comes first, then the verbal noun.",
+      },
     ],
     rules: [
-      { id: "copy-ci", title: "Copy the consonant, add í", explanation: "Take the verb's first consonant and add í with a high tone in front of the verb: jẹ (eat) → jíjẹ (eating). Inkelas and Zoll describe this pattern, citing Kawu." },
-      { id: "noun-first", title: "In these examples the noun comes first", explanation: "COERLL puts the noun before the verbal noun in phrases like ìwé kíkà (book reading, studies) and ilé-ìwé lílọ (going to school). The examples here keep the noun first." },
+      {
+        id: "copy-ci",
+        title: "Copy the consonant, add í",
+        explanation: [
+          "Take the verb's first consonant.",
+          "Add a high-tone í after it, in front of the verb.",
+          "jẹ (eat) becomes jíjẹ (eating).",
+          "Inkelas and Zoll describe this pattern, citing Kawu.",
+        ],
+      },
+      {
+        id: "noun-first",
+        title: "In these examples the noun comes first",
+        explanation: [
+          "COERLL puts the noun before the verbal noun.",
+          "ìwé kíkà: book reading, or studies.",
+          "ilé-ìwé lílọ: going to school.",
+          "The examples here keep the noun first.",
+        ],
+      },
     ],
     examples: [
       {
@@ -87,6 +133,33 @@ export const a2: Lesson = {
         steps: [], confidence: "needs-review",
         note: "COERLL glosses ìwé kíkà as \"studies\" (page 213). Confirm the tones on ìwé.",
       },
+      {
+        id: "risin", surface: "rírìn", english: "walking",
+        parts: [
+          { text: "rí", gloss: "copied r + high-tone í", role: "prefix" },
+          { text: "rìn", gloss: "walk", role: "verb" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Built on the same recipe as jíjẹ. Not found written out in a consulted source. Confirm the tones.",
+      },
+      {
+        id: "sisun", surface: "sísùn", english: "sleeping",
+        parts: [
+          { text: "sí", gloss: "copied s + high-tone í", role: "prefix" },
+          { text: "sùn", gloss: "sleep", role: "verb" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Built on the same recipe as jíjẹ. Not found written out in a consulted source. Confirm the tones.",
+      },
+      {
+        id: "orin-kiko", surface: "orin kíkọ", english: "singing",
+        parts: [
+          { text: "orin", gloss: "song", role: "noun" },
+          { text: "kíkọ", gloss: "writing, singing", role: "verbal noun" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Built on ìwé kíkà. Confirm the phrase, and that kíkọ here comes from the verb kọ (sing a song, write).",
+      },
     ],
     commonMistake: {
       wrong: "kikà",
@@ -98,10 +171,10 @@ export const a2: Lesson = {
     { type: "blank", prompt: "jẹ (eat) → ___jẹ (eating)", answer: "jí", choices: ["jí", "jẹ", "lí"], wordId: "jije" },
     { type: "blank", prompt: "kà (read) → ___ (reading)", answer: "kíkà", choices: ["kíkà", "kàkà", "kíkí"], wordId: "kika" },
     { type: "blank", prompt: "gbé (carry) → ___gbé (carrying)", answer: "gbí", choices: ["gbí", "bí", "gí"], wordId: "gbigbe" },
+    { type: "blank", prompt: "rìn (walk) → ___ (walking)", answer: "rírìn", choices: ["rírìn", "rìnrìn", "ríí"], wordId: "risin" },
+    { type: "blank", prompt: "sùn (sleep) → ___ (sleeping)", answer: "sísùn", choices: ["sísùn", "sùnsùn", "sísí"], wordId: "sisun" },
     { type: "pick", prompt: "lọ (go) becomes which verbal noun?", choices: ["lílọ", "lọlọ", "jíjẹ"], answer: 0, wordId: "lilo" },
     { type: "pick", prompt: "What tone does the added í always carry?", choices: ["High", "Low", "The same as the verb"], answer: 0, wordId: "kika" },
-    { type: "order", english: "Studies (book reading)", words: ["kíkà", "Ìwé"], answer: ["Ìwé", "kíkà"] },
     { type: "order", english: "Going to school", words: ["lílọ", "Ilé-ìwé"], answer: ["Ilé-ìwé", "lílọ"] },
-    { type: "blank", prompt: "mu (drink) → ___ (drinking)", answer: "mímu", choices: ["mímu", "mu", "jíjẹ"], wordId: "mimu" },
   ],
 };

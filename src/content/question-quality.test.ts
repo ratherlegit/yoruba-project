@@ -66,7 +66,7 @@ function primerWords(lesson: (typeof flat)[number]): Set<string> {
     p.formula,
     p.commonMistake.wrong,
     p.commonMistake.right,
-    ...p.rules.map((r) => r.explanation),
+    ...p.rules.flatMap((r) => r.explanation),
     ...(p.tables ?? []).flatMap((t) => [...t.rows.flat(), t.note ?? ""]),
     ...p.examples.flatMap((e) => [e.surface, ...e.parts.map((x) => x.text)]),
   ].join(" ");

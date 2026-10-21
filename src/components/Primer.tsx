@@ -48,7 +48,9 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
           {primer.rules.map((r) => (
             <div key={r.id} className="card">
               <strong className="rule-title">{r.title}</strong>
-              <p style={{ margin: "0.25rem 0 0" }}>{r.explanation}</p>
+              {typeof r.explanation === "string"
+                ? <p style={{ margin: "0.25rem 0 0" }}>{r.explanation}</p>
+                : <ul className="rule-points">{r.explanation.map((pt) => <li key={pt}>{pt}</li>)}</ul>}
             </div>
           ))}
         </section>

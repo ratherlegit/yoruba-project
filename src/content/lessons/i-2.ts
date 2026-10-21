@@ -11,14 +11,75 @@ export const i2: Lesson = {
     "Wiktionary, \"ile\" (Yoruba section): ilé house; ilé ọba listed as palace. Wiktionary, \"ọba\": ọba king. Wiktionary, \"fila\": fìlà cap.",
     "Wiktionary, \"baba\" (Yoruba section): bàbá and baba both mean father; baálé (head of the household) is derived from baba + ilé.",
     "The tone of the lengthened vowel in COERLL's spellings varies from phrase to phrase and is not explained there, so this lesson shows no tone-change step. Not cross-checked against a print grammar.",
+    "The extra things (ìwé, aṣọ, bàtà, àpò, owó, ajá, ológbò), the possessives wa, yín and wọn in use, and the phrases ọkọ̀ wa and ilé bàbá Adé were added for this lesson. Not checked against a consulted source here. Needs a native speaker's check before verifying.",
   ],
   primer: {
     rule: "To show who owns something, put two nouns side by side: the thing owned first, the owner second. No extra word for \"of\" is needed.",
     formula: "thing owned + owner",
+    tables: [
+      {
+        id: "possessives",
+        title: "Pronouns after the noun",
+        columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "Use it", yo: true }],
+        rows: [
+          ["my", "mi", "ìwé mi"],
+          ["your (one person)", "rẹ", "aṣọ rẹ"],
+          ["his, her", "rẹ̀", "ọkọ̀ rẹ̀"],
+          ["our", "wa", "ọkọ̀ wa"],
+          ["your (a group, or an elder)", "yín", "ilé yín"],
+          ["their", "wọn", "ilé wọn"],
+        ],
+        note: "rẹ (your) and rẹ̀ (his, her) differ only by the low tone mark.",
+      },
+      {
+        id: "owned-things",
+        title: "Things people own",
+        columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["house", "ilé"],
+          ["cap", "fìlà"],
+          ["book", "ìwé"],
+          ["clothes", "aṣọ"],
+          ["vehicle", "ọkọ̀"],
+          ["shoes", "bàtà"],
+          ["bag", "àpò"],
+          ["money", "owó"],
+          ["dog", "ajá"],
+          ["cat", "ológbò"],
+        ],
+        note: "Any of these can come first, with the owner after.",
+      },
+    ],
     rules: [
-      { id: "owner-second", title: "Owner second", explanation: "The thing comes first and the owner comes after it: ilé ọba, the king's house. Swap the order and you change the meaning." },
-      { id: "pronoun-owner", title: "Pronouns as owners", explanation: "A possessive pronoun is a word like \"my\" or \"your\". In Yoruba it also comes after the noun: ilé mi, my house. The same order works in a chain: ilé bàbá mi, my father's house." },
-      { id: "long-vowel", title: "A longer vowel in speech", explanation: "When the owner starts with a consonant, the last vowel of the first noun is often said longer. COERLL writes it out (ìwéè mi, my book) but many writers do not. This course writes the shorter spelling." },
+      {
+        id: "owner-second",
+        title: "Owner second",
+        explanation: [
+          "The thing comes first, the owner second.",
+          "Ilé ọba means \"the king's house\".",
+          "Swap the order and you change the meaning.",
+          "Names work the same way: fìlà Àkàndé.",
+        ],
+      },
+      {
+        id: "pronoun-owner",
+        title: "Pronouns as owners",
+        explanation: [
+          "A possessive pronoun is a word like \"my\" or \"your\".",
+          "In Yoruba it also comes after the noun: ilé mi, my house.",
+          "It works in a chain: ilé bàbá mi, my father's house.",
+          "Use the table for our, their and the rest: ọkọ̀ wa, ilé wọn.",
+        ],
+      },
+      {
+        id: "long-vowel",
+        title: "A longer vowel in speech",
+        explanation: [
+          "When the owner starts with a consonant, the last vowel of the first noun is often said longer.",
+          "COERLL writes it out: ìwéè mi, my book.",
+          "Many writers do not. This course writes the shorter spelling.",
+        ],
+      },
     ],
     examples: [
       {
@@ -58,6 +119,25 @@ export const i2: Lesson = {
         steps: [], confidence: "needs-review",
         note: "Not written out in a source. COERLL writes bàbáà mi, with a lengthened vowel, in Orúkọ bàbáà mi. Confirm the spelling learners should use.",
       },
+      {
+        id: "oko-wa", surface: "ọkọ̀ wa", english: "our vehicle",
+        parts: [
+          { text: "ọkọ̀", gloss: "vehicle", role: "noun (thing owned)" },
+          { text: "wa", gloss: "our", role: "possessive pronoun" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Built on the COERLL possessive table. Confirm the tones.",
+      },
+      {
+        id: "ile-baba-adé", surface: "ilé bàbá Adé", english: "Adé's father's house",
+        parts: [
+          { text: "ilé", gloss: "house", role: "noun (thing owned)" },
+          { text: "bàbá", gloss: "father", role: "noun (owner)" },
+          { text: "Adé", gloss: "a name", role: "noun (owner)" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "A chain built on ilé bàbá mi. Confirm that a name can end the chain in this way.",
+      },
     ],
     commonMistake: {
       wrong: "bàbá ilé",
@@ -67,12 +147,12 @@ export const i2: Lesson = {
   },
   questions: [
     { type: "blank", prompt: "Ilé ___ (the king's house)", answer: "ọba", choices: ["ọba", "ilé", "bàbá"], wordId: "ile-oba" },
-    { type: "blank", prompt: "___ Àkàndé (Àkàndé's cap)", answer: "fìlà", choices: ["fìlà", "ilé", "ọba"], wordId: "fila-akande" },
+    { type: "blank", prompt: "Ọkọ̀ ___ (our vehicle)", answer: "wa", choices: ["wa", "mi", "wọn"], wordId: "oko-wa" },
+    { type: "blank", prompt: "Aṣọ ___ (your clothes, one person)", answer: "rẹ", choices: ["rẹ", "wa", "wọn"] },
     { type: "blank", prompt: "Ilé bàbá ___ (my father's house)", answer: "mi", choices: ["mi", "wa", "rẹ"], wordId: "ile-baba-mi" },
     { type: "pick", prompt: "Which means \"father's house\"?", choices: ["bàbá ilé", "ilé bàbá", "ilé ọba"], answer: 1, wordId: "ile-baba" },
     { type: "pick", prompt: "In a phrase like ilé ọba, where does the owner go?", choices: ["Right after the thing owned", "Before the thing owned", "At the end of the sentence"], answer: 0, wordId: "ile-oba" },
-    { type: "order", english: "The king's house", words: ["ọba", "Ilé"], answer: ["Ilé", "ọba"] },
-    { type: "order", english: "Àkàndé's cap", words: ["Àkàndé", "Fìlà"], answer: ["Fìlà", "Àkàndé"] },
-    { type: "order", english: "My father's house", words: ["mi", "bàbá", "Ilé"], answer: ["Ilé", "bàbá", "mi"] },
+    { type: "order", english: "My father's vehicle", words: ["mi", "bàbá", "Ọkọ̀"], answer: ["Ọkọ̀", "bàbá", "mi"] },
+    { type: "order", english: "Adé's father's house", words: ["Adé", "Ilé", "bàbá"], answer: ["Ilé", "bàbá", "Adé"] },
   ],
 };

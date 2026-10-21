@@ -65,6 +65,21 @@
     "group": "grammar"
   },
   {
+    "key": "ìlú wo ni o ti wá",
+    "text": "Ìlú wo ni o ti wá",
+    "group": "grammar"
+  },
+  {
+    "key": "ìlú mi ni ìbàdàn",
+    "text": "Ìlú mi ni Ìbàdàn",
+    "group": "grammar"
+  },
+  {
+    "key": "ìpínlẹ̀ mi ni ọ̀yọ́",
+    "text": "Ìpínlẹ̀ mi ni Ọ̀yọ́",
+    "group": "grammar"
+  },
+  {
     "key": "èyí ni ìyá mi",
     "text": "Èyí ni ìyá mi",
     "group": "grammar"
@@ -85,6 +100,21 @@
     "group": "grammar"
   },
   {
+    "key": "kí ni o fẹ́ràn",
+    "text": "Kí ni o fẹ́ràn",
+    "group": "grammar"
+  },
+  {
+    "key": "mo ní arábìnrin méjì",
+    "text": "Mo ní arábìnrin méjì",
+    "group": "grammar"
+  },
+  {
+    "key": "mo fẹ́ràn bọ́ọ̀lù àti oúnjẹ",
+    "text": "Mo fẹ́ràn bọ́ọ̀lù àti oúnjẹ",
+    "group": "grammar"
+  },
+  {
     "key": "mo jẹ́ olùkọ́",
     "text": "Mo jẹ́ olùkọ́",
     "group": "grammar"
@@ -100,8 +130,13 @@
     "group": "grammar"
   },
   {
-    "key": "òun jẹ́ olùkọ́",
-    "text": "Òun jẹ́ olùkọ́",
+    "key": "mo jẹ́ dókítà",
+    "text": "Mo jẹ́ dókítà",
+    "group": "grammar"
+  },
+  {
+    "key": "iṣẹ́ mi ni olùkọ́",
+    "text": "Iṣẹ́ mi ni olùkọ́",
     "group": "grammar"
   },
   {
@@ -125,6 +160,16 @@
     "group": "grammar"
   },
   {
+    "key": "n kò jẹ ẹja",
+    "text": "N kò jẹ ẹja",
+    "group": "grammar"
+  },
+  {
+    "key": "a ò mu omi",
+    "text": "A ò mu omi",
+    "group": "grammar"
+  },
+  {
     "key": "mo ń jẹun",
     "text": "Mo ń jẹun",
     "group": "grammar"
@@ -145,6 +190,16 @@
     "group": "grammar"
   },
   {
+    "key": "a ń kọrin",
+    "text": "A ń kọrin",
+    "group": "grammar"
+  },
+  {
+    "key": "kí ni o ń ṣe",
+    "text": "Kí ni o ń ṣe",
+    "group": "grammar"
+  },
+  {
     "key": "ṣé o fẹ́ jẹun",
     "text": "Ṣé o fẹ́ jẹun",
     "group": "grammar"
@@ -157,6 +212,16 @@
   {
     "key": "kí ni o fẹ́",
     "text": "Kí ni o fẹ́",
+    "group": "grammar"
+  },
+  {
+    "key": "ṣé o fẹ́ omi",
+    "text": "Ṣé o fẹ́ omi",
+    "group": "grammar"
+  },
+  {
+    "key": "ṣé o ń jẹun",
+    "text": "Ṣé o ń jẹun",
     "group": "grammar"
   },
   {
@@ -180,8 +245,18 @@
     "group": "grammar"
   },
   {
-    "key": "máa",
-    "text": "máa",
+    "key": "mo máa wá lọ́la",
+    "text": "Mo máa wá lọ́la",
+    "group": "grammar"
+  },
+  {
+    "key": "èmi yóò ra ìwé lónìí",
+    "text": "Èmi yóò ra ìwé lónìí",
+    "group": "grammar"
+  },
+  {
+    "key": "mo máa ń jẹun ní àárọ̀",
+    "text": "Mo máa ń jẹun ní àárọ̀",
     "group": "grammar"
   },
   {
@@ -202,6 +277,21 @@
   {
     "key": "ilé bàbá mi",
     "text": "ilé bàbá mi",
+    "group": "grammar"
+  },
+  {
+    "key": "ọkọ̀ wa",
+    "text": "ọkọ̀ wa",
+    "group": "grammar"
+  },
+  {
+    "key": "ilé bàbá adé",
+    "text": "ilé bàbá Adé",
+    "group": "grammar"
+  },
+  {
+    "key": "ọkọ̀ bàbá mi",
+    "text": "Ọkọ̀ bàbá mi",
     "group": "grammar"
   },
   {
@@ -230,23 +320,28 @@
     "group": "grammar"
   },
   {
+    "key": "olùgbọ́",
+    "text": "olùgbọ́",
+    "group": "grammar"
+  },
+  {
+    "key": "olówó",
+    "text": "olówó",
+    "group": "grammar"
+  },
+  {
     "key": "olù-",
     "text": "olù-",
     "group": "grammar"
   },
   {
-    "key": "olùkọ́ mi",
-    "text": "Olùkọ́ mi",
+    "key": "ilé olùkọ́ mi",
+    "text": "Ilé olùkọ́ mi",
     "group": "grammar"
   },
   {
-    "key": "onílé mi",
-    "text": "Onílé mi",
-    "group": "grammar"
-  },
-  {
-    "key": "ilé ẹlẹ́ja",
-    "text": "Ilé ẹlẹ́ja",
+    "key": "ọkọ̀ onílé mi",
+    "text": "Ọkọ̀ onílé mi",
     "group": "grammar"
   },
   {
@@ -267,6 +362,16 @@
   {
     "key": "àwọn ọmọ wọ̀nyí",
     "text": "àwọn ọmọ wọ̀nyí",
+    "group": "grammar"
+  },
+  {
+    "key": "ilé ńlá yẹn",
+    "text": "ilé ńlá yẹn",
+    "group": "grammar"
+  },
+  {
+    "key": "ìwé wo",
+    "text": "Ìwé wo",
     "group": "grammar"
   },
   {
@@ -295,23 +400,23 @@
     "group": "grammar"
   },
   {
-    "key": "ra ẹja",
-    "text": "ra ẹja",
+    "key": "rẹyin",
+    "text": "rẹyin",
     "group": "grammar"
   },
   {
-    "key": "mo rẹran",
-    "text": "Mo rẹran",
+    "key": "tẹyin",
+    "text": "tẹyin",
+    "group": "grammar"
+  },
+  {
+    "key": "n kò rẹyin",
+    "text": "N kò rẹyin",
     "group": "grammar"
   },
   {
     "key": "n kò rẹran",
     "text": "N kò rẹran",
-    "group": "grammar"
-  },
-  {
-    "key": "ó taṣu",
-    "text": "Ó taṣu",
     "group": "grammar"
   },
   {
@@ -345,6 +450,21 @@
     "group": "grammar"
   },
   {
+    "key": "rírìn",
+    "text": "rírìn",
+    "group": "grammar"
+  },
+  {
+    "key": "sísùn",
+    "text": "sísùn",
+    "group": "grammar"
+  },
+  {
+    "key": "orin kíkọ",
+    "text": "orin kíkọ",
+    "group": "grammar"
+  },
+  {
     "key": "ilé-ìwé lílọ",
     "text": "Ilé-ìwé lílọ",
     "group": "grammar"
@@ -370,6 +490,11 @@
     "group": "grammar"
   },
   {
+    "key": "mo mú omi wá ilé",
+    "text": "Mo mú omi wá ilé",
+    "group": "grammar"
+  },
+  {
     "key": "ọmọ tí ó lọ",
     "text": "ọmọ tí ó lọ",
     "group": "grammar"
@@ -387,6 +512,21 @@
   {
     "key": "ilé tí bọ́lá ń gbé",
     "text": "ilé tí Bọ́lá ń gbé",
+    "group": "grammar"
+  },
+  {
+    "key": "ìwé tí mo kà",
+    "text": "ìwé tí mo kà",
+    "group": "grammar"
+  },
+  {
+    "key": "oúnjẹ tí mo jẹ",
+    "text": "oúnjẹ tí mo jẹ",
+    "group": "grammar"
+  },
+  {
+    "key": "obìnrin tí ó wá",
+    "text": "obìnrin tí ó wá",
     "group": "grammar"
   },
   {
@@ -410,6 +550,16 @@
     "group": "grammar"
   },
   {
+    "key": "lọ́jà",
+    "text": "lọ́jà",
+    "group": "grammar"
+  },
+  {
+    "key": "lánàá",
+    "text": "lánàá",
+    "group": "grammar"
+  },
+  {
     "key": "adé ni ó ra ìwé",
     "text": "Adé ni ó ra ìwé",
     "group": "grammar"
@@ -430,6 +580,16 @@
     "group": "grammar"
   },
   {
+    "key": "ta ni ó lọ",
+    "text": "Ta ni ó lọ",
+    "group": "grammar"
+  },
+  {
+    "key": "kí ni adé rà",
+    "text": "Kí ni Adé rà",
+    "group": "grammar"
+  },
+  {
     "key": "bí òjò bá rọ̀",
     "text": "Bí òjò bá rọ̀",
     "group": "grammar"
@@ -447,6 +607,11 @@
   {
     "key": "nítorí pé òjò rọ̀",
     "text": "Nítorí pé òjò rọ̀",
+    "group": "grammar"
+  },
+  {
+    "key": "mo fẹ́ lọ ṣùgbọ́n òjò ń rọ̀",
+    "text": "Mo fẹ́ lọ, ṣùgbọ́n òjò ń rọ̀",
     "group": "grammar"
   },
   {
@@ -480,8 +645,8 @@
     "group": "grammar"
   },
   {
-    "key": "òní l'a rí ọba òkè l'ó rọ́la",
-    "text": "Òní l'a rí, ọba òkè l'ó rọ́la",
+    "key": "bí iná bá jó lóko màjàlà á fò wá sílé",
+    "text": "Bí iná bá jó lóko, màjàlà á fò wá sílé",
     "group": "grammar"
   },
   {
@@ -1327,12 +1492,6 @@
   {
     "key": "báǹkì",
     "text": "báǹkì",
-    "group": "vocab-word",
-    "level": "advanced"
-  },
-  {
-    "key": "olówó",
-    "text": "olówó",
     "group": "vocab-word",
     "level": "advanced"
   },

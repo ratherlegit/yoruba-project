@@ -105,6 +105,8 @@ a.card:hover { transform: translateY(-3px); border-color: var(--gold); box-shado
 .muted { color: var(--text-muted); }
 .primer-rule { margin: 0 0 0.9rem; font-size: 1.15rem; line-height: 1.6; font-weight: 400; }
 .primer-formula { margin: 0; padding: 0.6rem 0.8rem; border-left: 4px solid var(--gold); border-radius: 0.4rem; background: color-mix(in srgb, var(--gold) 14%, transparent); font-weight: 600; }
+.rule-points { margin: 0.35rem 0 0; padding-left: 1.2rem; list-style: disc; }
+.rule-points li + li { margin-top: 0.3rem; }
 .rule-title { display: block; color: var(--gold-text); font-weight: 700; }
 .yo { font-size: 1.25rem; line-height: 1.9; overflow-wrap: anywhere; }
 

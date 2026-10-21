@@ -8,6 +8,7 @@ export const gs1: Lesson = {
     "Needs cross-check against a published Yoruba orthography guide before verifying the letter sounds.",
     "Wiktionary, \"ọkọ\" (Yoruba section): ọkọ husband, ọkọ̀ vehicle.",
     "Wikipedia, \"Yoruba language\", Phonology section: acute for high, grave for low, mid unmarked.",
+    "The read-aloud words ẹ̀gbọ́n, iṣẹ́, ṣíbí, omi, ilé, bàbá and ìyá were added for practice. Their tone marks are standard spellings but were not checked against a consulted source here. Needs a native speaker's check before verifying.",
   ],
   primer: {
     rule: "Yoruba spells most sounds with one letter. Three letters carry a dot underneath, and the pitch of each syllable is written with a tone mark. The Sound Bank has more practice.",
@@ -36,8 +37,56 @@ export const gs1: Lesson = {
         ],
         note: "Standard spelling leaves mid tone unmarked on vowels.",
       },
+      {
+        id: "read-aloud",
+        title: "Words to read aloud",
+        columns: [{ label: "Word", yo: true }, { label: "Means" }, { label: "Look for" }],
+        rows: [
+          ["ọmọ", "child", "ọ, twice"],
+          ["ẹja", "fish", "ẹ"],
+          ["ọkọ", "husband", "ọ, no tone marks"],
+          ["ọkọ̀", "vehicle", "same letters, low tone at the end"],
+          ["gbọ́", "hear", "gb and a high tone"],
+          ["ẹ̀gbọ́n", "older sibling", "ẹ, gb and ọ together"],
+          ["iṣẹ́", "work", "ṣ and ẹ"],
+          ["ṣíbí", "spoon", "ṣ and two high tones"],
+          ["omi", "water", "plain o, all mid"],
+          ["ilé", "house", "mid then high"],
+          ["bàbá", "father", "low then high"],
+          ["ìyá", "mother", "low then high"],
+        ],
+        note: "Say each one out loud, then tap the speaker to compare.",
+      },
     ],
-    rules: [],
+    rules: [
+      {
+        id: "dotted-vowels",
+        title: "Dots change the vowel",
+        explanation: [
+          "ẹ is the open e, like the e in \"bed\". Plain e is closed.",
+          "ọ is the open o, like \"aw\" in \"law\". Plain o is closed.",
+          "A dotted letter is a different sound, so ọmọ and omo are not the same word.",
+        ],
+      },
+      {
+        id: "consonants",
+        title: "ṣ and gb",
+        explanation: [
+          "ṣ is the \"sh\" sound. Plain s is the s in \"sun\".",
+          "gb is one sound, not g then b.",
+          "Treat gb as a single letter when you count sounds.",
+        ],
+      },
+      {
+        id: "tone-marks",
+        title: "Tone marks show pitch",
+        explanation: [
+          "Acute (ó) means high. Grave (ò) means low.",
+          "No mark means mid, level in the middle.",
+          "Every syllable has a tone, and the tone can change the word: ọkọ is husband, ọkọ̀ is vehicle.",
+        ],
+      },
+    ],
     examples: [
       {
         id: "omo", surface: "ọmọ", english: "child",

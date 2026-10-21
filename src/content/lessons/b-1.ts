@@ -11,14 +11,75 @@ export const b1: Lesson = {
     "Wiktionary, \"ni\" (Yoruba section): ni, mid tone, to be (identification); usage note that ni cannot be used with regular subject pronouns such as mo or ó, with the example Òun ni ọ̀rẹ́ mi (he is my friend). ní, high tone, is a different word (to have; at).",
     "Wiktionary, \"olukọ\" (Yoruba section): olùkọ́ teacher, with a quoted sentence ẹ jẹ́ olùkọ́ from Schleicher, Jẹ́ K'Á Sọ Yorùbá (Yale University Press, 1993), page 257.",
     "Wiktionary, \"eyi\", \"ile\", \"ọrẹ\", \"mi\" (Yoruba sections): èyí this, ilé house, ọ̀rẹ́ friend, mi my.",
+    "The extra jobs (dókítà, nọ́ọ̀sì, àgbẹ̀, awakọ̀, oníṣòwò, akọrin, alásè), Kí ni iṣẹ́ rẹ and Iṣẹ́ mi ni olùkọ́ were added for this lesson. Not checked against a consulted source here. Needs a native speaker's check before verifying.",
   ],
   primer: {
     rule: "Yoruba has two common words for \"to be\". jẹ́ says what someone is, such as a job. ni points out or names someone or something. In the formula, the subject is who or what the sentence is about.",
     formula: "subject + jẹ́ + noun (what someone is); èyí or a long pronoun + ni + noun (pointing out)",
+    tables: [
+      {
+        id: "jobs",
+        title: "Jobs and roles",
+        columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["teacher", "olùkọ́"],
+          ["student", "akẹ́kọ̀ọ́"],
+          ["doctor", "dókítà"],
+          ["nurse", "nọ́ọ̀sì"],
+          ["farmer", "àgbẹ̀"],
+          ["driver", "awakọ̀"],
+          ["trader", "oníṣòwò"],
+          ["singer", "akọrin"],
+          ["cook", "alásè"],
+          ["friend", "ọ̀rẹ́"],
+        ],
+        note: "Put any of these after Mo jẹ́: Mo jẹ́ dókítà, I am a doctor.",
+      },
+      {
+        id: "job-question",
+        title: "Ask and answer about a job",
+        columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        rows: [
+          ["What is your job?", "Kí ni iṣẹ́ rẹ?"],
+          ["My job is teacher", "Iṣẹ́ mi ni olùkọ́"],
+          ["I am a teacher", "Mo jẹ́ olùkọ́"],
+          ["We are friends", "Àwa jẹ́ ọ̀rẹ́"],
+          ["He is my friend", "Òun ni ọ̀rẹ́ mi"],
+        ],
+        note: "iṣẹ́ (work) is from Getting Started 1. Iṣẹ́ mi ni uses the same pattern as Orúkọ mi ni.",
+      },
+    ],
     rules: [
-      { id: "je-what", title: "jẹ́ says what you are", explanation: "Use jẹ́ for a job or a role: Mo jẹ́ olùkọ́, I am a teacher. jẹ́ has a high mark. Without it, jẹ means \"eat\"." },
-      { id: "ni-identify", title: "ni points it out", explanation: "Use ni to point out or name: Èyí ni ìyá mi, this is my mother (you met this in Getting Started 4). Òun ni ọ̀rẹ́ mi, he is my friend. ni has no mark (mid tone). ní with a high mark is a different word (to have)." },
-      { id: "ni-long-form", title: "ni takes the long pronoun", explanation: "ni does not follow the short pronouns such as mo or ó. Use a long form instead: Òun ni ọ̀rẹ́ mi. The long forms (èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn) are in Getting Started 3." },
+      {
+        id: "je-what",
+        title: "jẹ́ says what you are",
+        explanation: [
+          "Use jẹ́ for a job or a role.",
+          "Mo jẹ́ olùkọ́ means \"I am a teacher\".",
+          "jẹ́ has a high mark. Without it, jẹ means \"eat\".",
+          "Swap in any job from the table.",
+        ],
+      },
+      {
+        id: "ni-identify",
+        title: "ni points it out",
+        explanation: [
+          "Use ni to point out or name someone.",
+          "Èyí ni ìyá mi: this is my mother (Getting Started 4).",
+          "Òun ni ọ̀rẹ́ mi: he is my friend.",
+          "ni has no mark (mid tone). ní with a high mark is a different word, \"to have\".",
+          "Iṣẹ́ mi ni olùkọ́ names your job: my job is teacher.",
+        ],
+      },
+      {
+        id: "ni-long-form",
+        title: "ni takes the long pronoun",
+        explanation: [
+          "ni does not follow short pronouns such as mo or ó.",
+          "Use a long form instead: Òun ni ọ̀rẹ́ mi.",
+          "The long forms are èmi, ìwọ, òun, àwa, ẹ̀yin, àwọn (Getting Started 3).",
+        ],
+      },
     ],
     examples: [
       {
@@ -52,6 +113,27 @@ export const b1: Lesson = {
         steps: [], confidence: "needs-review",
         note: "Taken from the Wiktionary usage note on ni. COERLL writes a longer vowel before mi in some phrases (for example olùkọ́ọ̀ mi); this lesson writes the plain form. Confirm.",
       },
+      {
+        id: "mo-je-dokita", surface: "Mo jẹ́ dókítà", english: "I am a doctor",
+        parts: [
+          { text: "Mo", gloss: "I (short form)", role: "pronoun" },
+          { text: "jẹ́", gloss: "is, am, are (what someone is)", role: "verb" },
+          { text: "dókítà", gloss: "doctor", role: "noun" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Same pattern as Mo jẹ́ olùkọ́. Confirm the tones of dókítà.",
+      },
+      {
+        id: "ise-mi-ni", surface: "Iṣẹ́ mi ni olùkọ́", english: "My job is teacher",
+        parts: [
+          { text: "Iṣẹ́", gloss: "job, work", role: "noun" },
+          { text: "mi", gloss: "my", role: "possessive" },
+          { text: "ni", gloss: "is", role: "linker" },
+          { text: "olùkọ́", gloss: "teacher", role: "noun" },
+        ],
+        steps: [], confidence: "needs-review",
+        note: "Written for this lesson on the pattern of Orúkọ mi ni Bùkọ́lá. Confirm this is the natural reply to Kí ni iṣẹ́ rẹ.",
+      },
     ],
     commonMistake: {
       wrong: "Ó ni olùkọ́",
@@ -63,10 +145,10 @@ export const b1: Lesson = {
     { type: "blank", prompt: "Mo ___ olùkọ́. (I am a teacher.)", answer: "jẹ́", choices: ["jẹ́", "ni", "àti"], wordId: "mo-je-oluko" },
     { type: "pick", prompt: "Why is Ó ni olùkọ́ wrong?", choices: ["ni does not follow a short pronoun like ó", "ó is not a pronoun", "olùkọ́ cannot follow ni"], answer: 0, wordId: "mo-je-oluko" },
     { type: "blank", prompt: "___ ni ọ̀rẹ́ mi. (He is my friend.)", answer: "Òun", choices: ["Òun", "Ó", "Èmi"], wordId: "oun-ni-ore-mi" },
-    { type: "pick", prompt: "Which sentence says what job someone has?", choices: ["Èyí ni ilé mi", "Mo jẹ́ olùkọ́", "Òun ni ọ̀rẹ́ mi"], answer: 1, wordId: "mo-je-oluko" },
-    { type: "pick", prompt: "Which means \"We are friends\"?", choices: ["Jẹ́ àwa ọ̀rẹ́", "Àwa jẹ́ ọ̀rẹ́", "Ọ̀rẹ́ àwa jẹ́"], answer: 1, wordId: "awa-je-ore" },
-    { type: "order", english: "I am a teacher", words: ["olùkọ́", "Mo", "jẹ́"], answer: ["Mo", "jẹ́", "olùkọ́"] },
-    { type: "order", english: "He is a teacher", words: ["olùkọ́", "jẹ́", "Òun"], answer: ["Òun", "jẹ́", "olùkọ́"] },
+    { type: "blank", prompt: "Mo jẹ́ ___. (I am a doctor.)", answer: "dókítà", choices: ["dókítà", "nọ́ọ̀sì", "àgbẹ̀"], wordId: "mo-je-dokita" },
+    { type: "blank", prompt: "Iṣẹ́ mi ___ olùkọ́. (My job is teacher.)", answer: "ni", choices: ["ni", "jẹ́", "láti"], wordId: "ise-mi-ni" },
+    { type: "order", english: "I am a doctor", words: ["dókítà", "Mo", "jẹ́"], answer: ["Mo", "jẹ́", "dókítà"] },
+    { type: "order", english: "My job is teacher", words: ["ni", "olùkọ́", "mi", "Iṣẹ́"], answer: ["Iṣẹ́", "mi", "ni", "olùkọ́"] },
     { type: "order", english: "We are friends", words: ["ọ̀rẹ́", "jẹ́", "Àwa"], answer: ["Àwa", "jẹ́", "ọ̀rẹ́"] },
   ],
 };
