@@ -12,18 +12,19 @@ export const gs1: Lesson = {
   ],
   primer: {
     rule: "Yoruba spells most sounds with one letter. Three letters carry a dot underneath, and the pitch of each syllable is written with a tone mark. The Sound Bank has more practice.",
-    formula: "ẹ and ọ are open vowels; ṣ is \"sh\"; gb is one sound; ó = high tone (mark slants up); o = mid tone (no mark); ò = low tone (mark slants down)",
+    formula: "ó = high tone; o = mid tone (no mark); ò = low tone",
     tables: [
       {
         id: "letters",
         title: "Letters with a dot, and gb",
         columns: [{ label: "Letter", yo: true }, { label: "How it sounds" }],
         rows: [
-          ["ẹ", "Like the e in \"bed\". Plain e is the closed sound"],
-          ["ọ", "Like the \"aw\" in \"law\". Plain o is the closed sound"],
-          ["ṣ", "The \"sh\" sound. Plain s is the s in \"sun\""],
+          ["ẹ", "Open e, like the e in \"bed\""],
+          ["ọ", "Open o, like the \"aw\" in \"law\""],
+          ["ṣ", "The \"sh\" sound"],
           ["gb", "One sound, made by closing both lips and the back of the throat at once. Treat it as a single letter"],
         ],
+        note: "Without the dot, e and o are the closed sounds and s is the s in \"sun\". A dotted letter is a different sound, so ọmọ and omo are not the same word.",
       },
       {
         id: "tones",
@@ -59,29 +60,9 @@ export const gs1: Lesson = {
     ],
     rules: [
       {
-        id: "dotted-vowels",
-        title: "Dots change the vowel",
-        explanation: [
-          "ẹ is the open e, like the e in \"bed\". Plain e is closed.",
-          "ọ is the open o, like \"aw\" in \"law\". Plain o is closed.",
-          "A dotted letter is a different sound, so ọmọ and omo are not the same word.",
-        ],
-      },
-      {
-        id: "consonants",
-        title: "ṣ and gb",
-        explanation: [
-          "ṣ is the \"sh\" sound. Plain s is the s in \"sun\".",
-          "gb is one sound, not g then b.",
-          "Treat gb as a single letter when you count sounds.",
-        ],
-      },
-      {
         id: "tone-marks",
         title: "Tone marks show pitch",
         explanation: [
-          "Acute (ó) means high. Grave (ò) means low.",
-          "No mark means mid, level in the middle.",
           "Every syllable has a tone, and the tone can change the word: ọkọ is husband, ọkọ̀ is vehicle.",
         ],
       },
