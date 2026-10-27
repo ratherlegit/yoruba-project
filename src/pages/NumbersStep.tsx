@@ -48,7 +48,7 @@ export function NumbersStep() {
             <tr>
               <th scope="col">Number</th>
               <th scope="col">Yoruba</th>
-              <th scope="col">{first ? "After a noun" : "How it is built"}</th>
+              <th scope="col">{first ? "After a noun" : "Where it comes from"}</th>
               {first && <th scope="col">Example after a noun</th>}
               {first && <th scope="col">Example on its own</th>}
             </tr>
@@ -61,7 +61,7 @@ export function NumbersStep() {
                   <span className="with-audio"><span className="yo">{n.yoruba}</span><AudioButton text={n.yoruba} /></span>
                   {n.answers.length > 1 && <span className="muted"> also {n.answers.slice(1).join(", ")}</span>}
                 </td>
-                <td data-label={first ? "After a noun" : "How it is built"}>
+                <td data-label={first ? "After a noun" : "Where it comes from"}>
                   {first ? (
                     <span className="with-audio"><span className="yo">{n.after.join(", ")}</span>{n.after[0] && <AudioButton text={n.after[0]} />}</span>
                   ) : n.build ? (

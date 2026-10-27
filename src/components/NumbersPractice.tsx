@@ -136,7 +136,7 @@ export function NumbersPractice({ stepId }: { stepId: string }) {
           {q.answers.length > 1 && q.kind === "to-yoruba" && (
             <p style={{ margin: 0 }}><span className="muted">Also accepted </span><span className="yo">{q.answers.filter((a) => a !== q.model).join(", ")}</span></p>
           )}
-          {q.build && <p style={{ margin: 0 }}><span className="muted">How it is built </span>{showBuild(q.build)} <span className="yo">({showBuildWords(q.build)})</span></p>}
+          {q.build && <p style={{ margin: 0 }}><span className="muted">Where it comes from </span>{showBuild(q.build)} <span className="yo">({showBuildWords(q.build)})</span></p>}
         </div>
       )}
       <div>

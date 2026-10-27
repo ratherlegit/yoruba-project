@@ -2037,8 +2037,9 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Doubt: Ten twenties, the next base. igba also means calabash. igbéo is the object-counting form (Wikipedia). Confirm.
 - `num-400` (400): **irinwó**
   - Accepted answers: irinwó
+  - Built as: 20*20
   - Source: Wikipedia, "Yoruba numerals" (the numeral table, citing Lounge 2009; the article is flagged "more citations needed"); Wiktionary, the Yoruba numeral entries for the words (and the adjective entries for the forms after a noun); Eugene S. L. Chan, "Yoruba" numerals page (lingweb.eva.mpg.de/channumerals), data from Armstrong 1962, "Yoruba Numerals", supplied by Dr Ethelbert Kari in 1998; University at Buffalo, "Yoruba Numerals" page (math.buffalo.edu)
-  - Doubt: A base word with no build shown. Confirm the tones.
+  - Doubt: Twenty twenties. Confirm the tones.
 - `num-500` (500): **ọ̀ọ́dẹ́gbẹ̀ta**
   - Accepted answers: ọ̀ọ́dẹ́gbẹ̀ta | ẹ̀ẹ́dẹ́gbẹ̀ta
   - Built as: 200*3-100
