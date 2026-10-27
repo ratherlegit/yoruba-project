@@ -9,7 +9,9 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
     <div style={{ display: "grid", gap: "1.25rem" }}>
       <section className="card">
         <p className="primer-rule">{primer.rule}</p>
-        <p className="yo primer-formula">{primer.formula}</p>
+        <div className="yo primer-formula">
+          {primer.formula.split(";").map((line) => <p key={line}>{line.trim()}</p>)}
+        </div>
         {primer.toneFocus && (
           <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
             {primer.toneFocus.map((t) => <ToneChip key={t} tone={t} />)}
