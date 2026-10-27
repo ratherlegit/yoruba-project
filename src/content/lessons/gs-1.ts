@@ -12,12 +12,13 @@ export const gs1: Lesson = {
   ],
   primer: {
     rule: "Yoruba spells most sounds with one letter. Three letters carry a dot underneath, and the pitch of each syllable is written with a tone mark. The Sound Bank has more practice.",
-    formula: "ó = high tone; o = mid tone (no mark); ò = low tone",
+    formula: "",
     tables: [
       {
         id: "letters",
         title: "Unique letters and sounds in Yoruba",
         columns: [{ label: "Letter", yo: true }, { label: "How it sounds" }],
+        listen: 0,
         rows: [
           ["ẹ", "Open e, like the e in \"bed\""],
           ["ọ", "Open o, like the \"aw\" in \"law\""],
@@ -31,23 +32,16 @@ export const gs1: Lesson = {
         id: "tones",
         title: "Tone marks",
         columns: [{ label: "Tone" }, { label: "Written as" }, { label: "Example", yo: true }, { label: "Your voice" }],
+        listen: 2,
         rows: [
           ["High", "A mark that slants up to the right", "ó", "Goes high"],
           ["Low", "A mark that slants down to the right", "ò", "Goes low"],
           ["Mid", "No mark", "o", "Stays level, in the middle"],
         ],
-        note: "Standard spelling leaves mid tone unmarked on vowels.",
+        note: "Standard spelling leaves mid tone unmarked on vowels. Every syllable has a tone, and a different tone makes a different word.",
       },
     ],
-    rules: [
-      {
-        id: "tone-marks",
-        title: "Tone marks show pitch",
-        explanation: [
-          "Every syllable has a tone, and the tone can change the word: ọkọ is husband, ọkọ̀ is vehicle.",
-        ],
-      },
-    ],
+    rules: [],
     examples: [
       {
         id: "omo", surface: "ọmọ", english: "child",

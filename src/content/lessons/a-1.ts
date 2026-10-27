@@ -3,7 +3,7 @@ import type { Lesson } from "../types";
 export const a1: Lesson = {
   id: "a-1",
   level: "advanced",
-  title: "Vowel elision and contraction",
+  title: "When two vowels meet",
   sources: [
     "COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 10, Lesson 2 \"Vowel Assimilation, Vowel Lengthening, and Vowel Deletion\", page 243: kú + ilé = kúulé, kú + ìrọ̀lẹ́ = kúùrọ̀lẹ́, ojú + irin = ojúurin; assimilation can go either way (kú + alẹ́ = káalẹ́). Page 245: contraction drops one of two vowels that meet across a word boundary: rí ẹja = rẹ́ja (to see fish), ta iṣu = taṣu (to sell yams), ra ẹran = rẹran (to buy meat), ti ọ̀rẹ́ = tọ̀rẹ́. COERLL says assimilation and contraction are two different processes. The PDF uses a legacy font encoding for tone marks.",
     "Wikipedia, \"Yoruba language\", section \"Assimilation and elision\" (citing Bamgboṣe 1965 and Ward 1952): ra ẹja becomes rẹja (buy fish); elision is absent only in slow, unnatural speech; the spelling follows speech and writes the contracted form as one word; some writers mark a dropped vowel with an apostrophe (n'ílé).",
@@ -13,13 +13,14 @@ export const a1: Lesson = {
     "The extra nouns (ẹyin, ọbẹ̀, ata) and the contractions rẹyin and tẹyin were added for this lesson by applying the sources' pattern. Not found in a consulted source. Needs a native speaker's check before verifying.",
   ],
   primer: {
-    rule: "When a word ending in a vowel meets a word starting with a vowel, speech usually drops one vowel or changes one to match the other. Elision means dropping a sound. A contraction is the shorter word that results. Assimilation means one vowel changes to match its neighbour, so nothing is lost.",
+    rule: "When a word ending in a vowel meets a word starting with a vowel, speech usually drops one vowel or changes one to match the other. The result is a shorter word. Sometimes nothing is dropped: one vowel just changes to match its neighbour.",
     formula: "verb + noun becomes one word: ra + ẹran = rẹran; kú + ilé = kúulé",
     tables: [
       {
         id: "elision-words",
         title: "Words to combine",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["buy", "ra"],
           ["sell", "ta"],
@@ -38,6 +39,7 @@ export const a1: Lesson = {
         id: "elision-pairs",
         title: "Pairs and what they become",
         columns: [{ label: "Two words" }, { label: "Said as", yo: true }, { label: "Means" }],
+        listen: 1,
         rows: [
           ["ra ẹran", "rẹran", "buy meat"],
           ["ra ẹja", "rẹja", "buy fish"],
@@ -82,7 +84,7 @@ export const a1: Lesson = {
       },
       {
         id: "match-vowel",
-        title: "Assimilation: a vowel changes to match",
+        title: "A vowel changes to match its neighbour",
         explanation: [
           "In kú ilé (a welcome into the house), no vowel drops.",
           "The i of ilé becomes u to match kú: kúulé.",

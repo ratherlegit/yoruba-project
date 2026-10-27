@@ -11,7 +11,7 @@ export const gs3: Lesson = {
   ],
   primer: {
     rule: "A pronoun stands in for a person, and Yoruba uses a short form right before the verb. To say where you come from, use a short pronoun, then wá láti, then the place.",
-    formula: "mo (I), o (you), ó (he/she/it), a (we), ẹ (you plural), wọ́n (they) + wá láti + place",
+    formula: "pronoun + wá láti + place; kind of place + wo + ni o ti wá (asking); kind of place + mi + ni + name (answering)",
     tables: [
       {
         id: "pronouns",
@@ -25,12 +25,12 @@ export const gs3: Lesson = {
           ["you (a group)", "ẹ", "ẹ̀yin", "Also used for one older person"],
           ["they", "wọ́n", "àwọn", "Also used for one respected elder, such as your father"],
         ],
-        note: "Use the short form right before a verb. Use the long form when no verb follows, or to stress who did it.",
       },
       {
         id: "places",
         title: "Places to say you come from",
         columns: [{ label: "Place" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["Nigeria", "Nàìjíríà"],
           ["Lagos", "Èkó"],
@@ -46,6 +46,7 @@ export const gs3: Lesson = {
         id: "place-words",
         title: "Kinds of place",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["country", "orílẹ̀-èdè"],
           ["state", "ìpínlẹ̀"],
@@ -58,6 +59,7 @@ export const gs3: Lesson = {
         id: "ask-where",
         title: "Ask where someone is from",
         columns: [{ label: "You want to know" }, { label: "Ask", yo: true }],
+        listen: 1,
         rows: [
           ["Where are you from?", "Níbo ni o ti wá?"],
           ["Which country are you from?", "Orílẹ̀-èdè wo ni o ti wá?"],
@@ -65,12 +67,12 @@ export const gs3: Lesson = {
           ["Which town are you from?", "Ìlú wo ni o ti wá?"],
           ["Which village are you from?", "Abúlé wo ni o ti wá?"],
         ],
-        note: "wo means \"which\". It comes right after the kind of place.",
       },
       {
         id: "answer-where",
         title: "Answer",
         columns: [{ label: "You say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["I come from Ghana", "Mo wá láti Gánà"],
           ["My country is Nigeria", "Orílẹ̀-èdè mi ni Nàìjíríà"],
@@ -78,7 +80,6 @@ export const gs3: Lesson = {
           ["My town is Ibadan", "Ìlú mi ni Ìbàdàn"],
           ["My village is (name)", "Abúlé mi ni (name)"],
         ],
-        note: "Same pattern as Orúkọ mi ni Bùkọ́lá: the kind of place, mi, ni, then the name.",
       },
     ],
     rules: [
@@ -98,7 +99,6 @@ export const gs3: Lesson = {
           "wá means \"come\" and láti means \"from\".",
           "Order: pronoun, wá láti, place.",
           "Mo wá láti Nàìjíríà means \"I come from Nigeria\".",
-          "Swap in any place from the table above.",
         ],
       },
       {
@@ -106,18 +106,15 @@ export const gs3: Lesson = {
         title: "Asking which place: wo",
         explanation: [
           "Put the kind of place first, then wo (which): Ìlú wo? means \"which town?\".",
-          "Add ni o ti wá to finish the question: Ìlú wo ni o ti wá?",
+          "Add ni o ti wá to finish the question.",
           "Use ẹ instead of o when you ask an older person: Ìlú wo ni ẹ ti wá?",
-          "Níbo ni o ti wá? is the general \"where are you from?\".",
         ],
       },
       {
         id: "my-place",
         title: "Answering with mi ni",
         explanation: [
-          "Kind of place, then mi (my), then ni, then the name.",
-          "Ìlú mi ni Ìbàdàn: my town is Ibadan.",
-          "Ìpínlẹ̀ mi ni Ọ̀yọ́: my state is Oyo.",
+          "Kind of place, then mi (my), then ni, then the name. It is the same pattern as Orúkọ mi ni Bùkọ́lá.",
           "Or answer shortly with Mo wá láti plus the place.",
         ],
       },

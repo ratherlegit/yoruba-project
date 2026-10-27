@@ -21,6 +21,7 @@ export const m3: Lesson = {
         id: "joining-words",
         title: "Words that join clauses",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "Example" }],
+        listen: 1,
         rows: [
           ["if", "bí ... bá", "Bí òjò bá rọ̀"],
           ["because", "nítorí pé", "Nítorí pé òjò rọ̀"],
@@ -35,6 +36,7 @@ export const m3: Lesson = {
         id: "weather-words",
         title: "Weather and everyday words",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["rain", "òjò"],
           ["sun", "oòrùn"],

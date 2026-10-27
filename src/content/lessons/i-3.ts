@@ -21,6 +21,7 @@ export const i3: Lesson = {
         id: "olu-words",
         title: "olù- words: one who does it",
         columns: [{ label: "Word" }, { label: "Yoruba", yo: true }, { label: "Built from" }],
+        listen: 1,
         rows: [
           ["teacher", "olùkọ́", "olù + kọ́ (teach)"],
           ["lover", "olùfẹ́", "olù + fẹ́ (love)"],
@@ -36,6 +37,7 @@ export const i3: Lesson = {
         id: "oni-words",
         title: "oní- words: one who has or sells it",
         columns: [{ label: "Word" }, { label: "Yoruba", yo: true }, { label: "Built from" }],
+        listen: 1,
         rows: [
           ["landlord", "onílé", "oní + ilé (house)"],
           ["fish seller", "ẹlẹ́ja", "oní + ẹja (fish)"],

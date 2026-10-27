@@ -18,21 +18,10 @@ export const i1: Lesson = {
     formula: "subject + ti + verb (done); subject + máa + verb (will); long pronoun + yóò + verb (will); subject + máa ń + verb (usually)",
     tables: [
       {
-        id: "markers",
-        title: "The four markers side by side",
-        columns: [{ label: "Marker", yo: true }, { label: "Says" }, { label: "Pronoun before it" }, { label: "Example", yo: true }],
-        rows: [
-          ["ti", "It is done", "Short (mo, o, ó)", "Mo ti jẹun"],
-          ["máa", "It will happen", "Short (mo, o, ó)", "Mo máa lọ"],
-          ["yóò", "It will happen, with intent", "Long (èmi, ìwọ, òun)", "Èmi yóò lọ"],
-          ["máa ń", "It usually happens", "Short (mo, o, ó)", "Mo máa ń jẹun"],
-        ],
-        note: "Mo ti jẹun: I have eaten. Mo máa lọ and Èmi yóò lọ: I will go. Mo máa ń jẹun: I usually eat.",
-      },
-      {
         id: "time-words",
         title: "When it happens",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["today", "lónìí"],
           ["yesterday", "lánàá"],
@@ -49,6 +38,7 @@ export const i1: Lesson = {
         id: "marker-sentences",
         title: "Each marker in a full sentence",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["I have read the book", "Mo ti kà ìwé"],
           ["I will come tomorrow", "Mo máa wá lọ́la"],
@@ -66,7 +56,6 @@ export const i1: Lesson = {
         explanation: [
           "ti before the verb says the action has happened and still matters now.",
           "Mo ti jẹun: I have eaten (so I am full).",
-          "Mo ti kà ìwé: I have read the book.",
         ],
       },
       {
@@ -76,7 +65,6 @@ export const i1: Lesson = {
           "máa before the verb says the action is expected to happen.",
           "Mo máa lọ: I will go.",
           "It works with the short pronouns like mo.",
-          "Add a time word at the end: Mo máa wá lọ́la.",
         ],
       },
       {
@@ -95,7 +83,6 @@ export const i1: Lesson = {
           "Put máa and ń together to say something happens regularly.",
           "Mo máa ń jẹun: I usually eat.",
           "Without ń, máa means \"will\".",
-          "Add when: Mo máa ń jẹun ní àárọ̀.",
         ],
       },
     ],

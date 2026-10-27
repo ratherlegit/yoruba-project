@@ -19,6 +19,7 @@ export const gs2: Lesson = {
         id: "greetings",
         title: "Greetings for the day",
         columns: [{ label: "When" }, { label: "Say", yo: true }],
+        listen: 1,
         rows: [
           ["Morning", "Ẹ káàárọ̀"],
           ["Afternoon", "Ẹ káàsán"],
@@ -32,6 +33,7 @@ export const gs2: Lesson = {
         id: "other-greetings",
         title: "Greetings for the moment",
         columns: [{ label: "When" }, { label: "Say", yo: true }],
+        listen: 1,
         rows: [
           ["Someone is working", "Ẹ kú iṣẹ́"],
           ["Someone returns", "Ẹ kú àbọ̀"],
@@ -45,6 +47,7 @@ export const gs2: Lesson = {
         id: "name-words",
         title: "Words for introducing yourself",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["name", "orúkọ"],
           ["my", "mi"],

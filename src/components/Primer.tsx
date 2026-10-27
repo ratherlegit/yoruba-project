@@ -16,9 +16,11 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
     <div style={{ display: "grid", gap: "1.25rem" }}>
       <section className="card">
         <p className="primer-rule"><LinkedText text={primer.rule} /></p>
-        <div className="yo primer-formula">
-          {primer.formula.split(";").map((line) => <p key={line}>{line.trim()}</p>)}
-        </div>
+        {primer.formula && (
+          <div className="yo primer-formula">
+            {primer.formula.split(";").map((line) => <p key={line}>{line.trim()}</p>)}
+          </div>
+        )}
         {primer.toneFocus && (
           <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
             {primer.toneFocus.map((t) => <ToneChip key={t} tone={t} />)}
@@ -33,7 +35,7 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
             <thead>
               <tr>
                 {t.columns.map((c) => <th key={c.label} scope="col">{c.label}</th>)}
-                {t.listen && <th scope="col">Listen</th>}
+                {t.listen !== undefined && <th scope="col">Listen</th>}
               </tr>
             </thead>
             <tbody>
@@ -46,7 +48,7 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
                       ? <th key={label} scope="row" className={cls}>{cell}</th>
                       : <td key={label} data-label={label} className={cls}>{cell}</td>;
                   })}
-                  {t.listen && <td data-label="Listen"><AudioButton text={row[0]!} /></td>}
+                  {t.listen !== undefined && <td data-label="Listen"><AudioButton text={row[t.listen]!} /></td>}
                 </tr>
               ))}
             </tbody>

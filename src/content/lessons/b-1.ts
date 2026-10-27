@@ -21,6 +21,7 @@ export const b1: Lesson = {
         id: "jobs",
         title: "Jobs and roles",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["teacher", "olùkọ́"],
           ["student", "akẹ́kọ̀ọ́"],
@@ -39,6 +40,7 @@ export const b1: Lesson = {
         id: "job-question",
         title: "Ask and answer about a job",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["What is your job?", "Kí ni iṣẹ́ rẹ?"],
           ["My job is teacher", "Iṣẹ́ mi ni olùkọ́"],

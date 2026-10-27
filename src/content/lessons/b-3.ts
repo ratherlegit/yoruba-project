@@ -13,13 +13,14 @@ export const b3: Lesson = {
     "The extra verbs (kọrin, jó, rìn, sáré, ṣeré, kàwé, ṣiṣẹ́, sọ̀rọ̀) and the sentences A ń kọrin and Kí ni o ń ṣe were added for this lesson. Not checked against a consulted source here. Needs a native speaker's check before verifying.",
   ],
   primer: {
-    rule: "ń is an aspect marker: a small word before the verb that tells you how the action unfolds. ń says the action is going on. In the formula, the subject is who or what the sentence is about.",
+    rule: "ń is a small word before the verb. It says the action is going on. In the formula, the subject is who or what the sentence is about.",
     formula: "subject + ń + verb",
     tables: [
       {
         id: "n-verbs",
         title: "Actions to use with ń",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["go", "lọ"],
           ["come", "wá"],
@@ -41,6 +42,7 @@ export const b3: Lesson = {
         id: "n-people",
         title: "Who is doing it",
         columns: [{ label: "Who" }, { label: "Say", yo: true }],
+        listen: 1,
         rows: [
           ["I", "Mo ń kọrin"],
           ["he, she", "Ó ń sùn"],
@@ -54,6 +56,7 @@ export const b3: Lesson = {
         id: "n-ask",
         title: "What are you doing?",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["What are you doing?", "Kí ni o ń ṣe?"],
           ["I am singing", "Mo ń kọrin"],

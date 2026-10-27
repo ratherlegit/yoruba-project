@@ -41,8 +41,8 @@ export type PrimerTable = {
   title: string;
   columns: { label: string; yo?: boolean }[];
   rows: string[][];
-  // Adds a trailing Listen column with a speaker for the first cell of each row.
-  listen?: boolean;
+  // Adds a trailing Listen column with a speaker for the text in this column of each row.
+  listen?: number;
   note?: string;
 };
 
@@ -53,6 +53,7 @@ export type Lesson = {
   sources: string[];
   primer: {
     rule: string;
+    // The gold summary box. An empty string hides it.
     formula: string;
     rules: Rule[];
     tables?: PrimerTable[];

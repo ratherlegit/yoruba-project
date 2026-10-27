@@ -29,7 +29,7 @@ export function collectAudioStrings(levels: Level[]): { key: string; text: strin
   for (const level of levels) {
     for (const lesson of level.lessons) {
       for (const w of lesson.primer.examples) add(w.surface);
-      for (const t of lesson.primer.tables ?? []) if (t.listen) for (const row of t.rows) add(row[0]!);
+      for (const t of lesson.primer.tables ?? []) if (t.listen !== undefined) for (const row of t.rows) add(row[t.listen]!);
       for (const q of lesson.questions) {
         if (q.type === "pick") add(q.choices[q.answer]!);
         else if (q.type === "order") add(q.answer.join(" "));

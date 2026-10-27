@@ -17,6 +17,7 @@ export const gs4: Lesson = {
         id: "family-words",
         title: "Family words",
         columns: [{ label: "Word", yo: true }, { label: "Means" }, { label: "With mi", yo: true }],
+        listen: 0,
         rows: [
           ["ìyá", "mother", "ìyá mi"],
           ["bàbá", "father", "bàbá mi"],
@@ -35,6 +36,7 @@ export const gs4: Lesson = {
         id: "interest-words",
         title: "Things you can like",
         columns: [{ label: "Word", yo: true }, { label: "Means" }, { label: "Use it", yo: true }],
+        listen: 0,
         rows: [
           ["orin", "music, song", "Mo fẹ́ràn orin"],
           ["oúnjẹ", "food", "Mo fẹ́ràn oúnjẹ"],
@@ -51,6 +53,7 @@ export const gs4: Lesson = {
         id: "how-many",
         title: "How many?",
         columns: [{ label: "Number" }, { label: "Yoruba", yo: true }, { label: "Use it", yo: true }],
+        listen: 1,
         rows: [
           ["one", "kan", "arákùnrin kan"],
           ["two", "méjì", "arákùnrin méjì"],
@@ -62,6 +65,7 @@ export const gs4: Lesson = {
         id: "ask-family",
         title: "Questions to ask",
         columns: [{ label: "You want to know" }, { label: "Ask", yo: true }],
+        listen: 1,
         rows: [
           ["What do you like?", "Kí ni o fẹ́ràn?"],
           ["Who is this?", "Ta ni èyí?"],

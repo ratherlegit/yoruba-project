@@ -23,6 +23,7 @@ export const b2: Lesson = {
         id: "neg-verbs",
         title: "Verbs to practice with kò",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["go", "lọ"],
           ["come", "wá"],
@@ -41,6 +42,7 @@ export const b2: Lesson = {
         id: "neg-things",
         title: "Things to eat, drink and read",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["water", "omi"],
           ["food", "oúnjẹ"],
@@ -49,17 +51,6 @@ export const b2: Lesson = {
           ["book", "ìwé"],
         ],
         note: "Put the thing right after the verb: N kò jẹ ẹja, I did not eat fish.",
-      },
-      {
-        id: "neg-forms",
-        title: "Not: who says what",
-        columns: [{ label: "Who" }, { label: "Short form", yo: true }, { label: "Everyday form", yo: true }],
-        rows: [
-          ["I", "N kò lọ", "Mi ò lọ"],
-          ["we", "A ò lọ", "A ò lọ"],
-          ["he, she", "Kò lọ", "Kò lọ"],
-        ],
-        note: "All three mean no going. Pick the one you hear most.",
       },
     ],
     rules: [
@@ -79,7 +70,6 @@ export const b2: Lesson = {
         explanation: [
           "Before kò, the usual form of mo (I) is n: N kò lọ.",
           "In everyday speech you will also hear Mi ò lọ, with mi for I.",
-          "Add a thing after the verb: N kò jẹ ẹja.",
         ],
       },
       {

@@ -14,12 +14,13 @@ export const m4: Lesson = {
   ],
   primer: {
     rule: "A proverb (òwe) is a short traditional saying that teaches a lesson. Speakers quote proverbs word for word, so the exact words and tones matter. Read them in chunks, using the grammar you already know.",
-    formula: "read the proverb chunk by chunk: Ọmọ tí a kò kọ́ | ni yóò gbé | ilé tí a kọ́ tà",
+    formula: "read the proverb chunk by chunk; Ọmọ tí a kò kọ́; ni yóò gbé; ilé tí a kọ́ tà",
     tables: [
       {
         id: "proverb-words",
         title: "Words that keep turning up in proverbs",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["child", "ọmọ"],
           ["house", "ilé"],
@@ -42,6 +43,7 @@ export const m4: Lesson = {
         id: "more-proverbs",
         title: "Three more proverbs to read",
         columns: [{ label: "Proverb" }, { label: "Yoruba", yo: true }, { label: "Means" }],
+        listen: 1,
         rows: [
           ["Hard times pass", "Ààrò kì í gbóná kalẹ́", "Hard times do not last forever"],
           ["Company changes you", "Bí ewé bá pẹ́ lára ọṣẹ, á dọṣẹ", "People who spend long together take on each other's ways"],

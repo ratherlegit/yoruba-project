@@ -20,6 +20,7 @@ export const a3: Lesson = {
         id: "verb-pairs",
         title: "Verb pairs that work together",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["bring (carry here)", "mú ... wá"],
           ["take away", "mú ... lọ"],
@@ -33,6 +34,7 @@ export const a3: Lesson = {
         id: "things-moved",
         title: "Things you can bring or take",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["book", "ìwé"],
           ["water", "omi"],
@@ -48,6 +50,7 @@ export const a3: Lesson = {
         id: "places-to",
         title: "Places to go or come to",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["home, house", "ilé"],
           ["market", "ọjà"],
@@ -59,6 +62,7 @@ export const a3: Lesson = {
         id: "serial-sentences",
         title: "Sentences to copy",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["He brought the book", "Ó mú ìwé wá"],
           ["I brought water home", "Mo mú omi wá ilé"],

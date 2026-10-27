@@ -31,6 +31,7 @@ export const i4: Lesson = {
         id: "dem-nouns",
         title: "Nouns to practice with",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "This one", yo: true }, { label: "That one", yo: true }],
+        listen: 1,
         rows: [
           ["book", "ìwé", "ìwé yìí", "ìwé yẹn"],
           ["house", "ilé", "ilé yìí", "ilé yẹn"],
@@ -47,6 +48,7 @@ export const i4: Lesson = {
         id: "describing",
         title: "Describing words go after the noun too",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "Use it", yo: true }],
+        listen: 1,
         rows: [
           ["good", "dára", "ìwé dára"],
           ["new", "tuntun", "ilé tuntun"],
@@ -60,6 +62,7 @@ export const i4: Lesson = {
         id: "which",
         title: "Which one?",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["Which book?", "Ìwé wo?"],
           ["Which house?", "Ilé wo?"],

@@ -21,6 +21,7 @@ export const i2: Lesson = {
         id: "possessives",
         title: "Pronouns after the noun",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "Use it", yo: true }],
+        listen: 1,
         rows: [
           ["my", "mi", "ìwé mi"],
           ["your (one person)", "rẹ", "aṣọ rẹ"],
@@ -35,6 +36,7 @@ export const i2: Lesson = {
         id: "owned-things",
         title: "Things people own",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["house", "ilé"],
           ["cap", "fìlà"],

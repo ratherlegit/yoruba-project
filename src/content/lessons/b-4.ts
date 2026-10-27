@@ -22,6 +22,7 @@ export const b4: Lesson = {
         id: "look-alikes",
         title: "Look-alike words: only the tone tells them apart",
         columns: [{ label: "Pair", yo: true }, { label: "First means" }, { label: "Second means" }, { label: "Learned in" }],
+        listen: 0,
         rows: [
           ["o / ó", "you", "he, she, it", "Getting Started 3"],
           ["jẹ / jẹ́", "eat", "to be (a job or role)", "Beginner 1"],
@@ -35,6 +36,7 @@ export const b4: Lesson = {
         id: "question-words",
         title: "Question words",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "Asks about" }],
+        listen: 1,
         rows: [
           ["what", "kí ni", "things"],
           ["who", "ta ni", "people"],
@@ -50,6 +52,7 @@ export const b4: Lesson = {
         id: "yes-no-asks",
         title: "Yes or no questions and answers",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["Do you want water?", "Ṣé o fẹ́ omi?"],
           ["Are you eating?", "Ṣé o ń jẹun?"],
@@ -64,6 +67,7 @@ export const b4: Lesson = {
         id: "who-where",
         title: "More questions you can already ask",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["Who is this?", "Ta ni èyí?"],
           ["Where are you from?", "Níbo ni o ti wá?"],

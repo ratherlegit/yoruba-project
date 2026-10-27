@@ -302,7 +302,7 @@ Sources consulted: Wiktionary, "yii" (Yoruba section): yìí, this, placed after
 
 ## Advanced
 
-### Vowel elision and contraction (`a-1`)
+### When two vowels meet (`a-1`)
 Sources consulted: COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 10, Lesson 2 "Vowel Assimilation, Vowel Lengthening, and Vowel Deletion", page 243: kú + ilé = kúulé, kú + ìrọ̀lẹ́ = kúùrọ̀lẹ́, ojú + irin = ojúurin; assimilation can go either way (kú + alẹ́ = káalẹ́). Page 245: contraction drops one of two vowels that meet across a word boundary: rí ẹja = rẹ́ja (to see fish), ta iṣu = taṣu (to sell yams), ra ẹran = rẹran (to buy meat), ti ọ̀rẹ́ = tọ̀rẹ́. COERLL says assimilation and contraction are two different processes. The PDF uses a legacy font encoding for tone marks.; Wikipedia, "Yoruba language", section "Assimilation and elision" (citing Bamgboṣe 1965 and Ward 1952): ra ẹja becomes rẹja (buy fish); elision is absent only in slow, unnatural speech; the spelling follows speech and writes the contracted form as one word; some writers mark a dropped vowel with an apostrophe (n'ílé).; Wiktionary, "ta", "ra", "ẹran", "iṣu" (Yoruba sections): tà, to sell, said ta before a direct object; rà, to buy; ẹran, meat; iṣu, yam.; The practice sentences Mo rẹran, N kò rẹran and Ó taṣu are built from the contractions above and were not found written out in a source.; No source consulted states a general rule for which of the two vowels drops; this lesson teaches each pair as the sources give it. Not cross-checked against a print grammar.; The extra nouns (ẹyin, ọbẹ̀, ata) and the contractions rẹyin and tẹyin were added for this lesson by applying the sources' pattern. Not found in a consulted source. Needs a native speaker's check before verifying.
 
 - `reran`: **rẹran** (to buy meat)
@@ -411,7 +411,7 @@ Sources consulted: Lawal, "Yoruba relativisation and the continuous segment prin
 
 ## Mastery
 
-### Fused forms (`m-1`)
+### Words that join into one (`m-1`)
 Sources consulted: Wiktionary, "nile" (Yoruba section): nílé, at home, a contraction of ní ilé; other forms lúlé (Èkìtì), núlí (Oǹdó, Ìkálẹ̀), ńlé.; Wiktionary, "lọla" (lọ́la, tomorrow, contraction of ní ọ̀la), "lonii" (lónìí, today, contraction of ní òní, pronounced lóní with a downstep on the second syllable; example Kí l'ẹ jẹun lónìí?), "lanaa" (lánàá, yesterday, contraction of ní àná), "ọla" (ọ̀la, tomorrow; ọlà, wealth), "oni" (òní, today).; Wikipedia, "Yoruba language", section "Assimilation and elision": the spelling follows speech, so contracted words are written without a word break; some writers mark a dropped vowel with an apostrophe, as in n'ílé.; COERLL, Yorùbá Yé Mi (University of Texas at Austin), Chapter 10, page 241: the same passage writes aṣọ tí ó mọ́ (clothes that are clean) and ẹni tó ní ìlera (a person who has good health), so tí ó and tó both appear. COERLL does not explain tó. The PDF uses a legacy font encoding for tone marks.; The practice sentences Mo máa lọ lọ́la, Mo máa lọ lónìí and Ọmọ tó lọ were not found written out. Not cross-checked against a print grammar.; The extra fused forms lọ́jà, lóko, láàárọ̀, lálẹ́ and lọ́sàn-án, and the sentences using wà, were added for this lesson on the pattern of lọ́la. Only lánàá appears in a consulted source. Needs a native speaker's check before verifying.
 
 - `nile`: **nílé** (at home)
@@ -2778,7 +2778,7 @@ Questions:
 
 ### Advanced
 
-#### Vowel elision and contraction (`a-1`)
+#### When two vowels meet (`a-1`)
 
 Common mistake:
 - Wrong: rẹja (for "to see fish")
@@ -2905,7 +2905,7 @@ Questions:
 
 ### Mastery
 
-#### Fused forms (`m-1`)
+#### Words that join into one (`m-1`)
 
 Common mistake:
 - Wrong: ní ọ̀la

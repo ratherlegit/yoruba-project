@@ -21,6 +21,7 @@ export const a4: Lesson = {
         id: "rel-nouns",
         title: "Nouns you can describe",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["child", "ọmọ"],
           ["man", "ọkùnrin"],
@@ -37,6 +38,7 @@ export const a4: Lesson = {
         id: "rel-verbs",
         title: "Verbs to put in the clause",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }, { label: "At the end of a clause" }],
+        listen: 1,
         rows: [
           ["go", "lọ", "lọ"],
           ["come", "wá", "wá"],
@@ -51,6 +53,7 @@ export const a4: Lesson = {
         id: "rel-sentences",
         title: "Phrases to copy",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["the child who went", "ọmọ tí ó lọ"],
           ["the woman who came", "obìnrin tí ó wá"],

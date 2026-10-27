@@ -20,6 +20,7 @@ export const m2: Lesson = {
         id: "focus-patterns",
         title: "Three ways to focus",
         columns: [{ label: "Spotlight on" }, { label: "Yoruba", yo: true }, { label: "Means" }],
+        listen: 1,
         rows: [
           ["the doer", "Adé ni ó ra ìwé", "It was Adé who bought the book"],
           ["the thing", "Ìwé ni Adé rà", "It was a book that Adé bought"],
@@ -31,6 +32,7 @@ export const m2: Lesson = {
         id: "focus-questions",
         title: "Questions and focused answers",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["Who went?", "Ta ni ó lọ?"],
           ["It was Akin", "Akin ni ó lọ"],
@@ -45,6 +47,7 @@ export const m2: Lesson = {
         id: "focus-words",
         title: "Names and things to swap in",
         columns: [{ label: "English" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["Adé", "Adé"],
           ["Akin", "Akin"],

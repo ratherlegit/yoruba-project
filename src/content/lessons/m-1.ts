@@ -3,7 +3,7 @@ import type { Lesson } from "../types";
 export const m1: Lesson = {
   id: "m-1",
   level: "mastery",
-  title: "Fused forms",
+  title: "Words that join into one",
   sources: [
     "Wiktionary, \"nile\" (Yoruba section): nílé, at home, a contraction of ní ilé; other forms lúlé (Èkìtì), núlí (Oǹdó, Ìkálẹ̀), ńlé.",
     "Wiktionary, \"lọla\" (lọ́la, tomorrow, contraction of ní ọ̀la), \"lonii\" (lónìí, today, contraction of ní òní, pronounced lóní with a downstep on the second syllable; example Kí l'ẹ jẹun lónìí?), \"lanaa\" (lánàá, yesterday, contraction of ní àná), \"ọla\" (ọ̀la, tomorrow; ọlà, wealth), \"oni\" (òní, today).",
@@ -13,13 +13,14 @@ export const m1: Lesson = {
     "The extra fused forms lọ́jà, lóko, láàárọ̀, lálẹ́ and lọ́sàn-án, and the sentences using wà, were added for this lesson on the pattern of lọ́la. Only lánàá appears in a consulted source. Needs a native speaker's check before verifying.",
   ],
   primer: {
-    rule: "A fused form is two words that are so often said together that they are written as one word. Many start with ní (at, in) joined to a word for a place or a day.",
+    rule: "Some words are so often said together that they are written as one word. Many start with ní (at, in) joined to a word for a place or a day.",
     formula: "ní + ilé → nílé (at home); ní + ọ̀la → lọ́la (tomorrow); tí + ó → tó",
     tables: [
       {
         id: "fused-forms",
-        title: "Fused forms at a glance",
+        title: "Joined words at a glance",
         columns: [{ label: "Joined from", yo: true }, { label: "Written as", yo: true }, { label: "Means" }, { label: "What happens" }],
+        listen: 1,
         rows: [
           ["ní + ilé", "nílé", "at home", "The two i sounds merge into one high í"],
           ["ní + ọ̀la", "lọ́la", "tomorrow", "n becomes l, the i drops, and ọ takes the high tone"],
@@ -30,6 +31,7 @@ export const m1: Lesson = {
         id: "more-fused",
         title: "More ní words that fuse",
         columns: [{ label: "Joined from" }, { label: "Written as", yo: true }, { label: "Means" }],
+        listen: 1,
         rows: [
           ["ní + ọjà", "lọ́jà", "at the market"],
           ["ní + oko", "lóko", "at the farm"],
@@ -42,8 +44,9 @@ export const m1: Lesson = {
       },
       {
         id: "fused-use",
-        title: "Fused forms in sentences",
+        title: "Joined words in sentences",
         columns: [{ label: "You want to say" }, { label: "Yoruba", yo: true }],
+        listen: 1,
         rows: [
           ["I am at home", "Mo wà nílé"],
           ["I will go tomorrow", "Mo máa lọ lọ́la"],
