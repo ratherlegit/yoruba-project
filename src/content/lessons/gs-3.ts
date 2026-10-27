@@ -78,7 +78,7 @@ export const gs3: Lesson = {
           ["My country is Nigeria", "Orílẹ̀-èdè mi ni Nàìjíríà"],
           ["My state is Oyo", "Ìpínlẹ̀ mi ni Ọ̀yọ́"],
           ["My town is Ibadan", "Ìlú mi ni Ìbàdàn"],
-          ["My village is (name)", "Abúlé mi ni (name)"],
+          ["My village is Ijaye", "Abúlé mi ni Ìjàyè"],
         ],
       },
     ],
