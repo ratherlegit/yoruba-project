@@ -19,17 +19,25 @@ export function isSpokenYoruba(text: string): boolean {
 
 // Every string that should have a pre-generated clip: primer example surfaces,
 // the correct choice of each pick question, and the answer sentence of each order question.
+// A Listen cell such as "o / ó" holds two words that each get their own clip and button.
+export function listenTexts(cell: string): string[] {
+  return cell.split(" / ").map((t) => t.trim()).filter(Boolean);
+}
+
 export function collectAudioStrings(levels: Level[]): { key: string; text: string }[] {
   const seen = new Map<string, string>();
-  const add = (text: string) => {
+  const add = (text: string, allowShort = false) => {
     const key = audioKey(text);
     // One-letter strings (a, ẹ, o, ó) are not worth a clip: they are syllables, not words.
-    if ([...key].length > 1 && isSpokenYoruba(text) && !seen.has(key)) seen.set(key, text);
+    // A Listen table asks for its entries on purpose (the letters and tone marks in Sounds and tones), so it keeps them.
+    if (([...key].length > 1 || allowShort) && isSpokenYoruba(text) && !seen.has(key)) seen.set(key, text);
   };
   for (const level of levels) {
     for (const lesson of level.lessons) {
       for (const w of lesson.primer.examples) add(w.surface);
-      for (const t of lesson.primer.tables ?? []) if (t.listen !== undefined) for (const row of t.rows) add(row[t.listen]!);
+      for (const t of lesson.primer.tables ?? []) {
+        if (t.listen !== undefined) for (const row of t.rows) for (const text of listenTexts(row[t.listen]!)) add(text, true);
+      }
       for (const q of lesson.questions) {
         if (q.type === "pick") add(q.choices[q.answer]!);
         else if (q.type === "order") add(q.answer.join(" "));

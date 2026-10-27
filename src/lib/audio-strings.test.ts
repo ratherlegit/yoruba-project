@@ -11,9 +11,12 @@ import type { NumberEntry } from "@/content/numbers";
 
 describe("collectAudioStrings", () => {
   const strings = collectAudioStrings(LEVELS);
-  it("excludes one-letter strings", () => {
-    for (const k of ["a", "ẹ", "o", "ó"]) expect(strings.map((s) => s.key)).not.toContain(k);
-    expect(strings.every((s) => [...s.key].length > 1)).toBe(true);
+  it("excludes one-letter strings unless a Listen table asks for them", () => {
+    // The tone marks table in Sounds and tones is the only Listen table with single letters.
+    const allowed = ["ó", "ò", "o"];
+    const short = strings.map((s) => s.key).filter((k) => [...k].length === 1);
+    expect(short.every((k) => allowed.includes(k))).toBe(true);
+    expect(strings.map((s) => s.key)).not.toContain("a");
   });
   it("has unique NFC keys", () => {
     expect(new Set(strings.map((s) => s.key)).size).toBe(strings.length);

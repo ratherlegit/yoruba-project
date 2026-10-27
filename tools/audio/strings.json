@@ -70,8 +70,18 @@
     "group": "grammar"
   },
   {
-    "key": "gb",
-    "text": "gb",
+    "key": "ó",
+    "text": "ó",
+    "group": "grammar"
+  },
+  {
+    "key": "ò",
+    "text": "ò",
+    "group": "grammar"
+  },
+  {
+    "key": "o",
+    "text": "o",
     "group": "grammar"
   },
   {
@@ -680,28 +690,23 @@
     "group": "grammar"
   },
   {
-    "key": "o ó",
-    "text": "o / ó",
+    "key": "jẹ́",
+    "text": "jẹ́",
     "group": "grammar"
   },
   {
-    "key": "jẹ jẹ́",
-    "text": "jẹ / jẹ́",
+    "key": "ní",
+    "text": "ní",
     "group": "grammar"
   },
   {
-    "key": "ni ní",
-    "text": "ni / ní",
+    "key": "ṣé",
+    "text": "ṣé",
     "group": "grammar"
   },
   {
-    "key": "ṣe ṣé",
-    "text": "ṣe / ṣé",
-    "group": "grammar"
-  },
-  {
-    "key": "rẹ rẹ̀",
-    "text": "rẹ / rẹ̀",
+    "key": "rẹ̀",
+    "text": "rẹ̀",
     "group": "grammar"
   },
   {
@@ -727,11 +732,6 @@
   {
     "key": "nígbà wo",
     "text": "nígbà wo",
-    "group": "grammar"
-  },
-  {
-    "key": "ṣé",
-    "text": "ṣé",
     "group": "grammar"
   },
   {
@@ -867,11 +867,6 @@
   {
     "key": "ilé bàbá adé",
     "text": "ilé bàbá Adé",
-    "group": "grammar"
-  },
-  {
-    "key": "rẹ̀",
-    "text": "rẹ̀",
     "group": "grammar"
   },
   {

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { Lesson } from "@/content/types";
 import { hasConstruction, primerHeading } from "@/lib/construction";
+import { listenTexts } from "@/lib/audio-strings";
 import { AudioButton } from "./AudioButton";
 import { ToneChip } from "./ToneChip";
 import { WordBreakdownCard } from "./WordBreakdownCard";
@@ -48,7 +49,13 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
                       ? <th key={label} scope="row" className={cls}>{cell}</th>
                       : <td key={label} data-label={label} className={cls}>{cell}</td>;
                   })}
-                  {t.listen !== undefined && <td data-label="Listen"><AudioButton text={row[t.listen]!} /></td>}
+                  {t.listen !== undefined && (
+                    <td data-label="Listen">
+                      <span className="listen-cell">
+                        {listenTexts(row[t.listen]!).map((text) => <AudioButton key={text} text={text} />)}
+                      </span>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>
