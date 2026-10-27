@@ -10,11 +10,6 @@
     "group": "grammar"
   },
   {
-    "key": "gbọ́",
-    "text": "gbọ́",
-    "group": "grammar"
-  },
-  {
     "key": "ọkọ",
     "text": "ọkọ",
     "group": "grammar"
@@ -22,6 +17,56 @@
   {
     "key": "ọkọ̀",
     "text": "ọkọ̀",
+    "group": "grammar"
+  },
+  {
+    "key": "gbọ́",
+    "text": "gbọ́",
+    "group": "grammar"
+  },
+  {
+    "key": "ẹ̀gbọ́n",
+    "text": "ẹ̀gbọ́n",
+    "group": "grammar"
+  },
+  {
+    "key": "iṣẹ́",
+    "text": "iṣẹ́",
+    "group": "grammar"
+  },
+  {
+    "key": "ṣíbí",
+    "text": "ṣíbí",
+    "group": "grammar"
+  },
+  {
+    "key": "omi",
+    "text": "omi",
+    "group": "grammar"
+  },
+  {
+    "key": "ilé",
+    "text": "ilé",
+    "group": "grammar"
+  },
+  {
+    "key": "bàbá",
+    "text": "bàbá",
+    "group": "grammar"
+  },
+  {
+    "key": "ìyá",
+    "text": "ìyá",
+    "group": "grammar"
+  },
+  {
+    "key": "pupa",
+    "text": "pupa",
+    "group": "grammar"
+  },
+  {
+    "key": "àpò",
+    "text": "àpò",
     "group": "grammar"
   },
   {
@@ -698,24 +743,6 @@
     "level": "getting-started"
   },
   {
-    "key": "ìyá",
-    "text": "ìyá",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "bàbá",
-    "text": "bàbá",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "ẹ̀gbọ́n",
-    "text": "ẹ̀gbọ́n",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
     "key": "àbúrò",
     "text": "àbúrò",
     "group": "vocab-word",
@@ -802,12 +829,6 @@
   {
     "key": "irun",
     "text": "irun",
-    "group": "vocab-word",
-    "level": "getting-started"
-  },
-  {
-    "key": "omi",
-    "text": "omi",
     "group": "vocab-word",
     "level": "getting-started"
   },
@@ -926,12 +947,6 @@
     "level": "beginner"
   },
   {
-    "key": "pupa",
-    "text": "pupa",
-    "group": "vocab-word",
-    "level": "beginner"
-  },
-  {
     "key": "funfun",
     "text": "funfun",
     "group": "vocab-word",
@@ -976,12 +991,6 @@
   {
     "key": "àwọ̀ elésè àlùkò",
     "text": "àwọ̀ elésè àlùkò",
-    "group": "vocab-word",
-    "level": "beginner"
-  },
-  {
-    "key": "ilé",
-    "text": "ilé",
     "group": "vocab-word",
     "level": "beginner"
   },
@@ -1210,12 +1219,6 @@
   {
     "key": "òsì",
     "text": "òsì",
-    "group": "vocab-word",
-    "level": "intermediate"
-  },
-  {
-    "key": "iṣẹ́",
-    "text": "iṣẹ́",
     "group": "vocab-word",
     "level": "intermediate"
   },
@@ -3844,11 +3847,6 @@
   {
     "key": "ihò",
     "text": "ihò",
-    "group": "sound-word"
-  },
-  {
-    "key": "àpò",
-    "text": "àpò",
     "group": "sound-word"
   },
   {

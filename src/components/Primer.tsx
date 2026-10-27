@@ -1,5 +1,6 @@
 import type { Lesson } from "@/content/types";
-import { primerHeading } from "@/lib/construction";
+import { hasConstruction, primerHeading } from "@/lib/construction";
+import { AudioButton } from "./AudioButton";
 import { ToneChip } from "./ToneChip";
 import { WordBreakdownCard } from "./WordBreakdownCard";
 
@@ -24,7 +25,10 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
           <h3 style={{ marginTop: 0 }}>{t.title}</h3>
           <table className="primer-table" data-testid={`primer-table-${t.id}`}>
             <thead>
-              <tr>{t.columns.map((c) => <th key={c.label} scope="col">{c.label}</th>)}</tr>
+              <tr>
+                {t.columns.map((c) => <th key={c.label} scope="col">{c.label}</th>)}
+                {t.listen && <th scope="col">Listen</th>}
+              </tr>
             </thead>
             <tbody>
               {t.rows.map((row) => (
@@ -36,6 +40,7 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
                       ? <th key={label} scope="row" className={cls}>{cell}</th>
                       : <td key={label} data-label={label} className={cls}>{cell}</td>;
                   })}
+                  {t.listen && <td data-label="Listen"><AudioButton text={row[0]!} /></td>}
                 </tr>
               ))}
             </tbody>
@@ -60,9 +65,11 @@ export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => vo
 
       <section style={{ display: "grid", gap: "0.75rem" }}>
         <h3>{primerHeading(primer.examples)}</h3>
-        {primer.examples.map((w) => (
-          <WordBreakdownCard key={w.id} word={w} rules={primer.rules} />
-        ))}
+        <div className={primer.examples.some(hasConstruction) ? undefined : "word-grid"} style={primer.examples.some(hasConstruction) ? { display: "grid", gap: "0.75rem" } : undefined}>
+          {primer.examples.map((w) => (
+            <WordBreakdownCard key={w.id} word={w} rules={primer.rules} />
+          ))}
+        </div>
       </section>
 
       <section className="card">

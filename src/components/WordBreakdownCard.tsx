@@ -20,15 +20,16 @@ export function WordBreakdownCard({ word, rules, showReviewMarker = SHOW_REVIEW_
 
   if (!hasConstruction(word)) {
     return (
-      <article className="card" style={{ display: "grid", gap: "0.75rem" }}>
-        {header}
-        <div style={{ display: "grid", gap: "0.5rem" }}>
-          <div className="with-audio">
-            <div className="yo"><strong>{word.surface}</strong></div>
-            <AudioButton text={word.surface} />
-          </div>
-          <PitchLine word={word.surface} />
+      <article className="card word-compact">
+        <div className="with-audio">
+          <div className="yo"><strong>{word.surface}</strong></div>
+          <span className="muted">{word.english}</span>
+          {showReviewMarker && word.confidence === "needs-review" && (
+            <span className="review-marker" title={word.note}>pending review</span>
+          )}
+          <span className="word-audio"><AudioButton text={word.surface} /></span>
         </div>
+        <PitchLine word={word.surface} />
       </article>
     );
   }

@@ -16,13 +16,14 @@ export const gs1: Lesson = {
     tables: [
       {
         id: "letters",
-        title: "Letters with a dot, and gb",
+        title: "Letters with a dot, gb and p",
         columns: [{ label: "Letter", yo: true }, { label: "How it sounds" }],
         rows: [
           ["ẹ", "Open e, like the e in \"bed\""],
           ["ọ", "Open o, like the \"aw\" in \"law\""],
           ["ṣ", "The \"sh\" sound"],
           ["gb", "One sound, made by closing both lips and the back of the throat at once. Treat it as a single letter"],
+          ["p", "One sound, like k and p said together with the lips closed (kp). It is not the English p"],
         ],
         note: "Without the dot, e and o are the closed sounds and s is the s in \"sun\". A dotted letter is a different sound, so ọmọ and omo are not the same word.",
       },
@@ -36,26 +37,6 @@ export const gs1: Lesson = {
           ["Mid", "No mark", "o", "Stays level, in the middle"],
         ],
         note: "Standard spelling leaves mid tone unmarked on vowels.",
-      },
-      {
-        id: "read-aloud",
-        title: "Words to read aloud",
-        columns: [{ label: "Word", yo: true }, { label: "Means" }, { label: "Look for" }],
-        rows: [
-          ["ọmọ", "child", "ọ, twice"],
-          ["ẹja", "fish", "ẹ"],
-          ["ọkọ", "husband", "ọ, no tone marks"],
-          ["ọkọ̀", "vehicle", "same letters, low tone at the end"],
-          ["gbọ́", "hear", "gb and a high tone"],
-          ["ẹ̀gbọ́n", "older sibling", "ẹ, gb and ọ together"],
-          ["iṣẹ́", "work", "ṣ and ẹ"],
-          ["ṣíbí", "spoon", "ṣ and two high tones"],
-          ["omi", "water", "plain o, all mid"],
-          ["ilé", "house", "mid then high"],
-          ["bàbá", "father", "low then high"],
-          ["ìyá", "mother", "low then high"],
-        ],
-        note: "Say each one out loud, then tap the speaker to compare.",
       },
     ],
     rules: [
@@ -87,12 +68,6 @@ export const gs1: Lesson = {
         note: "Confirm the English approximation of ẹ.",
       },
       {
-        id: "gbo", surface: "gbọ́", english: "hear",
-        parts: [{ text: "gbọ́", gloss: "gb + open o, high tone", role: "syllable" }],
-        steps: [], confidence: "needs-review",
-        note: "Confirm the tone on gbọ́.",
-      },
-      {
         id: "word-husband", surface: "ọkọ", english: "husband",
         parts: [
           { text: "ọ", gloss: "open o, mid tone (no mark)", role: "syllable" },
@@ -109,6 +84,66 @@ export const gs1: Lesson = {
         ],
         steps: [], confidence: "needs-review",
         note: "Wiktionary gives mid-low. Confirm that \"vehicle\" covers both car and boat, as Wiktionary suggests.",
+      },
+      {
+        id: "gbo", surface: "gbọ́", english: "hear",
+        parts: [{ text: "gbọ́", gloss: "gb + open o, high tone", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Confirm the tone on gbọ́.",
+      },
+      {
+        id: "egbon", surface: "ẹ̀gbọ́n", english: "older sibling",
+        parts: [{ text: "ẹ̀gbọ́n", gloss: "ẹ, gb and ọ together", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Tone marks are the standard spelling but were not checked against a consulted source. Needs a native speaker's check.",
+      },
+      {
+        id: "ise", surface: "iṣẹ́", english: "work",
+        parts: [{ text: "iṣẹ́", gloss: "ṣ and ẹ", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Tone marks are the standard spelling but were not checked against a consulted source. Needs a native speaker's check.",
+      },
+      {
+        id: "sibi", surface: "ṣíbí", english: "spoon",
+        parts: [{ text: "ṣíbí", gloss: "ṣ and two high tones", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Tone marks are the standard spelling but were not checked against a consulted source. Needs a native speaker's check.",
+      },
+      {
+        id: "omi", surface: "omi", english: "water",
+        parts: [{ text: "omi", gloss: "plain o, all mid", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Tone marks are the standard spelling but were not checked against a consulted source. Needs a native speaker's check.",
+      },
+      {
+        id: "ile", surface: "ilé", english: "house",
+        parts: [{ text: "ilé", gloss: "mid then high", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Tone marks are the standard spelling but were not checked against a consulted source. Needs a native speaker's check.",
+      },
+      {
+        id: "baba", surface: "bàbá", english: "father",
+        parts: [{ text: "bàbá", gloss: "low then high", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Tone marks are the standard spelling but were not checked against a consulted source. Needs a native speaker's check.",
+      },
+      {
+        id: "iya", surface: "ìyá", english: "mother",
+        parts: [{ text: "ìyá", gloss: "low then high", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Tone marks are the standard spelling but were not checked against a consulted source. Needs a native speaker's check.",
+      },
+      {
+        id: "pupa", surface: "pupa", english: "red",
+        parts: [{ text: "pupa", gloss: "p sounds like kp, all mid", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Taken from the Sound Bank p examples. Needs a native speaker's check of the tones.",
+      },
+      {
+        id: "apo", surface: "àpò", english: "bag",
+        parts: [{ text: "àpò", gloss: "p sounds like kp, low then low", role: "syllable" }],
+        steps: [], confidence: "needs-review",
+        note: "Taken from the Sound Bank p examples. Needs a native speaker's check of the tones.",
       },
     ],
     commonMistake: {
