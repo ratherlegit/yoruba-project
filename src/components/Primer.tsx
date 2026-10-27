@@ -1,15 +1,21 @@
+import { Link } from "@tanstack/react-router";
 import type { Lesson } from "@/content/types";
 import { hasConstruction, primerHeading } from "@/lib/construction";
 import { AudioButton } from "./AudioButton";
 import { ToneChip } from "./ToneChip";
 import { WordBreakdownCard } from "./WordBreakdownCard";
 
+// Turns each mention of the Sound Bank into a link to it.
+function LinkedText({ text }: { text: string }) {
+  return text.split("Sound Bank").flatMap((part, i) => (i === 0 ? [part] : [<Link key={i} to="/sounds">Sound Bank</Link>, part]));
+}
+
 export function Primer({ lesson, onStart }: { lesson: Lesson; onStart?: () => void }) {
   const { primer } = lesson;
   return (
     <div style={{ display: "grid", gap: "1.25rem" }}>
       <section className="card">
-        <p className="primer-rule">{primer.rule}</p>
+        <p className="primer-rule"><LinkedText text={primer.rule} /></p>
         <div className="yo primer-formula">
           {primer.formula.split(";").map((line) => <p key={line}>{line.trim()}</p>)}
         </div>

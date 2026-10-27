@@ -104,6 +104,7 @@ a.card:hover { transform: translateY(-3px); border-color: var(--gold); box-shado
 .card-feature::after { content: ""; position: absolute; top: 0; bottom: 0; width: 30%; left: 0; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.5), transparent); transform: translateX(-120%); animation: sheen 1.4s 0.8s ease-out 1 both; pointer-events: none; }
 .muted { color: var(--text-muted); }
 .primer-rule { margin: 0 0 0.9rem; font-size: 1.15rem; line-height: 1.6; font-weight: 400; }
+.primer-rule a { text-decoration: underline; text-underline-offset: 0.15em; }
 .primer-formula p { margin: 0; }
 .primer-formula p + p { margin-top: 0.45rem; }
 .primer-formula { margin: 0; padding: 0.6rem 0.8rem; border-left: 4px solid var(--gold); border-radius: 0.4rem; background: color-mix(in srgb, var(--gold) 14%, transparent); font-weight: 600; }
