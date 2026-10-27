@@ -4,7 +4,7 @@ import { useStats } from "@/hooks/useStats";
 import { audioUrlFor } from "@/lib/audio";
 import { insertChar } from "@/lib/insert-char";
 import { buildNumbersRound, gradeNumbers, type NumbersQuestion } from "@/lib/numbers-practice";
-import { showBuild } from "@/lib/show-build";
+import { showBuild, showBuildWords } from "@/lib/show-build";
 import { recordNumbersAnswer, recordNumbersRound } from "@/lib/stats";
 import type { TransformMode, TransformResult } from "@/lib/transform-grade";
 import { AudioButton } from "./AudioButton";
@@ -136,7 +136,7 @@ export function NumbersPractice({ stepId }: { stepId: string }) {
           {q.answers.length > 1 && q.kind === "to-yoruba" && (
             <p style={{ margin: 0 }}><span className="muted">Also accepted </span><span className="yo">{q.answers.filter((a) => a !== q.model).join(", ")}</span></p>
           )}
-          {q.build && <p style={{ margin: 0 }}><span className="muted">How it is built </span>{showBuild(q.build)}</p>}
+          {q.build && <p style={{ margin: 0 }}><span className="muted">How it is built </span>{showBuild(q.build)} <span className="yo">({showBuildWords(q.build)})</span></p>}
         </div>
       )}
       <div>

@@ -7,7 +7,7 @@ import { VOCAB_LEVELS } from "@/content/vocab";
 import { audioKey, audioUrlFor, lookupClip, voiceKey } from "./audio";
 import { MINIMAL_PAIRS, SOUNDS } from "@/content/sounds";
 import { CONSONANT_SETS, TONE_COMPARE } from "@/content/sound-focus";
-import { NUMBERS } from "@/content/numbers";
+import { NUMBERS, PHRASES } from "@/content/numbers";
 import { DIALOGUES } from "@/content/dialogues";
 import { collectAudioStrings, collectDialogueAudioStrings, collectNumbersAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "./audio-strings";
 
@@ -57,7 +57,7 @@ describe("audio matches lesson content", () => {
     expect(existsSync(join("public", "audio", file!)), `missing public/audio/${file}`).toBe(true);
   });
   it("has no manifest entries without a lesson, vocab, numbers, sound or dialogue string", () => {
-    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectNumbersAudioStrings(NUMBERS), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS), ...collectDialogueAudioStrings(DIALOGUES)].map((s) => s.key));
+    const keys = new Set([...strings, ...collectVocabAudioStrings(VOCAB_LEVELS), ...collectNumbersAudioStrings(NUMBERS, PHRASES), ...collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS), ...collectDialogueAudioStrings(DIALOGUES)].map((s) => s.key));
     expect(Object.keys(manifest).filter((k) => !keys.has(k))).toEqual([]);
   });
 });

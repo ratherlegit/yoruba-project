@@ -4504,6 +4504,76 @@
     "group": "number-sentence"
   },
   {
+    "key": "ọmọ kan",
+    "text": "ọmọ kan",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ọmọ méjì",
+    "text": "ọmọ méjì",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ajá mẹ́ta",
+    "text": "ajá mẹ́ta",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ẹsẹ̀ mẹ́rin",
+    "text": "ẹsẹ̀ mẹ́rin",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ìka márùn-ún",
+    "text": "ìka márùn-ún",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ẹsẹ̀ mẹ́fà",
+    "text": "ẹsẹ̀ mẹ́fà",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ọjọ́ méje",
+    "text": "ọjọ́ méje",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ìka mẹ́wàá",
+    "text": "ìka mẹ́wàá",
+    "group": "number-sentence"
+  },
+  {
+    "key": "àádọ́ta náírà",
+    "text": "àádọ́ta náírà",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ọgọ́rùn-ún náírà",
+    "text": "ọgọ́rùn-ún náírà",
+    "group": "number-sentence"
+  },
+  {
+    "key": "igba náírà",
+    "text": "igba náírà",
+    "group": "number-sentence"
+  },
+  {
+    "key": "irinwó náírà",
+    "text": "irinwó náírà",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ọ̀ọ́dẹ́gbẹ̀ta náírà",
+    "text": "ọ̀ọ́dẹ́gbẹ̀ta náírà",
+    "group": "number-sentence"
+  },
+  {
+    "key": "ẹgbẹ̀rún náírà",
+    "text": "ẹgbẹ̀rún náírà",
+    "group": "number-sentence"
+  },
+  {
     "key": "ìyẹn",
     "text": "ìyẹn",
     "group": "sound-word"
@@ -4844,11 +4914,6 @@
     "group": "dialogue-male"
   },
   {
-    "key": "àádọ́ta náírà",
-    "text": "Àádọ́ta náírà.",
-    "group": "dialogue-female"
-  },
-  {
     "key": "ṣé ẹ fẹ́ ata",
     "text": "Ṣé ẹ fẹ́ ata?",
     "group": "dialogue-female"
@@ -5002,11 +5067,6 @@
     "key": "male|èló ni owó ọkọ̀",
     "text": "Èló ni owó ọkọ̀?",
     "group": "dialogue-male"
-  },
-  {
-    "key": "ọgọ́rùn-ún náírà",
-    "text": "Ọgọ́rùn-ún náírà.",
-    "group": "dialogue-female"
   },
   {
     "key": "male|mo ní igba náírà",

@@ -30,10 +30,10 @@ describe("Songs list", () => {
       expect(first.getAttribute("aria-hidden")).toBe("true");
     }
     const byTitle = (t: string) => cards.find((c) => c.textContent!.includes(t))!.firstElementChild!.innerHTML;
-    expect(byTitle("Okunkun")).toBe(byTitle("Sade"));
-    expect(byTitle("Sade")).not.toBe(byTitle("Organise"));
+    expect(byTitle("Òkùnkùn")).toBe(byTitle("Ṣadé"));
+    expect(byTitle("Ṣadé")).not.toBe(byTitle("Organise"));
     expect(byTitle("Organise")).not.toBe(byTitle("Lábẹ́ Igi"));
-    expect(byTitle("Okunkun")).not.toBe(byTitle("Lábẹ́ Igi"));
+    expect(byTitle("Òkùnkùn")).not.toBe(byTitle("Lábẹ́ Igi"));
   });
 
   it("offers All plus only the genres in use, and filters by genre", async () => {

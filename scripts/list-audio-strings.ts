@@ -3,7 +3,7 @@ import { LEVELS } from "../src/content/levels";
 import { VOCAB_LEVELS } from "../src/content/vocab";
 import { SOUNDS, MINIMAL_PAIRS } from "../src/content/sounds";
 import { CONSONANT_SETS, TONE_COMPARE } from "../src/content/sound-focus";
-import { NUMBERS } from "../src/content/numbers";
+import { NUMBERS, PHRASES } from "../src/content/numbers";
 import { DIALOGUES } from "../src/content/dialogues";
 import { collectAudioStrings, collectDialogueAudioStrings, collectNumbersAudioStrings, collectSoundAudioStrings, collectVocabAudioStrings } from "../src/lib/audio-strings";
 
@@ -14,7 +14,7 @@ const seen = new Set(grammar.map((s) => s.key));
 // Grammar wins over a vocab duplicate.
 const vocab: Item[] = collectVocabAudioStrings(VOCAB_LEVELS).filter((s) => !seen.has(s.key));
 const seenAfterVocab = new Set([...grammar, ...vocab].map((s) => s.key));
-const numbers: Item[] = collectNumbersAudioStrings(NUMBERS).filter((s) => !seenAfterVocab.has(s.key));
+const numbers: Item[] = collectNumbersAudioStrings(NUMBERS, PHRASES).filter((s) => !seenAfterVocab.has(s.key));
 const seenAfterNumbers = new Set([...seenAfterVocab, ...numbers.map((s) => s.key)]);
 const sound: Item[] = collectSoundAudioStrings(SOUNDS, MINIMAL_PAIRS, TONE_COMPARE, CONSONANT_SETS).filter((s) => !seenAfterNumbers.has(s.key));
 const seenAfterSound = new Set([...seenAfterNumbers, ...sound.map((s) => s.key)]);

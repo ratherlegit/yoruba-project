@@ -37,7 +37,7 @@ const PUBLISHED = "The Yoruba follows the published wording, but tone marks and 
 export const SONGS: Song[] = [
   {
     id: "okunkun",
-    title: "Okunkun",
+    title: "Òkùnkùn",
     artist: "Solana & Killertunes",
     genre: "Pop",
     videoId: "e4aLN_GwpQU",
@@ -59,11 +59,11 @@ export const SONGS: Song[] = [
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).`,
+    note: `The marks on the title are the author's guesses. ${PUBLISHED} Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).`,
   },
   {
     id: "sade",
-    title: "Sade",
+    title: "Ṣadé",
     artist: "Adekunle Gold",
     genre: "Pop",
     videoId: "1ShkDNA5ZCE",
@@ -83,7 +83,7 @@ export const SONGS: Song[] = [
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.`,
+    note: `The marks on the title are the author's guesses. ${PUBLISHED} Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.`,
   },
   {
     id: "awe",
@@ -130,7 +130,7 @@ export const SONGS: Song[] = [
   },
   {
     id: "ojuelegba",
-    title: "Ojuelegba",
+    title: "Òjuẹlẹ́gbà",
     artist: "Wizkid",
     genre: "Afrobeats",
     videoId: "Q7QiLceJSLQ",
@@ -149,7 +149,7 @@ export const SONGS: Song[] = [
     ],
     source: `notjustok lyrics page, ${READ}; video checked on YouTube`,
     confidence: "needs-review",
-    note: `${PUBLISHED} Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.`,
+    note: `The marks on the title are the author's guesses. ${PUBLISHED} Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.`,
   },
   {
     id: "duduke",

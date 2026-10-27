@@ -2,7 +2,7 @@ import { Link, useParams } from "@tanstack/react-router";
 import { AudioButton } from "@/components/AudioButton";
 import { NumbersPractice } from "@/components/NumbersPractice";
 import { NUMBERS, NUMBER_STEPS, PHRASES } from "@/content/numbers";
-import { showBuild } from "@/lib/show-build";
+import { showBuild, showBuildWords } from "@/lib/show-build";
 
 // The audio button is glued to the sentence's last word, so a sentence that wraps never strands it.
 function SentenceWithAudio({ text }: { text: string }) {
@@ -65,7 +65,10 @@ export function NumbersStep() {
                   {first ? (
                     <span className="with-audio"><span className="yo">{n.after.join(", ")}</span>{n.after[0] && <AudioButton text={n.after[0]} />}</span>
                   ) : n.build ? (
-                    showBuild(n.build)
+                    <>
+                      {showBuild(n.build)}
+                      <span className="yo muted audio-english">{showBuildWords(n.build)}</span>
+                    </>
                   ) : (
                     <span className="muted">a base word</span>
                   )}

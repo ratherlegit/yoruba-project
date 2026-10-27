@@ -1,5 +1,5 @@
 import type { Level, LevelId } from "@/content/types";
-import type { NumberEntry } from "@/content/numbers";
+import type { NumberEntry, NumberPhrase } from "@/content/numbers";
 import type { VocabLevel } from "@/content/vocab/types";
 import type { MinimalPair, Sound } from "@/content/sounds";
 import type { ConsonantSet, ToneCompareRow } from "@/content/sound-focus";
@@ -71,7 +71,7 @@ export type NumbersAudioGroup = "number-word" | "number-sentence";
 
 // The Numbers section's words (counting and after-noun forms) and the example sentences of
 // step 1. The ten words used to be a vocab topic, so their existing clips are matched by text.
-export function collectNumbersAudioStrings(entries: NumberEntry[]): { key: string; text: string; group: NumbersAudioGroup }[] {
+export function collectNumbersAudioStrings(entries: NumberEntry[], phrases: NumberPhrase[] = []): { key: string; text: string; group: NumbersAudioGroup }[] {
   const seen = new Map<string, { text: string; group: NumbersAudioGroup }>();
   const add = (text: string, group: NumbersAudioGroup) => {
     const key = audioKey(text);
@@ -85,6 +85,8 @@ export function collectNumbersAudioStrings(entries: NumberEntry[]): { key: strin
     if (e.example) add(e.example.yoruba, "number-sentence");
     if (e.plainExample) add(e.plainExample.yoruba, "number-sentence");
   }
+  // Steps 5 and 6 list a phrase such as "ọmọ méjì" with a speaker button, so each needs a clip too.
+  for (const p of phrases) add(p.answers[0]!, "number-sentence");
   return [...seen].map(([key, v]) => ({ key, text: v.text, group: v.group }));
 }
 

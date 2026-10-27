@@ -2128,7 +2128,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
 
 ## Songs
 
-- `okunkun`: **Okunkun** by Solana & Killertunes (Pop)
+- `okunkun`: **Òkùnkùn** by Solana & Killertunes (Pop)
   - Ọjọ́ ti fe ṣ'òkùnkùn, ẹmi nìkan péré (The day is about to turn dark, it is only me.)
   - Mi o duro, kia-kia mo múra mo mere (I am not standing still; quickly I get ready and go.)
   - Ohun búburú ninu òkùnkùn lo ma n da wa (It is bad things in the darkness that will trouble us.)
@@ -2142,8 +2142,8 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Lyrics page: https://notjustok.com/lyrics/okunkun-lyrics-by-solana-killertunes/
   - Video: https://www.youtube.com/watch?v=e4aLN_GwpQU (Visualizer on Solana's channel)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).
-- `sade`: **Sade** by Adekunle Gold (Pop)
+  - Doubt: The marks on the title are the author's guesses. The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubts: "mere" in line 2 (to run or to go), whether gbá means protect or hold in line 7, what "da wa" means in line 3 (trouble, find, or befall), and "ilẹ̀ ti fé ṣu" in the last line (night falling).
+- `sade`: **Ṣadé** by Adekunle Gold (Pop)
   - Ó ti pẹ́ tí mo ti ń bá ẹ sọ̀rọ̀ (It has been a long time that I have been talking to you.)
   - Ọjọ́ ń lọ (The days are passing.)
   - Ọmọge dákun gbọ́ tèmi (Girl, please listen to me.)
@@ -2155,7 +2155,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Lyrics page: https://notjustok.com/lyrics/sade-lyrics-by-adekunle-gold/
   - Video: https://www.youtube.com/watch?v=1ShkDNA5ZCE (Official video)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.
+  - Doubt: The marks on the title are the author's guesses. The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: the first line is typed oddly on the page ("ti'n mo ti'n"), so its wording and tones are a guess. "Waiting for a child" means waiting for grandchildren. "Je'n gbe e lole" could mean take you home or marry you, and "Ojo n'lo" could mean the days or the sun is going.
 - `awe`: **Awe** by Asa (Pop)
   - Ó lóyún fún ọ (She carried a pregnancy for you.)
   - Oyún oṣù méjì (A pregnancy of two months.)
@@ -2177,7 +2177,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Video: https://www.youtube.com/watch?v=_u4_iWCvZ5c (Official video)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
   - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: the second line is cut off in the typed lyrics ("ma-"), so its meaning is a loose reading. The third line is a loose reading of "kan ka mi soto" (count me apart).
-- `ojuelegba`: **Ojuelegba** by Wizkid (Afrobeats)
+- `ojuelegba`: **Òjuẹlẹ́gbà** by Wizkid (Afrobeats)
   - Ní Òjuelégba (At Ojuelegba.)
   - Ayé ò le tó yẹn oh (Life is not that hard.)
   - Àdúrà ló lè ṣe o (Only prayer can do it.)
@@ -2188,7 +2188,7 @@ Sources consulted: src/content/lessons/m-4.ts: the proverbs Ọmọ tí a kò k�
   - Lyrics page: https://notjustok.com/lyrics/ojuelegba-lyrics-by-wizkid/
   - Video: https://www.youtube.com/watch?v=Q7QiLceJSLQ (Video on the StarBoy TV channel)
   - Source: notjustok lyrics page, read 2026-10-20; video checked on YouTube
-  - Doubt: The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.
+  - Doubt: The marks on the title are the author's guesses. The Yoruba follows the published wording, but tone marks and dots were added by the author as guesses where the page had none, so they are unchecked, and the page itself is user or site typed, not checked by a native speaker. Doubt: who is praying in line 4 (the focus word lo hides the subject), and what "wan soro ju" refers to in the last two lines (life, or the people). The video is on a fan or label channel, not an artist VEVO channel.
 - `duduke`: **Duduke** by Simi (Afrobeats)
   - Àyànfẹ́ mi àyànfẹ́ (My beloved, my beloved.)
   - Gbọ́ tèmi o (Listen to me.)
