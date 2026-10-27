@@ -17,7 +17,7 @@ export function About() {
       <section className="card">
         <h2 style={{ marginTop: 0 }}>What this is</h2>
         <p>
-          Yoruba Project is a free, self-paced web app for learning Yoruba from zero. It is built around reading and hearing real Yoruba, always written with full tone marks and dots, and practising it by typing and answering questions rather than memorising flashcards.
+          Ọgbọ́n is a free, self-paced web app for learning Yoruba from zero. It is built around reading and hearing real Yoruba, always written with full tone marks and dots, and practising it by typing and answering questions rather than memorising flashcards.
         </p>
       </section>
       <section className="card">

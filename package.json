@@ -1,5 +1,5 @@
 {
-  "name": "yoruba-project",
+  "name": "ogbon",
   "version": "1.0.0",
   "description": "Learn Yoruba from zero: grammar, vocab, numbers, a Sound Bank, proverbs, sentence practice, songs and two-voice dialogues, with full tone marks and audio",
   "scripts": {
@@ -13,11 +13,12 @@
     "audio:test": "tools/audio/.venv/bin/python tools/audio/test_split.py",
     "audio:generate": "npm run audio:list && tools/audio/.venv/bin/python tools/audio/generate_elevenlabs.py",
     "e2e": "playwright test",
-    "deploy": "npm run build && wrangler deploy --name yoruba-project"
+    "deploy": "npm run build && wrangler deploy --name ogbon"
   },
   "dependencies": {
-    "@fontsource-variable/fraunces": "^5.3.0",
     "@fontsource-variable/noto-sans": "^5.3.0",
+    "@fontsource-variable/ojuju": "^5.3.0",
+    "@fontsource/questrial": "^5.3.0",
     "@tanstack/react-router": "^1.170.44",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

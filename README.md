@@ -1,4 +1,4 @@
-# Yoruba Project
+# Ọgbọ́n
 
 A web app for learning Yoruba from zero, with full tone marks and audio throughout. Grammar lessons across five levels (Getting Started, Beginner, Intermediate, Advanced, Mastery), vocabulary by topic, Numbers (counting and naira), a Sound Bank with tone practice, Proverbs, Transform sentence practice, Songs with embedded videos and a few lyric lines, and two-voice Dialogues with comprehension questions. Progress and stats stay in your browser.
 
