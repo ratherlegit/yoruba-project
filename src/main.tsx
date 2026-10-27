@@ -1,5 +1,5 @@
 import "@fontsource-variable/noto-sans";
-import "@fontsource/questrial";
+import "@fontsource-variable/readex-pro";
 import "@fontsource-variable/ojuju";
 import "./styles.css";
 import React from "react";

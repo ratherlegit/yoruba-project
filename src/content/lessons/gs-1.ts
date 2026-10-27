@@ -12,8 +12,7 @@ export const gs1: Lesson = {
   ],
   primer: {
     rule: "Yoruba spells most sounds with one letter. Three letters carry a dot underneath, and the pitch of each syllable is written with a tone mark. The Sound Bank has more practice.",
-    formula: "ẹ and ọ are open vowels, ṣ is \"sh\", gb is one sound; acute = high, grave = low, no mark = mid",
-    toneFocus: ["high", "mid", "low"],
+    formula: "ẹ and ọ are open vowels; ṣ is \"sh\"; gb is one sound; ó = high tone (mark slants up); o = mid tone (no mark); ò = low tone (mark slants down)",
     tables: [
       {
         id: "letters",
