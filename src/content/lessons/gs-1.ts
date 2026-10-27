@@ -16,7 +16,7 @@ export const gs1: Lesson = {
     tables: [
       {
         id: "letters",
-        title: "Letters with a dot, gb and p",
+        title: "Unique sounds in Yoruba",
         columns: [{ label: "Letter", yo: true }, { label: "How it sounds" }],
         rows: [
           ["ẹ", "Open e, like the e in \"bed\""],
