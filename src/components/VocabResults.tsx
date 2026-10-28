@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ResultsBanner } from "./ResultsBanner";
 
 type Props = {
   correct: number;
@@ -14,7 +15,8 @@ export function VocabResults({ correct, total, missedCount, onRetryMissed, onTry
   return (
     <section className="card" style={{ display: "grid", gap: "0.75rem" }}>
       <h2 style={{ margin: 0 }}>Results</h2>
-      <p className="yo" style={{ margin: 0 }}>You got {correct} of {total} right.</p>
+      <ResultsBanner correct={correct} total={total} />
+      <p className="yo results-line">You got {correct} of {total} right.</p>
       <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
         {missedCount > 0 && (
           <button className="btn btn-primary" onClick={onRetryMissed}>

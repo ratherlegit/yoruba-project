@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ResultsBanner } from "./ResultsBanner";
 
 type Props = {
   correct: number;
@@ -15,7 +16,8 @@ export function Results({ correct, total, missedCount, onRetryMissed, onReviewIn
   return (
     <section className="card" style={{ display: "grid", gap: "0.75rem" }}>
       <h2 style={{ margin: 0 }}>Results</h2>
-      <p className="yo" style={{ margin: 0 }}>You got {correct} of {total} right.</p>
+      <ResultsBanner correct={correct} total={total} />
+      <p className="yo results-line">You got {correct} of {total} right.</p>
       {nextLockedAfter && (
         <p className="muted" style={{ margin: 0 }}>The next level opens after you finish every lesson in {nextLockedAfter}.</p>
       )}

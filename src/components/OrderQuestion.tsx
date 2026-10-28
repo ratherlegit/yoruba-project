@@ -22,7 +22,7 @@ export function OrderQuestion({ english, words, answer, seed, disabled, onSubmit
 
   return (
     <div style={{ display: "grid", gap: "0.75rem" }}>
-      <p style={{ margin: 0 }}>Put these words in order: <strong>{english}</strong></p>
+      <p style={{ margin: 0 }}>Translate into Yoruba, using these words: <strong>{english}</strong></p>
       <div className="card yo" style={{ minHeight: "3.5rem", display: "flex", flexWrap: "wrap", gap: "0.5rem" }} aria-label="Your sentence">
         {placed.map((i) => (
           <button

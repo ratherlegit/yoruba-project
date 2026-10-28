@@ -294,14 +294,28 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .stats-figures dd { margin: 0; font-size: 1.5rem; font-weight: 700; font-family: "Readex Pro Variable", sans-serif; }
 .stats-figures dt { font-size: 0.85rem; }
 
+/* Results banner */
+.results-banner { display: grid; justify-items: center; gap: 0.2rem; text-align: center; }
+.results-art { width: min(100%, 22rem); height: auto; border-radius: 14px; animation: stamp 0.6s ease both; }
+.results-spin { transform-origin: 0 0; animation: spin 40s linear infinite; }
+.results-confetti { animation: fall 1.6s ease-in infinite; }
+.results-line { margin: 0; font-family: "Readex Pro Variable", sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+.results-message { margin: 0.4rem 0 0; font-size: 1.15rem; font-weight: 600; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fall { 0% { opacity: 0; transform: translateY(-8px); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) { .results-art, .results-spin, .results-confetti { animation: none; } }
+
 /* Stats page */
 .stats-section { display: grid; gap: 0.9rem; }
 .stats-heading { margin: 0; font-size: 1.6rem; padding-bottom: 0.4rem; border-bottom: 3px solid var(--accent); }
 .stats-block { display: grid; gap: 0.4rem; padding-left: 0.75rem; border-left: 4px solid var(--accent); }
 .stats-level { margin: 0; font-size: 1.1rem; }
 .stats-level strong { font-family: "Readex Pro Variable", sans-serif; font-size: 1.15rem; }
-.stats-list { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.2rem; font-size: 0.95rem; }
-.stats-block .stats-list { list-style: none; padding-left: 0.25rem; }
+.stats-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; border: 1px solid var(--line); }
+.stats-table th, .stats-table td { padding: 0.45rem 0.7rem; border: 1px solid var(--line); text-align: left; }
+.stats-table thead th { background: var(--surface-2); font-size: 0.85rem; font-weight: 700; color: var(--text-muted); }
+.stats-table tbody tr:nth-child(even) { background: var(--surface-2); }
+.stats-table th:not(:first-child), .stats-table td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* Numbers section */
 .numbers-table { width: 100%; border-collapse: collapse; }

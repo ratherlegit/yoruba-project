@@ -18,6 +18,10 @@ async function renderStats() {
   return await screen.findByRole("main");
 }
 const section = (id: string) => screen.getByTestId(`stats-${id}`);
+const cells = (root: HTMLElement, first: string) => {
+  const row = [...root.querySelectorAll("tbody tr")].find((r) => r.firstElementChild?.textContent === first);
+  return row && [...row.querySelectorAll("td")].map((c) => c.textContent);
+};
 const EMPTY = "Start a lesson to see your stats";
 
 beforeEach(() => {
@@ -86,39 +90,39 @@ describe("Stats page, with data", () => {
   it("shows vocab topics done and the best quiz score", async () => {
     await renderStats();
     expect(section("vocab").textContent).toContain("1 of");
-    expect(section("vocab").textContent).toContain("Quiz 80%");
+    expect(section("vocab").textContent).toContain("80%");
   });
   it("shows tone practice per mode with accuracy, and hides modes with no answers", async () => {
     await renderStats();
     const t = section("tone");
     expect(t.textContent).toContain("Words");
-    expect(t.textContent).toContain("3 of 4 right (75%)");
+    expect(cells(t, "Words")).toEqual(["Words", "3", "4", "75%"]);
     expect(t.textContent).not.toContain("Sentences");
   });
   it("shows proverbs guessed and right", async () => {
     await renderStats();
-    expect(section("proverbs").textContent).toContain(`2 of ${PROVERBS.length} proverbs guessed`);
-    expect(section("proverbs").textContent).toContain("1 right on the first try");
+    expect(cells(section("proverbs"), "Proverbs guessed")).toEqual(["Proverbs guessed", `2 of ${PROVERBS.length}`]);
+    expect(cells(section("proverbs"), "Right on the first try")).toEqual(["Right on the first try", "1"]);
   });
   it("shows transform results by kind and mode with close counted on its own", async () => {
     await renderStats();
     const t = section("transform");
-    expect(t.textContent).toContain("Negative: 1 right, 1 close, 0 wrong");
-    expect(t.textContent).toContain("Future: 0 right, 0 close, 1 wrong");
-    expect(t.textContent).toContain("Advanced: 0 right, 1 close, 1 wrong");
+    expect(cells(t, "Negative")).toEqual(["Negative", "1", "1", "0"]);
+    expect(cells(t, "Future")).toEqual(["Future", "0", "0", "1"]);
+    expect(cells(t, "Advanced")).toEqual(["Advanced", "0", "1", "1"]);
     expect(t.textContent).not.toContain("Question");
   });
   it("shows days practised and the current run, and keeps the other sections' data when one is empty", async () => {
     await renderStats();
     // Two stats days plus the day the seeded lesson and topic were completed.
-    expect(section("days").textContent).toContain("Days practised: 3");
-    expect(section("days").textContent).toContain("Day run: 2");
+    expect(section("days").textContent).toContain("Days practised3");
+    expect(section("days").textContent).toContain("Day run2");
   });
   it("hides the day run when the last practice day is old", async () => {
     localStorage.setItem("yp:stats:v1", JSON.stringify({ tone: { words: { answered: 1, correct: 1 } }, days: ["2020-01-01"] }));
     await renderStats();
     // 2020-01-01 plus the day the seeded lesson and topic were completed.
-    expect(section("days").textContent).toContain("Days practised: 2");
+    expect(section("days").textContent).toContain("Days practised2");
     expect(section("days").textContent).not.toContain("Day run");
   });
 });
@@ -131,7 +135,7 @@ describe("Stats page, grammar only", () => {
     }));
     await renderStats();
     expect(within(section("days")).queryByText(EMPTY)).toBeNull();
-    expect(section("days").textContent).toContain("Days practised: 1");
+    expect(section("days").textContent).toContain("Days practised1");
   });
   it("counts the day a vocab topic was completed as a practice day", async () => {
     const topic = VOCAB_LEVELS.flatMap((l) => l.topics)[0]!;
@@ -139,7 +143,7 @@ describe("Stats page, grammar only", () => {
       topics: { [topic.id]: { gap: { bestScore: 1, completedAt: new Date(2026, 9, 2, 12).toISOString() } } },
     }));
     await renderStats();
-    expect(section("days").textContent).toContain("Days practised: 1");
+    expect(section("days").textContent).toContain("Days practised1");
   });
 });
 
@@ -157,8 +161,8 @@ describe("Stats page, numbers", () => {
     expect(n.textContent).toContain(`2 of ${NUMBER_STEPS.length} steps done`);
     expect(n.textContent).toContain("Tens and twenties");
     expect(n.textContent).toContain("75%");
-    expect(n.textContent).toContain("3 of 4 right (75%)");
-    expect(n.textContent).toContain("2 of 2 right (100%)");
+    expect(cells(n, "Numeral to Yoruba")).toEqual(["Numeral to Yoruba", "3", "4", "75%"]);
+    expect(cells(n, "Yoruba to numeral")).toEqual(["Yoruba to numeral", "2", "2", "100%"]);
     expect(n.textContent).not.toContain("Counting");
   });
   it("shows nothing for numbers with no practice, with no NaN", async () => {
