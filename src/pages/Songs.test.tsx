@@ -54,6 +54,7 @@ describe("Songs list", () => {
   it("is in the top nav", async () => {
     await renderAt("/songs");
     await screen.findAllByTestId("song-card");
+    fireEvent.click(screen.getByRole("button", { name: /Activities/ }));
     const nav = document.querySelector(".header-nav")!;
     expect(within(nav as HTMLElement).getByRole("link", { name: "Songs" })).toHaveAttribute("href", "/songs");
   });

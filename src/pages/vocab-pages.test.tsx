@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -256,6 +256,7 @@ describe("vocab pages", () => {
 
   it("the nav and home link to Vocab", async () => {
     await renderAt("/");
+    fireEvent.click(await screen.findByRole("button", { name: /Activities/ }));
     const links = await screen.findAllByRole("link", { name: /Vocab/ });
     expect(links.length).toBeGreaterThanOrEqual(2);
     expect(screen.getByText("Common words by topic, with flashcards and practice.")).toBeInTheDocument();

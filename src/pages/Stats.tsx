@@ -20,7 +20,7 @@ function StatsSection({ id, title, empty, link, children }: {
 }) {
   return (
     <section className="card stats-section" data-testid={`stats-${id}`}>
-      <h2 style={{ margin: 0 }}>{title}</h2>
+      <h2 className="stats-heading">{title}</h2>
       {empty ? (
         <>
           <p className="muted" style={{ margin: 0 }}>Start a lesson to see your stats</p>
@@ -67,7 +67,7 @@ export function Stats() {
             const done = lv.lessons.filter((ls) => progress.completedLessons[ls.id]);
             return (
               <div key={lv.id} className="stats-block">
-                <p style={{ margin: 0 }}><strong>{lv.title}</strong> <span className="muted">{done.length} of {lv.lessons.length} lessons done</span></p>
+                <p className="stats-level"><strong>{lv.title}</strong> <span className="muted">{done.length} of {lv.lessons.length} lessons done</span></p>
                 {done.length > 0 && (
                   <ul className="stats-list">
                     {done.map((ls) => (
@@ -85,7 +85,7 @@ export function Stats() {
             const done = lv.topics.filter((t) => vocab.topics[t.id]);
             return (
               <div key={lv.id} className="stats-block">
-                <p style={{ margin: 0 }}><strong>{lv.title}</strong> <span className="muted">{done.length} of {lv.topics.length} topics done</span></p>
+                <p className="stats-level"><strong>{lv.title}</strong> <span className="muted">{done.length} of {lv.topics.length} topics done</span></p>
                 {done.length > 0 && (
                   <ul className="stats-list">
                     {done.map((t) => {

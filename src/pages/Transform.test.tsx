@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -174,6 +174,7 @@ describe("Transform page", () => {
     const router = createRouter({ routeTree, history: createMemoryHistory({ initialEntries: ["/"] }) });
     render(<RouterProvider router={router} />);
     await router.load();
+    fireEvent.click(await screen.findByRole("button", { name: /Activities/ }));
     expect((await screen.findByRole("link", { name: "Transform" })).getAttribute("href")).toBe("/transform");
   });
 });

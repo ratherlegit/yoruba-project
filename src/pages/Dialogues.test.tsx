@@ -56,6 +56,7 @@ describe("Dialogues index", () => {
   it("is in the top nav", async () => {
     await renderAt("/dialogues");
     await screen.findAllByTestId("dialogue-card");
+    fireEvent.click(screen.getByRole("button", { name: /Activities/ }));
     const nav = document.querySelector(".header-nav") as HTMLElement;
     expect(within(nav).getByRole("link", { name: "Dialogues" })).toHaveAttribute("href", "/dialogues");
   });

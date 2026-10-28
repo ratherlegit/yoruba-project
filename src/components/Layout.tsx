@@ -1,4 +1,5 @@
 import { Link, Outlet } from "@tanstack/react-router";
+import { ActivitiesMenu } from "./ActivitiesMenu";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Layout() {
@@ -8,14 +9,7 @@ export function Layout() {
         <div className="header-bar">
           <Link to="/" className="brand">Ọgbọ́n</Link>
           <nav className="header-nav">
-            <Link to="/grammar">Grammar</Link>
-            <Link to="/vocab">Vocab</Link>
-            <Link to="/numbers">Numbers</Link>
-            <Link to="/sounds">Sound Bank</Link>
-            <Link to="/proverbs">Proverbs</Link>
-            <Link to="/songs">Songs</Link>
-            <Link to="/dialogues">Dialogues</Link>
-            <Link to="/transform">Transform</Link>
+            <ActivitiesMenu />
             <Link to="/stats">Stats</Link>
             <Link to="/about">About</Link>
             <ThemeToggle />

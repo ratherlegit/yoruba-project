@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within, fireEvent } from "@testing-library/react";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { beforeEach, describe, expect, it } from "vitest";
 import { NUMBER_STEPS } from "@/content/numbers";
@@ -49,6 +49,7 @@ describe("Numbers path", () => {
 
   it("is linked from the nav at /numbers", async () => {
     await renderAt("/");
+    fireEvent.click(await screen.findByRole("button", { name: /Activities/ }));
     expect((await screen.findByRole("link", { name: "Numbers" })).getAttribute("href")).toBe("/numbers");
   });
 });

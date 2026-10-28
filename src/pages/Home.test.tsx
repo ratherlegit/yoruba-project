@@ -37,16 +37,19 @@ describe("Home", () => {
     expect(screen.queryByRole("checkbox", { name: "Unlock all levels" })).toBeNull();
   });
 
-  it("shows an empty state with no digits, percent signs or NaN for a new visitor", async () => {
+  it("shows no progress lines, digits or NaN for a new visitor", async () => {
     const main = await renderHome();
-    expect(within(main).getByText("Start a lesson to see your stats")).toBeInTheDocument();
-    expect(within(main).getByRole("link", { name: "Start with Grammar" }).getAttribute("href")).toBe("/grammar");
-    expect(within(main).queryByRole("link", { name: "See all stats" })).toBeNull();
     expect(main.textContent).not.toMatch(/\d|NaN|%/);
     expect(screen.queryAllByTestId("card-progress")).toHaveLength(0);
   });
 
-  it("shows lesson progress on the Grammar card and in the strip", async () => {
+  it("does not show a stats strip", async () => {
+    const main = await renderHome();
+    expect(within(main).queryByText("Start a lesson to see your stats")).toBeNull();
+    expect(within(main).queryByRole("link", { name: "See all stats" })).toBeNull();
+  });
+
+  it("shows lesson progress on the Grammar card and ", async () => {
     let p = emptyProgress;
     p = recordCompletion(p, lessons[0]!.id, 1);
     p = recordCompletion(p, lessons[1]!.id, 0.5);
@@ -54,13 +57,9 @@ describe("Home", () => {
     const main = await renderHome();
     const grammar = within(main).getAllByTestId("activity-card")[0]!;
     expect(grammar.textContent).toContain(`2 of ${lessons.length} lessons done`);
-    expect(within(main).getByText("Lessons done")).toBeInTheDocument();
-    expect(within(main).getByText("Days practised")).toBeInTheDocument();
-    expect(within(main).getByRole("link", { name: "See all stats" }).getAttribute("href")).toBe("/stats");
-    expect(within(main).queryByText("Start a lesson to see your stats")).toBeNull();
   });
 
-  it("shows practice progress on the Sound Bank and Proverbs cards and accuracy in the strip", async () => {
+  it("shows practice progress on the Sound Bank and Proverbs cards and accuracy ", async () => {
     localStorage.setItem("yp:stats:v1", JSON.stringify({
       tone: { words: { answered: 3, correct: 2 }, sentences: { answered: 1, correct: 1 }, sounds: { answered: 0, correct: 0 } },
       proverbs: { [PROVERBS[0]!.id]: { correct: true } },
@@ -72,8 +71,6 @@ describe("Home", () => {
     expect(cards[3]!.textContent).toContain("4 practice answers");
     expect(cards[4]!.textContent).toContain(`1 of ${PROVERBS.length} proverbs guessed`);
     expect(cards[5]!.textContent).toContain("1 sentence checked");
-    expect(within(main).getByText("Practice answers right")).toBeInTheDocument();
-    expect(within(main).getByText("Days practised")).toBeInTheDocument();
   });
 
   it("uses singular wording for one practice answer", async () => {

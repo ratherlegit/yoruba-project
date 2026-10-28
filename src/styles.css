@@ -192,6 +192,14 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .header-nav > a { position: relative; text-decoration: none; }
 .header-nav > a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.22s ease; }
 .header-nav > a:hover::after { transform: scaleX(1); }
+.activities-menu { position: relative; }
+.activities-button { font: inherit; color: var(--text); background: none; border: 0; padding: 0; cursor: pointer; }
+.activities-button:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 5px; text-decoration-thickness: 2px; }
+.activities-list { position: absolute; top: calc(100% + 0.6rem); left: 0; z-index: 20; margin: 0; padding: 0.4rem; list-style: none; min-width: 11rem; display: grid; background: #14307a; border: 2px solid var(--gold); border-radius: 0.6rem; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); }
+:root[data-theme="dark"] .activities-list { background: #08112a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .activities-list { background: #08112a; } }
+.activities-list a { display: block; padding: 0.45rem 0.7rem; border-radius: 0.4rem; text-decoration: none; }
+.activities-list a:hover, .activities-list a:focus-visible { background: rgba(227, 184, 79, 0.22); }
 .bulb { width: 2.5rem; height: 2.5rem; padding: 0; border-radius: 999px; border: 0; background: var(--gold); color: #101a3d; display: inline-grid; place-items: center; cursor: pointer; transition: transform 0.2s; }
 .bulb:hover { transform: scale(1.08); }
 .bulb.fx { animation: swing 0.6s ease, glow 0.7s ease-out; }
@@ -287,9 +295,13 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .stats-figures dt { font-size: 0.85rem; }
 
 /* Stats page */
-.stats-section { display: grid; gap: 0.6rem; }
-.stats-block { display: grid; gap: 0.3rem; }
-.stats-list { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.2rem; }
+.stats-section { display: grid; gap: 0.9rem; }
+.stats-heading { margin: 0; font-size: 1.6rem; padding-bottom: 0.4rem; border-bottom: 3px solid var(--accent); }
+.stats-block { display: grid; gap: 0.4rem; padding-left: 0.75rem; border-left: 4px solid var(--accent); }
+.stats-level { margin: 0; font-size: 1.1rem; }
+.stats-level strong { font-family: "Readex Pro Variable", sans-serif; font-size: 1.15rem; }
+.stats-list { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.2rem; font-size: 0.95rem; }
+.stats-block .stats-list { list-style: none; padding-left: 0.25rem; }
 
 /* Numbers section */
 .numbers-table { width: 100%; border-collapse: collapse; }

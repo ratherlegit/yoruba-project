@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/react-router";
 import { beforeEach, describe, expect, it } from "vitest";
@@ -33,6 +33,7 @@ describe("pages", () => {
 
   it("the nav links Grammar and Stats", async () => {
     await renderAt("/");
+    fireEvent.click(await screen.findByRole("button", { name: /Activities/ }));
     expect((await screen.findByRole("link", { name: "Grammar" })).getAttribute("href")).toBe("/grammar");
     expect(screen.getByRole("link", { name: "Stats" }).getAttribute("href")).toBe("/stats");
   });
