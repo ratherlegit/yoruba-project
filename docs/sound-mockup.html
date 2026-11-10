@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ogbon sound options, round 2</title>
+<style>
+  :root { --bg:#f4efe3; --surface:#fffdf7; --text:#101a3d; --muted:#3b4a7d; --primary:#14307a; --on:#f6f0e0; --gold:#c99a2e; --line:#14307a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family: system-ui, sans-serif; line-height:1.6; }
+  header { background:#14307a; color:#f6f0e0; border-bottom:3px solid var(--gold); padding:1.2rem 1rem; }
+  header h1 { margin:0; font-size:1.6rem; }
+  header p { margin:0.3rem 0 0; color:#cdd6f6; }
+  main { max-width:60rem; margin:0 auto; padding:1.2rem 1rem 6rem; display:grid; gap:1.4rem; }
+  .bar { position:sticky; top:0; z-index:5; background:var(--bg); padding:0.6rem 0; display:flex; flex-wrap:wrap; gap:0.6rem 1.4rem; align-items:center; border-bottom:1px solid #aab4d6; }
+  .bar label { display:flex; align-items:center; gap:0.5rem; font-weight:600; }
+  section { background:var(--surface); border:2px solid var(--line); border-radius:0.9rem; padding:1rem 1.1rem; }
+  section h2 { margin:0 0 0.2rem; font-size:1.25rem; }
+  section > p { margin:0 0 0.8rem; color:var(--muted); }
+  .grid { display:grid; gap:0.6rem; grid-template-columns:repeat(auto-fill, minmax(15rem, 1fr)); }
+  .opt { border:2px solid #aab4d6; border-radius:0.7rem; padding:0.6rem 0.7rem; display:grid; gap:0.4rem; background:#fff; align-content:space-between; }
+  .opt.picked { border-color:var(--gold); box-shadow:0 0 0 2px var(--gold); }
+  .opt.drum strong::after { content:" (drum)"; font-weight:500; color:var(--muted); }
+  .opt strong { display:block; }
+  .opt span { color:var(--muted); font-size:0.9rem; }
+  .row { display:flex; gap:0.5rem; }
+  button { font:inherit; font-weight:700; min-height:2.5rem; padding:0.3rem 0.9rem; border-radius:0.6rem; border:2px solid var(--line); background:var(--surface); color:var(--text); cursor:pointer; }
+  button.play { background:var(--primary); color:var(--on); }
+  button.pick[aria-pressed="true"] { background:var(--gold); border-color:var(--gold); color:#101a3d; }
+  button:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  #summary { white-space:pre-wrap; font-family:ui-monospace, monospace; background:#ebe4cf; border-radius:0.6rem; padding:0.7rem; margin:0.6rem 0 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Ogbon sound options, round 2</h1>
+  <p>Fuller sound: a reverb room, soft compression, layered voices, and a more realistic talking drum. Press Play, then Pick your favorite for each purpose.</p>
+</header>
+<main>
+  <div class="bar">
+    <label>Volume <input id="vol" type="range" min="0" max="100" value="70"></label>
+    <label>Room <input id="room" type="range" min="0" max="100" value="35"></label>
+    <button id="playSet" class="play">Play my picks in order</button>
+  </div>
+  <div id="sections"></div>
+  <section>
+    <h2>Your picks</h2>
+    <p>Copy this and send it back to me.</p>
+    <pre id="summary"></pre>
+  </section>
+</main>
+<script>
+let ac = null, master, comp, dry, wetIn, wetOut;
+
+function makeIR(a) {
+  const len = Math.floor(a.sampleRate * 1.9);
+  const buf = a.createBuffer(2, len, a.sampleRate);
+  for (let c = 0; c < 2; c++) {
+    const d = buf.getChannelData(c);
+    let lp = 0;
+    for (let i = 0; i < len; i++) {
+      const env = Math.pow(1 - i / len, 2.6);
+      lp += ((Math.random() * 2 - 1) - lp) * 0.35; // smooths the hiss so the room sounds warm
+      d[i] = lp * env;
+    }
+  }
+  return buf;
+}
+
+function ctx() {
+  if (!ac) {
+    ac = new (window.AudioContext || window.webkitAudioContext)();
+    comp = ac.createDynamicsCompressor();
+    comp.threshold.value = -16; comp.knee.value = 24; comp.ratio.value = 3.5; comp.attack.value = 0.004; comp.release.value = 0.22;
+    master = ac.createGain();
+    dry = ac.createGain();
+    wetIn = ac.createGain();
+    wetOut = ac.createGain();
+    const conv = ac.createConvolver();
+    conv.buffer = makeIR(ac);
+    dry.connect(comp);
+    wetIn.connect(conv); conv.connect(wetOut); wetOut.connect(comp);
+    comp.connect(master); master.connect(ac.destination);
+  }
+  if (ac.state === "suspended") ac.resume();
+  master.gain.value = 1.6 * Math.pow(document.getElementById("vol").value / 100, 2);
+  wetOut.gain.value = document.getElementById("room").value / 100 * 1.4;
+  return ac;
+}
+
+function route(a, node, o) {
+  let out = node;
+  if (o.pan) { const p = a.createStereoPanner(); p.pan.value = o.pan; node.connect(p); out = p; }
+  out.connect(dry);
+  const w = a.createGain(); w.gain.value = o.wet ?? 0.5;
+  out.connect(w); w.connect(wetIn);
+}
+
+// A layered voice. partials: [ratio, gain, decayMultiplier]. detune spreads two copies for a fuller sound.
+function voice(t, f, dur, o = {}) {
+  const a = ctx();
+  const parts = o.partials || [[1, 1, 1]];
+  const det = o.detune ?? 6;
+  const copies = det ? [-det, det] : [0];
+  const bus = a.createGain();
+  const peak = 0.17 * (o.gain ?? 1) / Math.sqrt(copies.length);
+  const attack = o.attack ?? 0.008;
+  for (const [ratio, share, decay] of parts) {
+    const pg = a.createGain();
+    const d = dur * (decay ?? 1);
+    pg.gain.setValueAtTime(0.0001, t);
+    pg.gain.exponentialRampToValueAtTime(Math.max(peak * share, 0.0002), t + attack);
+    pg.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    for (const c of copies) {
+      const osc = a.createOscillator();
+      osc.type = o.type || "sine";
+      osc.detune.value = c;
+      osc.frequency.setValueAtTime(f * ratio, t);
+      if (o.bend) osc.frequency.exponentialRampToValueAtTime(o.bend * ratio, t + dur * (o.bendTime ?? 0.85));
+      osc.connect(pg);
+      osc.start(t); osc.stop(t + d + 0.05);
+    }
+    pg.connect(bus);
+  }
+  let node = bus;
+  if (o.lp) {
+    const lp = a.createBiquadFilter(); lp.type = "lowpass";
+    lp.frequency.setValueAtTime(o.lp, t);
+    if (o.lpEnd) lp.frequency.exponentialRampToValueAtTime(o.lpEnd, t + dur);
+    bus.connect(lp); node = lp;
+  }
+  route(a, node, o);
+}
+
+function noise(t, dur, o = {}) {
+  const a = ctx();
+  const len = Math.max(1, Math.floor(a.sampleRate * dur));
+  const buf = a.createBuffer(1, len, a.sampleRate);
+  const d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+  const src = a.createBufferSource(); src.buffer = buf;
+  const f = a.createBiquadFilter(); f.type = o.type || "bandpass"; f.frequency.value = o.freq || 2000; f.Q.value = o.q || 1;
+  const g = a.createGain();
+  g.gain.setValueAtTime(o.gain ?? 0.3, t);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  src.connect(f); f.connect(g);
+  route(a, g, { wet: o.wet ?? 0.25, pan: o.pan });
+  src.start(t);
+}
+
+// ---- Instruments ----
+const NOTE = { C4:262, D4:294, E4:330, G4:392, A4:440, C5:523, D5:587, E5:659, G5:784, A5:880, C6:1047, D6:1175, E6:1319, G6:1568, C7:2093 };
+const chime  = { partials: [[1,1,1],[2,0.4,0.6],[3,0.2,0.4]], detune: 5, wet: 0.7 };
+const bell   = { partials: [[1,1,1],[2.76,0.5,0.6],[5.4,0.25,0.35],[8.93,0.12,0.2]], detune: 0, attack: 0.003, wet: 0.85 };
+const marimba= { partials: [[1,1,1],[4,0.35,0.15],[10,0.1,0.05]], detune: 3, attack: 0.003, wet: 0.5 };
+const kalimba= { partials: [[1,1,1],[2,0.3,0.5],[6,0.15,0.12]], detune: 4, attack: 0.003, wet: 0.6 };
+const harp   = { partials: [[1,1,1],[2,0.45,0.6],[3,0.25,0.4],[4,0.12,0.25]], detune: 3, attack: 0.004, wet: 0.7 };
+const pad    = { type: "sawtooth", lp: 1800, lpEnd: 900, detune: 9, attack: 0.1, wet: 0.9, gain: 0.5 };
+const brass  = { type: "sawtooth", lp: 900, lpEnd: 3200, detune: 8, attack: 0.03, wet: 0.5, gain: 0.5 };
+
+// Talking drum (dundun): a squeezed pitch glide, skin click, body thump and a touch of snare-like buzz.
+function talk(t, f0, f1, dur = 0.22, o = {}) {
+  const g = o.gain ?? 1;
+  voice(t, f0, dur, { bend: f1, bendTime: 0.8, detune: 0, attack: 0.004, gain: 1.5 * g, wet: o.wet ?? 0.45, pan: o.pan,
+    partials: [[1,1,1],[2,0.5,0.6],[3,0.22,0.35],[1.5,0.16,0.5]] });
+  voice(t, f0 * 0.5, dur * 0.6, { bend: f1 * 0.5, detune: 0, attack: 0.003, gain: 0.9 * g, wet: 0.3, pan: o.pan });
+  noise(t, 0.035, { freq: 3000, q: 1.1, gain: 0.32 * g, pan: o.pan });
+  noise(t + 0.01, dur * 0.7, { type: "highpass", freq: 5000, gain: 0.04 * g, pan: o.pan }); // soft buzz
+}
+function djembeBass(t, g = 1) {
+  voice(t, 140, 0.4, { bend: 52, bendTime: 0.5, detune: 0, attack: 0.003, gain: 2 * g, wet: 0.35 });
+  noise(t, 0.05, { type: "lowpass", freq: 600, gain: 0.4 * g });
+}
+function djembeSlap(t, g = 1, pan = 0) {
+  noise(t, 0.1, { freq: 2400, q: 1.6, gain: 0.5 * g, pan });
+  voice(t, 450, 0.12, { bend: 280, detune: 0, attack: 0.002, gain: 0.6 * g, wet: 0.3, pan });
+}
+function conga(t, f = 330, g = 1, pan = 0) {
+  voice(t, f, 0.26, { bend: f * 0.82, detune: 0, attack: 0.003, gain: 1.1 * g, partials: [[1,1,1],[2,0.3,0.4]], wet: 0.4, pan });
+  noise(t, 0.025, { freq: 3500, q: 1, gain: 0.25 * g, pan });
+}
+function agogo(t, f = 800, g = 1, pan = 0) {
+  voice(t, f, 0.55, { type: "square", lp: 3800, detune: 0, attack: 0.002, gain: 0.32 * g, partials: [[1,1,1],[1.5,0.7,0.7],[2.3,0.3,0.4]], wet: 0.6, pan });
+}
+function shaker(t, n = 4, gap = 0.06, g = 1) {
+  for (let i = 0; i < n; i++) noise(t + i * gap, 0.07, { type: "highpass", freq: 6500, gain: 0.16 * g, wet: 0.15 });
+}
+function log(t, f, g = 1) {
+  voice(t, f, 0.4, { bend: f * 0.9, detune: 0, attack: 0.003, gain: 1.2 * g, partials: [[1,1,1],[2.4,0.3,0.3],[4.1,0.12,0.15]], wet: 0.5 });
+}
+
+const SOUNDS = {
+  correct: {
+    title: "Right answer",
+    blurb: "Short and bright, well under a second. It plays often, so it must not tire the ear.",
+    options: [
+      ["Rich chime", "Layered, detuned, with room.", (t) => { voice(t, 784, 0.35, chime); voice(t + 0.09, 1047, 0.55, chime); }],
+      ["Marimba pair", "Warm wood with a soft ring.", (t) => { voice(t, NOTE.E5, 0.4, marimba); voice(t + 0.1, NOTE.A5, 0.55, marimba); }],
+      ["Kalimba", "Plucked tines, gently echoing.", (t) => { voice(t, NOTE.G5, 0.5, kalimba); voice(t + 0.11, NOTE.D6, 0.7, kalimba); }],
+      ["Talking drum up", "One rising squeeze, like a drum saying yes.", (t) => talk(t, 250, 520, 0.24), true],
+      ["Drum, two taps up", "Two quick talking drum notes, the second higher.", (t) => { talk(t, 230, 330, 0.14, { gain: 0.9 }); talk(t + 0.13, 330, 560, 0.24); }, true],
+      ["Drum then bell", "A drum hit, then a bright bell on top.", (t) => { talk(t, 260, 480, 0.18, { gain: 0.9 }); voice(t + 0.14, NOTE.G6, 0.7, bell); }, true],
+      ["Agogo ding", "Two metal bell tones, a high and a low.", (t) => { agogo(t, 700); agogo(t + 0.1, 1050); }, true],
+      ["Djembe slap and sparkle", "A crisp slap, then three tiny bell notes.", (t) => { djembeSlap(t, 0.9); [NOTE.C6, NOTE.E6, NOTE.G6].forEach((f, i) => voice(t + 0.1 + i * 0.05, f, 0.4, { ...bell, gain: 0.7 })); }, true],
+      ["Conga pair", "Two open conga tones, up a step.", (t) => { conga(t, 300); conga(t + 0.11, 380); }, true],
+    ],
+  },
+  wrong: {
+    title: "Wrong answer",
+    blurb: "Gentle on purpose. It should say not quite, not scold.",
+    options: [
+      ["Warm fall", "Two soft notes going down.", (t) => { voice(t, 294, 0.3, { type: "triangle", detune: 5, wet: 0.5, gain: 1.1 }); voice(t + 0.13, 233, 0.5, { type: "triangle", detune: 5, wet: 0.5, gain: 1.1 }); }],
+      ["Talking drum down", "A falling squeeze, the opposite of yes.", (t) => talk(t, 400, 190, 0.28), true],
+      ["Drum, low tap", "One low, round talking drum note.", (t) => talk(t, 190, 150, 0.2, { gain: 1.1 }), true],
+      ["Djembe bass", "A deep round thump.", (t) => djembeBass(t), true],
+      ["Muted conga", "A short, damped conga tone.", (t) => { voice(t, 220, 0.12, { bend: 190, detune: 0, attack: 0.003, gain: 1.4, wet: 0.2 }); noise(t, 0.03, { freq: 2500, gain: 0.15 }); }, true],
+      ["Log drum", "A hollow wooden knock, falling slightly.", (t) => log(t, 200), true],
+      ["Log drum pair", "Two hollow knocks, the second lower.", (t) => { log(t, 230, 0.9); log(t + 0.14, 175, 1); }, true],
+      ["Drum down, then low", "A falling squeeze that settles on a low tap.", (t) => { talk(t, 360, 240, 0.14, { gain: 0.8 }); talk(t + 0.14, 220, 150, 0.22); }, true],
+      ["Soft marimba fall", "Two wooden notes going down.", (t) => { voice(t, NOTE.A4, 0.4, marimba); voice(t + 0.12, NOTE.E4, 0.55, marimba); }],
+    ],
+  },
+  complete: {
+    title: "End of lesson",
+    blurb: "About a second. A small reward for finishing, whatever the score.",
+    options: [
+      ["Rich arpeggio", "Rising C, E, G with a soft room.", (t) => [523, 659, 784].forEach((f, i) => voice(t + i * 0.13, f, i === 2 ? 0.8 : 0.35, chime))],
+      ["Talking drum phrase", "Up, down, then a long rise.", (t) => { talk(t, 240, 400, 0.16); talk(t + 0.2, 400, 300, 0.16); talk(t + 0.4, 280, 600, 0.4, { gain: 1.1 }); }, true],
+      ["Drum call and chime", "A drum phrase answered by a bell.", (t) => { talk(t, 250, 420, 0.15); talk(t + 0.18, 420, 330, 0.15); voice(t + 0.45, NOTE.G5, 0.9, bell); voice(t + 0.6, NOTE.C6, 1.1, bell); }, true],
+      ["Drum roll and shaker", "Quick conga roll into a shaker flourish.", (t) => { [0,0.07,0.14,0.21].forEach((d, i) => conga(t + d, 280 + i * 25, 0.8)); shaker(t + 0.3, 5, 0.05); djembeBass(t + 0.3, 0.8); }, true],
+      ["Agogo tune", "A little melody on metal bells.", (t) => [700, 880, 1050, 1400].forEach((f, i) => agogo(t + i * 0.12, f, 0.9)), true],
+      ["Djembe pattern and chord", "A short groove ending on a chord.", (t) => { djembeBass(t, 0.8); djembeSlap(t + 0.15, 0.7); djembeSlap(t + 0.3, 0.7); djembeBass(t + 0.45, 0.8); [NOTE.C5, NOTE.E5, NOTE.G5].forEach((f) => voice(t + 0.45, f, 1, pad)); }, true],
+      ["Harp run", "Six plucked notes sweeping up.", (t) => [NOTE.C5, NOTE.D5, NOTE.E5, NOTE.G5, NOTE.A5, NOTE.C6].forEach((f, i) => voice(t + i * 0.07, f, 0.8, harp))],
+      ["Bell cascade", "Three bells ringing out.", (t) => [NOTE.E5, NOTE.G5, NOTE.C6].forEach((f, i) => voice(t + i * 0.16, f, 1.2, bell))],
+      ["Warm chord swell", "A soft major chord that blooms and fades.", (t) => [NOTE.C5, NOTE.E5, NOTE.G5, NOTE.C6].forEach((f) => voice(t, f, 1.4, pad))],
+    ],
+  },
+  perfect: {
+    title: "Perfect score",
+    blurb: "Plays instead of the end sound when every answer was right. Should feel clearly bigger.",
+    options: [
+      ["Brass fanfare", "A bright call, then a full chord.", (t) => { [NOTE.C5, NOTE.E5, NOTE.G5].forEach((f, i) => voice(t + i * 0.11, f, 0.2, brass)); [NOTE.C5, NOTE.E5, NOTE.G5, NOTE.C6].forEach((f) => voice(t + 0.4, f, 1.1, brass)); }],
+      ["Talking drum speaks", "A long drum phrase that ends high, then a bell.", (t) => { talk(t, 230, 380, 0.14); talk(t + 0.16, 380, 290, 0.14); talk(t + 0.32, 270, 440, 0.16); talk(t + 0.5, 440, 700, 0.3, { gain: 1.1 }); voice(t + 0.78, NOTE.C6, 1.2, bell); voice(t + 0.9, NOTE.E6, 1, { ...bell, gain: 0.7 }); }, true],
+      ["Full ensemble", "Djembe, talking drum, agogo and a chord together.", (t) => { djembeBass(t); talk(t + 0.03, 260, 560, 0.3, { gain: 1.1 }); agogo(t + 0.2, 900); agogo(t + 0.32, 1200); shaker(t + 0.15, 6, 0.06); [NOTE.C5, NOTE.E5, NOTE.G5, NOTE.C6].forEach((f) => voice(t + 0.4, f, 1.2, pad)); }, true],
+      ["Drum roll and bells", "A rolling drum build into a shower of bells.", (t) => { for (let i = 0; i < 6; i++) conga(t + i * 0.055, 260 + i * 22, 0.7 + i * 0.05); [NOTE.G6, NOTE.E6, NOTE.C6, NOTE.G5, NOTE.C6, NOTE.E6, NOTE.C7].forEach((f, i) => voice(t + 0.38 + i * 0.08, f, 1.1, { ...bell, gain: 0.7 })); djembeBass(t + 0.36, 0.9); }, true],
+      ["Harp sweep and bells", "A long harp sweep with a bell on top.", (t) => { [NOTE.C5, NOTE.D5, NOTE.E5, NOTE.G5, NOTE.A5, NOTE.C6, NOTE.E6, NOTE.G6].forEach((f, i) => voice(t + i * 0.055, f, 0.9, harp)); voice(t + 0.5, NOTE.C7, 1.4, bell); }],
+      ["Celebration groove", "Shaker, djembe, and a sparkle.", (t) => { shaker(t, 8, 0.055); djembeBass(t); djembeSlap(t + 0.12, 0.8); djembeSlap(t + 0.24, 0.8); djembeBass(t + 0.36); [NOTE.C6, NOTE.E6, NOTE.G6, NOTE.C7].forEach((f, i) => voice(t + 0.4 + i * 0.07, f, 0.9, { ...bell, gain: 0.7 })); }, true],
+      ["Drum and brass", "A talking drum hit that opens into a brass chord.", (t) => { talk(t, 250, 500, 0.25, { gain: 1.2 }); djembeBass(t + 0.02, 0.9); [NOTE.C5, NOTE.G5, NOTE.E6].forEach((f) => voice(t + 0.28, f, 1.2, brass)); [NOTE.C5 * 2, NOTE.G5 * 1.5, NOTE.C7].forEach((f) => voice(t + 0.28, f, 1.2, { ...bell, gain: 0.5 })); }, true],
+      ["Triumph chords", "Two chords, the second brighter, with room.", (t) => { [NOTE.C5, NOTE.G5, NOTE.E6].forEach((f) => voice(t, f, 0.5, { ...pad, attack: 0.02 })); [NOTE.C5 * 2, NOTE.G5 * 1.5, NOTE.C7].forEach((f) => voice(t + 0.3, f, 1.4, { ...pad, attack: 0.02 })); }],
+    ],
+  },
+};
+
+const KEY = "ogbonSoundPicks2";
+const picks = JSON.parse(localStorage.getItem(KEY) || "{}");
+const wrap = document.getElementById("sections");
+const LETTER = { correct: "R", wrong: "W", complete: "E", perfect: "P" };
+
+for (const [key, s] of Object.entries(SOUNDS)) {
+  const sec = document.createElement("section");
+  sec.innerHTML = `<h2>${s.title}</h2><p>${s.blurb}</p><div class="grid"></div>`;
+  const grid = sec.querySelector(".grid");
+  s.options.forEach(([name, desc, fn, isDrum], i) => {
+    const d = document.createElement("div");
+    d.className = "opt" + (isDrum ? " drum" : "");
+    d.innerHTML = `<div><strong>${LETTER[key]}${i + 1}. ${name}</strong><span>${desc}</span></div>
+      <div class="row"><button class="play">Play</button><button class="pick" aria-pressed="false">Pick</button></div>`;
+    d.querySelector(".play").onclick = () => fn(ctx().currentTime + 0.03);
+    d.querySelector(".pick").onclick = () => { picks[key] = i; localStorage.setItem(KEY, JSON.stringify(picks)); render(); };
+    d.dataset.key = key; d.dataset.i = i;
+    grid.appendChild(d);
+  });
+  wrap.appendChild(sec);
+}
+
+function render() {
+  document.querySelectorAll(".opt").forEach((d) => {
+    const on = picks[d.dataset.key] === Number(d.dataset.i);
+    d.classList.toggle("picked", on);
+    d.querySelector(".pick").setAttribute("aria-pressed", String(on));
+    d.querySelector(".pick").textContent = on ? "Picked" : "Pick";
+  });
+  const lines = Object.entries(SOUNDS).map(([key, s]) => {
+    const i = picks[key];
+    return `${s.title}: ${i === undefined ? "(none yet)" : `${LETTER[key]}${i + 1} ${s.options[i][0]}`}`;
+  });
+  document.getElementById("summary").textContent = lines.join("\n");
+}
+document.getElementById("playSet").onclick = () => {
+  let at = ctx().currentTime + 0.05;
+  for (const key of ["correct", "wrong", "complete", "perfect"]) {
+    const i = picks[key];
+    if (i !== undefined) SOUNDS[key].options[i][2](at);
+    at += 2.2;
+  }
+};
+render();
+</script>
+</body>
+</html>
