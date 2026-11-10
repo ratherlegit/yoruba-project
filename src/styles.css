@@ -22,6 +22,7 @@
   --cell-todo: #c9d3f5;
   --chip-bg: #e3b84f;
   --chip-text: #101a3d;
+  --tint-mix: 0%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,10 +48,12 @@
     --cell-todo: #bcc8ef;
     --chip-bg: #e3b84f;
     --chip-text: #101a3d;
+    --tint-mix: 45%;
   }
 }
 
 :root[data-theme="dark"] {
+  --tint-mix: 45%;
   color-scheme: dark;
   --bg: #0b1634;
   --surface: #13265a;
@@ -204,7 +207,7 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .bulb:hover { transform: scale(1.08); }
 .bulb.fx { animation: swing 0.6s ease, glow 0.7s ease-out; }
 
-.hero { position: relative; background: #14307a url("./assets/adire.jpg"); background-size: 520px; border-bottom: 3px solid var(--gold); }
+.hero { position: relative; z-index: 1; background: #14307a url("./assets/adire.jpg"); background-size: 520px; border-bottom: 3px solid var(--gold); }
 .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9, 20, 58, 0.94) 0%, rgba(9, 20, 58, 0.82) 40%, rgba(9, 20, 58, 0.3) 72%, rgba(9, 20, 58, 0) 100%); }
 .hero-inner { position: relative; max-width: 46rem; margin: 0 auto; padding: 3rem 1rem 2.8rem; }
 .hero h1 { margin: 0; font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.05; color: #f6f0e0; text-shadow: 0 2px 14px rgba(5, 12, 40, 0.8); animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
@@ -283,13 +286,44 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .transform-reveal { display: grid; gap: 0.4rem; padding: 0.75rem 1rem; border-radius: 0.7rem; background: var(--surface-2); border: 1px solid var(--border); }
 
 /* Landing page: one large card per activity, and the short stats strip above them */
-.activity-grid { display: grid; gap: 0.9rem; grid-template-columns: 1fr; }
-@media (min-width: 40rem) { .activity-grid { grid-template-columns: repeat(2, 1fr); } }
-.activity-card { display: flex; gap: 1.1rem; align-items: center; padding: 1.4rem 1.3rem; text-decoration: none; color: var(--text); }
-.activity-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-.activity-text { display: grid; gap: 0.3rem; min-width: 0; }
-.activity-text strong { font-size: 1.25rem; }
-.activity-progress { font-size: 0.9rem; font-weight: 600; color: var(--gold-text); }
+.activity-grid { display: grid; gap: 0.8rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 46rem) { .activity-grid { grid-template-columns: repeat(4, 1fr); } }
+.activity-card { --kc: color-mix(in srgb, var(--k), white var(--tint-mix)); display: grid; justify-items: center; align-content: start; gap: 0.3rem; text-align: center; padding: 1rem 0.6rem; text-decoration: none; color: var(--text); }
+.activity-card:hover { border-color: var(--kc); transform: translateY(-4px); }
+.activity-card strong { font-family: "Readex Pro Variable", sans-serif; font-size: 1.1rem; }
+.act-blurb { font-size: 0.85rem; line-height: 1.35; }
+.act-ring { position: relative; display: grid; place-items: center; width: 5.2rem; height: 5.2rem; margin-bottom: 0.2rem; }
+.act-ring-svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.act-ring-svg circle { fill: none; stroke-width: 5; }
+.act-track { stroke: var(--surface-2); }
+.act-fill { stroke: var(--kc); stroke-linecap: round; }
+.act-ring .level-icon-bare { color: var(--kc); transition: transform 0.25s ease; }
+.act-ring .level-icon-bare svg { width: 2.7rem; height: 2.7rem; }
+.activity-card:hover .level-icon-bare { transform: rotate(-8deg) scale(1.1); }
+.activity-progress { font-size: 0.8rem; font-weight: 700; color: var(--gold-text); }
+.level-icon.level-icon-bare { width: auto; height: auto; border: 0; background: none; border-radius: 0; }
+
+/* Today strip above the activity cards */
+.today { display: grid; gap: 0.9rem; grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .today { grid-template-columns: 1.4fr 1fr; } }
+.today h2 { margin: 0; font-size: 1.15rem; }
+.today-yo { font-family: "Readex Pro Variable", sans-serif; font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+.today-continue { display: grid; gap: 0.5rem; align-content: start; padding: 1.2rem; border-radius: 1.2rem; background: #14307a; color: #f6f0e0; border: 2px solid #c99a2e; box-shadow: 6px 6px 0 #c99a2e; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.today-continue:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 #c99a2e; }
+.today-continue .today-yo { color: #e3b84f; }
+.today-go { justify-self: start; background: #e3b84f; color: #101a3d; font-weight: 700; border-radius: 0.7rem; padding: 0.45rem 1rem; }
+.today-word { display: grid; gap: 0.35rem; align-content: start; border-radius: 1.2rem; }
+.today-word-row { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.today-streak { display: flex; flex-wrap: wrap; gap: 0.3rem 0.6rem; align-items: center; font-weight: 700; margin-top: 0.2rem; }
+.today-dots { display: inline-flex; gap: 0.25rem; }
+.today-dots b { width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); }
+.today-dots b.on { background: var(--gold); border-color: var(--gold); }
+
+/* A faint adire diamond-and-dot texture behind the home page content. Drawn as a mask so it takes the text colour in both themes. */
+.home-texture { position: relative; isolation: isolate; }
+.home-texture::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--text); opacity: 0.05;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 8l8 8-8 8-8-8z' fill='none' stroke='black' stroke-width='1.2'/%3E%3Ccircle cx='24' cy='24' r='1.6'/%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3Ccircle cx='48' cy='0' r='1.6'/%3E%3Ccircle cx='0' cy='48' r='1.6'/%3E%3Ccircle cx='48' cy='48' r='1.6'/%3E%3C/svg%3E") 0 0 / 48px 48px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 8l8 8-8 8-8-8z' fill='none' stroke='black' stroke-width='1.2'/%3E%3Ccircle cx='24' cy='24' r='1.6'/%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3Ccircle cx='48' cy='0' r='1.6'/%3E%3Ccircle cx='0' cy='48' r='1.6'/%3E%3Ccircle cx='48' cy='48' r='1.6'/%3E%3C/svg%3E") 0 0 / 48px 48px; }
 .stats-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; }
 .stats-figures { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; margin: 0; }
 .stats-figures > div { display: grid; gap: 0.1rem; }
@@ -386,17 +420,9 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .about-name { color: var(--gold-text); font-weight: 800; }
 
 /* Landing page motion */
-.hero-live { overflow: hidden; animation: adire-drift 60s linear infinite; }
-@keyframes adire-drift { from { background-position: 0 0; } to { background-position: 520px 260px; } }
+.hero-live { overflow: hidden; }
 .hero-live h1 em { background: linear-gradient(90deg, #e3b84f 0 0) no-repeat 0 100% / 0 3px; animation: underline-wipe 0.9s 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; padding-bottom: 0.1em; width: fit-content; }
 @keyframes underline-wipe { to { background-size: 100% 3px; } }
-/* Activity icons float gently, each on its own beat, and tip when the card is hovered. */
-.activity-card .level-icon { animation: float 4.5s ease-in-out infinite; }
-.activity-grid > a:nth-child(2n) .level-icon { animation-delay: -1.2s; }
-.activity-grid > a:nth-child(3n) .level-icon { animation-delay: -2.4s; }
-.activity-grid > a:nth-child(5n) .level-icon { animation-delay: -3.3s; }
-@keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
-.activity-card:hover .level-icon { animation-play-state: paused; }
 
 /* Answer feedback */
 .choice[data-state="wrong"] { animation: shake 0.38s ease; }

@@ -103,7 +103,7 @@ const SHAPES: Record<ActivityId, React.ReactNode> = {
   ),
 };
 
-export function ActivityIcon({ activity, size = "md" }: { activity: ActivityId; size?: "md" | "lg" }) {
+export function ActivityIcon({ activity, size = "md" }: { activity: ActivityId; size?: "md" | "lg" | "bare" }) {
   return (
     <span className={`level-icon level-icon-${size}`} aria-hidden="true">
       <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" focusable="false">

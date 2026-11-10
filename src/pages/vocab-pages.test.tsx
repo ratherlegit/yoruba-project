@@ -259,6 +259,6 @@ describe("vocab pages", () => {
     fireEvent.click(await screen.findByRole("button", { name: /Activities/ }));
     const links = await screen.findAllByRole("link", { name: /Vocab/ });
     expect(links.length).toBeGreaterThanOrEqual(2);
-    expect(screen.getByText("Common words by topic, with flashcards and practice.")).toBeInTheDocument();
+    expect(screen.getByText("Words by topic")).toBeInTheDocument();
   });
 });

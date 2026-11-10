@@ -109,3 +109,31 @@ describe("Home", () => {
     expect(within(card).queryByTestId("card-progress")).toBeNull();
   });
 });
+
+describe("Home today strip", () => {
+  it("offers the first lesson to a new visitor, with a word of the day and no streak", async () => {
+    const main = await renderHome();
+    const cont = within(main).getByTestId("today-continue");
+    expect(cont.textContent).toContain("Start your first lesson");
+    expect(cont.textContent).toContain(lessons[0]!.title);
+    expect(cont.getAttribute("href")).toBe(`/lesson/${LEVELS[0]!.id}/${lessons[0]!.id}`);
+    expect(within(main).getByTestId("word-of-the-day").textContent).toContain("Word of the day");
+    expect(within(main).queryByTestId("streak")).toBeNull();
+  });
+
+  it("continues at the first lesson not yet done", async () => {
+    saveProgress(recordCompletion(emptyProgress, lessons[0]!.id, 1));
+    const main = await renderHome();
+    const cont = within(main).getByTestId("today-continue");
+    expect(cont.textContent).toContain("Continue where you left off");
+    expect(cont.textContent).toContain(lessons[1]!.title);
+  });
+
+  it("shows a streak when the learner practised today", async () => {
+    const d = new Date();
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    localStorage.setItem("yp:stats:v1", JSON.stringify({ days: [key] }));
+    const main = await renderHome();
+    expect(within(main).getByTestId("streak").textContent).toContain("1 day streak");
+  });
+});

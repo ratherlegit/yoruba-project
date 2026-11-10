@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ogbon home page options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Readex+Pro:wght@500;700&family=Ojuju:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4efe3;--surface:#fffdf7;--surface-2:#ebe4cf;--text:#101a3d;--muted:#3b4a7d;--primary:#14307a;--on:#f6f0e0;--border:#aab4d6;--line:#14307a;--gold:#c99a2e;--gold-text:#8d6512;--frame:#e9e2cf}
+:root[data-theme=dark]{--bg:#0b1634;--surface:#13265a;--surface-2:#1a3170;--text:#f1ecde;--muted:#bcc8ef;--primary:#c99a2e;--on:#101a3d;--border:#3652a6;--line:#3652a6;--gold-text:#e3b84f;--frame:#0e1d45}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans",system-ui,sans-serif;line-height:1.55}
+h1,h2,h3{font-family:"Readex Pro",system-ui,sans-serif;line-height:1.2;margin:0}
+header.top{background:#14307a;color:#f6f0e0;border-bottom:3px solid #c99a2e;padding:1.2rem 1rem}
+header.top h1{font-size:1.6rem}header.top p{margin:.3rem 0 0;color:#cdd6f6}
+.wrap{max-width:68rem;margin:0 auto;padding:1.2rem 1rem 6rem;display:grid;gap:1.6rem}
+.bar{position:sticky;top:0;z-index:9;background:var(--bg);padding:.6rem 0;display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;border-bottom:1px solid var(--border)}
+.bar a{color:var(--text);font-weight:700;text-decoration:none;border:2px solid var(--line);border-radius:999px;padding:.1rem .75rem}
+button{font:inherit;font-weight:700;min-height:2.4rem;padding:.2rem .9rem;border-radius:.6rem;border:2px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#101a3d}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt{border:2px solid var(--line);border-radius:1rem;overflow:hidden;background:var(--surface)}
+.opt.picked{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold)}
+.opt-head{display:flex;flex-wrap:wrap;gap:.5rem 1rem;justify-content:space-between;align-items:center;padding:.8rem 1rem}
+.opt-head h2{font-size:1.25rem}.opt-head p{margin:.15rem 0 0;color:var(--muted);max-width:42rem}
+.stage{background:var(--frame);padding:1.2rem 1rem 1.5rem;border-top:2px solid var(--line)}
+.stage.navy{background:#14307a}
+.phone .inner{max-width:24rem;margin:0 auto}
+.note{color:var(--muted);font-size:.92rem}
+.summary{position:sticky;bottom:0;background:var(--surface);border-top:2px solid var(--line);padding:.6rem 1rem;text-align:center;font-weight:600}
+.inner{max-width:46rem;margin:0 auto}
+svg.i{display:block;width:100%;height:100%}
+.ic{display:inline-block}
+
+/* A: current look */
+.A{display:grid;gap:.9rem;grid-template-columns:repeat(2,1fr)}
+.A .c{display:flex;gap:1.1rem;align-items:center;padding:1.4rem 1.3rem;background:var(--surface);border:2px solid var(--line);border-radius:.9rem;color:var(--text);text-decoration:none}
+.A .ic{width:4rem;height:4rem;flex:none;color:var(--primary)}
+.A strong{font-size:1.25rem}.A .d{color:var(--muted)}.A .pr{font-size:.9rem;font-weight:600;color:var(--gold-text)}
+.A .t{display:grid;gap:.3rem}
+
+/* B: colour tiles */
+.B{display:grid;gap:.9rem;grid-template-columns:repeat(2,1fr)}
+.B .c{position:relative;display:grid;gap:.5rem;padding:1.1rem 1.1rem 1.2rem;border-radius:1.2rem;color:#fff;background:var(--k);text-decoration:none;overflow:hidden;box-shadow:0 5px 0 var(--kd);transition:transform .18s,box-shadow .18s}
+.B .c:hover{transform:translateY(-4px);box-shadow:0 9px 0 var(--kd)}
+.B .c:active{transform:translateY(3px);box-shadow:0 2px 0 var(--kd)}
+.B .ic{width:3.6rem;height:3.6rem;padding:.55rem;border-radius:1rem;background:rgba(255,255,255,.2);color:#fff;transition:transform .25s}
+.B .c:hover .ic{transform:rotate(-8deg) scale(1.1)}
+.B strong{font-family:"Readex Pro";font-size:1.35rem}
+.B .d{font-size:.95rem;opacity:.93}
+.B .pr{justify-self:start;font-size:.85rem;font-weight:700;background:rgba(0,0,0,.25);padding:.15rem .7rem;border-radius:999px}
+.B .big{position:absolute;right:-.6rem;bottom:-1.2rem;width:7rem;height:7rem;opacity:.14;color:#fff;transform:rotate(12deg)}
+
+/* C: poster cards with cloth pattern */
+.C{display:grid;gap:1rem;grid-template-columns:repeat(4,1fr)}
+.C .c{display:flex;flex-direction:column;border-radius:1.1rem;overflow:hidden;border:2px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.C .c:hover{transform:translateY(-5px);box-shadow:0 10px 0 -2px var(--k)}
+.C .art{position:relative;height:8.5rem;background-color:var(--k);display:grid;place-items:center;color:#fff;
+ background-image:radial-gradient(circle at 50% 50%,transparent 0 .55rem,rgba(255,255,255,.18) .56rem .7rem,transparent .71rem),radial-gradient(circle at 50% 50%,rgba(255,255,255,.12) 0 .22rem,transparent .23rem);background-size:2.4rem 2.4rem;background-position:0 0,1.2rem 1.2rem}
+.C .ic{width:4.6rem;height:4.6rem;padding:.7rem;border-radius:50%;background:var(--k);border:3px solid #fff;color:#fff;box-shadow:0 4px 0 rgba(0,0,0,.2);transition:transform .25s}
+.C .c:hover .ic{transform:scale(1.12) rotate(-6deg)}
+.C .body{display:grid;gap:.3rem;padding:.8rem .9rem 1rem}
+.C strong{font-family:"Readex Pro";font-size:1.15rem}
+.C .d{font-size:.88rem;color:var(--muted)}
+.C .bar2{height:.4rem;border-radius:99px;background:var(--surface-2);overflow:hidden;margin-top:.2rem}
+.C .bar2 i{display:block;height:100%;background:var(--k)}
+.C .pr{font-size:.8rem;font-weight:700;color:var(--gold-text)}
+
+/* D: today strip plus ring grid */
+.D .hero{display:grid;gap:.9rem;grid-template-columns:1.4fr 1fr;margin-bottom:1rem}
+.D .cont{background:#14307a;color:#f6f0e0;border-radius:1.2rem;padding:1.2rem;display:grid;gap:.5rem;border:2px solid #c99a2e;box-shadow:6px 6px 0 #c99a2e;text-decoration:none}
+.D .cont h3{font-size:1.3rem}.D .cont .yo{font-size:1.7rem;font-family:"Readex Pro";color:#e3b84f}
+.D .cont .go{justify-self:start;background:#e3b84f;color:#101a3d;font-weight:700;border-radius:.7rem;padding:.45rem 1rem}
+.D .pod{background:var(--surface);border:2px solid var(--line);border-radius:1.2rem;padding:1.1rem;display:grid;gap:.4rem;align-content:start}
+.D .pod .yo{font-size:1.25rem;font-family:"Readex Pro"}
+.D .streak{display:flex;gap:.35rem;align-items:center;font-weight:700}
+.D .dots{display:flex;gap:.25rem}.D .dots b{width:.8rem;height:.8rem;border-radius:50%;background:var(--surface-2);border:1px solid var(--border)}.D .dots b.on{background:var(--gold);border-color:var(--gold)}
+.D .g{display:grid;gap:.7rem;grid-template-columns:repeat(4,1fr)}
+.D .c{display:grid;justify-items:center;gap:.35rem;text-align:center;padding:1rem .6rem;background:var(--surface);border:2px solid var(--line);border-radius:1rem;color:var(--text);text-decoration:none;transition:transform .18s}
+.D .c:hover{transform:translateY(-4px)}
+.D .ring{position:relative;width:5.2rem;height:5.2rem}
+.D .ring svg.r{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.D .ring circle{fill:none;stroke-width:5}
+.D .ring .tr{stroke:var(--surface-2)}.D .ring .fg{stroke:var(--k);stroke-linecap:round}
+.D .ring .ic{position:absolute;inset:.85rem;color:var(--k)}
+.D strong{font-family:"Readex Pro"}.D .pr{font-size:.78rem;font-weight:700;color:var(--gold-text)}.D .d{font-size:.8rem;color:var(--muted)}
+
+/* E: content peek */
+.E{display:grid;gap:.9rem;grid-template-columns:repeat(2,1fr)}
+.E .c{display:grid;gap:.55rem;padding:1.1rem;border-radius:1.1rem;background:var(--surface);border:2px solid var(--line);color:var(--text);text-decoration:none;position:relative;transition:transform .2s,border-color .2s}
+.E .c:hover{transform:translateY(-4px) rotate(-.4deg);border-color:var(--k)}
+.E .row{display:flex;gap:.7rem;align-items:center}
+.E .ic{width:2.8rem;height:2.8rem;padding:.35rem;border-radius:.8rem;background:var(--k);color:#fff;flex:none}
+.E strong{font-family:"Readex Pro";font-size:1.15rem}
+.E .peek{background:var(--surface-2);border-radius:.8rem;padding:.7rem .85rem;display:grid;gap:.15rem;border-left:5px solid var(--k)}
+.E .peek .yo{font-family:"Readex Pro";font-size:1.35rem;line-height:1.3}
+.E .peek .en{color:var(--muted);font-size:.9rem}
+.E .foot{display:flex;justify-content:space-between;align-items:center;font-size:.85rem}
+.E .pr{font-weight:700;color:var(--gold-text)}.E .go{font-weight:700;color:var(--k)}
+
+/* F: bento */
+.F{display:grid;gap:.8rem;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(11rem,auto)}
+.F .c{position:relative;overflow:hidden;display:grid;align-content:space-between;grid-template-rows:auto 1fr auto auto;gap:.25rem;padding:1rem;border-radius:1.3rem;background:var(--k);color:#fff;text-decoration:none;transition:transform .2s}
+.F .c:hover{transform:scale(1.025)}
+.F .c.w2{grid-column:span 2}.F .c.h2{grid-row:span 2}
+.F .ic{width:3.2rem;height:3.2rem;color:rgba(255,255,255,.95);transition:transform .3s;transform-origin:left center}
+.F .c.h2 .ic{width:6.5rem;height:6.5rem}
+.F .c:hover .ic{transform:rotate(-8deg) scale(1.12)}
+.F strong{font-family:"Readex Pro";font-size:1.3rem;position:relative;align-self:end}
+.F .c.h2 strong{font-size:1.8rem}
+.F .d{font-size:.9rem;opacity:.92;position:relative;max-width:22rem}
+.F .pr{font-size:.8rem;font-weight:700;position:relative;background:rgba(0,0,0,.28);justify-self:start;padding:.1rem .65rem;border-radius:99px;margin-top:.2rem}
+.F .c.dark{color:#f6f0e0}.F .c.gold{color:#101a3d}.F .c.gold .pr{background:rgba(16,26,61,.15)}.F .c.gold .ic{color:#101a3d}
+
+@media(max-width:46rem){
+ .C{grid-template-columns:repeat(2,1fr)}.D .g{grid-template-columns:repeat(2,1fr)}.D .hero{grid-template-columns:1fr}
+ .F{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:30rem){.A,.B,.E{grid-template-columns:1fr}}
+.phone .A,.phone .B,.phone .E{grid-template-columns:1fr}.phone .C,.phone .D .g,.phone .F{grid-template-columns:repeat(2,1fr)}.phone .D .hero{grid-template-columns:1fr}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><h1>Ogbon home page options</h1><p>Six ways to present the eight activities. Each uses the real titles, descriptions and icons. Progress numbers are samples.</p></header>
+<div class="wrap">
+ <div class="bar" id="bar"><button id="theme" aria-pressed="false">Dark mode</button><button id="phone" aria-pressed="false">Phone width</button><span class="note">Jump to:</span></div>
+ <div id="opts" style="display:grid;gap:1.6rem"></div>
+</div>
+<div class="summary" id="sum">Your picks: none yet</div>
+<script>
+const ICONS={"grammar": "<path d=\"M10 10h44v44H10Z\" />\n      <path d=\"M32 10v44M10 32h44\" stroke-width=\"1.8\" />\n      <circle cx=\"21\" cy=\"21\" r=\"7\" />\n      <circle cx=\"21\" cy=\"21\" r=\"2.6\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <circle cx=\"43\" cy=\"43\" r=\"7\" />\n      <circle cx=\"43\" cy=\"43\" r=\"2.6\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <path d=\"M43 14.5 49.5 21 43 27.5 36.5 21Z\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <path d=\"M21 36.5 27.5 43 21 49.5 14.5 43Z\" fill=\"currentColor\" fill-opacity=\".25\" />", "vocab": "<path d=\"M16 22C16 7 48 7 48 22\" />\n      <ellipse cx=\"32\" cy=\"23\" rx=\"20\" ry=\"5\" />\n      <path d=\"M12 23c1 18 6 31 20 31s19-13 20-31\" />\n      <path d=\"M22 28c-1 8 0 15 3 22M32 28v24M42 28c1 8 0 15-3 22\" stroke-width=\"1.8\" />\n      <path d=\"M14 34c12 5 24 5 36 0M17 43c10 4 20 4 30 0\" stroke-width=\"1.8\" />", "numbers": "<ellipse cx=\"21\" cy=\"46\" rx=\"14\" ry=\"9\" transform=\"rotate(-14 21 46)\" />\n      <ellipse cx=\"43\" cy=\"47\" rx=\"13\" ry=\"9\" transform=\"rotate(14 43 47)\" />\n      <ellipse cx=\"32\" cy=\"27\" rx=\"16\" ry=\"10.5\" transform=\"rotate(-18 32 27)\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <path d=\"M12 43c3 1 5 4 5 8M20 40c3 1 5 5 5 9M38 43c3 1 5 5 4 9M46 44c3 1 5 4 4 8M24 25c3 1 4 4 4 7M33 21c3 1 4 4 4 7\" stroke-width=\"1.8\" />\n      <path d=\"M44 15l3-4M47 20l4-2M48 26l4 0M7 50l-4 1M8 46l-4-2\" stroke-width=\"1.8\" />", "sounds": "<g transform=\"rotate(-35 32 32)\">\n      <rect x=\"4\" y=\"26.5\" width=\"56\" height=\"11\" rx=\"5.5\" />\n      <ellipse cx=\"14\" cy=\"32\" rx=\"2.2\" ry=\"1.6\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <circle cx=\"26\" cy=\"32\" r=\"2\" fill=\"currentColor\" />\n      <circle cx=\"33\" cy=\"32\" r=\"2\" fill=\"currentColor\" />\n      <circle cx=\"40\" cy=\"32\" r=\"2\" fill=\"currentColor\" />\n      <circle cx=\"47\" cy=\"32\" r=\"2\" fill=\"currentColor\" />\n      <path d=\"M20 26.5v11M54 26.5v11\" stroke-width=\"1.8\" />\n    </g>", "proverbs": "<path d=\"M12 43C10 38 13 32 18 28L21 14 27 22C31 20 36 20 40 23C48 28 52 38 54 56H40C40 47 38 41 32 39C29 42 25 47 20 47C16 47 13 46 12 43Z\" />\n      <circle cx=\"25\" cy=\"30\" r=\"1.6\" fill=\"currentColor\" />\n      <path d=\"M14.5 41.5h1.5\" />\n      <path d=\"M36 21c4-4 9-3 12 2M41 29c4-3 8-2 10 2M44 37c3-2 6-1 8 2\" stroke-width=\"1.8\" />", "transform": "<g transform=\"translate(0 -3)\">\n      <path d=\"M10 22h44a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26a4 4 0 0 1 4-4Z\" />\n      <circle cx=\"13\" cy=\"30\" r=\"3.2\" />\n      <circle cx=\"21\" cy=\"30\" r=\"3.2\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <circle cx=\"29\" cy=\"30\" r=\"3.2\" />\n      <circle cx=\"37\" cy=\"30\" r=\"3.2\" />\n      <circle cx=\"45\" cy=\"30\" r=\"3.2\" />\n      <circle cx=\"53\" cy=\"30\" r=\"3.2\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <circle cx=\"13\" cy=\"40\" r=\"3.2\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <circle cx=\"21\" cy=\"40\" r=\"3.2\" />\n      <circle cx=\"29\" cy=\"40\" r=\"3.2\" />\n      <circle cx=\"37\" cy=\"40\" r=\"3.2\" fill=\"currentColor\" fill-opacity=\".25\" />\n      <circle cx=\"45\" cy=\"40\" r=\"3.2\" />\n      <circle cx=\"53\" cy=\"40\" r=\"3.2\" />\n      <path d=\"M14 48v8M50 48v8\" />\n    </g>", "songs": "<path d=\"M28.5 26V12.5a3.5 3.5 0 0 1 7 0V26\" />\n      <path d=\"M26.5 12.5h11\" stroke-width=\"1.8\" />\n      <circle cx=\"32\" cy=\"41\" r=\"16\" />\n      <path d=\"M35 25.3 16.3 44M16.3 38 35 56.7M43.3 29.7 20.7 52.3M20.7 29.7 43.3 52.3M47.7 38 29 56.7M29 25.3 47.7 44\" stroke-width=\"1.8\" />\n      <circle cx=\"32\" cy=\"41\" r=\"2.3\" fill=\"currentColor\" />\n      <circle cx=\"25.6\" cy=\"34.6\" r=\"1.7\" fill=\"currentColor\" fill-opacity=\".35\" />\n      <circle cx=\"38.4\" cy=\"34.6\" r=\"1.7\" fill=\"currentColor\" fill-opacity=\".35\" />\n      <circle cx=\"25.6\" cy=\"47.4\" r=\"1.7\" fill=\"currentColor\" fill-opacity=\".35\" />\n      <circle cx=\"38.4\" cy=\"47.4\" r=\"1.7\" fill=\"currentColor\" fill-opacity=\".35\" />\n      <path d=\"M52 20l4-3M55 28h5M12 20l-4-3M9 28H4\" stroke-width=\"1.8\" />", "dialogues": "<ellipse cx=\"17\" cy=\"33\" rx=\"12\" ry=\"4.5\" />\n      <path d=\"M12 37c1 5 1 8-1 12M22 37c-1 5-1 8 1 12\" />\n      <ellipse cx=\"17\" cy=\"52\" rx=\"10\" ry=\"3.2\" />\n      <ellipse cx=\"47\" cy=\"33\" rx=\"12\" ry=\"4.5\" />\n      <path d=\"M42 37c1 5 1 8-1 12M52 37c-1 5-1 8 1 12\" />\n      <ellipse cx=\"47\" cy=\"52\" rx=\"10\" ry=\"3.2\" />\n      <path d=\"M28 19c2.5-3 5.5-3 8 0\" stroke-width=\"1.8\" />\n      <path d=\"M24 13c5.5-5.5 10.5-5.5 16 0\" stroke-width=\"1.8\" />\n      <circle cx=\"32\" cy=\"24\" r=\"1.6\" fill=\"currentColor\" />"};
+const ic=(a,cls='ic')=>`<span class="${cls}" aria-hidden="true"><svg class="i" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" focusable="false">${ICONS[a]}</svg></span>`;
+// colours drawn from Yoruba cloth: indigo, camwood, ochre, green, plum, sky, kola brown, deep teal
+const ACT=[
+ {id:'grammar',s:'Sounds to sentences',t:'Grammar',d:'Five levels from sounds to sentences, one small lesson at a time.',p:'12 of 40 lessons done',n:12,m:40,k:'#2f4fb3',kd:'#1d3380',yo:'Mo ń lọ ilé',en:'I am going home.'},
+ {id:'vocab',s:'Words by topic',t:'Vocab',d:'Common words by topic, with flashcards and practice.',p:'3 of 25 topics done',n:3,m:25,k:'#b8431f',kd:'#862e12',yo:'omi',en:'water'},
+ {id:'numbers',s:'One to a thousand',t:'Numbers',d:'Count in Yoruba, from one to a thousand, and see how the twenties work.',p:'5 of 9 steps done',n:5,m:9,k:'#a8741a',kd:'#7a520f',yo:'ọ̀kan, èjì, ẹ̀ta',en:'one, two, three'},
+ {id:'sounds',s:'Vowels, consonants, tones',t:'Sound Bank',d:'Every vowel, consonant and tone, with audio and listening practice.',p:'18 practice answers',n:18,m:40,k:'#17795f',kd:'#0f5543',yo:'ẹ  ẹ̀  ẹ́',en:'three tones, three meanings'},
+ {id:'proverbs',s:'Guess the meaning',t:'Proverbs',d:'Read a proverb, guess what it means, then see when you would say it.',p:'7 of 60 proverbs guessed',n:7,m:60,k:'#7b3f98',kd:'#562a6b',yo:'Òwe lẹ́ṣin ọ̀rọ̀',en:'A proverb is the horse of speech.'},
+ {id:'transform',s:'Change a sentence',t:'Transform',d:'Type the negative, question, future or past form of a sentence.',p:'4 sentences checked',n:4,m:30,k:'#1f7a99',kd:'#145670',yo:'Mo jẹun → Mi ò jẹun',en:'I eat → I do not eat'},
+ {id:'songs',s:'Learn from lyrics',t:'Songs',d:'Watch a Yoruba song and read a few of its lines with their meaning.',p:'',n:0,m:10,k:'#a23a5a',kd:'#732640',yo:'Ọmọge dákun gbọ́ tèmi',en:'Girl, please listen to me.'},
+ {id:'dialogues',s:'Everyday conversations',t:'Dialogues',d:'Read and hear everyday conversations between two people, at every level.',p:'',n:0,m:20,k:'#5b6b2b',kd:'#3f4a1c',yo:'Báwo ni? Mo wà dáadáa.',en:'How are you? I am fine.'},
+];
+const by=Object.fromEntries(ACT.map(a=>[a.id,a]));
+const sty=a=>`style="--k:${a.k};--kd:${a.kd}"`;
+const V=[
+ {id:'A',name:'A. Current look',desc:'For comparison. Plain cards, one icon each, text only.',navy:false,
+  html:()=>`<div class="A">${ACT.map(a=>`<a class="c" href="#">${ic(a.id)}<span class="t"><strong>${a.t}</strong><span class="d">${a.d}</span>${a.p?`<span class="pr">${a.p}</span>`:''}</span></a>`).join('')}</div>`},
+ {id:'B',name:'B. Colour tiles',desc:'Every activity gets its own colour from Yoruba cloth. Chunky buttons that press down when tapped, a watermark icon, and the icon tilts on hover.',
+  html:()=>`<div class="B">${ACT.map(a=>`<a class="c" href="#" ${sty(a)}>${ic(a.id)}${ic(a.id,'ic big')}<strong>${a.t}</strong><span class="d">${a.d}</span>${a.p?`<span class="pr">${a.p}</span>`:''}</a>`).join('')}</div>`},
+ {id:'C',name:'C. Cloth poster cards',desc:'Tall cards with an adire inspired pattern banner, a round icon badge and a progress bar. Feels like a shelf of fabrics.',
+  html:()=>`<div class="C">${ACT.map(a=>`<a class="c" href="#" ${sty(a)}><span class="art">${ic(a.id)}</span><span class="body"><strong>${a.t}</strong><span class="d">${a.d}</span><span class="bar2"><i style="width:${Math.max(a.n/a.m*100,0)}%"></i></span><span class="pr">${a.p||'Not started'}</span></span></a>`).join('')}</div>`},
+ {id:'D',name:'D. Today plus progress rings',desc:'Adds a Continue card and a word of the day above the grid, so the page has a reason to come back to. Each activity shows a progress ring around its icon.',
+  html:()=>{const ring=a=>{const c=2*Math.PI*36,f=c*(a.n/a.m);return `<span class="ring"><svg class="r" viewBox="0 0 80 80"><circle class="tr" cx="40" cy="40" r="36"/><circle class="fg" cx="40" cy="40" r="36" stroke-dasharray="${f} ${c}"/></svg>${ic(a.id)}</span>`};
+   return `<div class="D"><div class="hero"><a class="cont" href="#"><h3>Continue where you left off</h3><span class="yo">Grammar, lesson 13</span><span style="color:#cdd6f6">Questions with "ṣé"</span><span class="go">Continue</span></a><div class="pod"><h3>Word of the day</h3><span class="yo">ẹ̀kọ́</span><span class="note">lesson, or pap. The tone mark changes the word.</span><span class="streak">4 day streak <span class="dots"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b></b><b></b></span></span></div></div><div class="g">${ACT.map(a=>`<a class="c" href="#" ${sty(a)}>${ring(a)}<strong>${a.t}</strong><span class="d">${a.s}</span><span class="pr">${a.p||'Start here'}</span></a>`).join('')}</div></div>`}},
+ {id:'E',name:'E. Content peek',desc:'Each card shows a real taste of what is inside, in large Yoruba text, so the page teaches a little before anyone taps.',
+  html:()=>`<div class="E">${ACT.map(a=>`<a class="c" href="#" ${sty(a)}><span class="row">${ic(a.id)}<strong>${a.t}</strong></span><span class="peek"><span class="yo">${a.yo}</span><span class="en">${a.en}</span></span><span class="foot"><span class="pr">${a.p||''}</span><span class="go">Open</span></span></a>`).join('')}</div>`},
+ {id:'F',name:'F. Bento grid',desc:'Cards in mixed sizes, with Grammar as the large anchor tile. Less like a list, more like a dashboard. Songs and Dialogues sit wide.',navy:false,
+  html:()=>{const cls={grammar:'h2 w2',vocab:'',numbers:'gold',sounds:'',proverbs:'w2',transform:'',songs:'w2',dialogues:'w2'};
+   const order=['grammar','vocab','numbers','sounds','proverbs','transform','songs','dialogues'];
+   return `<div class="F">${order.map(i=>{const a=by[i];return `<a class="c ${cls[i]}" href="#" style="--k:${i==='numbers'?'#e3b84f':a.k}">${ic(i)}<strong>${a.t}</strong><span class="d">${a.d}</span>${a.p?`<span class="pr">${a.p}</span>`:''}</a>`}).join('')}</div>`}},
+];
+const opts=document.getElementById('opts'),bar=document.getElementById('bar');
+let picks=[];try{picks=JSON.parse(localStorage.getItem('ogbonHomePicks')||'[]')}catch{}
+V.forEach(v=>{
+ const s=document.createElement('section');s.className='opt';s.id='v'+v.id;
+ s.innerHTML=`<div class="opt-head"><div><h2>${v.name}</h2><p>${v.desc}</p></div><button data-p="${v.id}" aria-pressed="false">Like this</button></div><div class="stage"><div class="inner">${v.html()}</div></div>`;
+ opts.appendChild(s);
+ const l=document.createElement('a');l.href='#v'+v.id;l.textContent=v.id;bar.appendChild(l);
+});
+function paint(){document.querySelectorAll('[data-p]').forEach(b=>{const on=picks.includes(b.dataset.p);b.setAttribute('aria-pressed',on);b.textContent=on?'Liked':'Like this';b.closest('.opt').classList.toggle('picked',on)});
+ document.getElementById('sum').textContent='Your picks: '+(picks.length?picks.join(', '):'none yet');try{localStorage.setItem('ogbonHomePicks',JSON.stringify(picks))}catch{}}
+opts.addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;const i=picks.indexOf(b.dataset.p);i<0?picks.push(b.dataset.p):picks.splice(i,1);paint()});
+document.getElementById('theme').onclick=e=>{const d=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=d?'light':'dark';e.target.setAttribute('aria-pressed',!d)};
+document.getElementById('phone').onclick=e=>{const on=e.target.getAttribute('aria-pressed')!=='true';e.target.setAttribute('aria-pressed',on);document.querySelectorAll('.stage').forEach(s=>s.classList.toggle('phone',on))};
+document.addEventListener('click',e=>{if(e.target.closest('.stage a'))e.preventDefault()});
+paint();
+</script>
+</body>
+</html>
