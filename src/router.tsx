@@ -17,6 +17,7 @@ import { LevelPage } from "@/pages/LevelPage";
 import { Song } from "@/pages/Song";
 import { Songs } from "@/pages/Songs";
 import { SoundBank } from "@/pages/SoundBank";
+import { Settings } from "@/pages/Settings";
 import { Stats } from "@/pages/Stats";
 import { VocabHome } from "@/pages/VocabHome";
 import { VocabLevelPage } from "@/pages/VocabLevelPage";
@@ -42,6 +43,7 @@ const routes = [
   createRoute({ getParentRoute: () => rootRoute, path: "/proverbs", component: Proverbs }),
   createRoute({ getParentRoute: () => rootRoute, path: "/transform", component: Transform }),
   createRoute({ getParentRoute: () => rootRoute, path: "/stats", component: Stats }),
+  createRoute({ getParentRoute: () => rootRoute, path: "/settings", component: Settings }),
   createRoute({ getParentRoute: () => rootRoute, path: "/about", component: About }),
   ...(import.meta.env.DEV
     ? [

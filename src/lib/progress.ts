@@ -4,9 +4,11 @@ export type Progress = {
   completedLessons: Record<string, { bestScore: number; completedAt: string }>;
   skipAhead: boolean;
   theme: ThemeChoice;
+  sounds: boolean;
+  motion: boolean;
 };
 
-export const emptyProgress: Progress = { completedLessons: {}, skipAhead: false, theme: "system" };
+export const emptyProgress: Progress = { completedLessons: {}, skipAhead: false, theme: "system", sounds: true, motion: true };
 
 const KEY = "yp:progress:v1";
 const THEMES: ThemeChoice[] = ["system", "light", "dark"];
@@ -31,6 +33,8 @@ export function loadProgress(storage: Storage | null = defaultStorage()): Progre
       completedLessons: v.completedLessons,
       skipAhead: v.skipAhead === true,
       theme: THEMES.includes(v.theme as ThemeChoice) ? (v.theme as ThemeChoice) : "system",
+      sounds: v.sounds !== false,
+      motion: v.motion !== false,
     };
   } catch {
     return emptyProgress;

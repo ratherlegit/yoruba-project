@@ -1,10 +1,12 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useStats } from "@/hooks/useStats";
 import { audioUrlFor } from "@/lib/audio";
 import { playClip } from "@/lib/clip";
+import { playSfx, soundsEnabled } from "@/lib/sfx";
 import { recordToneAnswer } from "@/lib/stats";
 import { buildToneRound, type ToneMode, type ToneSources } from "@/lib/tone-practice";
 import { AudioButton } from "./AudioButton";
+import { EndSound } from "./EndSound";
 import { ChoiceQuestion } from "./ChoiceQuestion";
 import { PitchLine } from "./PitchLine";
 
@@ -21,9 +23,13 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
   const [chosen, setChosen] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const { update: updateStats } = useStats();
+  // The word clip waits briefly for the answer sound. Cancel it if the learner moves on or leaves.
+  const clipTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cancelClip = () => { if (clipTimer.current) clearTimeout(clipTimer.current); clipTimer.current = null; };
+  useEffect(() => cancelClip, []);
   const questions = useMemo(() => buildToneRound(mode, sources, `tone#${mode}#${attempt}`), [mode, sources, attempt]);
 
-  const restart = () => { setAttempt((a) => a + 1); setIndex(0); setScore(0); setChosen(null); };
+  const restart = () => { cancelClip(); setAttempt((a) => a + 1); setIndex(0); setScore(0); setChosen(null); };
   const switcher = (
     <div role="group" aria-label="Mode" style={{ display: "flex", gap: "0.5rem" }}>
       {MODES.map((m) => (
@@ -44,6 +50,7 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
     return (
       <section className="card" data-testid="practice" style={{ display: "grid", gap: "0.75rem" }}>
         {switcher}
+        <EndSound correct={score} total={questions.length} />
         <p className="yo" style={{ margin: 0 }}>You got {score} of {questions.length} right.</p>
         <div><button className="btn" onClick={restart}>Try again</button></div>
       </section>
@@ -77,8 +84,15 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
           setChosen(c);
           if (c === q.answer) setScore((s) => s + 1);
           updateStats((st) => recordToneAnswer(st, mode, c === q.answer));
+          // The word's own audio plays after a right answer; a wrong answer gets the short sound instead,
+          // so the two never talk over each other.
           const url = audioUrlFor(q.audioText);
-          if (url) playClip(url);
+          if (c === q.answer) playSfx("correct");
+          else playSfx("wrong");
+          if (url) {
+            if (soundsEnabled()) { cancelClip(); clipTimer.current = setTimeout(() => playClip(url), 450); }
+            else playClip(url);
+          }
         }}
       />
       {answered && (
@@ -98,7 +112,7 @@ export function TonePractice({ sources }: { sources: ToneSources }) {
             </div>
           )}
           <div>
-            <button className="btn btn-primary" onClick={() => { setIndex((i) => i + 1); setChosen(null); }}>
+            <button className="btn btn-primary" onClick={() => { cancelClip(); setIndex((i) => i + 1); setChosen(null); }}>
               {index + 1 === questions.length ? "See score" : "Next"}
             </button>
           </div>

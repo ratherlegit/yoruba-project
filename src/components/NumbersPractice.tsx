@@ -7,7 +7,9 @@ import { buildNumbersRound, gradeNumbers, type NumbersQuestion } from "@/lib/num
 import { showBuild, showBuildWords } from "@/lib/show-build";
 import { recordNumbersAnswer, recordNumbersRound } from "@/lib/stats";
 import type { TransformMode, TransformResult } from "@/lib/transform-grade";
+import { playSfx } from "@/lib/sfx";
 import { AudioButton } from "./AudioButton";
+import { EndSound } from "./EndSound";
 import { YorubaKeys } from "./YorubaKeys";
 
 const DATA = { entries: NUMBERS, phrases: PHRASES, steps: NUMBER_STEPS };
@@ -47,6 +49,7 @@ export function NumbersPractice({ stepId }: { stepId: string }) {
   if (index >= round.length) {
     return (
       <div style={{ display: "grid", gap: "0.75rem" }}>
+        <EndSound correct={correct} total={round.length} />
         <p className="yo" data-testid="numbers-score" style={{ margin: 0 }}>You got {correct} of {round.length} right.</p>
         <div>
           <button
@@ -66,6 +69,7 @@ export function NumbersPractice({ stepId }: { stepId: string }) {
   function check() {
     if (done || !value.trim()) return;
     const result = gradeNumbers(value, q, mode);
+    playSfx(result === "right" ? "correct" : "wrong");
     setDone({ given: value, result });
     if (result === "right") setCorrect((c) => c + 1);
     updateStats((st) => recordNumbersAnswer(st, q.kind, result === "right"));

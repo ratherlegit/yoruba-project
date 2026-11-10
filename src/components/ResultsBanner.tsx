@@ -1,3 +1,5 @@
+import { EndSound } from "./EndSound";
+
 function message(correct: number, total: number): string {
   const share = total === 0 ? 0 : correct / total;
   if (share === 1) return "Perfect score. Ẹ ṣé!";
@@ -20,6 +22,7 @@ export function ResultsBanner({ correct, total }: { correct: number; total: numb
   const perfect = total > 0 && correct === total;
   return (
     <div className="results-banner" data-testid="results-banner">
+      <EndSound correct={correct} total={total} />
       <svg className="results-art" viewBox="0 0 240 150" role="img" aria-label="A dùndún talking drum in a gold sun, on an indigo adire pattern">
         <rect x="0" y="0" width="240" height="150" rx="14" fill="#14307a" />
         {DIAMONDS.map((d, i) => (

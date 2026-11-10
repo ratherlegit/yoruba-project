@@ -7,6 +7,7 @@ import type { ToneTwinEntry } from "@/content/tone-twins";
 import type { VocabLevel } from "@/content/vocab/types";
 import { audioUrlFor } from "@/lib/audio";
 import { playClip } from "@/lib/clip";
+import { setSoundsEnabled } from "@/lib/sfx";
 import { loadStats } from "@/lib/stats";
 import { __resetStatsStoreForTests } from "@/hooks/useStats";
 import type { ToneSources } from "@/lib/tone-practice";
@@ -49,6 +50,7 @@ beforeEach(() => {
   __resetStatsStoreForTests();
   vi.mocked(audioUrlFor).mockReset();
   vi.mocked(playClip).mockReset();
+  setSoundsEnabled(false); // keeps clip timing immediate; one test below turns sounds on
   vi.stubGlobal("Audio", class { play = () => Promise.resolve(); pause = () => {}; addEventListener() {} });
 });
 
@@ -132,13 +134,22 @@ describe("TonePractice", () => {
     expect(screen.getByRole("button", { name: "Play the word" })).toBeInTheDocument();
   });
 
-  it("plays the clip again as soon as a question is answered", async () => {
+  it("plays the clip again as soon as a question is answered when sounds are off", async () => {
     withClips("ọkọ̀");
     render(<TonePractice sources={sources} />);
     expect(playClip).not.toHaveBeenCalled();
     await userEvent.setup().click(choice("ọkọ"));
     expect(playClip).toHaveBeenCalledTimes(1);
     expect(playClip).toHaveBeenCalledWith(expect.stringContaining("/audio/"));
+  });
+
+  it("lets the answer sound finish before replaying the clip when sounds are on", async () => {
+    setSoundsEnabled(true);
+    withClips("ọkọ̀");
+    render(<TonePractice sources={sources} />);
+    await userEvent.setup().click(choice("ọkọ"));
+    expect(playClip).not.toHaveBeenCalled();
+    await vi.waitFor(() => expect(playClip).toHaveBeenCalledTimes(1), { timeout: 1500 });
   });
 
   it("keeps the round going when the already active mode is tapped again", async () => {
@@ -238,5 +249,17 @@ describe("TonePractice stats", () => {
     await userEvent.setup().click(choice("ọkọ̀"));
     expect(choice("ọkọ̀").getAttribute("data-state")).toBe("correct");
     spy.mockRestore();
+  });
+});
+
+describe("TonePractice clip timer", () => {
+  it("does not replay the clip after the learner leaves", async () => {
+    setSoundsEnabled(true);
+    withClips("ọkọ̀");
+    const { unmount } = render(<TonePractice sources={sources} />);
+    await userEvent.setup().click(choice("ọkọ"));
+    unmount();
+    await new Promise((r) => setTimeout(r, 700));
+    expect(playClip).not.toHaveBeenCalled();
   });
 });

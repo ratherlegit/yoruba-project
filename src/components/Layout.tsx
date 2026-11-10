@@ -12,6 +12,7 @@ export function Layout() {
             <ActivitiesMenu />
             <Link to="/stats">Stats</Link>
             <Link to="/about">About</Link>
+            <Link to="/settings">Settings</Link>
             <ThemeToggle />
           </nav>
         </div>

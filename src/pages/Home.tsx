@@ -28,7 +28,7 @@ export function Home() {
 
   return (
     <>
-      <Hero first="Learn Yoruba," second="tone by tone" />
+      <Hero first="Learn Yoruba," second="tone by tone" decor />
       <main className="page" style={{ display: "grid", gap: "1rem" }}>
         <div className="activity-grid rise-in">
           <ActivityCard

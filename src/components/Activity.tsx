@@ -4,6 +4,7 @@ import { checkAnswer, feedbackFor, type AnswerKind } from "@/lib/answer";
 import { ChoiceQuestion } from "./ChoiceQuestion";
 import { OrderQuestion } from "./OrderQuestion";
 import { AudioButton } from "./AudioButton";
+import { playSfx } from "@/lib/sfx";
 
 export type ActivityResult = { correct: number; total: number; missed: Question[] };
 
@@ -29,6 +30,7 @@ export function Activity({ questions, onDone }: { questions: Question[]; onDone:
     const k = checkAnswer(given, expected);
     setChosen(given);
     setKind(k);
+    playSfx(k === "correct" ? "correct" : "wrong");
     if (k === "correct") setCorrect((c) => c + 1);
     else setMissed((m) => [...m, q]);
   }

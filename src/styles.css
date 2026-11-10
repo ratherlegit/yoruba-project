@@ -220,6 +220,8 @@ svg[role="img"] { transition: transform 0.25s ease; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+/* The Settings "Animations" switch does the same as the system reduce-motion setting. */
+:root[data-motion="off"] *, :root[data-motion="off"] *::before, :root[data-motion="off"] *::after { animation: none !important; transition: none !important; }
 .site-footer strong { font-family: "Ojuju Variable", system-ui, sans-serif; font-weight: 800; font-size: 1.6rem; }
 .site-footer strong, .site-footer p { text-shadow: 0 1px 3px rgba(4, 10, 36, 0.95), 0 2px 12px rgba(4, 10, 36, 0.85); }
 .jump-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -381,3 +383,41 @@ svg[role="img"] { transition: transform 0.25s ease; }
 
 /* About */
 .about-name { color: var(--gold-text); font-weight: 800; }
+
+/* Landing page motion */
+.hero-live { overflow: hidden; animation: adire-drift 60s linear infinite; }
+@keyframes adire-drift { from { background-position: 0 0; } to { background-position: 520px 260px; } }
+.hero-live h1 em { background: linear-gradient(90deg, #e3b84f 0 0) no-repeat 0 100% / 0 3px; animation: underline-wipe 0.9s 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; padding-bottom: 0.1em; width: fit-content; }
+@keyframes underline-wipe { to { background-size: 100% 3px; } }
+.tone-wave { position: absolute; right: 2%; top: 50%; width: min(46%, 34rem); transform: translateY(-50%); overflow: visible; }
+.tone-wave-ghost, .tone-wave-line { fill: none; stroke-linecap: round; stroke-width: 4; }
+.tone-wave-ghost { stroke: rgba(246, 240, 224, 0.18); }
+.tone-wave-line { stroke: #e3b84f; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw-line 2.6s 0.4s cubic-bezier(0.5, 0, 0.2, 1) forwards; }
+@keyframes draw-line { to { stroke-dashoffset: 0; } }
+.tone-wave-dot { fill: #f6f0e0; offset-rotate: 0deg; offset-distance: 0%; opacity: 0; animation: ride 6s 3s ease-in-out infinite; filter: drop-shadow(0 0 6px rgba(227, 184, 79, 0.9)); }
+@keyframes ride { 0% { offset-distance: 0%; opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+.tone-wave-node { fill: #14307a; stroke: #e3b84f; stroke-width: 2.5; transform-box: fill-box; transform-origin: center; animation: node-pop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.4) backwards; }
+@keyframes node-pop { from { transform: scale(0); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (max-width: 52rem) { .tone-wave { display: none; } }
+/* Activity icons float gently, each on its own beat, and tip when the card is hovered. */
+.activity-card .level-icon { animation: float 4.5s ease-in-out infinite; }
+.activity-grid > a:nth-child(2n) .level-icon { animation-delay: -1.2s; }
+.activity-grid > a:nth-child(3n) .level-icon { animation-delay: -2.4s; }
+.activity-grid > a:nth-child(5n) .level-icon { animation-delay: -3.3s; }
+@keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+.activity-card:hover .level-icon { animation-play-state: paused; }
+
+/* Answer feedback */
+.choice[data-state="wrong"] { animation: shake 0.38s ease; }
+@keyframes shake { 0%, 100% { transform: none; } 20% { transform: translateX(-6px); } 45% { transform: translateX(5px); } 70% { transform: translateX(-3px); } }
+.choice[data-state="correct"] { animation: pop-correct 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.3), glow 0.7s ease-out; }
+@keyframes pop-correct { 0% { transform: scale(0.97); } 55% { transform: scale(1.04); } 100% { transform: scale(1); } }
+
+/* Settings */
+.setting-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.setting-text { display: grid; gap: 0.15rem; min-width: 0; }
+.switch { display: inline-flex; align-items: center; gap: 0.5rem; flex: none; min-height: 2.75rem; padding: 0.25rem 0.8rem 0.25rem 0.3rem; border-radius: 999px; border: 2px solid var(--line); background: var(--surface-2); color: var(--text); font: inherit; font-weight: 700; cursor: pointer; }
+.switch-knob { width: 1.5rem; height: 1.5rem; border-radius: 999px; background: var(--text-muted); transition: background 0.2s ease; }
+.switch[aria-checked="true"] { flex-direction: row-reverse; padding: 0.25rem 0.3rem 0.25rem 0.8rem; }
+.switch[aria-checked="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.switch[aria-checked="true"] .switch-knob { background: var(--gold); }

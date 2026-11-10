@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useSyncExternalStore } from "react";
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "@/lib/progress";
-import { applyTheme } from "@/lib/theme";
+import { setSoundsEnabled } from "@/lib/sfx";
+import { applyMotion, applyTheme } from "@/lib/theme";
 
 type Snapshot = { progress: Progress; loaded: boolean };
 
@@ -19,6 +20,8 @@ function ensureLoaded() {
   const p = loadProgress();
   snapshot = { progress: p, loaded: true };
   applyTheme(p.theme);
+  applyMotion(p.motion);
+  setSoundsEnabled(p.sounds);
   emit();
 }
 
@@ -28,6 +31,8 @@ function updateProgress(fn: (p: Progress) => Progress) {
   snapshot = { progress: next, loaded: true };
   saveProgress(next);
   applyTheme(next.theme);
+  applyMotion(next.motion);
+  setSoundsEnabled(next.sounds);
   emit();
 }
 

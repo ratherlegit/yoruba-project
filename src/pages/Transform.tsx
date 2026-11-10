@@ -4,6 +4,7 @@ import { YorubaKeys } from "@/components/YorubaKeys";
 import { useStats } from "@/hooks/useStats";
 import { INSTRUCTIONS, TRANSFORMS, type Transform as Item } from "@/content/transforms";
 import { insertChar } from "@/lib/insert-char";
+import { playSfx } from "@/lib/sfx";
 import { recordTransformResult } from "@/lib/stats";
 import { gradeTransform, type TransformMode, type TransformResult } from "@/lib/transform-grade";
 
@@ -47,6 +48,7 @@ export function Transform({ items = TRANSFORMS }: { items?: Item[] }) {
   function check() {
     if (!item || done || !value.trim()) return;
     const result = gradeTransform(value, item.answers, mode);
+    playSfx(result === "right" ? "correct" : "wrong");
     setChecked((c) => ({ ...c, [item.id]: { given: value, result } }));
     updateStats((st) => recordTransformResult(st, item.id, item.kind, mode, result));
   }
