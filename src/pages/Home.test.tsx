@@ -111,14 +111,14 @@ describe("Home", () => {
 });
 
 describe("Home today strip", () => {
-  it("offers the first lesson to a new visitor, with a word of the day and no streak", async () => {
+  it("offers the first lesson to a new visitor", async () => {
     const main = await renderHome();
     const cont = within(main).getByTestId("today-continue");
     expect(cont.textContent).toContain("Start your first lesson");
     expect(cont.textContent).toContain(lessons[0]!.title);
     expect(cont.getAttribute("href")).toBe(`/lesson/${LEVELS[0]!.id}/${lessons[0]!.id}`);
+    expect(cont.textContent).toContain(lessons[0]!.primer.rule.split(/(?<=[.!?])\s/)[0]);
     expect(within(main).getByTestId("word-of-the-day").textContent).toContain("Word of the day");
-    expect(within(main).queryByTestId("streak")).toBeNull();
   });
 
   it("continues at the first lesson not yet done", async () => {
@@ -129,11 +129,10 @@ describe("Home today strip", () => {
     expect(cont.textContent).toContain(lessons[1]!.title);
   });
 
-  it("shows a streak when the learner practised today", async () => {
-    const d = new Date();
-    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-    localStorage.setItem("yp:stats:v1", JSON.stringify({ days: [key] }));
+  it("shows a word of the day with a short example sentence and its translation, and no streak", async () => {
     const main = await renderHome();
-    expect(within(main).getByTestId("streak").textContent).toContain("1 day streak");
+    const ex = within(main).getByTestId("word-example");
+    expect(ex.textContent!.trim().length).toBeGreaterThan(0);
+    expect(within(main).queryByText(/streak/i)).toBeNull();
   });
 });

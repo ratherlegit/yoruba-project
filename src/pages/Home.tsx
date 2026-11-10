@@ -9,8 +9,8 @@ import { useProgress } from "@/hooks/useProgress";
 import { useStats } from "@/hooks/useStats";
 import { useVocabProgress } from "@/hooks/useVocabProgress";
 import { NUMBER_STEPS } from "@/content/numbers";
-import { lastSevenDays, nextLesson, wordOfTheDay } from "@/lib/home";
-import { currentRun, numbersSummary, proverbSummary, withExtraDays } from "@/lib/stats";
+import { nextLesson, wordOfTheDay } from "@/lib/home";
+import { numbersSummary, proverbSummary } from "@/lib/stats";
 import { topicsDone } from "@/lib/vocab-progress";
 
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
@@ -29,17 +29,11 @@ export function Home() {
   const numbersDone = numbersSummary(stats).stepsDone;
   const sentences = new Set(Object.keys(stats.transform).map((k) => k.slice(k.indexOf(":") + 1))).size;
 
-  const completedAt = [
-    ...Object.values(progress.completedLessons).map((l) => l.completedAt),
-    ...Object.values(vocab.topics).flatMap((t) => [t.quiz?.completedAt, t.gap?.completedAt].filter((x): x is string => !!x)),
-  ];
-  const allDays = withExtraDays(stats, completedAt);
-
   return (
     <>
       <Hero first="Learn Yoruba," second="tone by tone" decor />
       <main className="page home-texture" style={{ display: "grid", gap: "1rem" }}>
-        <HomeToday next={nextLesson(LEVELS, progress.completedLessons)} word={wordOfTheDay(allVocabWords())} run={currentRun(allDays)} week={lastSevenDays(allDays.days)} />
+        <HomeToday next={nextLesson(LEVELS, progress.completedLessons)} word={wordOfTheDay(allVocabWords())} />
         <div className="activity-grid rise-in">
           <ActivityCard
             activity="grammar" to="/grammar" title="Grammar"

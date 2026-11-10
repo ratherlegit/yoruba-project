@@ -92,6 +92,8 @@ a { color: var(--accent); }
 
 .page { max-width: 46rem; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
 .page.page-wide, .hero-inner.page-wide { max-width: 72rem; }
+/* The home page sits between the narrow reading width and the wide table width. */
+.page.home-texture, .hero-live .hero-inner, body:has(.home-texture) .site-footer .page { max-width: 58rem; }
 .card { background: var(--surface); border: 2px solid var(--line); border-radius: 0.9rem; padding: 1rem 1.1rem; }
 a.card { transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; }
 a.card:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 6px 0 -1px color-mix(in srgb, var(--gold) 45%, transparent); }
@@ -311,13 +313,12 @@ svg[role="img"] { transition: transform 0.25s ease; }
 .today-continue { display: grid; gap: 0.5rem; align-content: start; padding: 1.2rem; border-radius: 1.2rem; background: #14307a; color: #f6f0e0; border: 2px solid #c99a2e; box-shadow: 6px 6px 0 #c99a2e; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease; }
 .today-continue:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 #c99a2e; }
 .today-continue .today-yo { color: #e3b84f; }
+.today-topic { color: #cdd6f6; line-height: 1.45; }
 .today-go { justify-self: start; background: #e3b84f; color: #101a3d; font-weight: 700; border-radius: 0.7rem; padding: 0.45rem 1rem; }
 .today-word { display: grid; gap: 0.35rem; align-content: start; border-radius: 1.2rem; }
 .today-word-row { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
-.today-streak { display: flex; flex-wrap: wrap; gap: 0.3rem 0.6rem; align-items: center; font-weight: 700; margin-top: 0.2rem; }
-.today-dots { display: inline-flex; gap: 0.25rem; }
-.today-dots b { width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); }
-.today-dots b.on { background: var(--gold); border-color: var(--gold); }
+.today-example { display: grid; gap: 0.15rem; margin-top: 0.4rem; padding-top: 0.6rem; border-top: 1px solid var(--border); }
+.today-example .yo { font-size: 1.1rem; line-height: 1.5; }
 
 /* A faint adire diamond-and-dot texture behind the home page content. Drawn as a mask so it takes the text colour in both themes. */
 .home-texture { position: relative; isolation: isolate; }

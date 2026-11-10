@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { LEVELS } from "@/content/levels";
 import { allVocabWords } from "@/content/vocab";
-import { lastSevenDays, nextLesson, wordOfTheDay } from "./home";
+import { audioUrlFor } from "./audio";
+import { MAX_SENTENCE_WORDS, nextLesson, wordOfTheDay } from "./home";
 
 const all = LEVELS.flatMap((l) => l.lessons);
 
@@ -35,14 +36,14 @@ describe("wordOfTheDay", () => {
       expect(w.yoruba + w.english).not.toMatch(/\d/);
     }
   });
+  it("always has a very short example sentence that can be heard", () => {
+    for (let d = 1; d <= 60; d++) {
+      const w = wordOfTheDay(words, new Date(2026, 0, d))!;
+      expect(w.sentence.yoruba.trim().split(/\s+/).length).toBeLessThanOrEqual(MAX_SENTENCE_WORDS);
+      expect(audioUrlFor(w.sentence.yoruba)).not.toBeNull();
+    }
+  });
   it("returns null when there are no words", () => {
     expect(wordOfTheDay([], new Date())).toBeNull();
-  });
-});
-
-describe("lastSevenDays", () => {
-  it("marks practised days, oldest first, ending today", () => {
-    const now = new Date(2026, 10, 10, 15);
-    expect(lastSevenDays(["2026-11-10", "2026-11-09", "2026-11-05"], now)).toEqual([false, true, false, false, false, true, true]);
   });
 });

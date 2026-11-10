@@ -11,7 +11,7 @@ export const gs1: Lesson = {
     "The read-aloud words ẹ̀gbọ́n, iṣẹ́, ṣíbí, omi, ilé, bàbá and ìyá were added for practice. Their tone marks are standard spellings but were not checked against a consulted source here. Needs a native speaker's check before verifying.",
   ],
   primer: {
-    rule: "Yoruba spells most sounds with one letter. Three letters carry a dot underneath, and the pitch of each syllable is written with a tone mark. The Sound Bank has more practice.",
+    rule: "Yoruba spells most sounds with one letter, but a few special sounds use more than one letter. Three letters carry a dot underneath, and the pitch of each syllable is written with a tone mark. The Sound Bank has more practice.",
     formula: "",
     tables: [
       {
