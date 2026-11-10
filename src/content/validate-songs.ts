@@ -1,5 +1,5 @@
 import { strings } from "./validate";
-import { MAX_LINES, type Song } from "./songs";
+import { DIFFICULTIES, MAX_LINES, type Song } from "./songs";
 
 const EM_DASH = String.fromCharCode(0x2014);
 const STRAY_G = String.fromCharCode(0x0261);
@@ -16,6 +16,7 @@ export function validateSongs(songs: Song[]): string[] {
       if (t.includes(EM_DASH)) err(`string contains an em dash: "${t}"`);
       if (t.includes(STRAY_G)) err(`string contains the stray U+0261 g: "${t}"`);
     }
+    if (!DIFFICULTIES.includes(s.difficulty)) err(`unknown difficulty: "${s.difficulty}"`);
     if (ids.has(s.id)) err("duplicate id");
     ids.add(s.id);
     if (videos.has(s.videoId)) err("duplicate video id");

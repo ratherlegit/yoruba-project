@@ -7,6 +7,7 @@ const song = (over: Partial<Song> = {}): Song => ({
   title: "Test Song",
   artist: "Test Artist",
   genre: "Afrobeats",
+  difficulty: "Beginner",
   videoId: "abcDEF12345",
   videoLabel: "Official video",
   lyricsUrl: "https://example.com/lyrics",
@@ -22,6 +23,9 @@ const errs = (songs: Song[]) => validateSongs(songs).join("\n");
 const line = (n: number) => Array.from({ length: n }, (_, i) => ({ yoruba: `Ìlà ${i}`, english: `Line ${i}` }));
 
 describe("validateSongs", () => {
+  it("rejects an unknown difficulty", () => {
+    expect(validateSongs([song({ difficulty: "Easy" as never })]).join()).toContain("unknown difficulty");
+  });
   it("accepts a valid song", () => {
     expect(validateSongs([song()])).toEqual([]);
   });

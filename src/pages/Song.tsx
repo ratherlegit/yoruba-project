@@ -22,7 +22,7 @@ export function Song() {
       <Link to="/songs" className="muted">Back to Songs</Link>
       <div style={{ display: "grid", gap: "0.3rem" }}>
         <h1 style={{ margin: 0 }}>{song.title}</h1>
-        <p className="muted" style={{ margin: 0 }}>{song.artist} <span className="genre-chip">{song.genre}</span></p>
+        <p className="muted" style={{ margin: 0 }}>{song.artist} <span className="genre-chip">{song.genre}</span> <span className="level-chip" data-level={song.difficulty}>{song.difficulty}</span></p>
       </div>
       <VideoEmbed videoId={song.videoId} title={`${song.title} by ${song.artist}`} />
       <p className="muted" style={{ margin: 0 }}>

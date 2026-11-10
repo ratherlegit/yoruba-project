@@ -269,7 +269,7 @@ describe("buildReviewMarkdown numbers", () => {
 
 describe("buildReviewMarkdown songs", () => {
   const song: Song = {
-    id: "song-test", title: "Test Song", artist: "Test Artist", genre: "Afrobeats", videoId: "abcDEF12345",
+    id: "song-test", title: "Test Song", artist: "Test Artist", genre: "Afrobeats", difficulty: "Beginner", videoId: "abcDEF12345",
     videoLabel: "Official video", lyricsUrl: "https://example.com/lyrics", lyricsSite: "Example Lyrics",
     about: "About it.", lines: [{ yoruba: "Mo ní ọmọ.", english: "I have a child." }],
     source: "Song source", confidence: "needs-review", note: "Check the song tones.",

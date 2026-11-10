@@ -18,7 +18,9 @@ describe("Songs list", () => {
     expect(cards.map((c) => c.getAttribute("href"))).toEqual(SONGS.map((s) => `/songs/${s.id}`));
     expect(within(cards[0]!).getByText(SONGS[0]!.title)).toBeInTheDocument();
     expect(cards[0]!.textContent).toContain(SONGS[0]!.artist);
+    expect(cards[0]!.textContent).toContain(SONGS[0]!.difficulty);
     expect(cards[0]!.textContent).toContain(SONGS[0]!.genre);
+    expect(cards[0]!.textContent).toContain(SONGS[0]!.difficulty);
   });
 
   it("puts that genre's icon first in every song row", async () => {
@@ -105,5 +107,12 @@ describe("Song page", () => {
     await renderAt("/songs/nope");
     expect(await screen.findByText("We couldn't find that song")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Back to Songs" })).toHaveAttribute("href", "/songs");
+  });
+  it("filters by difficulty", async () => {
+    await renderAt("/songs");
+    await screen.findAllByTestId("song-card");
+    const filter = screen.getByRole("group", { name: "Filter by difficulty" });
+    fireEvent.click(within(filter).getByRole("button", { name: "Beginner" }));
+    expect(screen.getAllByTestId("song-card")).toHaveLength(SONGS.filter((s) => s.difficulty === "Beginner").length);
   });
 });

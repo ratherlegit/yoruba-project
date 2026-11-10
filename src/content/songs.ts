@@ -12,6 +12,12 @@ export type Genre = "Afrobeats" | "Pop" | "Children's" | "Juju" | "Fuji";
 export const GENRES: readonly Genre[] = ["Afrobeats", "Pop", "Children's", "Juju", "Fuji"];
 export const MAX_LINES = 12;
 
+// How hard the sung Yoruba is for a learner: short repeated lines in common words are Beginner;
+// full sentences with everyday vocabulary are Intermediate; slang, wordplay, contractions or
+// heavy mixing with English are Advanced. These are the author's judgement, not a native speaker's.
+export type Difficulty = "Beginner" | "Intermediate" | "Advanced";
+export const DIFFICULTIES: readonly Difficulty[] = ["Beginner", "Intermediate", "Advanced"];
+
 export type SongLine = { yoruba: string; english: string };
 
 export type Song = {
@@ -19,6 +25,7 @@ export type Song = {
   title: string;
   artist: string;
   genre: Genre;
+  difficulty: Difficulty;
   videoId: string; // YouTube id
   videoLabel: string; // what the video is, e.g. "Official video"
   lyricsUrl: string; // the published lyrics page the lines came from
@@ -40,6 +47,7 @@ export const SONGS: Song[] = [
     title: "Òkùnkùn",
     artist: "Solana & Killertunes",
     genre: "Pop",
+    difficulty: "Advanced",
     videoId: "e4aLN_GwpQU",
     videoLabel: "Visualizer on Solana's channel",
     lyricsUrl: "https://notjustok.com/lyrics/okunkun-lyrics-by-solana-killertunes/",
@@ -66,6 +74,7 @@ export const SONGS: Song[] = [
     title: "Ṣadé",
     artist: "Adekunle Gold",
     genre: "Pop",
+    difficulty: "Beginner",
     videoId: "1ShkDNA5ZCE",
     videoLabel: "Official video",
     lyricsUrl: "https://notjustok.com/lyrics/sade-lyrics-by-adekunle-gold/",
@@ -90,6 +99,7 @@ export const SONGS: Song[] = [
     title: "Awe",
     artist: "Asa",
     genre: "Pop",
+    difficulty: "Intermediate",
     videoId: "VVgaH1ONtx8",
     videoLabel: "Audio on a playlist channel",
     lyricsUrl: "https://www.elyrics.net/read/a/asa-lyrics/awe-lyrics.html",
@@ -114,6 +124,7 @@ export const SONGS: Song[] = [
     title: "Organise",
     artist: "Asake",
     genre: "Afrobeats",
+    difficulty: "Advanced",
     videoId: "_u4_iWCvZ5c",
     videoLabel: "Official video",
     lyricsUrl: "https://notjustok.com/lyrics/organise-lyrics-asake/",
@@ -133,6 +144,7 @@ export const SONGS: Song[] = [
     title: "Òjuẹlẹ́gbà",
     artist: "Wizkid",
     genre: "Afrobeats",
+    difficulty: "Intermediate",
     videoId: "Q7QiLceJSLQ",
     videoLabel: "Video on the StarBoy TV channel",
     lyricsUrl: "https://notjustok.com/lyrics/ojuelegba-lyrics-by-wizkid/",
@@ -156,6 +168,7 @@ export const SONGS: Song[] = [
     title: "Duduke",
     artist: "Simi",
     genre: "Afrobeats",
+    difficulty: "Beginner",
     videoId: "-L8hLkg21MQ",
     videoLabel: "Official video",
     lyricsUrl: "https://www.elyrics.net/read/s/simi-lyrics/duduke-lyrics.html",
@@ -175,6 +188,7 @@ export const SONGS: Song[] = [
     title: "Motigbana",
     artist: "Olamide",
     genre: "Afrobeats",
+    difficulty: "Advanced",
     videoId: "DR5dPcoIjOQ",
     videoLabel: "Official video",
     lyricsUrl: "https://lyricsraag.com/motigbana-olamide-translation/",
@@ -199,6 +213,7 @@ export const SONGS: Song[] = [
     title: "Lábẹ́ Igi Òroǹbó",
     artist: "Traditional children's song",
     genre: "Children's",
+    difficulty: "Beginner",
     videoId: "potZ8OT0HV8",
     videoLabel: "Nursery rhyme video by Yoruba Stars",
     lyricsUrl: "https://www.mamalisa.com/?p=2900&t=es",
@@ -219,6 +234,7 @@ export const SONGS: Song[] = [
     title: "Ìyá Ni Wúrà",
     artist: "Traditional children's song",
     genre: "Children's",
+    difficulty: "Intermediate",
     videoId: "0fvwQZ3XLgs",
     videoLabel: "Lyric video by Yoruba for Kidz",
     lyricsUrl: "https://www.mamalisa.com/?t=es&p=6843",
@@ -241,6 +257,7 @@ export const SONGS: Song[] = [
     title: "Dájú",
     artist: "Faith Martins",
     genre: "Pop",
+    difficulty: "Advanced",
     videoId: "xMk-Z4U2hQI",
     videoLabel: "Audio on the Faith Martins - Topic channel",
     lyricsUrl: "https://notjustok.com/lyrics/daju-lyrics-by-faith-martins/",

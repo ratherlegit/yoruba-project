@@ -363,6 +363,7 @@ svg[role="img"] { transition: transform 0.25s ease; }
 /* Songs */
 .genre-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .genre-filter .btn[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.level-chip { display: inline-block; padding: 0.1rem 0.6rem; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text); font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
 .genre-chip { display: inline-block; padding: 0.1rem 0.6rem; border-radius: 999px; border: 1px solid var(--chip-bg); background: var(--chip-bg); color: var(--chip-text); font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
 .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 0.8rem; overflow: hidden; background: #000; }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
